@@ -1,0 +1,179 @@
+---
+title: "Mean, Median, dan Modus: Tiga Wajah Nilai Rata-rata"
+topic: "Statistika"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import DataVisualizer from '../../../../components/DataVisualizer.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Mean, Median, dan Modus
+
+Bayangkan kelasmu baru saja menerima hasil ujian Matematika. Nilai ujian dari 7 orang siswa adalah: 60, 70, 70, 75, 80, 85, dan 90. Jika guru ingin tahu berapa "nilai rata-rata" kelas kalian secara umum, bagaimana cara menentukannya? 
+
+Ternyata di dalam statistika, ada tiga cara berbeda untuk mewakili "nilai tengah" atau rata-rata dari sekumpulan data. Ketiganya bisa jadi memberikan angka hasil yang berbeda-beda, dan masing-masing memiliki fungsinya sendiri. Mari kita berkenalan dengan Mean, Median, dan Modus!
+
+### Yuk, Temukan Sendiri Ukuran Pemusatan Data
+
+Gunakan visualisator data interaktif di bawah ini untuk melihat pergeseran nilai pemusatan.
+
+**Instruksi Eksplorasi:**
+1. Masukkan nilai 7 siswa tersebut (60, 70, 70, 75, 80, 85, 90) ke dalam tabel data.
+2. Perhatikan di mana letak garis Mean, Median, dan Modus pada grafik. 
+3. Coba ubah nilai 90 menjadi angka yang sangat ekstrem (misal 200). Ukuran mana yang paling drastis bergeser? Mengapa demikian?
+
+<DataVisualizer />
+
+### Teori & Definisi Formal
+
+**1. Mean (Rata-rata Hitung)**
+Mean adalah jumlah semua nilai data dibagi dengan banyaknya data. 
+Rumusnya:
+$$\bar{x} = \frac{\sum x_i}{n} = \frac{x_1 + x_2 + \dots + x_n}{n}$$
+
+**2. Median (Nilai Tengah)**
+Median adalah nilai data yang terletak persis di tengah setelah data diurutkan dari yang terkecil ke yang terbesar.
+
+**3. Modus (Nilai Sering Muncul)**
+Modus adalah data yang memiliki frekuensi paling tinggi (paling sering muncul) dalam suatu kumpulan data.
+
+**Tabel Panduan Penggunaan:**
+| Ukuran | Digunakan Ketika | Kelemahan |
+|--------|-----------------|-----------|
+| Mean   | Data menyebar secara merata | Sangat terpengaruh oleh nilai ekstrem (outlier) |
+| Median | Ada nilai ekstrem (outlier) pada data | Cenderung mengabaikan informasi dari nilai lainnya |
+| Modus  | Data berupa kategorik/nominal atau mencari tren | Bisa tidak ada, atau jumlahnya lebih dari 1 (bimodal) |
+
+### Visualisasi: Cara Mencari Median (Data Ganjil)
+
+Perhatikan contoh visual ini saat mencari Median untuk nilai 7 siswa:
+
+```text
+Data awal: 75, 60, 90, 70, 80, 70, 85
+
+Langkah 1: Urutkan data dari yang terkecil ke terbesar!
+Data: 60, 70, 70, 75, 80, 85, 90
+
+Langkah 2: Cari posisi tepat di tengah (nilai ke-4)
+Data: 60, 70, 70, 75, 80, 85, 90
+                  ↑
+                MEDIAN
+        (Membagi 3 data di kiri dan 3 data di kanan)
+```
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Berapakah rata-rata (Mean) dari data berikut: $4, 6, 8, 2$?
+
+**Pembahasan:**
+
+- Jumlahkan datanya: $4 + 6 + 8 + 2 = 20$.
+- Banyaknya data ($n$) = $4$.
+- Mean = $\frac{20}{4} = 5$.
+- Jadi, nilai rata-ratanya adalah 5.
+
+#### Contoh 1 (Mudah)
+
+Tentukan modus dari kumpulan data umur berikut: 12, 13, 12, 14, 15, 12, 13!
+
+**Pembahasan:**
+
+- Mari hitung frekuensi (kemunculan) masing-masing angka:
+- 12 muncul 3 kali.
+- 13 muncul 2 kali.
+- 14 muncul 1 kali.
+- 15 muncul 1 kali.
+- Nilai yang paling banyak muncul adalah 12. Jadi, modusnya adalah 12.
+
+#### Contoh 2 (Menengah)
+
+Carilah Median dari data tinggi badan (cm) berikut: 155, 160, 150, 165.
+
+**Pembahasan:**
+
+- Urutkan data terlebih dahulu: 150, 155, 160, 165.
+- Karena jumlah datanya genap (4 buah), tidak ada satu angka yang persis berada di tengah. Median adalah rata-rata dari *dua nilai yang berada di tengah*.
+- Dua nilai di tengah adalah 155 dan 160.
+- Median = $\frac{155 + 160}{2} = \frac{315}{2} = 157.5$.
+- Jadi, median data tersebut adalah 157.5 cm.
+
+#### Contoh 3 (Menantang)
+
+Nilai rata-rata ujian matematika dari 9 orang siswa adalah 70. Jika satu orang siswa baru bernama Andi yang nilainya 90 digabungkan ke kelompok tersebut, berapakah nilai rata-rata kelompok yang baru?
+
+**Pembahasan:**
+
+- Total nilai 9 siswa = $\text{Rata-rata} \times \text{Banyak data} = 70 \times 9 = 630$.
+- Nilai Andi ditambahkan, sehingga Total nilai baru = $630 + 90 = 720$.
+- Karena Andi masuk, jumlah siswa sekarang menjadi $9 + 1 = 10$ orang.
+- Mean baru = $\frac{\text{Total nilai baru}}{\text{Jumlah siswa baru}} = \frac{720}{10} = 72$.
+- Jadi, nilai rata-rata kelompok sekarang naik menjadi 72.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+1. **Untuk Data Genap, Lupa Menghitung Rata-rata dari Dua Nilai Tengah**
+   Saat mencari Median untuk kumpulan data genap, nilainya berada di "antara" dua data yang di tengah. Kamu harus menjumlahkan keduanya dan membaginya 2, bukan hanya memilih salah satu (lihat Contoh 2).
+2. **Modus Bisa Lebih Dari Satu atau Tidak Ada Sama Sekali**
+   Banyak yang mengira Modus harus bernilai tunggal. Jika ada kumpulan data: $2, 2, 3, 3, 4$, maka Modusnya ada dua yaitu $2$ dan $3$ (disebut Bimodal). Jika datanya: $1, 2, 3, 4$, maka datanya TIDAK MEMILIKI modus karena tidak ada yang mendominasi.
+
+### Koneksi Dunia Nyata
+
+- **Nilai Rapor (Mean)**: Nilai rapor sekolah dan IPK mahasiswa dihitung menggunakan perhitungan *mean* (rata-rata berbobot) dari seluruh nilai tugas dan ujian.
+- **Kebijakan Ekonomi (Median)**: Negara menggunakan "Gaji Median" (bukan Mean) untuk melaporkan kesejahteraan penduduk. Jika menggunakan Mean, gajinya akan tampak sangat tinggi (palsu) hanya karena ditarik oleh beberapa konglomerat saja. Median jauh lebih adil untuk melihat kesejahteraan warga biasa.
+- **Industri Garmen (Modus)**: Toko baju dan sepatu tidak peduli pada ukuran "rata-rata" (misal ukuran kaki rata-rata 41.5). Mereka lebih peduli pada *Modus* — ukuran berapa (misal ukuran 40) yang paling sering dibeli orang agar mereka bisa stok lebih banyak.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="A">
+  <div slot="question">Berapakah Mean (rata-rata) dari data: 2, 4, 6, 8?</div>
+  <div slot="option-a">5</div>
+  <div slot="option-b">4</div>
+  <div slot="option-c">6</div>
+  <div slot="option-d">8</div>
+  <div slot="explanation">**Pembahasan:** $\frac{2+4+6+8}{4} = \frac{20}{4} = 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Median dari kumpulan data 5, 3, 8, 2, 9 adalah...</div>
+  <div slot="option-a">8</div>
+  <div slot="option-b">5</div>
+  <div slot="option-c">3</div>
+  <div slot="option-d">9</div>
+  <div slot="explanation">**Pembahasan:** Urutkan terlebih dahulu menjadi: 2, 3, 5, 8, 9. Nilai tepat di tengah (data ke-3) adalah 5.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Tentukan Modus dari data: 7, 7, 8, 8, 8, 9, 9!</div>
+  <div slot="option-a">7</div>
+  <div slot="option-b">9</div>
+  <div slot="option-c">8</div>
+  <div slot="option-d">Tidak ada</div>
+  <div slot="explanation">**Pembahasan:** Angka 8 muncul sebanyak 3 kali (paling sering dibandingkan 7 dan 9 yang hanya 2 kali). Modusnya adalah 8.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Median dari data 4, 6, 8, 10 adalah...</div>
+  <div slot="option-a">7</div>
+  <div slot="option-b">6</div>
+  <div slot="option-c">8</div>
+  <div slot="option-d">14</div>
+  <div slot="explanation">**Pembahasan:** Data genap dan sudah terurut. Dua data di tengah adalah 6 dan 8. Median = $\frac{6 + 8}{2} = \frac{14}{2} = 7$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH?</div>
+  <div slot="option-a">Mean sangat rentan terpengaruh oleh nilai ekstrem atau pencilan (outlier) dalam data.</div>
+  <div slot="option-b">Modus dari sekumpulan data pasti selalu tunggal (hanya ada satu buah nilai).</div>
+  <div slot="option-c">Median membagi kumpulan data yang berurutan menjadi dua bagian yang sama banyak.</div>
+  <div slot="option-d">Modus adalah ukuran pemusatan data yang paling cocok untuk data kategori/kualitatif (bukan angka).</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan yang SALAH adalah B. Modus bisa lebih dari satu (disebut bimodal atau multimodal) jika ada beberapa nilai yang memiliki frekuensi maksimum yang sama.</div>
+</Quiz>

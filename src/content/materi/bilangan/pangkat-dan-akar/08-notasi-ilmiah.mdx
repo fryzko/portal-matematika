@@ -1,0 +1,153 @@
+---
+title: "Notasi Ilmiah: Bahasa Para Ilmuwan"
+topic: "Bilangan"
+difficulty: "Grade 9"
+needInteractive: false
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Notasi Ilmiah
+Massa planet Bumi adalah sekitar $5.972.000.000.000.000.000.000.000\text{ kg}$. Di sisi lain, massa sebuah elektron adalah sekitar $0,00000000000000000000000000000091\text{ kg}$.
+Bayangkan jika para fisikawan harus menuliskan rentetan angka nol tersebut setiap kali mereka melakukan perhitungan! Sangat melelahkan dan sangat rawan salah ketik, bukan? Adakah cara untuk "menyingkat" puluhan angka nol tersebut tanpa mengubah nilainya sedikit pun?
+
+### Yuk, Temukan Sendiri Notasi Ilmiah
+Coba kamu perhatikan pola perkalian angka 10 berikut:
+- $10 = 10^1$ (Satu angka nol)
+- $100 = 10^2$ (Dua angka nol)
+- $1.000 = 10^3$ (Tiga angka nol)
+
+Jika kita punya angka $3.000$, bukankah itu sama dengan $3 \times 1.000$? 
+Maka $3.000$ bisa ditulis sebagai $3 \times 10^3$. 
+Bagaimana dengan $5.000.000$? Coba tebak, berapa pangkat yang pas untuk angka 5 agar nilainya menjadi lima juta? Inilah rahasia para ilmuwan menyingkat angka nol!
+
+### Teori & Definisi Formal
+Bentuk penyingkatan ini disebut **Notasi Ilmiah** (atau Bentuk Baku). Notasi ilmiah digunakan untuk menuliskan bilangan yang sangat besar atau sangat kecil.
+Bentuk umumnya adalah:
+$$ a \times 10^n $$
+
+Dengan aturan super ketat:
+- **Syarat $a$**: Angka pengali di depan ($a$) **TIDAK BOLEH** kurang dari 1, dan **TIDAK BOLEH** mencapai 10. Ia hanya boleh berada di rentang $1 \le a < 10$. (Misal: 5,2 boleh. 12,5 TIDAK boleh. 0,9 TIDAK boleh).
+- **Syarat $n$**: Pangkat ($n$) harus berupa bilangan bulat.
+  - Pangkat **Positif** digunakan untuk menyingkat bilangan **Besar** (angka puluhan, ribuan, jutaan).
+  - Pangkat **Negatif** digunakan untuk menyingkat bilangan **Kecil** (angka desimal yang dimulai dari $0,\dots$).
+
+### Visualisasi: Notasi Ilmiah
+Pergeseran koma adalah kunci utamanya.
+**1. Angka Raksasa (Pangkat Positif)**
+$123.000.000$
+- Taruh koma imajiner di paling belakang: $123.000.000,$
+- Geser koma ke KIRI sampai tersisa satu angka di depan koma (yaitu angka 1).
+- Koma bergeser sebanyak 8 langkah. Hasilnya: $1,23 \times 10^8$.
+
+**2. Angka Mikroskopis (Pangkat Negatif)**
+$0,000056$
+- Geser koma ke KANAN sampai melewati angka 5 (sehingga menjadi 5,6 yang memenuhi syarat $1 \le a < 10$).
+- Koma bergeser sebanyak 5 langkah. Karena membedah desimal, pangkat negatif.
+- Hasilnya: $5,6 \times 10^{-5}$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Apakah $25 \times 10^4$ merupakan bentuk notasi ilmiah yang benar?
+
+**Pembahasan:**
+
+**TIDAK.** Syarat $a$ adalah tidak boleh $10$ atau lebih besar. Angka $25$ melanggar aturan ini. Harus diubah menjadi $2,5 \times 10^5$.
+
+#### Contoh 1 (Mudah)
+
+Tulislah bilangan $345.000$ dalam bentuk notasi ilmiah!
+
+**Pembahasan:**
+
+- Geser koma ke kiri sampai tersisa satu angka di depan: $3,45$.
+- Menggeser koma sebanyak 5 kali melewati angka (4, 5, 0, 0, 0).
+- Jawaban: $3,45 \times 10^5$.
+
+#### Contoh 2 (Menengah)
+
+Ubah bilangan desimal $0,0000078$ menjadi notasi ilmiah!
+
+**Pembahasan:**
+
+- Bilangan desimal berarti pangkat $n$ pasti **negatif**.
+- Geser koma ke kanan hingga letaknya di antara 7 dan 8 (menjadi $7,8$).
+- Hitung loncatannya: 6 kali geser.
+- Jawaban: $7,8 \times 10^{-6}$.
+
+#### Contoh 3 (Menantang)
+
+Berapakah hasil dari $(2 \times 10^3) \times (4 \times 10^5)$? Tulis dalam notasi ilmiah.
+
+**Pembahasan:**
+
+- Kalikan angka dengan angka: $2 \times 4 = 8$
+- Kalikan pangkat: $10^3 \times 10^5 = 10^{(3+5)} = 10^8$.
+- Gabungkan: $8 \times 10^8$. Memenuhi syarat $1 \le a < 10$.
+- Jawaban: $8 \times 10^8$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Lupa Syarat $a < 10$**: Jika ditanya notasi ilmiah dari $560.000$, banyak yang menulis $56 \times 10^4$. Secara nilai benar, tapi **secara tata bahasa notasi ilmiah ini SALAH!** Yang benar wajib $5,6 \times 10^5$.
+
+
+- **Terbalik Pangkat Plus dan Minus**: Mengira $0,002 = 2 \times 10^3$. **SALAH!** Angka desimal (kecil) harus menggunakan pangkat minus $\rightarrow 2 \times 10^{-3}$. 
+
+### Koneksi Dunia Nyata
+1. **Astronomi & NASA**: Mengukur jarak antar galaksi menghasilkan notasi ilmiah raksasa (misal jarak ke Andromeda $2,4 \times 10^{19}\text{ km}$).
+2. **Biologi & Mikrobiologi**: Mengukur ukuran sel darah merah atau diameter virus Covid-19 (sekitar $1,2 \times 10^{-7}\text{ meter}$).
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Bentuk baku (notasi ilmiah) dari $12.500.000$ adalah...</div>
+  <div slot="option-a">$12,5 \times 10^6$</div>
+  <div slot="option-b">$1,25 \times 10^7$</div>
+  <div slot="option-c">$125 \times 10^5$</div>
+  <div slot="option-d">$1,25 \times 10^8$</div>
+  <div slot="explanation">**Pembahasan:** Geser koma ke kiri sebanyak 7 tempat agar menjadi $1,25$. Karena bilangannya besar, pangkatnya positif 7.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Notasi ilmiah dari $0,0000045$ adalah...</div>
+  <div slot="option-a">$4,5 \times 10^6$</div>
+  <div slot="option-b">$45 \times 10^{-7}$</div>
+  <div slot="option-c">$4,5 \times 10^{-6}$</div>
+  <div slot="option-d">$0,45 \times 10^{-5}$</div>
+  <div slot="explanation">**Pembahasan:** Geser koma ke kanan sebanyak 6 tempat agar menjadi $4,5$. Karena desimal, pangkatnya negatif $-6$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Bilangan biasa dari bentuk $3,14 \times 10^4$ adalah...</div>
+  <div slot="option-a">$31.400$</div>
+  <div slot="option-b">$3.140$</div>
+  <div slot="option-c">$314.000$</div>
+  <div slot="option-d">$3.140.000$</div>
+  <div slot="explanation">**Pembahasan:** Pangkat 4 berarti geser koma ke kanan 4 tempat (atau kalikan $10.000$). $3,14 \times 10.000 = 31.400$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Kelajuan cahaya adalah $3 \times 10^8\text{ m/s}$. Jarak Bumi ke Matahari adalah $1,5 \times 10^{11}\text{ meter}$. Berapa detik waktu yang dibutuhkan cahaya matahari untuk sampai ke Bumi?</div>
+  <div slot="option-a">$5000\text{ detik}$</div>
+  <div slot="option-b">$500\text{ detik}$</div>
+  <div slot="option-c">$50\text{ detik}$</div>
+  <div slot="option-d">$5\text{ detik}$</div>
+  <div slot="explanation">**Pembahasan:** Waktu = Jarak / Kecepatan. $W = (1,5 \times 10^{11}) \div (3 \times 10^8)$. $1,5 \div 3 = 0,5$. $10^{11} \div 10^8 = 10^3$. Hasilnya $0,5 \times 1000 = 500$ detik.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah di bawah ini penulisan Notasi Ilmiah yang TEPAT (sah secara tata bahasa matematika)?</div>
+  <div slot="option-a">$15 \times 10^4$</div>
+  <div slot="option-b">$0,8 \times 10^{-3}$</div>
+  <div slot="option-c">$9,9 \times 10^{12}$</div>
+  <div slot="option-d">$10,1 \times 10^5$</div>
+  <div slot="explanation">**Pembahasan (Tipe HOTS):** Syarat angka depan ($a$) adalah $1 \le a < 10$. A salah ($15 \ge 10$). B salah ($0,8 < 1$). D salah ($10,1 \ge 10$). Hanya C yang memenuhi syarat!</div>
+</Quiz>

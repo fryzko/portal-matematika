@@ -1,0 +1,153 @@
+---
+title: "Translasi: Menggeser Bangun Tanpa Mengubah Bentuknya"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import TransformPlane from '../../../../components/TransformPlane.astro';
+
+### Mari Memahami Translasi
+Pernahkah kamu bermain catur? Bayangkan kamu memindahkan bidak Benteng 3 kotak ke kanan dan 2 kotak ke atas. Saat bidak itu berpindah tempat, apakah bentuk bentengnya berubah? Apakah ukurannya mengecil? Tentu saja tidak! Bidak itu hanya "bergeser" dari satu posisi ke posisi lain. Proses pergeseran murni inilah yang di dalam matematika disebut dengan **Translasi**.
+
+### Yuk, Temukan Sendiri Translasi
+Coba gunakan bidang koordinat interaktif di bawah ini untuk mempraktekkan translasi.
+- Plot titik awal $A(1, 2)$.
+- Kita akan mentranslasikan titik ini dengan perintah "Geser 3 ke kanan, dan 2 ke atas".
+- Di mana posisi titik yang baru (kita sebut $A'$)?
+Hitung sendiri di bidang koordinat, lalu cocokkan dengan rumus matematikanya nanti!
+
+<TransformPlane mode="translasi" instruction="Masukkan vektor translasi dan lihat titik A berpindah!" />
+
+Jika tebakanmu benar, titik $A'$ akan mendarat di $(4, 4)$. Ini karena nilai $x$ ditambah 3, dan nilai $y$ ditambah 2.
+
+### Teori & Definisi Formal
+**Translasi** (Pergeseran) adalah suatu transformasi yang memindahkan setiap titik pada sebuah bangun dengan arah dan jarak yang sama. 
+Sifat translasi: Bangun yang ditranslasikan **tidak mengalami perubahan bentuk maupun ukuran**, melainkan hanya pindah posisi.
+
+Translasi dinyatakan dalam bentuk vektor $\begin{pmatrix} a \\ b \end{pmatrix}$:
+- $a$ mewakili pergeseran horizontal (sumbu-$x$). Jika positif = ke Kanan, negatif = ke Kiri.
+- $b$ mewakili pergeseran vertikal (sumbu-$y$). Jika positif = ke Atas, negatif = ke Bawah.
+
+**Rumus Translasi Titik:**
+Jika titik $P(x, y)$ ditranslasikan oleh $T\begin{pmatrix} a \\ b \end{pmatrix}$, maka koordinat bayangannya adalah $P'(x+a, y+b)$.
+Secara matematis ditulis:
+$$T\begin{pmatrix} a \\ b \end{pmatrix}: (x, y) \rightarrow (x+a, y+b)$$
+
+### Visualisasi: Translasi
+Perhatikan pergerakan titik $A(2, 3)$ yang ditranslasikan sejauh $\begin{pmatrix} 4 \\ -5 \end{pmatrix}$.
+- Nilai $x = 2$, digeser oleh $a = 4$ (4 ke kanan), maka $x_{\text{baru}} = 2 + 4 = 6$.
+- Nilai $y = 3$, digeser oleh $b = -5$ (5 ke bawah), maka $y_{\text{baru}} = 3 + (-5) = -2$.
+Maka titik bayangannya adalah $A'(6, -2)$. 
+Garis lurus maya yang menghubungkan A dan A' memiliki arah dan panjang sebesar vektor translasi.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Titik $B(3, 5)$ ditranslasikan oleh vektor $\begin{pmatrix} 2 \\ 1 \end{pmatrix}$. Tentukan koordinat titik bayangannya!
+
+**Pembahasan:**
+
+$B' = (3 + 2, 5 + 1)$
+$B' = (5, 6)$
+
+#### Contoh 1 (Mudah)
+
+Tentukan bayangan titik $C(-4, 2)$ jika ditranslasikan oleh $\begin{pmatrix} 5 \\ -3 \end{pmatrix}$!
+
+**Pembahasan:**
+
+$x' = -4 + 5 = 1$
+$y' = 2 + (-3) = -1$
+$C' = (1, -1)$
+
+#### Contoh 2 (Menengah)
+
+Sebuah titik $D$ ditranslasikan oleh $T\begin{pmatrix} -3 \\ 4 \end{pmatrix}$ menghasilkan bayangan $D'(1, 6)$. Tentukan koordinat titik asal $D$!
+
+**Pembahasan:**
+
+Kita harus berjalan mundur (dikurang, bukan ditambah).
+$x' = x + a \Rightarrow 1 = x + (-3) \Rightarrow x = 4$
+$y' = y + b \Rightarrow 6 = y + 4 \Rightarrow y = 2$
+Maka koordinat asal $D$ adalah $(4, 2)$.
+
+#### Contoh 3 (Menantang)
+
+Titik $E(2, -1)$ ditranslasikan berturut-turut oleh $T_1 = \begin{pmatrix} 3 \\ 2 \end{pmatrix}$ kemudian dilanjutkan dengan $T_2 = \begin{pmatrix} -4 \\ 5 \end{pmatrix}$. Tentukan bayangan akhir dari titik E!
+
+**Pembahasan:**
+
+Untuk translasi berantai, kita bisa langsung menjumlahkan total vektor translasinya!
+$T_{\text{total}} = T_1 + T_2 = \begin{pmatrix} 3 \\ 2 \end{pmatrix} + \begin{pmatrix} -4 \\ 5 \end{pmatrix} = \begin{pmatrix} -1 \\ 7 \end{pmatrix}$
+Sekarang aplikasikan ke titik E:
+$E'' = (2 + (-1), -1 + 7) = (1, 6)$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Hati-hati dengan tanda baca! Siswa sering terbalik menerjemahkan arah pergeseran dari vektor $\begin{pmatrix} -3 \\ 2 \end{pmatrix}$.
+
+
+Banyak yang mengira itu berarti "3 ke kanan, 2 ke bawah". **Itu salah total!**
+Angka atas $(-3)$ adalah $x$, karena minus berarti ke **kiri**.
+Angka bawah $(2)$ adalah $y$, karena plus berarti ke **atas**.
+Jadi bacanya: geser 3 ke kiri, 2 ke atas. Jangan sampai tertukar sumbu horizontal dan vertikal.
+
+### Koneksi Dunia Nyata
+1. **Animasi & Video Game:** Saat karakter Super Mario berlari melintasi layar dari kiri ke kanan tanpa mengubah pose tubuhnya, komputer murni menggunakan matriks translasi.
+2. **Navigasi GPS:** Saat mobilmu bergerak dari satu perempatan ke perempatan lain sejauh 10 meter ke timur dan 5 meter ke utara, posisi mobilmu di peta satelit di-update menggunakan sistem translasi matriks.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Bayangan dari titik $(5, 8)$ yang ditranslasikan oleh $\begin{pmatrix} -2 \\ 3 \end{pmatrix}$ adalah...</div>
+  <div slot="option-a">$(3, 5)$</div>
+  <div slot="option-b">$(3, 11)$</div>
+  <div slot="option-c">$(7, 11)$</div>
+  <div slot="option-d">$(7, 5)$</div>
+  <div slot="explanation">**Pembahasan:** $x' = 5 + (-2) = 3$. $y' = 8 + 3 = 11$. Jawabannya $(3, 11)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Vektor translasi $\begin{pmatrix} 4 \\ -6 \end{pmatrix}$ memiliki arti...</div>
+  <div slot="option-a">Geser 4 satuan ke kanan dan 6 satuan ke bawah.</div>
+  <div slot="option-b">Geser 4 satuan ke kiri dan 6 satuan ke atas.</div>
+  <div slot="option-c">Geser 4 satuan ke atas dan 6 satuan ke kiri.</div>
+  <div slot="option-d">Geser 4 satuan ke kanan dan 6 satuan ke atas.</div>
+  <div slot="explanation">**Pembahasan:** Angka atas adalah $x$ (positif = kanan). Angka bawah adalah $y$ (negatif = bawah).</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Titik $P(-1, 5)$ ditranslasikan sehingga bayangannya berada di $P'(2, 2)$. Vektor translasi yang digunakan adalah...</div>
+  <div slot="option-a">$\begin{pmatrix} 1 \\ 3 \end{pmatrix}$</div>
+  <div slot="option-b">$\begin{pmatrix} -3 \\ 3 \end{pmatrix}$</div>
+  <div slot="option-c">$\begin{pmatrix} 3 \\ -3 \end{pmatrix}$</div>
+  <div slot="option-d">$\begin{pmatrix} -1 \\ 7 \end{pmatrix}$</div>
+  <div slot="explanation">**Pembahasan:** $a = x' - x = 2 - (-1) = 3$. $b = y' - y = 2 - 5 = -3$. Maka vektornya $\begin{pmatrix} 3 \\ -3 \end{pmatrix}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Jika bangun datar segitiga dengan luas 15 cm² ditranslasikan sejauh $\begin{pmatrix} 100 \\ 100 \end{pmatrix}$, berapakah luas segitiga bayangannya?</div>
+  <div slot="option-a">115 cm²</div>
+  <div slot="option-b">215 cm²</div>
+  <div slot="option-c">Tidak bisa ditentukan</div>
+  <div slot="option-d">15 cm²</div>
+  <div slot="explanation">**Pembahasan:** Sifat utama translasi adalah TIDAK merubah ukuran dan bentuk. Maka luas segitiga bayangan akan tetap 15 cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai translasi?</div>
+  <div slot="option-a">Translasi memindahkan setiap titik dengan jarak yang seragam.</div>
+  <div slot="option-b">Vektor baris pertama mengatur pergeseran pada sumbu-$x$.</div>
+  <div slot="option-c">Translasi dapat menyebabkan bangun geometri terbalik seperti pantulan cermin.</div>
+  <div slot="option-d">Untuk dua translasi berurutan, vektor translasinya bisa langsung dijumlahkan.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Translasi HANYA menggeser posisi. Ia sama sekali tidak mengubah orientasi (tidak membalik benda layaknya cermin). Membalik benda adalah tugas Refleksi.</div>
+</Quiz>

@@ -1,0 +1,153 @@
+---
+title: "Peluang Empirik: Belajar dari Hasil Percobaan Nyata"
+topic: "Statistika"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import DataVisualizer from '../../../../components/DataVisualizer.astro';
+
+### Mari Memahami Peluang Empirik
+Coba bayangkan kamu sedang bermain tebak koin bersama temanmu. Temanmu melempar koin sebanyak 10 kali, dan anehnya, sisi "Angka" keluar sebanyak 7 kali (sementara "Gambar" hanya 3 kali). Kamu mulai curiga, *"Apakah koin ini curang?"* Secara teori (Peluang Teoretik), peluang munculnya sisi Angka seharusnya tepat setengahnya (50%). Namun, dalam dunia nyata, apakah 10 lemparan cukup untuk menyimpulkan sebuah koin itu curang? Bagaimana jika koin tersebut dilempar 1.000 kali, apakah hasilnya tetap 700 kali angka? Di sinilah Peluang Empirik akan menjawab rasa penasaranmu!
+
+### Yuk, Temukan Sendiri Peluang Empirik
+Peluang empirik didapat dari hasil "percobaan nyata". Coba perhatikan tabel simulasi lemparan sebuah koin (yang jujur) dari jumlah lemparan yang sedikit, hingga jumlah lemparan yang sangat banyak:
+
+| Jumlah Lemparan | Muncul Angka | Peluang Empirik | Peluang Teoretik |
+| :---: | :---: | :---: | :---: |
+| 10 | 7 | $7/10 = 0,70$ | $1/2 = 0,50$ |
+| 50 | 28 | $28/50 = 0,56$ | $1/2 = 0,50$ |
+| 100 | 53 | $53/100 = 0,53$ | $1/2 = 0,50$ |
+| 500 | 247 | $247/500 = 0,494$ | $1/2 = 0,50$ |
+| 1000 | 501 | $501/1000 = 0,501$ | $1/2 = 0,50$ |
+
+**Kesimpulan Penting:** Semakin banyak percobaan yang kamu lakukan, nilai Peluang Empirik akan bergerak semakin mendekati nilai Peluang Teoretik! Ini disebut dengan *Hukum Bilangan Besar (Law of Large Numbers)*.
+
+### Teori & Definisi Formal
+**Peluang Empirik** (sering disebut juga Frekuensi Relatif) adalah perbandingan antara banyaknya kejadian yang *benar-benar muncul* dalam suatu eksperimen dengan total seluruh percobaan yang dilakukan.
+
+**Rumus Peluang Empirik:**
+$$P_{\text{empirik}}(A) = \frac{\text{frekuensi kejadian } A}{\text{total percobaan}}$$
+
+*Apa bedanya dengan Teoretik?* 
+Teoretik adalah apa yang "seharusnya" terjadi di atas kertas sebelum dicoba. Empirik adalah apa yang "faktual" terjadi setelah kita mencobanya.
+
+**Frekuensi Harapan**
+Jika kita mengetahui peluang teoretik sebuah kejadian, kita bisa "mengharapkan" kejadian itu muncul berapa kali dalam sejumlah $n$ percobaan.
+$$\text{Frekuensi Harapan} = P(A) \times n$$
+Misalnya, peluang muncul Gambar pada koin adalah $1/2$. Jika koin dilempar 100 kali, kita berharap Gambar muncul sekitar: $\frac{1}{2} \times 100 = 50$ kali.
+
+### Visualisasi: Peluang Empirik
+Gunakan visualizer data di bawah ini untuk melihat hasil eksperimen nyata (empirik) pelemparan dadu 60 kali. Meskipun secara teoritis tiap angka seharusnya muncul persis 10 kali, data empirik di dunia nyata tidak akan serapi itu. Diagram batang akan menunjukkan distribusi frekuensi yang bervariasi!
+
+<DataVisualizer />
+
+Pada diagram batang tersebut, kamu bisa melihat ada sisi mata dadu yang muncul 12 kali (melebihi harapan) dan ada yang hanya 8 kali (kurang dari harapan). Ini hal yang sangat wajar dalam peluang empirik percobaan berskala kecil.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Dalam eksperimen melempar dadu sebanyak 50 kali, mata dadu "4" muncul sebanyak 10 kali. Berapakah peluang empirik munculnya mata dadu 4?
+
+**Pembahasan:**
+
+$$P_{\text{empirik}} = \frac{10}{50} = \frac{1}{5}$$
+
+#### Contoh 1 (Mudah)
+
+Berapakah frekuensi harapan munculnya mata dadu ganjil jika sebuah dadu dilempar sebanyak 300 kali?
+
+**Pembahasan:**
+
+Peluang teoretik mata ganjil: $P(A) = 3/6 = 1/2$.
+Banyak lemparan: $n = 300$.
+Frekuensi Harapan = $\frac{1}{2} \times 300 = 150$ kali.
+
+#### Contoh 2 (Menengah)
+
+Sebuah koin dilempar 200 kali. Jika frekuensi harapan muncul sisi Gambar adalah 100 kali, namun secara empirik Gambar hanya muncul 95 kali. Berapakah peluang empirik munculnya sisi Angka?
+
+**Pembahasan:**
+
+Total percobaan = 200 kali.
+Gambar muncul = 95 kali.
+Angka muncul = $200 - 95 = 105$ kali.
+Peluang empirik muncul Angka = $\frac{105}{200} = \frac{21}{40} = 0,525$.
+
+#### Contoh 3 (Menantang)
+
+Dalam sebuah penelitian, peluang sebuah obat berhasil menyembuhkan pasien adalah 0,85. Jika obat tersebut diujikan kepada 400 pasien, dan ternyata peluang empirik keberhasilannya turun menjadi 0,80, berapakah selisih jumlah pasien sembuh antara harapan dan kenyataan?
+
+**Pembahasan:**
+
+Pasien sembuh harapan (Teoretik) = $0,85 \times 400 = 340$ pasien.
+Pasien sembuh nyata (Empirik) = $0,80 \times 400 = 320$ pasien.
+Selisih = $340 - 320 = 20$ pasien.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan umum yang paling berbahaya adalah: **Siswa sering mengira perbedaan kecil antara peluang empirik dan teoretik berarti alat ujinya (koin/dadu) cacat atau curang.**
+
+
+Ingat eksperimen koin kita di atas. Mendapatkan 7 "Angka" dari 10 lemparan itu sangat normal, tidak membuktikan koin itu cacat. Kamu baru bisa curiga ada kecurangan jika deviasinya sangat jauh pada jumlah sampel yang sangat masif (misalnya, melempar 1.000.000 koin, namun 900.000 keluar Angka!).
+
+### Koneksi Dunia Nyata
+Peluang empirik adalah metode standar bagi dunia sains!
+1. **Survei dan Polling (Quick Count):** Lembaga survei bertanya pada 1.200 orang (peluang empirik) untuk memprediksi pilihan politik 250 juta penduduk secara keseluruhan.
+2. **Uji Klinis Vaksin/Obat:** Ilmuwan tidak bisa menguji vaksin pada seluruh manusia. Mereka mengujinya pada 10.000 relawan. Hasil kemanjurannya pada 10.000 orang (empirik) akan digunakan untuk mengasumsikan efektivitas (teoretik) untuk populasi dunia.
+3. **Rating Aplikasi:** Jika aplikasi di Google Play Store memiliki rating bintang-5 sebesar 80% dari total 50.000 reviewer, itu adalah peluang empirik bahwa pengguna baru juga akan menyukai aplikasi tersebut.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sebuah koin dilempar sebanyak 20 kali. Hasilnya, sisi Angka keluar 12 kali. Berapakah peluang empirik munculnya sisi Gambar?</div>
+  <div slot="option-a">8/20</div>
+  <div slot="option-b">12/20</div>
+  <div slot="option-c">1/2</div>
+  <div slot="option-d">8/12</div>
+  <div slot="explanation">**Pembahasan:** Total = 20, Angka = 12, maka Gambar = 8. Peluang empirik = 8/20.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Frekuensi harapan munculnya mata dadu kelipatan 2 pada 120 kali pelemparan dadu bermata 6 adalah...</div>
+  <div slot="option-a">20 kali</div>
+  <div slot="option-b">40 kali</div>
+  <div slot="option-c">60 kali</div>
+  <div slot="option-d">30 kali</div>
+  <div slot="explanation">**Pembahasan:** Mata dadu kelipatan 2 adalah $\{2, 4, 6\}$ (ada 3). Peluang teoretiknya adalah $3/6 = 1/2$. Frekuensi harapan = $1/2 \times 120 = 60$ kali.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Hukum bilangan besar (Law of Large Numbers) menyatakan bahwa...</div>
+  <div slot="option-a">Semakin besar peluang teoretik, semakin besar frekuensi harapannya.</div>
+  <div slot="option-b">Semakin banyak jumlah percobaan, peluang empirik akan semakin mendekati peluang teoretik.</div>
+  <div slot="option-c">Percobaan dengan jumlah besar pasti tidak memiliki deviasi atau kesalahan.</div>
+  <div slot="option-d">Semakin besar dadu yang digunakan, peluang empiriknya makin tepat.</div>
+  <div slot="explanation">**Pembahasan:** Sesuai dengan eksperimen koin dari 10 lemparan hingga 1000 lemparan, jumlah sampel/percobaan yang besar akan membuat nilai empirik mengarah konvergen mendekati nilai teoretik matematisnya.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Peluang seorang pemain bola sukses melakukan tendangan penalti adalah 0,7. Jika ia melakukan 20 kali tendangan penalti, kemungkinan banyak gol yang tidak berhasil dicetak adalah...</div>
+  <div slot="option-a">14 kali</div>
+  <div slot="option-b">8 kali</div>
+  <div slot="option-c">4 kali</div>
+  <div slot="option-d">6 kali</div>
+  <div slot="explanation">**Pembahasan:** Peluang sukses = 0,7. Maka peluang gagal = 0,3. Frekuensi harapan gagal = $0,3 \times 20 = 6$ kali.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai peluang empirik?</div>
+  <div slot="option-a">Peluang empirik didasarkan pada hasil percobaan yang benar-benar dilakukan secara nyata.</div>
+  <div slot="option-b">Rumus peluang empirik adalah frekuensi kejadian dibagi total percobaan.</div>
+  <div slot="option-c">Peluang empirik selalu sama persis dengan peluang teoretiknya, tidak peduli jumlah percobaannya berapa.</div>
+  <div slot="option-d">Peluang empirik sebuah kejadian juga bernilai antara 0 dan 1.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Pada jumlah percobaan yang sedikit, nilai peluang empirik seringkali memiliki selisih dengan peluang teoretiknya (contoh: koin 10 kali dilempar, hasil Angkanya bisa saja 7/10 atau 0,70 bukan 0,50).</div>
+</Quiz>

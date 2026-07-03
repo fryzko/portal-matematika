@@ -1,0 +1,214 @@
+---
+// src/components/Quiz.astro
+interface Props {
+  correctAnswer: 'A' | 'B' | 'C' | 'D';
+}
+
+const { correctAnswer } = Astro.props;
+---
+
+<quiz-widget data-correct={correctAnswer} class="quiz-container">
+  <div class="quiz-question">
+    <slot name="question" />
+  </div>
+  
+  <div class="quiz-options">
+    <button class="quiz-option" data-option="A">
+      <span class="option-label">A</span>
+      <div class="option-content"><slot name="option-a" /></div>
+    </button>
+    <button class="quiz-option" data-option="B">
+      <span class="option-label">B</span>
+      <div class="option-content"><slot name="option-b" /></div>
+    </button>
+    <button class="quiz-option" data-option="C">
+      <span class="option-label">C</span>
+      <div class="option-content"><slot name="option-c" /></div>
+    </button>
+    <button class="quiz-option" data-option="D">
+      <span class="option-label">D</span>
+      <div class="option-content"><slot name="option-d" /></div>
+    </button>
+  </div>
+  
+  <div class="quiz-feedback hidden">
+    <div class="feedback-header">
+      <span class="feedback-icon"></span>
+      <h4 class="feedback-title"></h4>
+    </div>
+    <div class="feedback-explanation">
+      <slot name="explanation" />
+    </div>
+  </div>
+</quiz-widget>
+
+<script>
+  class QuizWidget extends HTMLElement {
+    constructor() {
+      super();
+      let answered = false;
+      const correctOption = this.dataset.correct;
+      const options = this.querySelectorAll('.quiz-option');
+      const feedback = this.querySelector('.quiz-feedback');
+      const feedbackTitle = this.querySelector('.feedback-title');
+      const feedbackIcon = this.querySelector('.feedback-icon');
+
+      options.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (answered) return;
+          answered = true;
+          
+          const selected = btn.getAttribute('data-option');
+          const isCorrect = selected === correctOption;
+          
+          // Disable all buttons and apply colors
+          options.forEach(o => {
+            o.setAttribute('disabled', 'true');
+            if (o.getAttribute('data-option') === correctOption) {
+              o.classList.add('correct');
+            } else if (o === btn && !isCorrect) {
+              o.classList.add('incorrect');
+            }
+          });
+
+          // Show feedback
+          if (feedback && feedbackTitle && feedbackIcon) {
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+              feedback.classList.add('feedback-correct');
+              feedbackTitle.textContent = 'Jawaban Tepat!';
+              feedbackIcon.textContent = '✅';
+            } else {
+              feedback.classList.add('feedback-incorrect');
+              feedbackTitle.textContent = 'Jawaban Kurang Tepat';
+              feedbackIcon.textContent = '❌';
+            }
+          }
+        });
+      });
+    }
+  }
+  
+  customElements.define('quiz-widget', QuizWidget);
+</script>
+
+<style>
+  .quiz-container {
+    display: block;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    background: #f8fafc;
+  }
+  .quiz-question {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .quiz-option {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #334155;
+  }
+  .quiz-option:hover:not([disabled]) {
+    border-color: #94a3b8;
+    background: #f1f5f9;
+  }
+  .quiz-option[disabled] {
+    cursor: default;
+    opacity: 0.9;
+  }
+  .option-label {
+    font-weight: bold;
+    margin-right: 1rem;
+    background: #e2e8f0;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .option-content {
+    flex-grow: 1;
+  }
+  /* Menghindari margin bawaan paragraf dari markdown slot */
+  .option-content p {
+    margin: 0;
+  }
+  .quiz-question p {
+    margin-top: 0;
+  }
+  
+  /* Status Colors */
+  .quiz-option.correct {
+    border-color: #22c55e;
+    background: #dcfce7;
+  }
+  .quiz-option.correct .option-label {
+    background: #22c55e;
+    color: white;
+  }
+  .quiz-option.incorrect {
+    border-color: #ef4444;
+    background: #fee2e2;
+  }
+  .quiz-option.incorrect .option-label {
+    background: #ef4444;
+    color: white;
+  }
+  
+  /* Feedback Area */
+  .quiz-feedback {
+    border-top: 2px dashed #cbd5e1;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+  .quiz-feedback.hidden {
+    display: none;
+  }
+  .feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .feedback-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .feedback-correct .feedback-title {
+    color: #15803d;
+  }
+  .feedback-incorrect .feedback-title {
+    color: #b91c1c;
+  }
+  .feedback-explanation {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+  }
+  .feedback-explanation p:last-child {
+    margin-bottom: 0;
+  }
+</style>

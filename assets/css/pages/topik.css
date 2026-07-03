@@ -1,0 +1,64 @@
+/* =====================================================
+   TOPIK.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.page-topik .hero-section {
+    padding-block: var(--space-3xl);
+    text-align: center;
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-topik .hero-section .container {
+    max-width: 800px;
+}
+
+.page-topik .hero-description {
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+}
+
+.page-topik .section-heading {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.page-topik .section-heading p {
+    margin-inline: auto;
+    color: var(--color-text-light);
+}
+
+.topic-summary {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.submateri-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.submateri-grid .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.submateri-grid .card p {
+    flex-grow: 1;
+}
+
+.submateri-grid .button {
+    margin-top: var(--space-md);
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .page-topik .hero-section {
+        padding-block: var(--space-2xl);
+    }
+}

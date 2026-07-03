@@ -1,0 +1,56 @@
+/* =====================================================
+   ELEMEN.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.page-elemen .hero-section {
+    padding-block: var(--space-3xl);
+    text-align: center;
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-elemen .hero-section .container {
+    max-width: 800px;
+}
+
+.page-elemen .hero-description {
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+}
+
+.page-elemen .section-heading {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.page-elemen .section-heading p {
+    margin-inline: auto;
+    color: var(--color-text-light);
+}
+
+.element-summary {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.coming-soon-notice {
+    padding: var(--space-lg);
+    text-align: center;
+    color: var(--color-text-light);
+    background-color: var(--color-secondary);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+@media (max-width: 768px) {
+    .page-elemen .hero-section {
+        padding-block: var(--space-2xl);
+    }
+
+    .element-summary {
+        text-align: center;
+    }
+}

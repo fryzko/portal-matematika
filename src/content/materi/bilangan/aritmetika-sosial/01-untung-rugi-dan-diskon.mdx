@@ -1,0 +1,167 @@
+---
+title: "Untung, Rugi, dan Diskon: Matematika di Balik Jual Beli"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Untung, Rugi, dan Diskon
+
+Bayangkan kamu membeli sepasang sepatu seharga Rp200.000 di sebuah gudang distributor. Kemudian, kamu menjual sepatu tersebut di sekolah kepada temanmu seharga Rp260.000. Hore! Kamu mendapatkan **untung Rp60.000**!
+
+Namun, temanmu tiba-tiba berkata, "Wah, itu untungnya 30% lho!" 
+Tunggu dulu, dari mana dia tahu persentasenya? Bagaimana cara menghitung untung, rugi, dan diskon dalam kehidupan nyata? Inilah yang disebut dengan aritmetika sosial, yaitu ilmu matematika yang langsung berkaitan dengan kehidupan finansial kita sehari-hari, termasuk jual beli, keuntungan, kerugian, hingga diskon di mal.
+
+### Yuk, Temukan Sendiri Konsep Persentase Keuntungan
+
+Coba perhatikan tabel simulasi jual beli di bawah ini. Bisakah kamu melengkapi bagian yang kosong? 
+
+| Barang | Harga Beli | Harga Jual | Untung/Rugi | Persentase |
+|--------|-----------|-----------|-------------|------------|
+| Sepatu | 200.000   | 260.000   | +60.000     | 30%        |
+| Baju   | 150.000   | 135.000   | ?           | ?          |
+| Tas    | 300.000   | 300.000   | ?           | ?          |
+
+Pola apa yang kamu temukan?
+Untuk mengetahui apakah kita untung atau rugi, kita tinggal mengurangkan Harga Jual dengan Harga Beli. Tetapi, untuk mencari *persentasenya*, kita harus selalu membaginya dengan **Harga Beli**!
+
+### Teori & Definisi Formal
+
+Dalam proses jual beli, terdapat beberapa istilah dan rumus penting:
+
+1. **Harga Beli (Modal)**: Nilai uang yang dikeluarkan untuk memperoleh suatu barang.
+2. **Harga Jual**: Nilai uang yang diterima saat menjual suatu barang.
+
+**Keuntungan (Untung)** terjadi jika Harga Jual > Harga Beli:
+$$\text{Untung} = \text{Harga Jual} - \text{Harga Beli}$$
+$$\text{Persentase Untung} = \frac{\text{Untung}}{\text{Harga Beli}} \times 100\%$$
+
+**Kerugian (Rugi)** terjadi jika Harga Beli > Harga Jual:
+$$\text{Rugi} = \text{Harga Beli} - \text{Harga Jual}$$
+$$\text{Persentase Rugi} = \frac{\text{Rugi}}{\text{Harga Beli}} \times 100\%$$
+
+**Diskon (Rabat)** adalah potongan harga yang diberikan penjual kepada pembeli:
+$$\text{Harga Setelah Diskon} = \text{Harga Awal} - \left(\frac{\text{Diskon}\%}{100} \times \text{Harga Awal}\right)$$
+
+### Visualisasi: Alur Proses Jual Beli
+
+Berikut adalah gambaran sederhana bagaimana proses jual beli dan perhitungan keuntungan atau kerugian terjadi:
+
+```text
+┌─────────────────┐       (Jika harga naik)       ┌─────────────────┐
+│                 │ ────────────────────────────> │                 │ ---> UNTUNG
+│   HARGA BELI    │                               │   HARGA JUAL    │
+│    (MODAL)      │ <──────────────────────────── │                 │ ---> RUGI
+│                 │       (Jika harga turun)      └─────────────────┘
+└─────────────────┘
+
+     Diskon / Rabat mengurangi Harga Jual, sehingga menguntungkan Pembeli!
+```
+
+### Contoh Soal & Pembahasan
+
+#### Level 1: Menghitung Untung/Rugi Dasar
+
+Seorang pedagang membeli 1 kg telur seharga Rp25.000, lalu menjualnya dengan harga Rp28.000. Berapa keuntungan pedagang tersebut?
+
+**Pembahasan:**
+Harga Beli = Rp25.000
+Harga Jual = Rp28.000
+Karena Harga Jual > Harga Beli, pedagang mengalami untung.
+$$\text{Untung} = \text{Harga Jual} - \text{Harga Beli} = 28.000 - 25.000 = \text{Rp3.000}$$
+
+#### Level 2: Menghitung Persentase Untung/Rugi
+
+Seorang pedagang membeli baju seharga Rp150.000, lalu karena tidak laku, ia menjualnya seharga Rp135.000. Berapa persentase kerugiannya?
+
+**Pembahasan:**
+Harga Beli = Rp150.000
+Harga Jual = Rp135.000
+$$\text{Rugi} = 150.000 - 135.000 = \text{Rp15.000}$$
+$$\text{Persentase Rugi} = \frac{15.000}{150.000} \times 100\% = \frac{1}{10} \times 100\% = 10\%$$
+
+#### Level 3: Menghitung Harga Jual dengan Persentase Untung
+
+Toko mainan membeli boneka seharga Rp80.000. Jika toko tersebut ingin mendapatkan keuntungan 25%, berapakah harga jual boneka tersebut?
+
+**Pembahasan:**
+Keuntungan = $25\% \times 80.000 = \frac{25}{100} \times 80.000 = 20.000$
+Harga Jual = Harga Beli + Untung = $80.000 + 20.000 = \text{Rp100.000}$
+
+#### Level 4: Diskon dan Harga Akhir
+
+Sebuah tas diberi label harga Rp300.000. Toko tersebut memberikan diskon sebesar 20%. Berapakah harga tas tersebut setelah diskon?
+
+**Pembahasan:**
+Nilai Diskon = $20\% \times 300.000 = \frac{20}{100} \times 300.000 = \text{Rp60.000}$
+Harga Setelah Diskon = Harga Awal - Nilai Diskon = $300.000 - 60.000 = \text{Rp240.000}$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+Hati-hati dengan hal-hal berikut saat mengerjakan soal aritmetika sosial:
+
+1. **Titik Acuan Persentase**: Persentase untung atau rugi SELALU dihitung dari **HARGA BELI (MODAL)**, bukan dari harga jual. Banyak siswa yang keliru membagi nilai untung/rugi dengan harga jual.
+2. **Diskon Bertingkat**: Diskon ganda atau bertingkat seperti "Diskon 20% + 10%" **TIDAK SAMA** dengan diskon 30%! Diskon 10% yang kedua dihitung dari sisa harga setelah dipotong diskon 20%, bukan dari harga awal.
+
+### Koneksi Dunia Nyata
+
+Konsep ini ada di mana-mana!
+- **E-Commerce & Pedagang Online**: Menghitung berapa modal untuk *restock* barang dan menentukan harga jual di *marketplace* agar tetap untung setelah dipotong biaya admin.
+- **Investasi Saham & Kripto**: Aplikasi investasi selalu menampilkan persentase untung/rugi (portfolio return) secara *real-time* yang dihitung dari harga rata-rata pembelian sahammu.
+- **Toko Ritel saat *Sale***: Menggunakan psikologi diskon. Kadang penjual menaikkan harga awal (*mark up*) terlebih dahulu, baru kemudian memberikan "diskon" besar-besaran agar terlihat lebih menarik!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Jika Pak Budi membeli sepeda seharga Rp1.200.000 dan menjualnya dengan harga Rp1.500.000, berapakah persentase keuntungannya?</div>
+  <div slot="option-a">10%</div>
+  <div slot="option-b">20%</div>
+  <div slot="option-c">25%</div>
+  <div slot="option-d">30%</div>
+  <div slot="explanation">**Pembahasan:** Untung = $1.500.000 - 1.200.000 = 300.000$. Persentase Untung = $\frac{300.000}{1.200.000} \times 100\% = \frac{1}{4} \times 100\% = 25\%$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Ibu membeli baju seharga Rp200.000 dengan diskon 15%. Berapakah uang yang harus dibayar Ibu?</div>
+  <div slot="option-a">Rp150.000</div>
+  <div slot="option-b">Rp170.000</div>
+  <div slot="option-c">Rp185.000</div>
+  <div slot="option-d">Rp230.000</div>
+  <div slot="explanation">**Pembahasan:** Diskon = $15\% \times 200.000 = 30.000$. Harga bayar = $200.000 - 30.000 = \text{Rp170.000}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Sebuah barang dijual dengan harga Rp84.000 dengan kerugian 16%. Berapakah harga beli barang tersebut?</div>
+  <div slot="option-a">Rp96.000</div>
+  <div slot="option-b">Rp97.440</div>
+  <div slot="option-c">Rp116.000</div>
+  <div slot="option-d">Rp100.000</div>
+  <div slot="explanation">**Pembahasan:** Harga jual = $100\% - 16\% = 84\%$ dari Harga Beli. Maka, $\text{Harga Beli} = \frac{100}{84} \times 84.000 = \text{Rp100.000}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Toko memberikan promo diskon 50% + 20% untuk sebuah koper seharga Rp1.000.000. Berapakah harga akhir koper tersebut?</div>
+  <div slot="option-a">Rp400.000</div>
+  <div slot="option-b">Rp300.000</div>
+  <div slot="option-c">Rp200.000</div>
+  <div slot="option-d">Rp700.000</div>
+  <div slot="explanation">**Pembahasan:** Diskon 50% pertama: Rp500.000. Sisa harga Rp500.000. Diskon 20% dari sisa: $20\% \times 500.000 = 100.000$. Harga akhir = $500.000 - 100.000 = \text{Rp400.000}$. (Bukan diskon 70%!)</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai konsep untung dan rugi?</div>
+  <div slot="option-a">Untung terjadi jika harga jual lebih besar dari harga beli.</div>
+  <div slot="option-b">Persentase rugi selalu dihitung dari harga jual barang.</div>
+  <div slot="option-c">Diskon merupakan potongan yang mengurangi harga awal suatu barang.</div>
+  <div slot="option-d">Jika harga jual sama dengan harga beli, maka pedagang tidak mengalami untung maupun rugi (impas).</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Baik persentase untung maupun rugi **selalu** dihitung berdasarkan HARGA BELI (modal), bukan harga jual.</div>
+</Quiz>

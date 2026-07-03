@@ -1,0 +1,47 @@
+/* =====================================================
+   SECTION.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.section {
+    padding-block: var(--space-3xl);
+    background-color: var(--color-background);
+}
+
+.section-compact {
+    padding-block: var(--space-md);
+}
+
+.section-light {
+    background-color: var(--color-secondary);
+    border-block: 1px solid var(--color-border);
+}
+
+.section-cta {
+    color: var(--color-surface);
+    background-color: var(--color-primary);
+}
+
+.section-cta h1,
+.section-cta h2,
+.section-cta h3,
+.section-cta h4,
+.section-cta h5,
+.section-cta h6,
+.section-cta p,
+.section-cta a {
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding-block: var(--space-2xl);
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding-block: var(--space-xl);
+    }
+}

@@ -1,0 +1,190 @@
+---
+title: "Busur, Juring, dan Tembereng: Bagian-bagian Lingkaran"
+topic: "Geometri"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import CircleExplorer from '../../../../components/CircleExplorer.astro';
+import ExplorasiLink from '../../../../components/ExplorasiLink.astro';
+
+### Mari Memahami Busur, Juring, dan Tali Busur
+
+Bayangkan kamu sedang memotong sebuah pizza bundar yang lezat. Jika pizza tersebut dipotong menjadi 8 bagian yang sama besar, setiap potongannya akan membentuk sudut $\frac{360°}{8} = 45°$ di bagian pusatnya. Tahukah kamu? Potongan pizza itulah yang dalam bahasa matematika geometri disebut dengan juring! Menarik, bukan?
+
+### Yuk, Temukan Sendiri Hubungan Sudut dan Busur
+
+<CircleExplorer />
+
+Geser titik **A** untuk mengubah jari-jari lingkaran.
+Lalu aktifkan **Mode Juring** dan geser slider sudut untuk mengeksplorasi
+bagaimana panjang busur dan luas juring berubah seiring perubahan sudut $\alpha$!
+
+Pola apa yang kamu temukan?
+Semakin besar sudut pusatnya, secara proporsional panjang busur dan luas juring juga akan membesar dengan rasio yang sama! Setengah lingkaran berarti setengah keliling dan setengah luas, 1/4 lingkaran berarti seperempat keliling dan luas, dan seterusnya.
+
+### Teori & Definisi Formal
+
+Kini, mari kita kenali definisi formal bagian-bagian lain dari lingkaran yang tidak kalah penting:
+
+- **Busur (Arc)**: Garis lengkung yang merupakan bagian dari keliling lingkaran.
+- **Juring (Sektor)**: Daerah di dalam lingkaran yang dibatasi oleh dua jari-jari dan sebuah busur (mirip potongan pizza).
+- **Tali Busur**: Garis lurus yang menghubungkan dua titik pada keliling lingkaran.
+- **Tembereng (Segmen)**: Daerah yang dibatasi oleh sebuah tali busur dan busur lingkarannya (mirip potongan bulan sabit).
+- **Sudut Pusat**: Sudut yang titik sudutnya berada tepat di pusat lingkaran.
+- **Sudut Keliling**: Sudut yang titik sudutnya berada pada garis keliling lingkaran.
+
+Ada hubungan yang sangat erat antara sudut pusat (kita sebut $\alpha$) dengan panjang busur dan luas juring. Semakin besar sudutnya, semakin panjang busurnya dan semakin luas juringnya.
+
+Rumus-rumusnya adalah bagian (fraksi) dari lingkaran utuh (360°):
+$$\text{Panjang Busur} = \frac{\alpha}{360°} \times \text{Keliling Lingkaran} = \frac{\alpha}{360°} \times 2\pi r$$
+
+$$\text{Luas Juring} = \frac{\alpha}{360°} \times \text{Luas Lingkaran} = \frac{\alpha}{360°} \times \pi r^2$$
+
+Lalu, bagaimana dengan luas tembereng?
+$$\text{Luas Tembereng} = \text{Luas Juring} - \text{Luas Segitiga (yang dibentuk oleh dua jari-jari dan tali busur)}$$
+
+### Visualisasi: Anatomi Potongan Lingkaran
+
+Berikut adalah visualisasi bagian-bagian tersebut:
+
+```text
+       Busur
+      .---.
+    .'  |  '.
+   /    |    \  <- Juring (sektor)
+  ;     |     ;
+  |  Pusat(P) |
+  |           |
+  ;           ;
+   \  ____   /  <- Tembereng (segmen)
+    '.    .'
+      '--'
+    Tali Busur
+```
+
+### Contoh Soal & Pembahasan
+
+Berikut adalah latihan soal untuk memantapkan pemahamanmu:
+
+#### Contoh 1 (Menghitung Panjang Busur)
+
+Sebuah lingkaran memiliki jari-jari 21 cm. Berapakah panjang busur di hadapan sudut pusat 60°? (Gunakan $\pi = \frac{22}{7}$)
+
+**Pembahasan:**
+
+Panjang Busur = $\frac{60°}{360°} \times 2\pi r$
+$= \frac{1}{6} \times 2 \times \frac{22}{7} \times 21$
+$= \frac{1}{6} \times 132 = 22$ cm.
+
+#### Contoh 2 (Menghitung Luas Juring)
+
+Tentukan luas juring lingkaran yang berjari-jari 10 cm jika sudut pusatnya 72°! (Gunakan $\pi = 3,14$)
+
+**Pembahasan:**
+
+Luas Juring = $\frac{72°}{360°} \times \pi r^2$
+$= \frac{1}{5} \times 3,14 \times 10^2$
+$= \frac{1}{5} \times 314 = 62,8$ cm².
+
+#### Contoh 3 (Menghitung Luas Tembereng)
+
+Sebuah lingkaran berjari-jari 14 cm. Terdapat sudut pusat 90° yang membentuk juring dan segitiga siku-siku. Berapakah luas temberengnya?
+
+**Pembahasan:**
+
+Luas Juring = $\frac{90°}{360°} \times \pi r^2 = \frac{1}{4} \times \frac{22}{7} \times 196 = 154$ cm².
+
+Karena sudut 90°, segitiga yang terbentuk adalah segitiga siku-siku dengan alas dan tinggi sama dengan jari-jari (14 cm).
+Luas Segitiga = $\frac{1}{2} \times 14 \times 14 = 98$ cm².
+
+Luas Tembereng = Luas Juring - Luas Segitiga = $154 - 98 = 56$ cm².
+
+#### Contoh 4 (Hubungan Sudut Pusat dan Keliling)
+
+Pada sebuah lingkaran, terdapat sudut pusat AOB sebesar 110°. Jika titik C berada pada keliling lingkaran dan menghadap busur AB yang sama, berapakah besar sudut ACB?
+
+**Pembahasan:**
+
+Sudut AOB adalah sudut pusat (110°).
+Sudut ACB adalah sudut keliling yang menghadap busur yang sama.
+
+Sudut Keliling = $\frac{1}{2} \times$ Sudut Pusat
+Sudut ACB = $\frac{1}{2} \times 110° = 55°$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+Hati-hati dengan hal-hal berikut saat mengerjakan soal tentang bagian lingkaran:
+
+1. **Bingung antara juring dan tembereng**: Ingat analogi ini: Juring itu seperti potongan pizza (dibatasi jari-jari). Tembereng itu seperti kerak pinggir pizza yang dipotong lurus atau bulan sabit (dibatasi tali busur).
+2. **Lupa hubungan sudut pusat dan sudut keliling**: Ingat bahwa Sudut Pusat = $2 \times$ Sudut Keliling jika menghadap busur yang sama. Jadi, sudut keliling = setengah dari sudut pusat.
+
+### Koneksi Dunia Nyata
+
+Konsep busur dan juring banyak diaplikasikan dalam kehidupan sehari-hari:
+- **Desain jam analog**: Jarum jam panjang dan pendek selalu membentuk sudut dan juring yang terus berubah seiring waktu.
+- **Arsitektur**: Desain kubah masjid, jendela melengkung, atau jembatan busur menggunakan perhitungan kelengkungan secara presisi.
+- **Desain grafis**: Pembuatan logo-logo simetris berbahan dasar lingkaran seperti logo Olimpiade atau diagram lingkaran (pie chart) di statistika.
+
+### Asah Kemampuan Mandiri
+
+Kerjakan 5 soal berikut untuk menguji ketangkasanmu!
+
+<Quiz correctAnswer="B">
+  <div slot="question">Daerah di dalam lingkaran yang dibatasi oleh dua buah jari-jari dan sebuah busur disebut...</div>
+  <div slot="option-a">Tembereng</div>
+  <div slot="option-b">Juring</div>
+  <div slot="option-c">Tali Busur</div>
+  <div slot="option-d">Apotema</div>
+  <div slot="explanation">**Pembahasan:** Daerah yang dibatasi oleh dua jari-jari dan satu busur (seperti potongan pizza) dinamakan juring atau sektor.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Panjang busur lingkaran dengan jari-jari 7 cm dan sudut pusat 90° adalah...</div>
+  <div slot="option-a">5,5 cm</div>
+  <div slot="option-b">7 cm</div>
+  <div slot="option-c">11 cm</div>
+  <div slot="option-d">22 cm</div>
+  <div slot="explanation">**Pembahasan:** Panjang Busur = $\frac{90}{360} \times 2 \times \frac{22}{7} \times 7 = \frac{1}{4} \times 44 = 11$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Luas juring sebuah lingkaran dengan jari-jari 20 cm dan sudut pusat 45° adalah... ($\pi = 3,14$)</div>
+  <div slot="option-a">157 cm²</div>
+  <div slot="option-b">314 cm²</div>
+  <div slot="option-c">628 cm²</div>
+  <div slot="option-d">1.256 cm²</div>
+  <div slot="explanation">**Pembahasan:** Luas Juring = $\frac{45}{360} \times 3,14 \times 20^2 = \frac{1}{8} \times 1.256 = 157$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Jika sebuah sudut keliling besarnya 30°, maka besar sudut pusat yang menghadap busur yang sama adalah...</div>
+  <div slot="option-a">15°</div>
+  <div slot="option-b">30°</div>
+  <div slot="option-c">45°</div>
+  <div slot="option-d">60°</div>
+  <div slot="explanation">**Pembahasan:** Sudut Pusat = $2 \times$ Sudut Keliling = $2 \times 30° = 60°$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah yang SALAH tentang unsur dan bagian-bagian lingkaran?</div>
+  <div slot="option-a">Sudut pusat besarnya selalu dua kali sudut keliling yang menghadap busur yang sama.</div>
+  <div slot="option-b">Tembereng dibatasi oleh tali busur dan busur lingkaran.</div>
+  <div slot="option-c">Juring adalah daerah yang dibatasi oleh tali busur dan dua jari-jari.</div>
+  <div slot="option-d">Panjang busur berbanding lurus dengan besar sudut pusatnya.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Juring adalah daerah yang dibatasi oleh DUA JARI-JARI dan SATU BUSUR, bukan dibatasi tali busur. Daerah yang dibatasi tali busur adalah tembereng (ditambah busurnya).</div>
+</Quiz>
+
+<ExplorasiLink
+  href="/eksplorasi/pi"
+  judul="Eksplorasi Pi & Lingkaran Interaktif"
+  deskripsi="Gunakan simulator lingkaran untuk membuktikan bahwa K÷d selalu menghasilkan π, dan eksplorasi mode Juring secara bebas!"
+/>

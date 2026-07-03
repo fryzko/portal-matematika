@@ -1,0 +1,74 @@
+---
+interface Props {
+  href: string;
+  judul: string;
+  deskripsi: string;
+  warna?: string;
+}
+
+const { href, judul, deskripsi, warna = '#6366f1' } = Astro.props;
+---
+
+<div class="eksplorasi-banner" style={`--banner-color: ${warna};`}>
+  <div class="eksplorasi-icon">🔭</div>
+  <div class="eksplorasi-content">
+    <div class="eksplorasi-label">Pelajari Lebih Dalam</div>
+    <div class="eksplorasi-title">{judul}</div>
+    <div class="eksplorasi-desc">{deskripsi}</div>
+    <a href={href} class="eksplorasi-btn">Jelajahi Sekarang &rarr;</a>
+  </div>
+</div>
+
+<style>
+.eksplorasi-banner {
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--banner-color) 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.eksplorasi-icon {
+  font-size: 3rem;
+}
+.eksplorasi-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+.eksplorasi-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.eksplorasi-desc {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.eksplorasi-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: white;
+  color: var(--banner-color);
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+.eksplorasi-btn:hover {
+  transform: translateX(4px);
+}
+@media (max-width: 640px) {
+  .eksplorasi-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+</style>

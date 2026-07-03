@@ -1,0 +1,176 @@
+---
+title: "Peluang Teoretik: Menghitung Kemungkinan Secara Matematis"
+topic: "Statistika"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Peluang Teoretik
+Bayangkan kamu sedang mengikuti undian berhadiah di acara sekolah. Di dalam sebuah kotak undian, terdapat total 30 kupon. Dari 30 kupon tersebut, ternyata namamu tertulis di 3 lembar kupon. Saat kepala sekolah akan mengocok dan mengambil satu kupon secara acak, seberapa besar kemungkinan (peluang) kamu untuk menang? Bisakah kita memprediksi peluang kemenangan kita menggunakan angka matematika yang pasti, bahkan *sebelum* undian itu benar-benar dilakukan? Jawabannya: Tentu saja bisa! Itulah yang disebut dengan Peluang Teoretik.
+
+### Yuk, Temukan Sendiri Peluang Teoretik
+Mari kita selidiki kasus pelemparan sebuah dadu (yang memiliki 6 sisi angka).
+Semua kemungkinan hasil yang bisa keluar disebut **Ruang Sampel ($S$)**. 
+Maka $S = \{1, 2, 3, 4, 5, 6\}$, dan jumlah anggotanya adalah $n(S) = 6$.
+
+Coba lengkapi tabel kejadian (kita sebut kejadian $A$) di bawah ini:
+
+| Kejadian $A$ | Anggota $A$ | $n(A)$ | $P(A) = n(A)/n(S)$ |
+| :--- | :--- | :---: | :---: |
+| Muncul angka genap | $\{2, 4, 6\}$ | 3 | $3/6 = 1/2$ |
+| Muncul angka ganjil | $\{1, 3, 5\}$ | 3 | $3/6 = 1/2$ |
+| Muncul angka $> 4$ | $\{5, 6\}$ | 2 | $2/6 = 1/3$ |
+| Muncul angka prima | $\{2, 3, 5\}$ | 3 | $3/6 = 1/2$ |
+| Muncul angka 7 | $\{\}$ | 0 | $0$ (mustahil) |
+
+Dengan mendaftar anggota kejadian yang kamu harapkan, kamu bisa dengan mudah menemukan peluangnya!
+
+### Teori & Definisi Formal
+**Peluang Teoretik** adalah rasio atau perbandingan antara banyaknya kejadian yang diharapkan terjadi dengan banyaknya seluruh kemungkinan (ruang sampel).
+
+Istilah penting:
+- **Ruang Sampel ($S$):** Himpunan semua kejadian yang mungkin terjadi.
+- **Titik Sampel:** Anggota dari ruang sampel.
+- **Kejadian ($A$):** Himpunan bagian dari ruang sampel yang kita harapkan/amati.
+
+**Rumus Utama Peluang:**
+$$P(A) = \frac{n(A)}{n(S)}$$
+Keterangan:
+$P(A)$ = Peluang kejadian A
+$n(A)$ = Banyaknya kejadian A
+$n(S)$ = Banyaknya titik sampel
+
+**Rentang Nilai Peluang**
+Peluang selalu bernilai dari 0 sampai 1.
+$$0 \leq P(A) \leq 1$$
+- Jika $P(A) = 0$, artinya kejadian itu **mustahil** terjadi (seperti melempar dadu keluar angka 7).
+- Jika $P(A) = 1$, artinya kejadian itu **pasti** terjadi (seperti matahari terbit dari timur).
+
+**Peluang Komplemen (Kejadian yang TIDAK terjadi)**
+Jika peluang besok akan hujan adalah $0,3$, berapa peluang besok *tidak* hujan? Cukup kurangi angka 1 dengan peluang kejadiannya.
+$$P(A^c) = 1 - P(A)$$
+
+### Visualisasi: Peluang Teoretik
+Berikut adalah visualisasi diagram peluang munculnya masing-masing angka pada sebuah dadu bermata 6. 
+Total ruang sampel adalah satu lingkaran penuh (100% atau 1). Karena ada 6 angka yang punya kesempatan sama rata, maka lingkaran dibagi 6 sama besar.
+
+```text
+       ___
+     / 1 \ 2 \
+    |--+--|---|
+    | 6 \ 3 /
+     \__4_/_5/
+```
+Peluang untuk mendapatkan angka berapapun (misal angka 4) adalah sebesar luas satu potong dari total enam potong, yaitu $\frac{1}{6}$. Peluang ini disebut *kejadian acak seragam*.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Sebuah koin memiliki sisi Angka (A) dan Gambar (G). Jika dilempar sekali, berapa peluang munculnya sisi Angka?
+
+**Pembahasan:**
+
+Ruang sampel $S = \{A, G\}$, jadi $n(S) = 2$.
+Kejadian $A = \{A\}$, jadi $n(A) = 1$.
+$$P(A) = \frac{1}{2}$$
+
+#### Contoh 1 (Mudah)
+
+Terdapat 20 kelereng di dalam kantong: 5 merah, 7 kuning, dan 8 hijau. Berapa peluang terambilnya kelereng hijau jika diambil satu secara acak?
+
+**Pembahasan:**
+
+Total kelereng $n(S) = 20$.
+Banyak kelereng hijau $n(\text{Hijau}) = 8$.
+$$P(\text{Hijau}) = \frac{8}{20} = \frac{2}{5}$$
+
+#### Contoh 2 (Menengah)
+
+Sebuah huruf dipilih secara acak dari kata "MATEMATIKA". Berapa peluang huruf yang terpilih adalah huruf "A"?
+
+**Pembahasan:**
+
+Total huruf $n(S) = 10$.
+Jumlah huruf A adalah $n(A) = 3$.
+$$P(A) = \frac{3}{10}$$
+
+#### Contoh 3 (Menantang)
+
+Dua buah dadu dilempar secara bersamaan. Berapakah peluang munculnya jumlah kedua mata dadu sama dengan 8?
+
+**Pembahasan:**
+
+Banyak ruang sampel 2 dadu: $n(S) = 6 \times 6 = 36$.
+Kejadian $A$ (jumlah mata dadu 8): $\{(2,6), (3,5), (4,4), (5,3), (6,2)\}$.
+Banyak kejadian $A$: $n(A) = 5$.
+$$P(A) = \frac{5}{36}$$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Siswa seringkali keliru menafsirkan arti peluang $\frac{1}{2}$. Banyak yang mengira bahwa "Pasti, kalau saya melempar koin 2 kali, salah satunya pasti keluar Angka!". **Itu mitos!**
+
+
+Peluang tidak menjamin hasil setiap kali percobaan dilakukan secara individu. Peluang adalah **prediksi rasio jangka panjang**.
+Bahkan, jika sebuah koin sudah dilempar 5 kali dan *semuanya* keluar sisi Angka, lemparan ke-6 tetap memiliki peluang $\frac{1}{2}$ untuk keluar Angka. Koin tidak punya ingatan!
+
+### Koneksi Dunia Nyata
+Peluang mengendalikan dunia nyata:
+1. **Asuransi:** Aktuaris menggunakan hitungan peluang kejadian sakit atau kecelakaan untuk menentukan biaya premi bulanan yang kamu bayar.
+2. **Prakiraan Cuaca:** Saat BMKG bilang "Peluang hujan 70%", artinya dari kondisi atmosfir yang persis sama di masa lalu, 70 dari 100 hari berakhir dengan hujan.
+3. **Quality Control (Pabrik):** Pabrik otomotif mengecek 1 dari 100 mobil untuk diuji tabrak, menggunakan peluang untuk memprediksi kerusakan pada 99 mobil sisanya.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="A">
+  <div slot="question">Peluang terambilnya kartu As dari satu set kartu remi (total 52 kartu, ada 4 As) adalah...</div>
+  <div slot="option-a">1/13</div>
+  <div slot="option-b">4/52</div>
+  <div slot="option-c">1/4</div>
+  <div slot="option-d">1/52</div>
+  <div slot="explanation">**Pembahasan:** $n(S) = 52$, $n(A) = 4$. Maka $P(A) = 4/52$. Jika disederhanakan (dibagi 4), menjadi $1/13$. Pilihan A adalah bentuk paling sederhana yang paling tepat.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Peluang besok akan terjadi badai adalah 0,15. Berapakah peluang besok TIDAK terjadi badai?</div>
+  <div slot="option-a">0,75</div>
+  <div slot="option-b">1,15</div>
+  <div slot="option-c">0,15</div>
+  <div slot="option-d">0,85</div>
+  <div slot="explanation">**Pembahasan:** Gunakan rumus peluang komplemen: $P(A^c) = 1 - P(A) = 1 - 0,15 = 0,85$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Pada pelemparan satu buah dadu bermata 6, berapakah peluang munculnya bilangan kelipatan 3?</div>
+  <div slot="option-a">1/2</div>
+  <div slot="option-b">1/3</div>
+  <div slot="option-c">2/3</div>
+  <div slot="option-d">1/6</div>
+  <div slot="explanation">**Pembahasan:** $S = \{1, 2, 3, 4, 5, 6\}$. Angka kelipatan 3 adalah $\{3, 6\}$, jadi $n(A) = 2$. Peluang = $2/6 = 1/3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah kantong berisi 4 bola merah dan 6 bola biru. Jika kita ingin mengambil sebuah bola hijau dari kantong tersebut, berapakah peluangnya?</div>
+  <div slot="option-a">1/2</div>
+  <div slot="option-b">1/10</div>
+  <div slot="option-c">0</div>
+  <div slot="option-d">1</div>
+  <div slot="explanation">**Pembahasan:** Bola hijau sama sekali tidak ada di dalam kantong, artinya $n(\text{Hijau}) = 0$. Ini adalah contoh kejadian mustahil dengan peluang 0.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai peluang teoretik?</div>
+  <div slot="option-a">Nilai peluang suatu kejadian selalu berada di antara 0 dan 1 (inklusif).</div>
+  <div slot="option-b">Ruang sampel adalah himpunan semua hasil yang mungkin terjadi dari suatu percobaan.</div>
+  <div slot="option-c">Kejadian yang memiliki peluang 1 disebut kejadian pasti.</div>
+  <div slot="option-d">Jika peluang mendapatkan sisi Angka pada sebuah koin adalah 1/2, berarti jika kita melempar koin 2 kali, kita dijamin pasti mendapat minimal 1 sisi Angka.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah karena ini adalah jebakan klasik. Peluang 1/2 tidak menjamin kepastian dalam 2 kali lemparan. Bisa saja koin mengeluarkan sisi Gambar (G) dua kali berturut-turut.</div>
+</Quiz>

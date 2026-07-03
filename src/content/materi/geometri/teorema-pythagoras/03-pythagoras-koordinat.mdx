@@ -1,0 +1,180 @@
+---
+title: "Pythagoras di Bidang Koordinat: Menghitung Jarak Dua Titik"
+topic: "Geometri"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import CoordinatePlane from '../../../../components/CoordinatePlane.astro';
+
+### Mari Memahami Pythagoras di Bidang Koordinat
+Saat kamu bermain *game* strategi atau *game* MOBA di layar smartphone, posisimu dan musuhmu dihitung oleh program dalam bentuk titik koordinat. Misalkan karaktermu berada di koordinat $(2, 3)$ dan musuhmu berada di $(7, 9)$. Karaktermu memiliki batas jarak serangan maksimal. Bagaimana cara komputer menghitung "jarak asli" atau lintasan lurus peluru antara kamu dan musuhmu di peta yang berbentuk kotak-kotak (grid)? Jawabannya adalah menggunakan Teorema Pythagoras versi modern: Rumus Jarak Dua Titik!
+
+### Yuk, Temukan Sendiri Pythagoras di Bidang Koordinat
+Coba gunakan komponen Bidang Koordinat di bawah ini untuk mencari jarak antara titik $A(1, 1)$ dan $B(4, 5)$.
+1. Plot titik $A(1, 1)$ dan $B(4, 5)$. Hubungkan menjadi garis lurus (ini adalah jarak aslinya, alias hipotenusa).
+2. Sekarang, kita tidak bisa langsung menghitung panjang garis miring tersebut. Kita harus membuat segitiga siku-siku bantuan!
+3. Plot titik $C(4, 1)$ yang berada persis lurus di bawah B, dan lurus di kanan A.
+4. Hitung jarak mendatar $AC$ (selisih $x$): $4 - 1 = 3$ langkah.
+5. Hitung jarak vertikal $BC$ (selisih $y$): $5 - 1 = 4$ langkah.
+6. Dengan menggunakan Pythagoras $(3, 4, \dots)$, berapa jarak aslinya (AB)? Betul sekali, 5 langkah!
+
+<CoordinatePlane />
+
+Pola rumusnya: 
+Jarak Horizontal = $(x_2 - x_1)$
+Jarak Vertikal = $(y_2 - y_1)$
+Maka $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.
+
+### Teori & Definisi Formal
+**Rumus Jarak Dua Titik**
+Jarak (simbol $d$ dari *distance*) antara dua titik koordinat $P(x_1, y_1)$ dan $Q(x_2, y_2)$ adalah akar kuadrat dari jumlah kuadrat selisih komponen $x$ dan $y$-nya:
+$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+Sebenarnya, rumus ini **sama persis** dengan Teorema Pythagoras $c = \sqrt{a^2 + b^2}$, di mana sisi $a$ adalah selisih horizontal dan sisi $b$ adalah selisih vertikal!
+
+**Titik Tengah (Midpoint)**
+Selain jarak, kita juga bisa mencari titik potong yang persis berada di tengah-tengah dua titik koordinat tersebut. Caranya adalah mencari rata-rata dari nilai $x$ dan $y$-nya:
+$$\text{Titik Tengah} = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$
+
+### Visualisasi: Pythagoras di Bidang Koordinat
+Perhatikan ilustrasi perhitungan jarak dua titik $A(1, 2)$ dan $B(5, 5)$ di bawah ini.
+
+```text
+       y
+       |
+     5 |         B(5,5)
+       |        /|
+       |     d / | Jarak vertikal (5-2 = 3)
+       |      /  |
+     2 |A(1,2)---+ C(5,2)
+       | Jarak horiz (5-1 = 4)
+-------+----------------- x
+       | 1       5
+```
+Titik siku-sikunya buatan kita (titik C) bertindak sebagai jangkar.
+Maka, $d = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Carilah jarak horizontal dan jarak vertikal dari titik $P(2, 4)$ ke titik $Q(8, 12)$!
+
+**Pembahasan:**
+
+Jarak horizontal (selisih $x$): $8 - 2 = 6$.
+Jarak vertikal (selisih $y$): $12 - 4 = 8$.
+
+#### Contoh 1 (Mudah)
+
+Gunakan selisih yang didapat pada Contoh 0 untuk menghitung jarak antara titik P dan Q!
+
+**Pembahasan:**
+
+Karena selisih horizontal = 6, dan selisih vertikal = 8, kita masukkan ke dalam Pythagoras:
+$$d = \sqrt{6^2 + 8^2}$$
+
+$$d = \sqrt{36 + 64}$$
+
+$$d = \sqrt{100} = 10 \text{ satuan}$$
+
+#### Contoh 2 (Menengah)
+
+Tentukan koordinat titik tengah yang membagi ruas garis dari titik $A(-4, 6)$ dan $B(2, -2)$ menjadi dua sama panjang!
+
+**Pembahasan:**
+
+Gunakan rumus titik tengah (rata-rata koordinat):
+$$x_{\text{tengah}} = \frac{-4 + 2}{2} = \frac{-2}{2} = -1$$
+
+$$y_{\text{tengah}} = \frac{6 + (-2)}{2} = \frac{4}{2} = 2$$
+Jadi, koordinat titik tengahnya adalah $(-1, 2)$.
+
+#### Contoh 3 (Menantang)
+
+Jarak antara titik $M(3, a)$ dan $N(-2, 1)$ adalah 13 satuan. Jika diketahui nilai $a$ adalah bilangan positif, tentukan nilai $a$!
+
+**Pembahasan:**
+
+$d = 13$, $x_1 = 3$, $y_1 = a$, $x_2 = -2$, $y_2 = 1$.
+$$d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$$
+
+$$13^2 = (-2 - 3)^2 + (1 - a)^2$$
+
+$$169 = (-5)^2 + (1 - a)^2$$
+
+$$169 = 25 + (1 - a)^2$$
+
+$$144 = (1 - a)^2$$
+Akar dari 144 adalah 12 atau -12. Kita selesaikan satu-satu:
+Kondisi 1: $1 - a = 12 \Rightarrow a = -11$
+Kondisi 2: $1 - a = -12 \Rightarrow a = 13$
+Karena $a$ disyaratkan harus bernilai positif, maka $a = 13$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan fatal yang sering dilakukan siswa adalah lupa mengkuadratkan selisih komponen di dalam akar.
+
+
+Siswa sering menulis: $d = \sqrt{(x_2 - x_1) + (y_2 - y_1)}$. Ini salah besar karena rumusnya berasal dari Pythagoras $c = \sqrt{a^2 + b^2}$.
+Jangan lupakan tanda kuadrat $^2$ di masing-masing selisih sebelum kamu menjumlahkannya!
+
+### Koneksi Dunia Nyata
+Konsep ini adalah tulang punggung dari navigasi digital dan komputer!
+1. **Google Maps & Ojek Online:** Jarak lurus antar lokasi (biasa disebut jarak as the crow flies) menggunakan rumusan koordinat Euclidean yang berbasis pada Teorema Pythagoras.
+2. **Game Development (Pembuatan Game):** Fitur *Collision Detection* (apakah peluru mengenai musuh) dihitung menggunakan rumus jarak dari kordinat pusat karakter ke koordinat musuh.
+3. **Penerbangan Drone:** Menghitung rute otonom lurus antar dua menara/titik koordinat spasial.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Jarak antara titik koordinat $(0, 0)$ ke titik $(3, 4)$ adalah...</div>
+  <div slot="option-a">7</div>
+  <div slot="option-b">25</div>
+  <div slot="option-c">5</div>
+  <div slot="option-d">1</div>
+  <div slot="explanation">**Pembahasan:** Selisih $x$ adalah 3, selisih $y$ adalah 4. $d = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Berapakah jarak antara titik $(-2, 5)$ dan $(4, -3)$?</div>
+  <div slot="option-a">12</div>
+  <div slot="option-b">10</div>
+  <div slot="option-c">8</div>
+  <div slot="option-d">14</div>
+  <div slot="explanation">**Pembahasan:** $d = \sqrt{(4 - (-2))^2 + (-3 - 5)^2} = \sqrt{6^2 + (-8)^2} = \sqrt{36 + 64} = \sqrt{100} = 10$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Koordinat titik tengah dari ruas garis yang menghubungkan titik $(2, 8)$ dan $(10, 12)$ adalah...</div>
+  <div slot="option-a">$(6, 4)$</div>
+  <div slot="option-b">$(8, 10)$</div>
+  <div slot="option-c">$(12, 20)$</div>
+  <div slot="option-d">$(6, 10)$</div>
+  <div slot="explanation">**Pembahasan:** $x_{\text{mid}} = \frac{2 + 10}{2} = 6$. $y_{\text{mid}} = \frac{8 + 12}{2} = 10$. Jadi titik tengahnya adalah $(6, 10)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Titik $A$ berada di $(1, 2)$ dan titik $B$ berada di $(x, 2)$. Jika jarak antara titik $A$ dan $B$ adalah 5 satuan, berapakah nilai $x$ yang mungkin?</div>
+  <div slot="option-a">4</div>
+  <div slot="option-b">6</div>
+  <div slot="option-c">5</div>
+  <div slot="option-d">7</div>
+  <div slot="explanation">**Pembahasan:** Karena nilai ordinatnya ($y=2$) sama, garis tersebut mendatar sejajar sumbu $x$. Jarak = $|x - 1| = 5$. Maka $x$ bisa 6 (karena $6 - 1 = 5$) atau $-4$ (karena $-4 - 1 = -5$). Pilihan yang ada adalah 6.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai rumus jarak koordinat?</div>
+  <div slot="option-a">Rumus jarak dua titik adalah modifikasi langsung dari Teorema Pythagoras.</div>
+  <div slot="option-b">Meskipun selisih titik menghasilkan nilai negatif, jika dikuadratkan hasilnya akan selalu positif.</div>
+  <div slot="option-c">Rumus jarak hanya bisa digunakan jika kedua titik berada di kuadran pertama (bernilai positif).</div>
+  <div slot="option-d">Selisih absis (komponen x) menjadi sisi horizontal segitiga siku-siku maya.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Rumus jarak bersifat universal dan dapat digunakan pada semua kuadran (meskipun mengandung nilai koordinat negatif), karena pengkuadratan akan menetralkan nilai negatif tersebut.</div>
+</Quiz>

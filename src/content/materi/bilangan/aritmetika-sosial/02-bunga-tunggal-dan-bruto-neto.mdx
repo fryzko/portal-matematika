@@ -1,0 +1,178 @@
+---
+title: "Bunga Tunggal, Bruto, Neto, dan Tara: Matematika Keuangan Sehari-hari"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Bunga Tunggal dan Konsep Bruto-Neto
+
+Pernahkah kamu menabung di bank? Misalkan kamu menabung uang sebesar Rp1.000.000 dengan iming-iming "bunga 6% per tahun". Berapa total uangmu setelah 1 tahun? Lalu, bagaimana dengan 2 tahun? 
+
+Pertanyaan pentingnya adalah: apakah bunga di tahun kedua dihitung dari uang awalmu yang Rp1.000.000, atau dari uangmu yang sudah ditambahkan bunga tahun pertama? Di sinilah letak perbedaan penting antara **Bunga Tunggal** (yang akan kita pelajari sekarang) dan Bunga Majemuk.
+
+Selain urusan perbankan, aritmetika sosial juga membahas berat barang. Jika kamu membeli sekarung beras seberat 50 kg, apakah kamu benar-benar mendapatkan beras 50 kg? Tentu tidak! Karungnya juga punya berat, bukan? Inilah yang disebut dengan **Bruto, Neto, dan Tara**.
+
+### Yuk, Temukan Sendiri Pola Bunga Tunggal
+
+Coba lengkapi tabel eksplorasi bunga tunggal di bawah ini untuk uang tabungan Rp1.000.000 dengan bunga tunggal 6% per tahun!
+
+| Tahun ke- | Modal Awal | Bunga (6%/tahun) | Saldo Akhir |
+|-----------|-----------|-----------------|-------------|
+| 1         | 1.000.000 | 60.000          | 1.060.000   |
+| 2         | 1.000.000 | ?               | ?           |
+| 3         | 1.000.000 | ?               | ?           |
+| 5         | 1.000.000 | ?               | ?           |
+
+Pola apa yang kamu temukan?
+Pada **bunga tunggal**, persentase bunga selalu dihitung dari **modal awal**, sehingga nominal bunga yang didapat setiap tahun selalu SAMA (tetap)! Jika setahun dapat Rp60.000, maka tahun kedua juga bertambah Rp60.000, dan seterusnya.
+
+### Teori & Definisi Formal
+
+**1. Bunga Tunggal**
+Bunga tunggal adalah bunga yang diperoleh (atau dibayarkan) hanya berdasarkan modal awal saja.
+Rumus mencari besar Bunga ($B$):
+$$\text{Bunga} = \frac{p \times r \times t}{100}$$
+Keterangan:
+- $p$ = *Principal* (Modal Awal / Tabungan Awal)
+- $r$ = *Rate* (Persentase bunga per periode)
+- $t$ = *Time* (Waktu atau lamanya menabung)
+
+$$\text{Saldo Akhir} = \text{Modal Awal} + \text{Bunga}$$
+
+**2. Bruto, Neto, dan Tara**
+- **Bruto**: Berat kotor, yaitu berat barang ditambah berat kemasannya.
+- **Neto**: Berat bersih, yaitu berat barangnya saja (tanpa kemasan).
+- **Tara**: Berat kemasan (pembungkus).
+
+Rumus hubungannya:
+$$\text{Bruto} = \text{Neto} + \text{Tara}$$
+$$\text{Neto} = \text{Bruto} - \text{Tara}$$
+$$\text{Tara} = \text{Bruto} - \text{Neto}$$
+$$\text{Persentase Tara} = \frac{\text{Tara}}{\text{Bruto}} \times 100\%$$
+
+### Visualisasi: Bruto, Neto, dan Tara
+
+Berikut adalah gambaran sederhana hubungan ketiganya menggunakan contoh sekotak biskuit:
+
+```text
+┌─────────────────────────────┐
+│  BRUTO: 500 gram            │ (Total keseluruhan kotak + isi)
+│  ┌───────────────────────┐  │
+│  │  NETO: 450 gram       │  │
+│  │  (Isi Biskuit Saja)   │  │
+│  └───────────────────────┘  │
+│  TARA: 50 gram (Kemasan)    │ (Hanya kotaknya saja)
+└─────────────────────────────┘
+```
+
+### Contoh Soal & Pembahasan
+
+#### Level 1: Menghitung Bunga Tunggal Tahunan
+
+Andi menabung di bank sebesar Rp2.000.000 dengan suku bunga tunggal 8% per tahun. Berapa total tabungan Andi setelah 3 tahun?
+
+**Pembahasan:**
+Modal ($p$) = Rp2.000.000
+Bunga per tahun ($r$) = 8%
+Waktu ($t$) = 3 tahun
+
+$\text{Bunga} = \frac{2.000.000 \times 8 \times 3}{100} = \text{Rp480.000}$
+$\text{Saldo Akhir} = 2.000.000 + 480.000 = \text{Rp2.480.000}$
+
+#### Level 2: Menghitung Bunga Tunggal Bulanan
+
+Budi meminjam uang di koperasi sebesar Rp3.000.000 dengan bunga tunggal 12% per tahun. Budi akan melunasi pinjamannya dalam waktu 8 bulan. Berapakah bunga yang harus dibayar Budi?
+
+**Pembahasan:**
+Modal ($p$) = Rp3.000.000
+Bunga per tahun = 12%. Waktu dalam tahun = $\frac{8}{12}$ tahun.
+
+$\text{Bunga} = 3.000.000 \times \frac{12}{100} \times \frac{8}{12} = \text{Rp240.000}$
+
+#### Level 3: Menghitung Neto dari Persentase Tara
+
+Sebuah karung gula memiliki berat Bruto 50 kg. Jika persentase Taranya adalah 2%, berapakah berat Neto gula tersebut?
+
+**Pembahasan:**
+Bruto = 50 kg
+Tara = $2\% \times 50 \text{ kg} = \frac{2}{100} \times 50 = 1 \text{ kg}$
+Neto = $\text{Bruto} - \text{Tara} = 50 - 1 = \text{49 kg}$
+
+#### Level 4: Aplikasi Harga Bersih (Neto)
+
+Pak Tono membeli 2 karung kedelai dengan Bruto masing-masing 100 kg dan Tara 1%. Harga kedelai adalah Rp8.000 per kg (berdasarkan berat Neto). Berapa yang harus dibayar Pak Tono?
+
+**Pembahasan:**
+Total Bruto 2 karung = $2 \times 100 \text{ kg} = 200 \text{ kg}$
+Total Tara = $1\% \times 200 \text{ kg} = 2 \text{ kg}$
+Total Neto = $200 - 2 = 198 \text{ kg}$
+Uang yang dibayar = $198 \text{ kg} \times \text{Rp8.000} = \text{Rp1.584.000}$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+1. **Jebakan Periode Bunga**: Bunga tunggal sering dihitung dengan asumsi periode "tahun". Jika menabung selama "bulan", jangan lupa bagi bulannya dengan 12 (contoh: 8 bulan = $\frac{8}{12}$ tahun).
+2. **Tertukar Bruto dan Neto**: Siswa sering lupa bahwa **Neto selalu LEBIH KECIL dari Bruto** karena telah dikurangi tara kemasan.
+3. **Persentase Tara**: Persentase Tara SELALU dihitung dari Bruto, bukan dari Neto.
+
+### Koneksi Dunia Nyata
+
+- **Perbankan & Koperasi**: Menghitung tabungan dan deposito sering menggunakan konsep bunga. Pinjaman di koperasi dan kredit (seperti cicilan motor/KPR) juga menggunakan sistem bunga (meski kebanyakan perbankan riil menggunakan bunga majemuk atau anuitas).
+- **Perdagangan Grosir & Retail**: Pedagang sembako yang membeli karungan bawang atau gula sangat peduli dengan Neto. Mereka hanya bisa menjual isinya (Neto), sehingga tara karung harus dikurangi dari perhitungan laba.
+- **Label Makanan di Minimarket**: Coba kamu cek bungkus Indomie atau snack favoritmu! Pasti ada tulisan "Berat Bersih" atau "Netto". Itu menunjukkan berat makanan di dalamnya tanpa menghitung berat plastik pembungkusnya.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sinta menabung Rp500.000 dengan bunga tunggal 10% per tahun. Berapa total bunga yang ia peroleh setelah 4 tahun?</div>
+  <div slot="option-a">Rp50.000</div>
+  <div slot="option-b">Rp100.000</div>
+  <div slot="option-c">Rp200.000</div>
+  <div slot="option-d">Rp700.000</div>
+  <div slot="explanation">**Pembahasan:** Bunga = $\frac{500.000 \times 10 \times 4}{100} = \text{Rp200.000}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Rudi meminjam uang sebesar Rp4.000.000 dengan bunga tunggal 18% per tahun. Jika ia ingin melunasi dalam 6 bulan, berapa total uang yang harus dikembalikan?</div>
+  <div slot="option-a">Rp4.180.000</div>
+  <div slot="option-b">Rp4.360.000</div>
+  <div slot="option-c">Rp4.720.000</div>
+  <div slot="option-d">Rp4.036.000</div>
+  <div slot="explanation">**Pembahasan:** Bunga = $4.000.000 \times \frac{18}{100} \times \frac{6}{12} = \text{Rp360.000}$. Total kembali = $4.000.000 + 360.000 = \text{Rp4.360.000}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sekarung beras memiliki Bruto 25 kg dan Tara 0,5 kg. Berapakah Neto beras tersebut?</div>
+  <div slot="option-a">24,5 kg</div>
+  <div slot="option-b">25,5 kg</div>
+  <div slot="option-c">25 kg</div>
+  <div slot="option-d">24 kg</div>
+  <div slot="explanation">**Pembahasan:** Neto = Bruto - Tara = $25 - 0,5 = 24,5$ kg.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Sebotol minyak goreng memiliki Bruto 1.200 gram. Jika berat botol kosongnya (Tara) adalah 60 gram, berapakah persentase Tara dari botol minyak goreng tersebut?</div>
+  <div slot="option-a">2%</div>
+  <div slot="option-b">4%</div>
+  <div slot="option-c">10%</div>
+  <div slot="option-d">5%</div>
+  <div slot="explanation">**Pembahasan:** Persentase Tara = $\frac{\text{Tara}}{\text{Bruto}} \times 100\% = \frac{60}{1.200} \times 100\% = \frac{1}{20} \times 100\% = 5\%$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai Bunga Tunggal dan Bruto-Neto?</div>
+  <div slot="option-a">Pada sistem bunga tunggal, nominal bunga yang diperoleh tiap tahun selalu sama jika suku bunga dan modal awal tidak berubah.</div>
+  <div slot="option-b">Bruto selalu lebih besar atau sama dengan Neto.</div>
+  <div slot="option-c">Tara dihitung dengan cara mengurangkan Neto dari Bruto, dan persentase Tara selalu dihitung dari nilai Neto.</div>
+  <div slot="option-d">Bunga dari meminjam uang dengan jangka waktu 6 bulan setara dengan setengah dari bunga tahunan (dengan persen bunga yang sama).</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Persentase Tara **TIDAK** dihitung dari nilai Neto, melainkan **selalu dihitung dari nilai Bruto**.</div>
+</Quiz>

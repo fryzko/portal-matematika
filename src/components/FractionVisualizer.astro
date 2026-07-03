@@ -1,0 +1,344 @@
+---
+// src/components/FractionVisualizer.astro
+---
+
+<fraction-visualizer class="fraction-widget">
+  <div class="widget-header">
+    <h3>Eksplorasi Pecahan</h3>
+    <p>Atur pembilang (atas) dan penyebut (bawah) untuk membandingkan dua pecahan secara visual.</p>
+  </div>
+
+  <div class="visualizer-container">
+    <!-- Fraction A -->
+    <div class="fraction-panel">
+      <h4>Pecahan A</h4>
+      <div class="controls">
+        <div class="control-group">
+          <button data-action="sub-num-a" class="btn btn-sub">-</button>
+          <span class="value-display" id="num-a">1</span>
+          <button data-action="add-num-a" class="btn btn-add">+</button>
+        </div>
+        <div class="fraction-line"></div>
+        <div class="control-group">
+          <button data-action="sub-den-a" class="btn btn-sub">-</button>
+          <span class="value-display" id="den-a">2</span>
+          <button data-action="add-den-a" class="btn btn-add">+</button>
+        </div>
+      </div>
+      <div class="bar-container">
+        <div class="fraction-bar" id="bar-a"></div>
+      </div>
+      <div class="decimal-value" id="dec-a">0.500</div>
+    </div>
+
+    <!-- Comparison Indicator -->
+    <div class="comparison-indicator">
+      <div class="symbol-circle" id="compare-symbol">=</div>
+      <div class="symbol-text" id="compare-text">Setara</div>
+    </div>
+
+    <!-- Fraction B -->
+    <div class="fraction-panel">
+      <h4>Pecahan B</h4>
+      <div class="controls">
+        <div class="control-group">
+          <button data-action="sub-num-b" class="btn btn-sub">-</button>
+          <span class="value-display" id="num-b">2</span>
+          <button data-action="add-num-b" class="btn btn-add">+</button>
+        </div>
+        <div class="fraction-line"></div>
+        <div class="control-group">
+          <button data-action="sub-den-b" class="btn btn-sub">-</button>
+          <span class="value-display" id="den-b">4</span>
+          <button data-action="add-den-b" class="btn btn-add">+</button>
+        </div>
+      </div>
+      <div class="bar-container">
+        <div class="fraction-bar" id="bar-b"></div>
+      </div>
+      <div class="decimal-value" id="dec-b">0.500</div>
+    </div>
+  </div>
+
+  <div class="calc-panel" style="margin-top: 2rem; background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0;">
+    <h4 style="margin-top: 0; color: #166534; margin-bottom: 1rem;">Kalkulasi Real-time</h4>
+    <ul style="list-style: none; padding: 0; margin: 0; font-family: monospace; font-size: 1.1rem; color: #374151; line-height: 1.6;">
+      <li>Pecahan A: <strong id="calc-frac-a">1/2</strong> = <strong id="calc-dec-a">0.500</strong></li>
+      <li>Pecahan B: <strong id="calc-frac-b">2/4</strong> = <strong id="calc-dec-b">0.500</strong></li>
+      <li>Selisih: |A - B| = <strong id="calc-diff">0.000</strong></li>
+      <li>Perbandingan: A <strong id="calc-comp">=</strong> B</li>
+    </ul>
+  </div>
+</fraction-visualizer>
+
+<script>
+// @ts-nocheck
+  class FractionVisualizer extends HTMLElement {
+    constructor() {
+      super();
+      this.state = {
+        numA: 1, denA: 2,
+        numB: 2, denB: 4
+      };
+
+      // Elements
+      this.els = {
+        numA: this.querySelector('#num-a'),
+        denA: this.querySelector('#den-a'),
+        barA: this.querySelector('#bar-a'),
+        decA: this.querySelector('#dec-a'),
+        
+        numB: this.querySelector('#num-b'),
+        denB: this.querySelector('#den-b'),
+        barB: this.querySelector('#bar-b'),
+        decB: this.querySelector('#dec-b'),
+        
+        compareSymbol: this.querySelector('#compare-symbol'),
+        compareText: this.querySelector('#compare-text'),
+
+        calcFracA: this.querySelector('#calc-frac-a'),
+        calcDecA: this.querySelector('#calc-dec-a'),
+        calcFracB: this.querySelector('#calc-frac-b'),
+        calcDecB: this.querySelector('#calc-dec-b'),
+        calcDiff: this.querySelector('#calc-diff'),
+        calcComp: this.querySelector('#calc-comp')
+      };
+
+      // Bind events
+      this.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const action = e.target.getAttribute('data-action');
+          this.handleAction(action);
+        });
+      });
+
+      this.updateDisplay();
+    }
+
+    handleAction(action) {
+      switch(action) {
+        case 'add-num-a': if(this.state.numA < this.state.denA) this.state.numA++; break;
+        case 'sub-num-a': if(this.state.numA > 0) this.state.numA--; break;
+        case 'add-den-a': if(this.state.denA < 12) this.state.denA++; break;
+        case 'sub-den-a': 
+          if(this.state.denA > 1) {
+            this.state.denA--;
+            if(this.state.numA > this.state.denA) this.state.numA = this.state.denA;
+          }
+          break;
+
+        case 'add-num-b': if(this.state.numB < this.state.denB) this.state.numB++; break;
+        case 'sub-num-b': if(this.state.numB > 0) this.state.numB--; break;
+        case 'add-den-b': if(this.state.denB < 12) this.state.denB++; break;
+        case 'sub-den-b': 
+          if(this.state.denB > 1) {
+            this.state.denB--;
+            if(this.state.numB > this.state.denB) this.state.numB = this.state.denB;
+          }
+          break;
+      }
+      this.updateDisplay();
+    }
+
+    renderBar(container, num, den, colorClass) {
+      container.innerHTML = '';
+      for(let i = 0; i < den; i++) {
+        const segment = document.createElement('div');
+        segment.className = `fraction-segment ${i < num ? colorClass : ''}`;
+        container.appendChild(segment);
+      }
+    }
+
+    updateDisplay() {
+      // Update text values
+      this.els.numA.textContent = this.state.numA;
+      this.els.denA.textContent = this.state.denA;
+      this.els.numB.textContent = this.state.numB;
+      this.els.denB.textContent = this.state.denB;
+
+      // Update bars
+      this.renderBar(this.els.barA, this.state.numA, this.state.denA, 'filled-a');
+      this.renderBar(this.els.barB, this.state.numB, this.state.denB, 'filled-b');
+
+      // Update decimals
+      const valA = this.state.numA / this.state.denA;
+      const valB = this.state.numB / this.state.denB;
+      this.els.decA.textContent = valA.toFixed(3);
+      this.els.decB.textContent = valB.toFixed(3);
+
+      // Compare
+      const EPSILON = 0.00001;
+      let compSymbol = '=';
+      if (Math.abs(valA - valB) < EPSILON) {
+        this.els.compareSymbol.textContent = '=';
+        this.els.compareSymbol.className = 'symbol-circle symbol-equal';
+        this.els.compareText.textContent = 'Setara';
+        compSymbol = '=';
+      } else if (valA > valB) {
+        this.els.compareSymbol.textContent = '>';
+        this.els.compareSymbol.className = 'symbol-circle symbol-greater';
+        this.els.compareText.textContent = 'A Lebih Besar';
+        compSymbol = '>';
+      } else {
+        this.els.compareSymbol.textContent = '<';
+        this.els.compareSymbol.className = 'symbol-circle symbol-less';
+        this.els.compareText.textContent = 'A Lebih Kecil';
+        compSymbol = '<';
+      }
+
+      // Update Calc Panel
+      this.els.calcFracA.textContent = `${this.state.numA}/${this.state.denA}`;
+      this.els.calcDecA.textContent = valA.toFixed(3);
+      this.els.calcFracB.textContent = `${this.state.numB}/${this.state.denB}`;
+      this.els.calcDecB.textContent = valB.toFixed(3);
+      this.els.calcDiff.textContent = Math.abs(valA - valB).toFixed(3);
+      this.els.calcComp.textContent = compSymbol;
+    }
+  }
+
+  customElements.define('fraction-visualizer', FractionVisualizer);
+</script>
+
+<style>
+  .fraction-widget {
+    display: block;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .widget-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .widget-header h3 { margin-top: 0; color: #1e293b; }
+  
+  .visualizer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .fraction-panel {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+  }
+  .fraction-panel h4 { margin-top: 0; color: #475569; margin-bottom: 1rem; }
+  
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .fraction-line {
+    width: 60px;
+    height: 3px;
+    background: #334155;
+    border-radius: 2px;
+  }
+  
+  .value-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 30px;
+    text-align: center;
+    color: #0f172a;
+  }
+  
+  .btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .btn-add { background: #dbeafe; color: #1e3a8a; }
+  .btn-sub { background: #fee2e2; color: #991b1b; }
+  .btn:hover { filter: brightness(0.95); transform: scale(1.05); }
+  .btn:active { transform: scale(0.95); }
+
+  .bar-container {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  .fraction-bar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .fraction-segment {
+    flex: 1;
+    border-right: 1px solid #cbd5e1;
+    transition: background-color 0.3s ease;
+  }
+  .fraction-segment:last-child {
+    border-right: none;
+  }
+  .filled-a { background-color: #3b82f6; }
+  .filled-b { background-color: #f59e0b; }
+  
+  .decimal-value {
+    color: #64748b;
+    font-family: monospace;
+    font-size: 1.1rem;
+  }
+
+  .comparison-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .symbol-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  .symbol-text {
+    font-weight: bold;
+    color: #475569;
+  }
+  .symbol-equal { background-color: #10b981; }
+  .symbol-greater { background-color: #3b82f6; }
+  .symbol-less { background-color: #f59e0b; }
+  
+  @media (max-width: 640px) {
+    .visualizer-container { flex-direction: column; }
+    .comparison-indicator { margin: 1rem 0; }
+  }
+</style>

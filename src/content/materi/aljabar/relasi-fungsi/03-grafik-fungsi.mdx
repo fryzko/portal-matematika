@@ -1,0 +1,188 @@
+---
+title: "Grafik Fungsi: Memvisualisasikan Hubungan di Bidang Kartesius"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+
+### Mari Memahami Grafik Fungsi
+Pernahkah kamu melihat grafik di televisi yang menunjukkan kenaikan kasus suatu penyakit, atau grafik penjualan saham yang naik turun? Deretan garis itu tidak digambar asal-asalan, lho! Garis tersebut terbentuk dari rumus-rumus fungsi. Rumus fungsi matematika dapat diubah wujudnya menjadi sebuah gambar visual yang sangat informatif di atas Bidang Kartesius. Bagaimana cara sebuah "rumus" bisa berubah menjadi sebuah "garis"? Itulah kekuatan luar biasa dari Grafik Fungsi!
+
+### Yuk, Temukan Sendiri Grafik Fungsi
+Mari kita praktik langsung! Kita punya fungsi $f(x) = 2x + 1$. 
+Tugasmu:
+1. Lengkapi tabel nilai di bawah ini untuk mencari pasangan titik $(x, y)$.
+2. Gunakan komponen interaktif Bidang Kartesius di bawah tabel untuk memplot (menandai) titik-titik yang kamu temukan!
+
+| $x$ | $f(x) = 2x + 1$ | Titik $(x, y)$ |
+| :---: | :--- | :---: |
+| -2 | $2(-2) + 1 = -3$ | (-2, -3) |
+| -1 | ? | (-1, ?) |
+|  0 | $2(0) + 1 = 1$ | (0, 1) |
+|  1 | ? | (1, ?) |
+|  2 | $2(2) + 1 = 5$ | (2, 5) |
+
+Coba kamu plot titik-titik tersebut:
+Coba plot titik-titik berikut dan hubungkan dengan garis lurus:
+
+| x  | f(x)=2x+1 | Titik    |
+|----|-----------|----------|
+| -2 | -3        | (-2,-3)  |
+| -1 | -1        | (-1,-1)  |
+| 0  | 1         | (0,1)    |
+| 1  | 3         | (1,3)    |
+| 2  | 5         | (2,5)    |
+
+Semua titik tersebut membentuk garis lurus yang berkesinambungan.
+
+Jika kamu memplotnya dengan benar, semua titik tersebut akan membentuk sebuah garis lurus!
+
+### Teori & Definisi Formal
+**Grafik Fungsi** adalah representasi visual dari seluruh anggota himpunan penyelesaian sebuah fungsi pada koordinat kartesius.
+
+Sumbu Mendatar (Sumbu $x$) bertindak sebagai **Domain** (nilai input).
+Sumbu Tegak (Sumbu $y$ atau $f(x)$) bertindak sebagai **Range/Kodomain** (nilai output).
+
+**Cara Menggambar Grafik Fungsi Linear ($f(x) = ax + b$):**
+1. Buatlah tabel nilai. Tentukan beberapa nilai $x$ sembarang yang mudah dihitung (misalnya -1, 0, 1).
+2. Hitung nilai $y$ atau $f(x)$ untuk setiap $x$.
+3. Tuliskan hasil sebagai pasangan titik koordinat $(x, y)$.
+4. Gambarkan titik-titik tersebut di bidang kartesius.
+5. Hubungkan titik-titik tersebut dengan sebuah garis.
+
+**Uji Garis Vertikal (Vertical Line Test)**
+Jika kamu melihat sebuah grafik/garis dan ingin tahu apakah itu adalah fungsi atau bukan, gunakan tes ini:
+Tarik garis vertikal (lurus dari atas ke bawah) di sembarang tempat. Jika garis vertikalmu memotong grafik di **dua titik atau lebih**, maka kurva itu **BUKAN fungsi**. Jika hanya memotong di satu titik, maka ia adalah fungsi!
+
+### Visualisasi: Grafik Fungsi
+Berikut adalah ilustrasi grafis menggunakan garis dari titik yang kita temukan sebelumnya: $(-2, -3)$, $(0, 1)$, dan $(2, 5)$.
+
+```text
+       y
+       |
+     5 |         * (2, 5)
+       |        /
+     1 |   * (0, 1)
+       |  / 
+-------+--------- x
+      /|
+-3 *   |
+(-2,-3)|
+```
+Perhatikan bahwa grafiknya berbentuk garis lurus dan pasti lolos *Uji Garis Vertikal*. Oleh karena itu, $f(x) = ax + b$ disebut sebagai Fungsi Linear (Garis Lurus).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Pada fungsi $f(x) = 3x - 2$, jika dimasukkan $x = 2$, berapakah nilai koordinat $y$-nya?
+
+**Pembahasan:**
+
+$y = f(2) = 3(2) - 2 = 6 - 2 = 4$. 
+Maka koordinatnya adalah $(2, 4)$.
+
+#### Contoh 1 (Mudah)
+
+Sebuah grafik memotong sumbu-$y$ (sumbu tegak). Nilai $x$ pada titik potong tersebut adalah...
+
+**Pembahasan:**
+
+Setiap titik yang berada persis menempel di sumbu-$y$, tidak bergeser ke kiri maupun ke kanan. Maka nilai absis atau sumbu mendatarnya (sumbu-$x$) selalu bernilai **0**. Titik potongnya ada di $(0, y)$.
+
+#### Contoh 2 (Menengah)
+
+Cari titik potong sumbu-$x$ dan sumbu-$y$ dari fungsi $f(x) = 2x - 6$!
+
+**Pembahasan:**
+
+1) Titik potong sumbu-$y$ (saat $x = 0$):
+$y = 2(0) - 6 = -6 \Rightarrow \text{Titik } (0, -6)$
+2) Titik potong sumbu-$x$ (saat $y = 0$ atau $f(x) = 0$):
+$0 = 2x - 6$
+$6 = 2x \Rightarrow x = 3 \Rightarrow \text{Titik } (3, 0)$
+
+#### Contoh 3 (Menantang)
+
+Tentukan rumus fungsi dari sebuah garis lurus yang melewati titik $(0, 4)$ dan $(2, 10)$!
+
+**Pembahasan:**
+
+Fungsi linear bentuknya $f(x) = ax + b$.
+1) Saat $x=0$, $y=4 \Rightarrow a(0) + b = 4 \Rightarrow b = 4$.
+Jadi, fungsinya sekarang adalah $f(x) = ax + 4$.
+2) Saat $x=2$, $y=10 \Rightarrow a(2) + 4 = 10$
+$2a = 6 \Rightarrow a = 3$.
+Maka rumus fungsinya adalah **$f(x) = 3x + 4$**.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Saat memplot titik koordinat $(x, y)$, siswa sangat sering **membalik arahnya**.
+
+
+Misalnya diberikan titik $(3, 5)$.
+Siswa kadang menarik garis 3 langkah ke atas, dan 5 langkah ke kanan. **INI FATAL!**
+Ingat mantra ini: **"Jalan dulu, baru naik/turun"**.
+Karena $x$ (depan) adalah sumbu mendatar, kamu harus bergeser horizontal (jalan) sejauh 3 langkah. Setelah itu, karena $y$ (belakang) adalah sumbu vertikal, barulah kamu bergerak naik 5 langkah.
+
+### Koneksi Dunia Nyata
+Grafik fungsi dipakai di segala bidang!
+1. **Ekonomi & Bisnis:** Grafik penjualan, untung-rugi, pergerakan nilai tukar mata uang, semua dibaca lewat grafik.
+2. **Kesehatan:** Kurva pertumbuhan tinggi dan berat badan anak menggunakan grafik koordinat untuk melihat ideal atau tidaknya.
+3. **Fisika:** Grafik hubungan antara kecepatan benda ($v$) terhadap waktu tempuh ($t$).
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Jika sebuah titik pada grafik fungsi ditulis sebagai koordinat $(4, 7)$, manakah pernyataan yang benar?</div>
+  <div slot="option-a">Domainnya adalah 7, rangenya adalah 4.</div>
+  <div slot="option-b">Sumbu tegak bernilai 4, sumbu mendatar bernilai 7.</div>
+  <div slot="option-c">Nilai $x = 4$ menghasilkan nilai fungsi $f(x) = 7$.</div>
+  <div slot="option-d">Titik tersebut berada 7 langkah ke kanan dan 4 langkah ke atas.</div>
+  <div slot="explanation">**Pembahasan:** Koordinat $(x, y)$ berarti input/domainnya adalah $x$ (yaitu 4) dan output/rangenya adalah $y$ (yaitu 7). Jadi $f(4) = 7$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Untuk menggambar grafik fungsi $f(x) = 4x - 5$, jika kita mengambil nilai $x = 2$, maka titik koordinat yang harus diplot adalah...</div>
+  <div slot="option-a">$(2, -5)$</div>
+  <div slot="option-b">$(2, 3)$</div>
+  <div slot="option-c">$(2, 8)$</div>
+  <div slot="option-d">$(3, 2)$</div>
+  <div slot="explanation">**Pembahasan:** $y = 4(2) - 5 = 8 - 5 = 3$. Maka koordinatnya adalah $(x, y) = (2, 3)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Titik potong grafik fungsi $f(x) = 5x + 10$ dengan sumbu-$y$ berada pada koordinat...</div>
+  <div slot="option-a">$(0, 10)$</div>
+  <div slot="option-b">$(10, 0)$</div>
+  <div slot="option-c">$(0, -2)$</div>
+  <div slot="option-d">$(-2, 0)$</div>
+  <div slot="explanation">**Pembahasan:** Titik memotong sumbu-$y$ artinya $x = 0$. Maka $y = 5(0) + 10 = 10$. Koordinatnya $(0, 10)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah kurva berbentuk lingkaran digambar pada bidang kartesius. Jika kita melakukan Uji Garis Vertikal, garis tersebut akan memotong lingkaran di dua titik (atas dan bawah). Kesimpulannya adalah...</div>
+  <div slot="option-a">Kurva tersebut adalah grafik fungsi kuadrat.</div>
+  <div slot="option-b">Kurva tersebut merupakan fungsi linear.</div>
+  <div slot="option-c">Kurva tersebut BUKAN merupakan sebuah fungsi.</div>
+  <div slot="option-d">Kurva tersebut pasti sebuah relasi fungsi.</div>
+  <div slot="explanation">**Pembahasan:** Lulus uji fungsi berarti garis vertikal hanya memotong kurva maksimal di 1 titik. Jika memotong di 2 titik, itu berarti ada 1 nilai input $x$ yang memiliki 2 nilai output $y$ yang berbeda. Sehingga BUKAN fungsi.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH tentang koordinat dan grafik?</div>
+  <div slot="option-a">Sumbu horizontal ($x$) memuat anggota daerah asal (domain).</div>
+  <div slot="option-b">Dalam koordinat kartesius $(x, y)$, nilai $y$ adalah patokan untuk bergerak ke kiri atau ke kanan.</div>
+  <div slot="option-c">Fungsi yang memiliki rumus bentuk $ax + b$ grafiknya akan selalu berupa garis lurus.</div>
+  <div slot="option-d">Titik pertemuan sumbu-$x$ dan sumbu-$y$ di tengah disebut titik asal dengan koordinat $(0, 0)$.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Nilai $y$ (sumbu tegak) adalah patokan untuk bergerak naik atau turun. Sedangkan yang mengatur pergerakan ke kiri dan ke kanan adalah sumbu $x$ (mendatar).</div>
+</Quiz>

@@ -1,0 +1,167 @@
+---
+title: "Kesebangunan Bangun Datar: Sama Bentuk, Beda Ukuran"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Kesebangunan Bangun Datar
+Pernahkah kamu mencetak foto untuk dibingkai? Sebuah foto yang dicetak dalam ukuran 4R dan poster berukuran raksasa menampilkan gambar yang sama persis bentuknya, hanya ukurannya saja yang berbeda. Tidak ada wajah yang menjadi lebih gemuk atau lebih panjang; semuanya membesar dengan proporsi yang sempurna. Fenomena "sama bentuk beda ukuran" inilah yang dalam geometri disebut sebagai **Kesebangunan**. Bagaimana matematika mengatur agar pembesaran ini tidak merusak bentuk aslinya?
+
+### Yuk, Temukan Sendiri Kesebangunan Bangun Datar
+Mari kita uji proporsi kesebangunan ini! Diberikan dua segitiga dengan ukuran yang berbeda namun bentuknya tampak serupa (sudut-sudutnya sama besar).
+- Segitiga ABC: $AB = 6$, $BC = 8$, $CA = 10$
+- Segitiga PQR: $PQ = 9$, $QR = 12$, $RP = 15$
+
+Coba hitung rasio (perbandingan) setiap pasang sisi yang bersesuaian:
+- $AB / PQ = 6 / 9 = \dots$
+- $BC / QR = 8 / 12 = \dots$
+- $CA / RP = 10 / 15 = \dots$
+
+Apa yang kamu temukan dari ketiga rasio tersebut? Ya, semuanya menghasilkan nilai yang persis sama, yaitu $\frac{2}{3}$! Nilai inilah yang mengatur kesempurnaan bentuknya.
+
+### Teori & Definisi Formal
+Dua bangun datar dikatakan **sebangun** (disimbolkan dengan $\sim$) jika memenuhi DUA syarat mutlak berikut:
+1. **Sudut-sudut yang bersesuaian sama besar**.
+2. **Sisi-sisi yang bersesuaian memiliki perbandingan (rasio) yang sama**.
+
+Misalnya, jika $\triangle ABC \sim \triangle PQR$, maka berlaku rumus skala/faktor pembesaran:
+$$\frac{AB}{PQ} = \frac{BC}{QR} = \frac{CA}{RP} = k$$
+Di mana $k$ adalah faktor skala. Jika $k > 1$, berarti bangun membesar. Jika $0 < k < 1$, berarti bangun mengecil. Kita bisa menggunakan rumus perbandingan ini untuk mencari panjang sisi yang belum diketahui.
+
+### Visualisasi: Kesebangunan Bangun Datar
+Perhatikan dua persegi panjang sebangun di bawah ini:
+```text
+  A 4cm B            P    6cm    Q
+  +-----+            +-----------+
+3 |     |            |           |
+  |     | 3        x |           | x
+  +-----+            |           |
+  D 4cm C            +-----------+
+                     S    6cm    R
+```
+Persegi panjang ABCD memiliki panjang 4 dan lebar 3.
+Persegi panjang PQRS memiliki panjang 6. Berapakah lebar $x$?
+Karena sebangun, perbandingannya harus sama:
+$\frac{4}{6} = \frac{3}{x} \implies 4x = 18 \implies x = 4,5\text{ cm}$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Apakah dua buah persegi (bujur sangkar) pasti sebangun?
+
+**Pembahasan:**
+
+**Ya, PASTI.** Sudut persegi selalu $90^\circ$ (sama besar), dan sisi-sisinya selalu berbanding lurus, berapa pun ukurannya.
+
+#### Contoh 1 (Mudah)
+
+Segitiga KLM sebangun dengan segitiga XYZ. Jika $KL = 4\text{ cm}$ dan $XY = 12\text{ cm}$, berapakah faktor skalanya?
+
+**Pembahasan:**
+
+Rasio sisi bersesuaian = $\frac{XY}{KL} = \frac{12}{4} = 3$. Faktor skalanya adalah $3$ (membesar 3 kali lipat).
+
+#### Contoh 2 (Menengah)
+
+Diberikan $\triangle ABC \sim \triangle DEF$. Jika $AB = 6\text{ cm}$, $BC = 8\text{ cm}$, dan $DE = 9\text{ cm}$, berapakah panjang sisi $EF$?
+
+**Pembahasan:**
+
+Karena sebangun, rasionya sebanding:
+
+$$\frac{AB}{DE} = \frac{BC}{EF}$$
+
+Substitusikan nilai yang diketahui:
+
+$$\frac{6}{9} = \frac{8}{EF}$$
+
+Kali silang kedua sisi:
+
+$$6 \times EF = 9 \times 8$$
+
+$$6 \times EF = 72$$
+
+$$EF = \frac{72}{6} = 12\text{ cm}$$
+
+#### Contoh 3 (Menantang)
+
+Sebuah foto berukuran $3\text{ cm} \times 4\text{ cm}$ ditempel pada selembar karton. Di sebelah kiri, kanan, dan atas foto masih terdapat sisa karton selebar $3\text{ cm}$. Jika foto dan karton sebangun, berapakah lebar sisa karton di bagian bawah foto?
+
+**Pembahasan:**
+
+- Ukuran foto: Lebar $= 3$, Tinggi $= 4$.
+- Lebar karton $= 3 + (\text{kiri } 3) + (\text{kanan } 3) = 9\text{ cm}$.
+- Tinggi karton $= 4 + (\text{atas } 3) + (\text{bawah } x) = 7 + x\text{ cm}$.
+- Karena sebangun: $\frac{\text{Lebar Foto}}{\text{Lebar Karton}} = \frac{\text{Tinggi Foto}}{\text{Tinggi Karton}}$
+- $\frac{3}{9} = \frac{4}{7+x}$
+- $\frac{1}{3} = \frac{4}{7+x}$
+- Kali silang: $1 \times (7+x) = 3 \times 4 \implies 7+x = 12 \implies x = 5\text{ cm}$.
+Jadi sisa karton di bawah adalah $5\text{ cm}$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Salah Memasangkan Sisi Bersesuaian**: Siswa sering salah memasangkan sisi berdasarkan "posisi visual" (misalnya gambar yang satu diputar). Pemasangan sisi wajib berdasarkan urutan penyebutan nama titik sudut! Jika dinyatakan $\triangle ABC \sim \triangle PQR$, maka pasangannya pasti $AB$ dengan $PQ$, $BC$ dengan $QR$, dan $CA$ dengan $RP$, BUKAN berdasarkan gambar.
+
+
+
+### Koneksi Dunia Nyata
+- **Maket Arsitektur**: Miniatur gedung (maket) wajib sebangun persis dengan bangunan aslinya agar struktur fondasinya valid.
+- **Peta dan Denah**: Peta dibuat dengan skala (misal 1:1.000.000) yang merupakan aplikasi murni kesebangunan untuk merepresentasikan jarak kota yang sangat luas ke dalam secarik kertas.
+- **Pembesaran Digital**: Zoom gambar pada layar HP atau komputer menggunakan algoritma piksel yang mempertahankan rasio kesebangunan agar gambar tidak 'gepeng'.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika $\triangle ABC \sim \triangle KLM$, maka pernyataan perbandingan sisi yang benar adalah...</div>
+  <div slot="option-a">$\frac{AB}{KL} = \frac{AC}{LM}$</div>
+  <div slot="option-b">$\frac{AB}{KL} = \frac{BC}{LM}$</div>
+  <div slot="option-c">$\frac{AB}{KM} = \frac{BC}{LM}$</div>
+  <div slot="option-d">$\frac{BC}{KM} = \frac{AC}{LM}$</div>
+  <div slot="explanation">**Pembahasan:** Ikuti urutan huruf. $AB$ berpasangan dengan $KL$. $BC$ dengan $LM$. $AC$ dengan $KM$. Jawaban B benar.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah tiang bendera setinggi $6\text{ m}$ memiliki bayangan sejauh $8\text{ m}$. Pada saat yang sama, bayangan sebuah pohon adalah $12\text{ m}$. Berapakah tinggi pohon tersebut?</div>
+  <div slot="option-a">$8\text{ m}$</div>
+  <div slot="option-b">$10\text{ m}$</div>
+  <div slot="option-c">$9\text{ m}$</div>
+  <div slot="option-d">$16\text{ m}$</div>
+  <div slot="explanation">**Pembahasan:** Gunakan perbandingan kesebangunan segitiga. $\frac{\text{Tinggi Tiang}}{\text{Bayangan Tiang}} = \frac{\text{Tinggi Pohon}}{\text{Bayangan Pohon}}$. $\frac{6}{8} = \frac{t}{12} \implies 8t = 72 \implies t = 9\text{ m}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Dua persegi panjang dikatakan sebangun jika...</div>
+  <div slot="option-a">Perbandingan panjang dan lebarnya sama</div>
+  <div slot="option-b">Kelilingnya sama</div>
+  <div slot="option-c">Luasnya sama</div>
+  <div slot="option-d">Diagonalnya sama</div>
+  <div slot="explanation">**Pembahasan:** Syarat kesebangunan adalah rasio sisi-sisi yang bersesuaian sama, yaitu perbandingan panjang dan lebar antar bangun.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">$\triangle PQR \sim \triangle STU$. Jika $PQ = 10\text{ cm}$, $ST = 5\text{ cm}$, dan $QR = 8\text{ cm}$, panjang $TU$ adalah...</div>
+  <div slot="option-a">$2\text{ cm}$</div>
+  <div slot="option-b">$3\text{ cm}$</div>
+  <div slot="option-c">$4\text{ cm}$</div>
+  <div slot="option-d">$16\text{ cm}$</div>
+  <div slot="explanation">**Pembahasan:** $\frac{PQ}{ST} = \frac{QR}{TU} \implies \frac{10}{5} = \frac{8}{TU} \implies 2 = \frac{8}{TU} \implies TU = 4\text{ cm}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai bangun datar yang sebangun?</div>
+  <div slot="option-a">Dua segitiga sama sisi pasti sebangun.</div>
+  <div slot="option-b">Sudut-sudut yang bersesuaian wajib sama besar.</div>
+  <div slot="option-c">Faktor skala digunakan untuk menentukan rasio pembesaran.</div>
+  <div slot="option-d">Dua belah ketupat pasti selalu sebangun.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah mutlak. Meskipun semua sisi belah ketupat sama panjang, sudut-sudutnya bisa berbeda derajat, sehingga belum tentu sebangun.</div>
+</Quiz>

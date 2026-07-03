@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Pilih Kelas - Ruang Matematika SMP">
+  <div class="kelas-header">
+    <h1>Pilih Kelas</h1>
+    <p>Pilih kelas sesuai tingkatanmu untuk mengakses materi yang relevan</p>
+  </div>
+
+  <div class="kelas-grid">
+    <a href="/kelas/vii" class="kelas-card kelas-vii">
+      <div class="kelas-badge">Kelas</div>
+      <div class="kelas-nomor">VII</div>
+      <div class="kelas-info">
+        <p>Bilangan, Aljabar Dasar, Geometri Dasar</p>
+        <span class="kelas-count">20+ Materi</span>
+      </div>
+      <div class="kelas-arrow">→</div>
+    </a>
+
+    <a href="/kelas/viii" class="kelas-card kelas-viii">
+      <div class="kelas-badge">Kelas</div>
+      <div class="kelas-nomor">VIII</div>
+      <div class="kelas-info">
+        <p>Aljabar Lanjutan, Geometri, Statistika</p>
+        <span class="kelas-count">22+ Materi</span>
+      </div>
+      <div class="kelas-arrow">→</div>
+    </a>
+
+    <a href="/kelas/ix" class="kelas-card kelas-ix">
+      <div class="kelas-badge">Kelas</div>
+      <div class="kelas-nomor">IX</div>
+      <div class="kelas-info">
+        <p>Transformasi, Statistika Lanjutan, Peluang</p>
+        <span class="kelas-count">11+ Materi</span>
+      </div>
+      <div class="kelas-arrow">→</div>
+    </a>
+  </div>
+
+  <style>
+    .kelas-header {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .kelas-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+    }
+    .kelas-header p { color: #64748b; font-size: 1.1rem; }
+    .kelas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    @media (max-width: 768px) { .kelas-grid { grid-template-columns: 1fr; } }
+    .kelas-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .kelas-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .kelas-vii { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; }
+    .kelas-viii { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; }
+    .kelas-ix { background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: white; }
+    .kelas-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+    .kelas-nomor {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+    .kelas-info h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .kelas-info p {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .kelas-count {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .kelas-arrow {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+  </style>
+</Layout>

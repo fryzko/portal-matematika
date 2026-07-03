@@ -1,0 +1,9 @@
+function i(){const e=r(window.location.pathname);document.querySelectorAll(".navigation-list a[href]").forEach(a=>{const n=a.getAttribute("href");if(!n||n==="#")return;r(c(n))===e&&a.setAttribute("aria-current","page")})}function r(e){return e.replace(/\\/g,"/").replace(/\/index\.html$/i,"/").replace(/\.html$/i,"").replace(/\/+$/,"").toLowerCase()}function c(e){try{return new URL(e,window.location.href).pathname}catch{return e}}function o(){document.querySelectorAll(".breadcrumb-list").forEach(t=>{const a=t.querySelector("li:last-child span");a&&!a.hasAttribute("aria-current")&&a.setAttribute("aria-current","page")})}function u(){const e=document.getElementById("search");e&&(typeof PagefindUI<"u"?new PagefindUI({element:"#search",showSubResults:!0,translations:{placeholder:"Ketik kata kunci pencarian...",clear_search:"Bersihkan",load_more:"Muat lebih banyak",search_label:"Pencarian",filters_label:"Filter",zero_results:"Tidak ada materi yang cocok dengan '[SEARCH_TERM]'",many_results:"Ditemukan [COUNT] hasil untuk '[SEARCH_TERM]'",one_result:"Ditemukan [COUNT] hasil untuk '[SEARCH_TERM]'",alt_search:"Tidak ada materi yang cocok dengan '[SEARCH_TERM]'. Menampilkan hasil untuk '[DIFFERENT_TERM]'",search_suggestion:"Tidak ada materi yang cocok dengan '[SEARCH_TERM]'. Coba pencarian berikut:",searching:"Mencari..."}}):e.innerHTML=`
+            <div style="padding: 2rem; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px;">
+              <p style="margin:0; color: #856404;">
+                <strong>Pencarian sedang dalam mode Development.</strong><br>
+                Untuk menggunakan fitur pencarian Pagefind, Anda harus melakukan *build* proyek terlebih dahulu dengan perintah:
+                <br><br><code>npm run build && npm run preview</code>
+              </p>
+            </div>
+        `)}document.addEventListener("DOMContentLoaded",()=>{i(),o(),u()});

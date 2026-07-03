@@ -1,0 +1,156 @@
+---
+title: "Mengenal Bilangan Bulat: Suhu, Utang, dan Garis Bilangan"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import NumberLineInteractive from '../../../../components/NumberLineInteractive.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Mengenal Bilangan Bulat
+Pernahkah kamu masuk ke dalam *freezer* raksasa di supermarket? Jika kamu melihat termometernya, kadang angka yang tertera bukan $5^\circ\text{C}$ atau $0^\circ\text{C}$, melainkan $-5^\circ\text{C}$. Apa artinya "minus lima"? Apakah suhu bisa lebih rendah dari nol, padahal nol artinya 'tidak ada suhu'?
+
+Atau bayangkan ini: kamu meminjam uang Rp10.000 dari temanmu untuk jajan di kantin. Berapa uangmu sekarang? Kamu mungkin merasa punya Rp10.000, tapi secara matematis uangmu adalah **minus Rp10.000**, karena uang itu harus dikembalikan! Bagaimana matematika menggambarkan hal-hal yang "kurang dari nol" ini?
+
+### Yuk, Temukan Sendiri Mengenal Bilangan Bulat
+Mari kita bermain dengan mesin waktu yang berjalan mundur. Coba jalankan simulasi garis bilangan di bawah ini. Atur Angka A menjadi `5`, Operasinya `Dikurang (-)`, dan Angka B menjadi `8`. 
+Apa yang terjadi jika kamu melompat mundur lebih banyak daripada langkah maju yang kamu punya? Ke area sebelah mana panah tersebut mendarat?
+
+<NumberLineInteractive />
+
+### Teori & Definisi Formal
+Dalam matematika, Himpunan Bilangan Bulat (dilambangkan dengan $\mathbb{Z}$ dari bahasa Jerman *Zahlen* yang berarti bilangan) adalah kumpulan bilangan yang utuh (tidak pecah). Bilangan bulat terdiri dari tiga bagian utama:
+
+1. **Bilangan Bulat Positif**: Bilangan yang nilainya lebih besar dari nol.
+   $$\{1, 2, 3, 4, 5, \dots\}$$
+2. **Nol ($0$)**: Bilangan netral yang menjadi batas pemisah.
+3. **Bilangan Bulat Negatif**: Bilangan yang nilainya lebih kecil dari nol, selalu ditulis dengan tanda minus ($-$).
+   $$\{-1, -2, -3, -4, -5, \dots\}$$
+
+Bilangan ini sangat penting untuk menunjukkan dua arah yang berlawanan, seperti: Untung vs Rugi, Naik vs Turun, Kanan vs Kiri.
+
+### Visualisasi: Mengenal Bilangan Bulat
+Cara terbaik melihat bilangan bulat adalah menggunakan **Garis Bilangan**.
+
+```text
+  Daerah Negatif (< 0)              Nol               Daerah Positif (> 0)
+<---------------|----|----|----|-----|-----|-----|----|----|--------------->
+               -4   -3   -2   -1     0     1     2    3    4
+```
+
+**Hukum Mutlak Garis Bilangan:**
+- Semakin bergerak ke **KANAN**, nilainya selalu semakin **BESAR**.
+- Semakin bergerak ke **KIRI**, nilainya selalu semakin **KECIL**.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Nyatakan situasi berikut dengan bilangan bulat: "Menyelam sedalam 15 meter di bawah permukaan laut."
+
+**Pembahasan:**
+
+Karena kedalamannya berada di *bawah* permukaan laut (di bawah nol), maka nilainya negatif. Jawabannya adalah **$-15$**.
+
+#### Contoh 1 (Mudah)
+Kelompokkan bilangan berikut: $-7, 4, 0, -2, 8, -5$ menjadi himpunan bilangan positif dan negatif!
+
+**Pembahasan:**
+
+- **Positif:** $4, 8$ (Nilai di atas nol)
+- **Negatif:** $-7, -2, -5$ (Memiliki tanda minus)
+- *Catatan:* $0$ tidak masuk ke mana-mana karena ia netral.
+
+#### Contoh 2 (Menengah)
+Bandingkan dan berikan tanda $>$ (lebih besar) atau $<$ (lebih kecil) pada pasangan bilangan: $-6$ dan $-2$.
+
+**Pembahasan:**
+
+Bayangkan garis bilangan. Angka $-6$ letaknya jauh di sebelah kiri $-2$. Mengingat hukum bahwa "semakin ke kiri semakin kecil", maka $-6$ lebih kecil dari $-2$.
+Jawaban: **$-6 < -2$**.
+
+#### Contoh 3 (Menantang)
+Suhu di kota Moskow saat pagi hari adalah $-4^\circ\text{C}$. Pada siang hari, suhu tersebut naik $10^\circ\text{C}$. Berapa suhu kota Moskow pada siang hari?
+
+**Pembahasan:**
+
+- Suhu awal: $-4$ (titik awal di garis bilangan)
+- Naik: artinya ditambah ($+$) atau bergerak ke kanan sejauh $10$ langkah.
+- Operasi: $-4 + 10$
+- Jika dari $-4$ kita melangkah ke kanan 4 langkah, kita sampai di angka $0$. Masih tersisa $6$ langkah lagi, yang akan membawa kita ke angka $6$.
+Jawaban: Suhu siang hari adalah **$6^\circ\text{C}$**.
+
+<AlertKesalahan>
+
+- **Salah Kaprah "Angka Besar"**: Banyak siswa mengira $-10$ lebih besar dari $-2$ karena angka $10$ terlihat lebih besar dari $2$. **INI SALAH!**
+- **Logika Benar**: Dalam dunia negatif, semakin besar angkanya, semakin dalam/kecil nilainya (utang 10 juta lebih buruk daripada utang 2 juta). Jadi, $-10 < -2$.
+
+</AlertKesalahan>
+
+### Koneksi Dunia Nyata
+Konsep bilangan bulat ini setiap hari digunakan oleh:
+1. **Analis Saham/Trading**: Untuk melihat apakah portofolio sedang untung (warna hijau, positif) atau rugi/anjlok (warna merah, negatif).
+2. **Ahli Meteorologi**: Untuk mengukur dan melaporkan suhu udara di negara-negara bersalju.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="D">
+  <div slot="question">
+    1. Kapal selam berada 50 meter di bawah laut, lalu naik 20 meter. Jika dinyatakan dalam bilangan bulat, posisi kapal selam saat ini adalah...
+  </div>
+  <div slot="option-a">$-70$</div>
+  <div slot="option-b">$30$</div>
+  <div slot="option-c">$-50$</div>
+  <div slot="option-d">$-30$</div>
+  <div slot="explanation">**Pembahasan:** Awal = $-50$. Naik artinya ditambah ($+20$). Maka $-50 + 20 = -30$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    2. Urutan bilangan berikut dari yang TERKECIL hingga terbesar adalah: $-3, 0, -8, 2, -1$
+  </div>
+  <div slot="option-a">$0, -1, 2, -3, -8$</div>
+  <div slot="option-b">$-1, -3, -8, 0, 2$</div>
+  <div slot="option-c">$-8, -3, -1, 0, 2$</div>
+  <div slot="option-d">$2, 0, -1, -3, -8$</div>
+  <div slot="explanation">**Pembahasan:** Terkecil berarti yang letaknya paling kiri di garis bilangan (angka negatif terbesar). Urutannya: $-8, -3, -1, 0, 2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    3. Manakah pernyataan di bawah ini yang SALAH?
+  </div>
+  <div slot="option-a">$-5 < -2$</div>
+  <div slot="option-b">$-1 > 0$</div>
+  <div slot="option-c">$10 > -100$</div>
+  <div slot="option-d">$-4 < 3$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    A benar karena $-5$ di kiri $-2$. C benar karena positif pasti lebih besar dari negatif. D benar karena positif pasti lebih besar.
+    **B SALAH** karena $-1$ terletak di sebelah kiri $0$, seharusnya $-1 < 0$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    4. Suhu udara di dalam lemari es adalah $-5^\circ\text{C}$. Jika suhu diturunkan lagi $3^\circ\text{C}$, suhunya sekarang adalah...
+  </div>
+  <div slot="option-a">$-8^\circ\text{C}$</div>
+  <div slot="option-b">$-2^\circ\text{C}$</div>
+  <div slot="option-c">$2^\circ\text{C}$</div>
+  <div slot="option-d">$8^\circ\text{C}$</div>
+  <div slot="explanation">**Pembahasan:** Diturunkan berarti bergerak ke kiri (dikurang). Dari $-5$ mundur 3 langkah ke kiri menjadi $-8$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    5. Jika $x$ adalah bilangan bulat negatif terbesar dan $y$ adalah bilangan bulat positif terkecil, berapakah selisih $y$ dan $x$?
+  </div>
+  <div slot="option-a">$0$</div>
+  <div slot="option-b">$1$</div>
+  <div slot="option-c">$2$</div>
+  <div slot="option-d">$-2$</div>
+  <div slot="explanation">**Pembahasan:** Bilangan bulat negatif terbesar (paling mendekati nol) adalah $x = -1$.
+    Bilangan bulat positif terkecil adalah $y = 1$.
+    Selisih $y$ dan $x = y - x = 1 - (-1) = 1 + 1 = 2$.</div>
+</Quiz>

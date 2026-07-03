@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Pengukuran">
+  <div class="container mx-auto px-4 py-16 max-w-3xl text-center">
+    <div class="elemen-header" style="justify-content: center; flex-direction: column; padding: 4rem 2rem;">
+      <svg viewBox="0 0 100 100" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-4">
+        <rect x="10" y="30" width="80" height="20" rx="2" stroke="white" stroke-width="4"/>
+        <line x1="20" y1="30" x2="20" y2="40" stroke="white" stroke-width="2"/>
+        <line x1="40" y1="30" x2="40" y2="40" stroke="white" stroke-width="2"/>
+        <line x1="60" y1="30" x2="60" y2="40" stroke="white" stroke-width="2"/>
+        <line x1="80" y1="30" x2="80" y2="40" stroke="white" stroke-width="2"/>
+        <path d="M30 80 A 20 20 0 0 1 70 80 Z" fill="white"/>
+      </svg>
+      <h1 class="text-4xl font-bold mb-4">Pengukuran</h1>
+      <p class="text-xl opacity-90 max-w-lg mx-auto">Materi Pengukuran sedang dalam pengembangan</p>
+    </div>
+
+    <div class="mt-12 bg-gray-50 rounded-xl p-8 border border-gray-200 inline-block text-left shadow-sm w-full max-w-xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center flex items-center justify-center gap-2">
+        <span>🚧</span> Segera Hadir
+      </h2>
+      <p class="text-gray-600 mb-6 text-center">Topik-topik menarik yang akan segera tersedia:</p>
+      
+      <ul class="space-y-4">
+        <li class="flex items-center gap-3 bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+          <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+          <span class="font-medium text-gray-700">Satuan Panjang, Luas, dan Volume</span>
+        </li>
+        <li class="flex items-center gap-3 bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+          <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+          <span class="font-medium text-gray-700">Konversi Satuan</span>
+        </li>
+        <li class="flex items-center gap-3 bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+          <div class="w-2 h-2 bg-amber-500 rounded-full"></div>
+          <span class="font-medium text-gray-700">Keliling dan Luas Bangun Datar (Lanjutan)</span>
+        </li>
+      </ul>
+      
+      <div class="mt-8 text-center">
+        <a href="/elemen" class="btn-kembali">Kembali ke Menu Utama</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.elemen-header {
+  background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+  color: white;
+  border-radius: 16px;
+}
+.btn-kembali {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-kembali:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #1e293b;
+}
+</style>

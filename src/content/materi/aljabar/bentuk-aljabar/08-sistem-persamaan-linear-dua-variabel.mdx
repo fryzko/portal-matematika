@@ -1,0 +1,177 @@
+---
+title: "Sistem Persamaan Linear Dua Variabel (SPLDV)"
+topic: "Aljabar"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import SpldvSolver from '../../../../components/SpldvSolver.astro';
+
+
+### Pendahuluan / Pengantar
+Bayangkan kamu pergi ke toko perlengkapan olahraga. Kamu melihat temanmu membeli 2 pasang sepatu dan 3 pasang kaus kaki seharga Rp500.000. Besoknya, temanmu yang lain membeli 1 pasang sepatu dan 4 pasang kaus kaki di toko yang sama seharga Rp300.000. 
+
+Mungkinkah kamu menebak harga pasti dari **satu** pasang sepatu dan **satu** pasang kaus kaki tanpa bertanya kepada kasir? Tentu bisa! Di sinilah sihir **Sistem Persamaan Linear Dua Variabel (SPLDV)** bekerja. SPLDV adalah cara mengawinkan dua petunjuk/kalimat matematika yang memiliki dua hal yang belum diketahui (variabel) untuk menemukan nilai persis dari masing-masing hal tersebut.
+
+### Teori Utama & Rumus
+
+#### 1. Apa itu Persamaan Linear Dua Variabel?
+Persamaan linear dua variabel adalah persamaan yang memuat dua variabel berbeda (misal $x$ dan $y$), di mana masing-masing variabel paling tinggi berpangkat satu. Bentuk umumnya adalah:
+$$ax + by = c$$
+*Contoh:* $2x + 3y = 500.000$ (Sepatu dimisalkan $x$ dan kaus kaki dimisalkan $y$).
+
+**Sistem** Persamaan Linear Dua Variabel berarti ada **dua atau lebih** persamaan seperti di atas yang memiliki penyelesaian (nilai $x$ dan $y$) yang sama. Kita mencari **Himpunan Penyelesaian (HP)**, yakni pasangan nilai $(x, y)$ yang membuat kedua persamaan itu benar.
+
+#### 2. Empat Jurus Menyelesaikan SPLDV
+Ada 4 metode yang bisa kamu pilih untuk memburu si nilai $x$ dan $y$ yang bersembunyi:
+
+1. **Metode Grafik**: 
+   Menggambar kedua persamaan ke dalam grafik koordinat Kartesius. Titik tempat kedua garis tersebut saling bertabrakan (berpotongan) adalah jawabannya!
+2. **Metode Substitusi (Mengganti)**:
+   Mengubah salah satu persamaan menjadi bentuk $x = ...$ atau $y = ...$, lalu "memasukkan" atau menggantikan nilai tersebut ke dalam persamaan yang satunya lagi.
+3. **Metode Eliminasi (Menghilangkan)**:
+   Mensejajarkan kedua persamaan ke atas-bawah, lalu menjumlahkan atau mengurangkannya secara langsung agar salah satu variabel lenyap.
+4. **Metode Campuran**:
+   Gabungan dari Eliminasi dan Substitusi (Metode yang paling sering digunakan dan paling cepat!). Eliminasi salah satu variabel terlebih dahulu, setelah ketahuan satu angkanya, substitusikan angka itu ke persamaan mana saja untuk mencari temannya.
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah - Metode Substitusi)
+Carilah Himpunan Penyelesaian dari SPLDV berikut:
+1) $y = x + 2$
+2) $3x + y = 14$
+
+**Pembahasan:**
+- Karena Persamaan 1 sudah dalam bentuk yang cantik ($y = \dots$), kita bisa langsung memasukkan (substitusi) nilai $y$ ke dalam Persamaan 2.
+  $$3x + (x + 2) = 14$$
+- Selesaikan persamaan tersebut:
+  $$4x + 2 = 14$$
+  $$4x = 12$$
+  $$x = 3$$
+- Kita sudah menemukan $x$. Sekarang masukkan nilai $x = 3$ ke Persamaan 1 untuk mencari $y$.
+  $$y = 3 + 2 = 5$$
+- Jadi, himpunan penyelesaiannya adalah **HP = $\{3, 5\}$**.
+
+#### Contoh 2 (Menengah - Metode Eliminasi)
+Tentukan nilai $x$ dan $y$ dari:
+1) $2x + y = 8$
+2) $x - y = 1$
+
+**Pembahasan:**
+- Karena koefisien variabel $y$ angkanya sama (yaitu $1$ dan $-1$), kita bisa langsung **menjumlahkan** kedua persamaan untuk mengeliminasi $y$.
+  ```text
+    2x + y = 8
+     x - y = 1
+    ----------- +
+    3x     = 9
+  ```
+  Maka, $x = 3$.
+- Kurangkan kedua persamaan untuk mengeliminasi $x$ (kalikan persamaan kedua dengan 2 terlebih dahulu):
+  ```text
+    2x +  y = 8
+    2x - 2y = 2
+    ----------- -
+         3y = 6
+  ```
+  Maka, $y = 2$.
+- Jadi, himpunan penyelesaiannya adalah **HP = $\{3, 2\}$**.
+
+#### Contoh 3 (Menantang - Metode Campuran & Pemodelan)
+Di sebuah peternakan, terdapat sapi dan ayam. Total jumlah kepala hewan adalah 15, dan total jumlah kaki hewan tersebut adalah 44. Berapa banyak sapi dan ayam di peternakan tersebut?
+
+**Pembahasan:**
+- **Langkah 1: Buat model matematika!**
+  Misal: $x = \text{jumlah sapi}$, $y = \text{jumlah ayam}$.
+  - Persamaan Kepala (Setiap hewan punya 1 kepala): $x + y = 15$
+  - Persamaan Kaki (Sapi punya 4 kaki, ayam punya 2 kaki): $4x + 2y = 44$
+- **Langkah 2: Eliminasi**
+  Kalikan persamaan pertama dengan $2$ agar koefisien $y$ sama dengan persamaan kedua.
+  ```text
+    2x + 2y = 30  (dari x2)
+    4x + 2y = 44
+    ------------ -
+   -2x      = -14
+          x = 7
+  ```
+  Terdapat 7 ekor sapi.
+- **Langkah 3: Substitusi**
+  Masukkan $x = 7$ ke persamaan pertama yang mudah ($x + y = 15$).
+  $$7 + y = 15$$
+  $$y = 8$$
+  Terdapat 8 ekor ayam.
+- Jadi, terdapat **7 sapi dan 8 ayam**.
+
+---
+
+### Simulasi Interaktif
+
+Coba gunakan "Pencari Titik Tabrakan" di bawah ini! Mesin ini akan menyelesaikan dua persamaan secara instan menggunakan **Metode Grafik**. Masukkan angka koefisien ke dalam kotak-kotak di bawah, lalu lihat bagaimana dua garis akan tercipta. Titik tabrakan kedua garis itulah jawaban (Himpunan Penyelesaian) yang kamu cari!
+
+<SpldvSolver />
+
+---
+
+### Asah Kemampuan Mandiri
+
+#### Level 1 (Dasar)
+Nilai $x$ dan $y$ yang memenuhi sistem persamaan $x + y = 5$ dan $x - y = 1$ adalah...
+A. $(3, 2)$
+B. $(2, 3)$
+C. $(4, 1)$
+D. $(1, 4)$
+
+#### Level 2 (Sedang)
+Jika penyelesaian dari sistem persamaan $2x - y = 4$ dan $x + 2y = 7$ adalah $x = p$ dan $y = q$, maka nilai dari $p + q$ adalah...
+A. $3$
+B. $4$
+C. $5$
+D. $6$
+
+#### Level 3 (Sulit)
+Harga 3 buah buku dan 2 buah pensil adalah Rp11.500. Harga 4 buah buku dan 3 buah pensil adalah Rp16.000. Berapakah harga 2 buah buku dan 1 buah pensil?
+A. Rp7.000
+B. Rp7.500
+C. Rp8.000
+D. Rp8.500
+
+#### Kunci Jawaban
+<details>
+<summary><b>Klik di sini untuk melihat Kunci Jawaban & Pembahasan</b></summary>
+
+1. **A** - (Level 1)
+   Gunakan metode eliminasi (jumlahkan kedua persamaan):
+   $$ (x + y) + (x - y) = 5 + 1 $$
+   $$ 2x = 6 \implies x = 3 $$
+   Substitusi $x = 3$ ke persamaan $x + y = 5$:
+   $$ 3 + y = 5 \implies y = 2 $$
+   HP = $(3, 2)$.
+
+2. **C** - (Level 2)
+   $2x - y = 4 \implies y = 2x - 4$ (Persamaan 1)
+   Substitusi ke Persamaan 2:
+   $$ x + 2(2x - 4) = 7 $$
+   $$ x + 4x - 8 = 7 $$
+   $$ 5x = 15 \implies x = 3 $$
+   Cari $y$: $y = 2(3) - 4 = 6 - 4 = 2$.
+   Jadi $p = 3$ dan $q = 2$. Nilai $p + q = 3 + 2 = 5$.
+
+3. **A** - (Level 3)
+   Misalkan buku = $b$, pensil = $p$.
+   1) $3b + 2p = 11.500$
+   2) $4b + 3p = 16.000$
+   
+   Eliminasi $p$: kalikan pers(1) dengan 3, pers(2) dengan 2.
+   $$ 9b + 6p = 34.500 $$
+   $$ 8b + 6p = 32.000 $$
+   Kurangkan: $b = 2.500$.
+   
+   Substitusi $b = 2.500$ ke pers(1):
+   $$ 3(2.500) + 2p = 11.500 $$
+   $$ 7.500 + 2p = 11.500 $$
+   $$ 2p = 4.000 \implies p = 2.000 $$
+   
+   Yang ditanya: Harga 2 buku dan 1 pensil ($2b + p$)
+   $$ 2(2.500) + 2.000 = 5.000 + 2.000 = \text{Rp7.000} $$.
+
+</details>

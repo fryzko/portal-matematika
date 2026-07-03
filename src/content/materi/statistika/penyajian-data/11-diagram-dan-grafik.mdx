@@ -1,0 +1,184 @@
+---
+title: "Diagram dan Grafik: Bercerita dengan Data Visual"
+topic: "Statistika"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import DataVisualizer from '../../../../components/DataVisualizer.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Diagram dan Grafik
+
+Coba perhatikan halaman utama koran, laporan berita di televisi, atau unggahan informatif di media sosial. Hampir bisa dipastikan semuanya menggunakan grafik atau diagram! Mengapa? Karena otak manusia dirancang sedemikian rupa untuk memproses gambar dan bentuk visual 60.000 kali lebih cepat dibandingkan dengan membaca deretan teks atau angka pada tabel.
+
+Diagram mampu menceritakan sebuah kisah yang tersembunyi di balik kumpulan angka yang rumit. Namun ingat, menggunakan jenis grafik yang salah justru akan menyesatkan pembaca dan menyembunyikan cerita aslinya. Oleh karena itu, mari kita pahami seni menyajikan data!
+
+### Yuk, Temukan Sendiri Visualisasi yang Tepat
+
+Gunakan instrumen visual di bawah ini untuk melihat bagaimana data yang sama dapat ditampilkan dengan cara yang berbeda.
+
+**Instruksi Eksplorasi:**
+1. Masukkan data fiktif penjualan 5 produk di kantin sekolah ke dalam tabel.
+2. Cobalah ubah-ubah pilihan tampilan (toggle) antara Diagram Batang dan Diagram Garis.
+3. Bisakah kamu merasakan mana yang lebih tepat untuk data kategorik (seperti nama produk)? (Hint: Biasanya Diagram Garis lebih terasa *aneh* jika dipakai untuk barang, karena garis mengisyaratkan sebuah perjalanan waktu).
+
+<DataVisualizer />
+
+### Teori & Definisi Formal
+
+Penyajian data bertujuan mengomunikasikan hasil statistika dengan cara termudah. Berikut adalah 4 jenis utama beserta panduan penggunaannya:
+
+**1. Diagram Batang (Bar Chart)**
+Menyajikan data menggunakan persegi panjang tegak atau mendatar. Tingginya menunjukkan frekuensi.
+*Kapan dipakai?* Untuk membandingkan jumlah frekuensi dari kategori-kategori yang saling terpisah.
+
+**2. Diagram Garis (Line Chart)**
+Titik-titik data dihubungkan dengan sebuah garis.
+*Kapan dipakai?* Sangat spesifik untuk melihat **tren, perkembangan, atau perubahan suatu nilai seiring berjalannya waktu** (hari, bulan, tahun).
+
+**3. Diagram Lingkaran (Pie Chart)**
+Sebuah lingkaran yang dipotong menjadi sektor-sektor seperti piza. Semakin besar frekuensinya, semakin besar pula sudut sektornya.
+*Kapan dipakai?* Untuk menunjukkan proporsi (persentase) suatu bagian kecil terhadap keseluruhan populasi.
+Rumus mencari derajat sektor:
+$$\text{Sudut sektor} = \frac{\text{frekuensi}}{\text{total data}} \times 360°$$
+
+**4. Histogram**
+Mirip diagram batang, tetapi batang-batangnya saling menempel tanpa celah. 
+*Kapan dipakai?* Untuk data berdistribusi kontinu yang sudah dikelompokkan dalam rentang interval (misal: rentang tinggi badan $150-154$, $155-159$).
+
+### Visualisasi: Ringkasan Memilih Diagram
+
+Berikut adalah panduan instan dalam memilih diagram yang tepat untuk datamu:
+
+```text
+    Data Kategori Terpisah  │  Membandingkan kategori yang berbeda-beda
+         [ Diagram Batang ] │  Contoh: Makanan favorit, jenis pekerjaan
+    ────────────────────────┼─────────────────────────────────────────────
+    Perubahan Terhadap Waktu│  Menunjukkan tren naik-turun seiring waktu
+         [ Diagram Garis ]  │  Contoh: Harga emas, suhu bulanan, pasien harian
+    ────────────────────────┼─────────────────────────────────────────────
+    Proporsi & Persentase   │  Menunjukkan pangsa atau porsi dari total (100%)
+      [ Diagram Lingkaran ] │  Contoh: Hasil pemilu, komposisi gas di udara
+    ────────────────────────┼─────────────────────────────────────────────
+    Data Kontinu / Rentang  │  Distribusi frekuensi data interval berkelompok
+         [ Histogram ]      │  Contoh: Kelompok usia 0-5, 6-10, 11-15 thn
+```
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Diagram apakah yang paling tepat untuk menunjukkan perubahan suhu badan pasien demam berdarah yang dicatat setiap 2 jam sekali di rumah sakit?
+
+**Pembahasan:**
+
+- Data tersebut berbicara tentang "perubahan suhu" seiring "berjalannya waktu" (setiap 2 jam).
+- Jenis diagram yang difokuskan untuk melihat perubahan/tren terhadap waktu adalah Diagram Garis.
+- Jadi, diagram yang paling tepat adalah **Diagram Garis**.
+
+#### Contoh 1 (Mudah)
+
+Jumlah total penduduk suatu desa adalah 120 orang. Dari jumlah tersebut, diketahui 40 orang bekerja sebagai petani. Jika digambarkan dalam diagram lingkaran, berapakah besar sudut pusat (derajat) untuk sektor petani?
+
+**Pembahasan:**
+
+- Frekuensi petani = 40. Total data = 120.
+- $\text{Sudut} = \frac{40}{120} \times 360°$
+- $\text{Sudut} = \frac{1}{3} \times 360° = 120°$.
+- Jadi, sektor petani akan memiliki sudut sebesar $120°$.
+
+#### Contoh 2 (Menengah)
+
+Sebuah diagram lingkaran menyajikan persentase pendaftar eskul. Eskul Futsal $45\%$, Basket $25\%$, Voli $15\%$, dan Catur sisanya. Jika total siswa seluruhnya ada 200 anak, berapakah jumlah anak yang mendaftar eskul Catur?
+
+**Pembahasan:**
+
+- Total persentase diagram lingkaran utuh = $100\%$.
+- Persentase Catur = $100\% - (45\% + 25\% + 15\%)$.
+- Persentase Catur = $100\% - 85\% = 15\%$.
+- Jumlah anak di eskul Catur = $15\% \times 200 = \frac{15}{100} \times 200 = 30$ anak.
+- Jadi, ada 30 anak yang mengikuti eskul catur.
+
+#### Contoh 3 (Menantang)
+
+Rata-rata nilai ujian matematika dari sekumpulan siswa adalah 75. Sebuah diagram batang kemudian menunjukkan detail frekuensinya. Di sana tergambar: 2 siswa mendapat nilai 60, 3 siswa mendapat 70, $x$ siswa mendapat 80, dan 1 siswa mendapat 90. Berdasarkan data tersebut, berapakah banyak siswa yang mendapat nilai 80 (nilai $x$)?
+
+**Pembahasan:**
+
+- Kita harus menggabungkan konsep diagram batang (frekuensi) dengan rumus Mean.
+- Rumus Mean: $\bar{x} = \frac{\sum(\text{nilai} \times \text{frekuensi})}{\sum \text{frekuensi}}$
+- Total siswa (pembagi) = $2 + 3 + x + 1 = 6 + x$.
+- Total nilai (pembilang) = $(2 \times 60) + (3 \times 70) + (x \times 80) + (1 \times 90) = 120 + 210 + 80x + 90 = 420 + 80x$.
+- Masukkan ke rumus Mean: $75 = \frac{420 + 80x}{6 + x}$.
+- Kalikan silang: $75(6 + x) = 420 + 80x$.
+- $450 + 75x = 420 + 80x$.
+- Pindahkan variabel: $450 - 420 = 80x - 75x$.
+- $30 = 5x \implies x = 6$.
+- Jadi, jumlah siswa yang mendapat nilai 80 adalah 6 orang.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+1. **Menggunakan Diagram Garis untuk Data Kategorik**
+   Diagram garis tidak boleh digunakan untuk membandingkan jumlah hal yang tidak berhubungan urutan waktu (seperti jumlah apel, jeruk, mangga). Menggariskan apel menuju jeruk akan menyiratkan "apel berubah wujud menjadi jeruk", yang mana secara logika salah. Gunakanlah diagram batang.
+2. **Total Persentase Diagram Lingkaran Tidak $100\%$**
+   Satu lingkaran utuh *harus* merepresentasikan $100\%$ dari seluruh data (atau $360°$). Jika saat kamu menghitung atau membuat bagian-bagian dari *pie chart* jumlah totalnya menjadi $98\%$ atau $105\%$, berarti ada kesalahan hitung!
+
+### Koneksi Dunia Nyata
+
+- **Jurnalisme Data**: Reporter TV selalu memakai diagram batang untuk membandingkan perolehan suara *Quick Count* Pemilu antar pasangan calon presiden agar penonton mengerti dalam satu kedipan mata.
+- **Analis Bisnis**: Perusahaan *e-commerce* mengandalkan visualisasi *dashboard* yang dipenuhi diagram garis untuk memantau naik-turunnya tren penjualan dari hari ke hari demi menentukan strategi diskon besok.
+- **Ilmuwan Iklim**: Para ilmuwan menampilkan bukti pemanasan global dengan menarik diagram garis yang menggambarkan suhu bumi yang memanas tajam selama satu abad terakhir.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Diagram manakah yang paling tepat untuk melihat perkembangan dan pergerakan tren penjualan buku di tokomu dari bulan Januari hingga Desember?</div>
+  <div slot="option-a">Diagram Lingkaran (Pie)</div>
+  <div slot="option-b">Diagram Garis (Line)</div>
+  <div slot="option-c">Diagram Batang (Bar)</div>
+  <div slot="option-d">Histogram</div>
+  <div slot="explanation">**Pembahasan:** Untuk menelusuri data yang berubah dari waktu ke waktu secara berurutan, instrumen visual yang paling tepat adalah Diagram Garis.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah survei menyasar 40 siswa untuk mengetahui hobi mereka. Jika 10 siswa memilih hobi "Bermain Musik", berapakah besar sudut juring untuk kategori musik jika direpresentasikan dalam diagram lingkaran?</div>
+  <div slot="option-a">$100°$</div>
+  <div slot="option-b">$45°$</div>
+  <div slot="option-c">$90°$</div>
+  <div slot="option-d">$180°$</div>
+  <div slot="explanation">**Pembahasan:** Rumus sudut = $\frac{\text{frekuensi}}{\text{total}} \times 360° = \frac{10}{40} \times 360° = \frac{1}{4} \times 360° = 90°$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Seorang dokter mengelompokkan data tinggi badan 100 pasien dalam rentang interval (misal 140-149 cm, 150-159 cm). Visualisasi yang paling tepat, di mana batang-batangnya saling merapat tanpa celah, disebut...</div>
+  <div slot="option-a">Histogram</div>
+  <div slot="option-b">Diagram Garis</div>
+  <div slot="option-c">Diagram Lingkaran</div>
+  <div slot="option-d">Diagram Batang Reguler</div>
+  <div slot="explanation">**Pembahasan:** Representasi visual untuk data berdistribusi kontinu/interval yang batangnya rapat disebut Histogram.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Pemerintah merilis data perbandingan jumlah penduduk dari 5 provinsi berbeda pada tahun yang sama. Diagram apa yang paling informatif untuk hal ini?</div>
+  <div slot="option-a">Diagram Garis</div>
+  <div slot="option-b">Histogram</div>
+  <div slot="option-c">Diagram Batang</div>
+  <div slot="option-d">Diagram Titik</div>
+  <div slot="explanation">**Pembahasan:** Untuk sekadar membandingkan frekuensi atau besaran antara berbagai kategori yang saling lepas di satu waktu tertentu, Diagram Batang adalah yang terbaik.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan-pernyataan di bawah ini yang SALAH?</div>
+  <div slot="option-a">Total persentase dari keseluruhan sektor dalam diagram lingkaran yang benar haruslah tepat 100%.</div>
+  <div slot="option-b">Diagram garis secara khusus dirancang untuk mendemonstrasikan perubahan atau tren seiring waktu.</div>
+  <div slot="option-c">Diagram batang sangat ideal digunakan untuk menampilkan dan membandingkan data kategori atau nominal.</div>
+  <div slot="option-d">Diagram garis sangat cocok jika digunakan untuk membandingkan rasa es krim favorit siswa di sebuah kelas.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan yang SALAH adalah D. Rasa es krim (kategorik) tidak boleh digambar memakai diagram garis karena varian rasa tersebut bukanlah suatu urutan waktu yang saling bersambung, melainkan kategori terpisah (seharusnya pakai diagram batang).</div>
+</Quiz>

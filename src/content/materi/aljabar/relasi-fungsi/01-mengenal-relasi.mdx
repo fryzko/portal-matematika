@@ -1,0 +1,169 @@
+---
+title: "Mengenal Relasi: Hubungan Antara Dua Himpunan"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Mengenal Relasi
+Coba perhatikan daftar teman-teman sekelasmu dan ekstrakurikuler yang mereka ikuti. Satu siswa bisa saja mengikuti lebih dari satu ekstrakurikuler, misalnya basket dan paskibraka. Sebaliknya, satu ekstrakurikuler pasti diikuti oleh banyak siswa. Hubungan antara "Himpunan Siswa" dan "Himpunan Ekstrakurikuler" inilah yang dalam matematika kita sebut sebagai **Relasi**. Relasi menghubungkan anggota dari satu kelompok ke kelompok lainnya dengan aturan tertentu.
+
+### Yuk, Temukan Sendiri Mengenal Relasi
+Misalkan ada himpunan Siswa dan himpunan Hobi.
+- Siswa: \{Andi, Budi, Citra, Dina\}
+- Hobi: \{Membaca, Memasak, Olahraga, Melukis\}
+
+Diketahui aturan relasinya adalah sebagai berikut:
+- Andi menyukai Membaca dan Olahraga.
+- Budi menyukai Memasak.
+- Citra menyukai Melukis dan Membaca.
+- Dina menyukai Olahraga.
+
+Dari informasi di atas:
+1. Apa saja anggota himpunan asal (Siswa)?
+2. Apa saja anggota himpunan kawan (Hobi)?
+3. Hobi apa saja yang *benar-benar dipilih* oleh minimal satu siswa?
+Jika kamu bisa membedakan ketiga hal tersebut, selamat! Kamu sudah menemukan konsep Domain, Kodomain, dan Range.
+
+### Teori & Definisi Formal
+**Relasi** dari Himpunan A ke Himpunan B adalah suatu aturan yang memasangkan anggota-anggota Himpunan A dengan anggota-anggota Himpunan B.
+
+Dalam relasi, ada tiga istilah super penting yang harus kamu tahu:
+1. **Domain (Daerah Asal):** Himpunan pertama yang anggotanya akan dipasangkan (Himpunan A).
+2. **Kodomain (Daerah Kawan):** Himpunan kedua yang menjadi tujuan pasangan (Himpunan B).
+3. **Range (Daerah Hasil):** Anggota-anggota di dalam kodomain yang *benar-benar* memiliki pasangan dari domain.
+
+Ada 3 cara untuk menyatakan sebuah relasi:
+1. **Diagram Panah:** Menggunakan dua kurva tertutup dan arah panah.
+2. **Himpunan Pasangan Berurutan:** Ditulis dalam kurung biasa $(x, y)$.
+3. **Diagram Kartesius:** Menggunakan sumbu X (domain) dan sumbu Y (kodomain).
+
+### Visualisasi: Mengenal Relasi
+Mari kita visualisasikan contoh hobi siswa tadi!
+
+**1. Himpunan Pasangan Berurutan:**
+$R = \{$ (Andi, Membaca), (Andi, Olahraga), (Budi, Memasak), (Citra, Melukis), (Citra, Membaca), (Dina, Olahraga) $\}$
+
+**2. Diagram Panah:**
+```text
+  Siswa            Hobi
+ ┌───────┐      ┌────────┐
+ │ Andi  │ ───> │Membaca │
+ │ Budi  │ ───> │Memasak │
+ │ Citra │ ───> │Olahraga│
+ │ Dina  │ ───> │Melukis │
+ └───────┘      └────────┘
+ (Andi dipanah ke Membaca & Olahraga, dsb.)
+```
+
+**3. Diagram Kartesius:**
+Pada diagram kartesius, sumbu mendatar (X) adalah himpunan Siswa, dan sumbu tegak (Y) adalah himpunan Hobi. Titik-titik pertemuan (koordinat) menandakan adanya relasi.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Diketahui himpunan $A = \{1, 2, 3\}$ dan $B = \{a, b, c\}$. Relasi dari A ke B dinyatakan dalam pasangan berurutan: $\{(1, a), (2, b)\}$. Tentukan domain dari relasi tersebut!
+
+**Pembahasan:**
+
+Domain adalah daerah asal (himpunan A). Jadi domainnya adalah $\{1, 2, 3\}$.
+
+#### Contoh 1 (Mudah)
+
+Dari contoh 0 di atas, manakah yang merupakan range?
+
+**Pembahasan:**
+
+Range adalah daerah hasil (anggota B yang mendapat pasangan). Hanya $a$ dan $b$ yang punya pasangan. Jadi range = $\{a, b\}$.
+
+#### Contoh 2 (Menengah)
+
+Diketahui relasi "kurang dari" dari himpunan $P = \{1, 2, 3\}$ ke himpunan $Q = \{2, 4\}$. Nyatakan relasi tersebut dalam himpunan pasangan berurutan!
+
+**Pembahasan:**
+
+Kita pasangkan anggota $P$ ke $Q$ dengan syarat $P < Q$:
+- 1 kurang dari 2 dan 4 $\rightarrow$ (1, 2), (1, 4)
+- 2 kurang dari 4 $\rightarrow$ (2, 4)
+- 3 kurang dari 4 $\rightarrow$ (3, 4)
+Maka jawabannya: $\{(1, 2), (1, 4), (2, 4), (3, 4)\}$.
+
+#### Contoh 3 (Menantang)
+
+Diberikan himpunan pasangan berurutan $\{(2, 4), (3, 6), (4, 8), (5, 10)\}$. Apakah aturan relasi yang paling tepat dari himpunan pertama ke himpunan kedua?
+
+**Pembahasan:**
+
+Perhatikan polanya:
+2 dipasangkan dengan 4 (berarti $2 = \text{setengah dari } 4$)
+3 dipasangkan dengan 6 (berarti $3 = \text{setengah dari } 6$)
+Maka aturan relasinya adalah **"setengah dari"**.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Jebakan yang paling klasik adalah menyamakan **Range** dengan **Kodomain**.
+
+
+Ingat baik-baik:
+- **Kodomain** adalah SELURUH anggota himpunan tujuan, tidak peduli dia jomblo atau punya pasangan.
+- **Range** HANYA berisi anggota kodomain yang punya pasangan. Range selalu berada di dalam kodomain. 
+Range = Kodomain itu mungkin saja terjadi, tapi TIDAK SELALU.
+
+### Koneksi Dunia Nyata
+Konsep relasi ini sangat powerful! Di dunia teknologi, relasi menjadi dasar dari **Database Relasional** (seperti MySQL/PostgreSQL). Misalnya, tabel data siswa "berelasi" dengan tabel nilai rapor. Di media sosial, fitur "Teman" atau "Follower" juga merupakan sebuah relasi matematis di mana satu orang bisa terhubung dengan banyak orang lainnya.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Diketahui himpunan pasangan berurutan $\{(1, 2), (2, 4), (3, 6)\}$. Daerah asal (domain) dari relasi tersebut adalah...</div>
+  <div slot="option-a">$\{2, 4, 6\}$</div>
+  <div slot="option-b">$\{1, 2, 3\}$</div>
+  <div slot="option-c">$\{1, 4, 6\}$</div>
+  <div slot="option-d">$\{1, 2, 3, 4, 6\}$</div>
+  <div slot="explanation">**Pembahasan:** Domain adalah himpunan nilai-nilai yang berada di urutan pertama pada setiap pasangan. Yaitu 1, 2, dan 3.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Anggota kodomain yang benar-benar memiliki pasangan dari domain disebut dengan...</div>
+  <div slot="option-a">Himpunan kosong</div>
+  <div slot="option-b">Domain</div>
+  <div slot="option-c">Range (Daerah hasil)</div>
+  <div slot="option-d">Relasi</div>
+  <div slot="explanation">**Pembahasan:** Range atau daerah hasil adalah himpunan dari semua anggota kodomain yang terpilih atau mendapat pasangan dari domain.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Relasi dari himpunan $A = \{2, 3\}$ ke $B = \{4, 9\}$ dengan aturan "akar kuadrat dari" akan menghasilkan himpunan pasangan berurutan...</div>
+  <div slot="option-a">$\{(2, 4), (3, 9)\}$</div>
+  <div slot="option-b">$\{(4, 2), (9, 3)\}$</div>
+  <div slot="option-c">$\{(2, 3), (4, 9)\}$</div>
+  <div slot="option-d">$\{(2, 9), (3, 4)\}$</div>
+  <div slot="explanation">**Pembahasan:** 2 adalah akar kuadrat dari 4. Dan 3 adalah akar kuadrat dari 9. Jadi pasangannya adalah (2, 4) dan (3, 9).</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Dalam sebuah kelas, didata relasi "hobi olahraga". Jika Budi suka basket dan sepak bola, sementara Tono tidak suka olahraga apapun, bagaimana relasi ini digambarkan dalam diagram panah?</div>
+  <div slot="option-a">Semua siswa di domain pasti memiliki satu panah.</div>
+  <div slot="option-b">Budi memiliki satu panah menuju "basket dan sepak bola".</div>
+  <div slot="option-c">Tono tidak ditulis di domain.</div>
+  <div slot="option-d">Budi memiliki dua panah, sedangkan Tono tidak memiliki panah.</div>
+  <div slot="explanation">**Pembahasan:** Dalam relasi, satu anggota domain boleh memiliki lebih dari satu panah, atau tidak memiliki panah sama sekali. Budi dipanah ke dua titik (basket, bola), dan Tono jomblo (tanpa panah).</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah pernyataan tentang relasi di bawah ini yang SALAH?</div>
+  <div slot="option-a">Range adalah himpunan bagian dari kodomain.</div>
+  <div slot="option-b">Relasi dapat dinyatakan dengan diagram kartesius.</div>
+  <div slot="option-c">Satu anggota domain boleh memiliki banyak pasangan di kodomain.</div>
+  <div slot="option-d">Kodomain selalu memiliki jumlah anggota yang sama persis dengan Range.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah! Kodomain tidak selalu sama dengan Range. Kodomain bisa lebih besar jika ada anggotanya yang tidak mendapatkan pasangan.</div>
+</Quiz>

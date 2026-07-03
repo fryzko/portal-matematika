@@ -1,0 +1,156 @@
+---
+title: "Kekongruenan: Ketika Dua Bangun Benar-benar Identik"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Kekongruenan
+Ambil selembar dokumen penting, letakkan di dalam mesin *fotokopi*, dan setel pengaturannya pada pembesaran $100\%$. Hasil yang keluar akan menjadi dua lembar kertas yang ukuran hurufnya, panjang kertasnya, dan seluruh bentuknya **benar-benar identik**. Jika ditumpuk, keduanya bisa saling menutupi dengan sempurna tanpa ada sisa sedikit pun! Di dunia geometri, bangun yang "kembar identik" seperti ini disebut **Kongruen**. Apa perbedaan mendasar kekongruenan dengan kesebangunan?
+
+### Yuk, Temukan Sendiri Kekongruenan
+Diberikan dua buah segitiga dengan informasi spesifik yang hanya diketahui sebagian. Bisakah kamu memastikan apakah mereka kembar identik?
+- Segitiga 1: Memiliki dua sisi dengan panjang $5\text{ cm}$ dan $7\text{ cm}$, dan sudut yang diapit di antaranya adalah $60^\circ$.
+- Segitiga 2: Memiliki dua sisi dengan panjang $5\text{ cm}$ dan $7\text{ cm}$, dan sudut yang diapit di antaranya juga $60^\circ$.
+
+Apakah kedua segitiga ini PASTI kongruen meskipun sisi ketiga tidak diketahui panjangnya? 
+Coba bayangkan menarik garis dari ujung sisi $5\text{ cm}$ ke $7\text{ cm}$. Panjang garis sisi ketiganya pasti akan selalu sama! Fenomena jaminan kongruen ini disebut syarat **Sisi-Sudut-Sisi (SAS)**.
+
+### Teori & Definisi Formal
+Dua bangun dikatakan **Kongruen** (disimbolkan dengan $\cong$) jika mereka memiliki **bentuk yang sama DAN ukuran yang persis sama**. Pada kekongruenan, faktor skalanya mutlak bernilai $1$.
+Untuk membuktikan bahwa dua buah **segitiga** itu kongruen, kita tidak perlu mengukur ketiga sisi dan ketiga sudutnya. Cukup buktikan dengan **SALAH SATU** dari 3 syarat "jalan pintas" berikut:
+
+1. **SSS (Sisi-Sisi-Sisi)**
+   Ketiga pasang sisi yang bersesuaian sama panjang.
+   $$\text{SSS: } AB=PQ, BC=QR, CA=RP$$
+2. **SAS (Sisi-Sudut-Sisi)**
+   Dua pasang sisi sama panjang dan sudut yang diapit di antaranya sama besar.
+   $$\text{SAS: } AB=PQ, \angle B = \angle Q, BC=QR$$
+3. **ASA (Sudut-Sisi-Sudut)**
+   Dua pasang sudut sama besar dan sisi yang diapit di antaranya sama panjang.
+   $$\text{ASA: } \angle A = \angle P, AB=PQ, \angle B = \angle Q$$
+
+### Visualisasi: Kekongruenan
+Perbedaan antara Sebangun vs Kongruen:
+
+**Kesebangunan ($\sim$): Sama Bentuk, Beda Ukuran**
+```text
+  / \        /   \
+ /___\      /_____\
+```
+Keduanya segitiga sama sisi. Bentuknya sama, ukurannya berbeda.
+
+**Kekongruenan ($\cong$): Kembar Identik (Bentuk dan Ukuran Sama)**
+```text
+  / \        / \
+ /___\      /___\
+```
+Keduanya segitiga sama sisi yang jika digeser akan saling menumpuk dan menutupi dengan sempurna.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Apakah dua bangun yang kongruen pasti sebangun? Dan apakah dua bangun yang sebangun pasti kongruen?
+
+**Pembahasan:**
+
+- Dua bangun yang kongruen **PASTI** sebangun (faktor skala 1).
+- Dua bangun yang sebangun **BELUM TENTU** kongruen (ukurannya bisa berbeda).
+
+#### Contoh 1 (Mudah)
+
+Diketahui $\triangle ABC \cong \triangle DEF$. Jika panjang $AB = 5\text{ cm}$, berapakah panjang $DE$?
+
+**Pembahasan:**
+
+Karena kedua segitiga kongruen dan $AB$ bersesuaian dengan $DE$ (berdasarkan urutan abjad), maka panjangnya pasti sama persis.
+Jadi, $DE = 5\text{ cm}$.
+
+#### Contoh 2 (Menengah)
+
+Pada $\triangle KLM$ dan $\triangle PQR$ diketahui $\angle K = \angle P = 40^\circ$, $KL = PQ = 8\text{ cm}$, dan $\angle L = \angle Q = 60^\circ$. Apakah kedua segitiga tersebut kongruen? Jika ya, syarat manakah yang dipenuhi?
+
+**Pembahasan:**
+
+- Ada dua sudut yang bersesuaian sama besar ($\angle K = \angle P$ dan $\angle L = \angle Q$).
+- Ada satu sisi yang diapit kedua sudut tersebut sama panjang ($KL = PQ$).
+Maka, kedua segitiga tersebut **Kongruen** berdasarkan syarat **Sudut-Sisi-Sudut (ASA)**.
+
+#### Contoh 3 (Menantang)
+
+Perhatikan jajargenjang ABCD yang ditarik garis diagonal AC sehingga membelah menjadi dua segitiga, yaitu $\triangle ABC$ dan $\triangle CDA$. Buktikan bahwa kedua segitiga tersebut kongruen menggunakan syarat Sisi-Sisi-Sisi (SSS)!
+
+**Pembahasan:**
+
+Pada jajargenjang, kita ketahui sifat dasar sisinya:
+1. Sisi atas sama dengan sisi bawah: $AB = CD$.
+2. Sisi miring kiri sama dengan miring kanan: $BC = DA$.
+3. Garis diagonal dipakai bersama (berimpit) sehingga panjangnya pasti sama bagi kedua segitiga: $AC = CA$.
+Karena ketiga pasang sisi terbukti sama panjang, maka $\triangle ABC \cong \triangle CDA$ memenuhi syarat **SSS**. Terbukti!
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Hanya Percaya pada Penglihatan (Mirip = Kongruen)**: Siswa sering mengira bahwa dua bangun yang "kelihatan sama di gambar" otomatis kongruen. Di Matematika, gambar hanyalah ilustrasi. Kekongruenan wajib dibuktikan secara logis dan angka melalui salah satu dari tiga syarat (SSS, SAS, ASA), tidak cukup hanya berbekal "kelihatan mirip".
+
+
+
+### Koneksi Dunia Nyata
+- **Industri Manufaktur (Suku Cadang)**: Suku cadang mesin motor atau mobil (seperti piston atau roda gigi) harus dicetak kongruen, berukuran identik persis hingga skala milimeter agar bisa dipasang dan saling menggantikan tanpa masalah.
+- **Pemasangan Ubin (Keramik)**: Ratusan keping ubin di lantai dicetak kongruen agar pemasangannya rapi dan simetris menutupi lantai.
+- **Percetakan Keamanan**: Uang kertas, tiket pesawat, hingga ijazah dicetak dengan ukuran dan wujud yang kongruen persis guna membedakannya dari produk palsu.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Notasi yang digunakan untuk melambangkan bahwa dua bangun datar kongruen adalah...</div>
+  <div slot="option-a">$\sim$</div>
+  <div slot="option-b">$=$</div>
+  <div slot="option-c">$\cong$</div>
+  <div slot="option-d">$\neq$</div>
+  <div slot="explanation">**Pembahasan:** Simbol kongruen (sama bentuk dan ukuran) adalah tanda sama dengan bertopi garis lengkung ($\cong$).</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Syarat kekongruenan dua segitiga di bawah ini adalah benar, KECUALI...</div>
+  <div slot="option-a">Sudut-Sudut-Sudut (AAA)</div>
+  <div slot="option-b">Sisi-Sisi-Sisi (SSS)</div>
+  <div slot="option-c">Sisi-Sudut-Sisi (SAS)</div>
+  <div slot="option-d">Sudut-Sisi-Sudut (ASA)</div>
+  <div slot="explanation">**Pembahasan:** Tiga sudut yang sama (AAA) tidak menjamin segitiga itu kongruen, melainkan hanya menjamin **sebangun** (ukurannya bisa jadi lebih besar).</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika $\triangle DEF \cong \triangle XYZ$, maka pernyataan berikut yang pasti benar adalah...</div>
+  <div slot="option-a">Luas $\triangle DEF >$ Luas $\triangle XYZ$</div>
+  <div slot="option-b">$EF = YZ$</div>
+  <div slot="option-c">$\angle D = \angle Z$</div>
+  <div slot="option-d">Keliling $\triangle DEF <$ Keliling $\triangle XYZ$</div>
+  <div slot="explanation">**Pembahasan:** Kongruen berarti ukurannya sama. Pasangan $EF$ bersesuaian dengan urutan $YZ$, jadi $EF = YZ$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Dua lingkaran dikatakan pasti kongruen apabila...</div>
+  <div slot="option-a">Sama-sama memiliki sudut $360^\circ$</div>
+  <div slot="option-b">Pusatnya berada pada titik yang sama</div>
+  <div slot="option-c">Jari-jarinya sama panjang</div>
+  <div slot="option-d">Berada pada satu garis lurus</div>
+  <div slot="explanation">**Pembahasan:** Bentuk lingkaran selalu sama, satu-satunya penentu ukuran lingkaran adalah panjang jari-jarinya. Jadi, jika jari-jari sama, pasti kongruen.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai kekongruenan dan kesebangunan?</div>
+  <div slot="option-a">Dua persegi yang sisinya $4\text{ cm}$ pasti kongruen.</div>
+  <div slot="option-b">Semua segi enam beraturan sebangun.</div>
+  <div slot="option-c">Dua bangun yang kongruen belum tentu sebangun.</div>
+  <div slot="option-d">Bangun yang kongruen memiliki faktor skala bernilai 1.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah total! Hukum mutlak matematika mengatakan: "Dua bangun yang kongruen PASTI secara otomatis juga sebangun."</div>
+</Quiz>

@@ -1,0 +1,340 @@
+---
+// src/components/CircleExplorer.astro
+---
+
+<circle-explorer>
+  <div class="circle-explorer-container">
+    <div class="left-panel">
+      <div class="calc-box" id="calc-box">
+        <div class="calc-section">
+          <div>🔵 Eksplorasi Lingkaran</div>
+          <br/>
+          <div>Jari-jari (r) = <span class="val-r">12.00</span> cm</div>
+          <div>Diameter (d)  = <span class="val-d">24.00</span> cm</div>
+          <br/>
+          <div>Keliling (K):</div>
+          <div>K = 2 × π × r</div>
+          <div>K = 2 × 3.14159 × <span class="val-r">12.00</span> = <span class="val-k">75.40</span></div>
+          <br/>
+          <div>Luas (L):</div>
+          <div>L = π × r²</div>
+          <div>L = 3.14159 × <span class="val-r">12.00</span>² = <span class="val-l">452.39</span></div>
+        </div>
+        
+        <div class="calc-section juring-calc" id="juring-calc" style="display: none;">
+          <br/>
+          <div>Sudut (α) = <span class="val-a">90</span>°</div>
+          <br/>
+          <div>Panjang Busur:</div>
+          <div>= α/360 × 2πr = <span class="val-arc">18.85</span> cm</div>
+          <br/>
+          <div>Luas Juring:</div>
+          <div>= α/360 × πr² = <span class="val-sec">113.10</span> cm²</div>
+        </div>
+      </div>
+      
+      <button id="toggle-juring" class="toggle-btn">Mode Juring ON/OFF</button>
+      
+      <div id="juring-controls" class="juring-controls" style="display: none;">
+        <label for="alpha-slider">Sudut α: <span id="alpha-val">90</span>°</label>
+        <input type="range" id="alpha-slider" min="0" max="360" value="90" />
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <svg id="circle-svg" viewBox="0 0 400 400" width="400" height="400">
+        <!-- Area Juring -->
+        <path id="juring-path" d="" fill="rgba(59, 130, 246, 0.3)" style="display: none;" />
+
+        <!-- Lingkaran Utama -->
+        <circle id="main-circle" cx="200" cy="200" r="120" stroke="#22c55e" stroke-width="2" fill="transparent" />
+
+        <!-- Garis Diameter -->
+        <line id="diameter-line" x1="80" y1="200" x2="320" y2="200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,4" />
+        <text id="label-d" x="200" y="215" fill="#3b82f6" text-anchor="middle">d</text>
+
+        <!-- Garis Jari-jari -->
+        <line id="radius-line" x1="200" y1="200" x2="320" y2="200" stroke="#ef4444" stroke-width="2" />
+        <text id="label-r" x="260" y="195" fill="#ef4444" text-anchor="middle">r</text>
+
+        <!-- Garis Juring Kedua -->
+        <line id="juring-line" x1="200" y1="200" x2="200" y2="80" stroke="#a855f7" stroke-width="2" style="display: none;" />
+
+        <!-- Titik Pusat P -->
+        <circle cx="200" cy="200" r="4" fill="black" />
+        <text x="188" y="212" fill="black" text-anchor="end">P</text>
+
+        <!-- Titik Draggable A -->
+        <circle id="point-a" cx="320" cy="200" r="10" fill="#f97316" style="cursor: pointer;" />
+        <text id="label-a" x="335" y="205" fill="#f97316" font-size="12px">A</text>
+      </svg>
+    </div>
+  </div>
+</circle-explorer>
+
+<style>
+  circle-explorer {
+    display: block;
+    margin: 2rem 0;
+  }
+  .circle-explorer-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    background: var(--color-surface, #f8fafc);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  @media (max-width: 768px) {
+    .circle-explorer-container {
+      flex-direction: column;
+    }
+  }
+  .left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 250px;
+  }
+  .calc-box {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .calc-box span {
+    color: #f59e0b;
+    font-weight: bold;
+  }
+  .toggle-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .toggle-btn:hover {
+    background: #2563eb;
+  }
+  .juring-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #e2e8f0;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #1e293b;
+    font-weight: 600;
+  }
+  .juring-controls input[type="range"] {
+    width: 100%;
+  }
+  .right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-panel svg {
+    background: #0f172a;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    touch-action: none; /* Prevent scroll while dragging */
+  }
+</style>
+
+<script>
+// @ts-nocheck
+class CircleExplorer extends HTMLElement {
+  constructor() {
+    super();
+    this.isDragging = false;
+    this.radius = 120;
+    this.angle = 0;
+    this.juringAngle = 90;
+    this.juringMode = false;
+  }
+
+  connectedCallback() {
+    this.svg = this.querySelector('#circle-svg');
+    this.pointA = this.querySelector('#point-a');
+    this.mainCircle = this.querySelector('#main-circle');
+    this.radiusLine = this.querySelector('#radius-line');
+    this.diameterLine = this.querySelector('#diameter-line');
+    this.labelR = this.querySelector('#label-r');
+    this.labelD = this.querySelector('#label-d');
+    this.labelA = this.querySelector('#label-a');
+    
+    this.juringPath = this.querySelector('#juring-path');
+    this.juringLine = this.querySelector('#juring-line');
+    
+    this.calcBox = this.querySelector('#calc-box');
+    this.juringCalc = this.querySelector('#juring-calc');
+    this.juringControls = this.querySelector('#juring-controls');
+    this.toggleBtn = this.querySelector('#toggle-juring');
+    this.alphaSlider = this.querySelector('#alpha-slider');
+    this.alphaVal = this.querySelector('#alpha-val');
+    
+    this.valR = this.querySelectorAll('.val-r');
+    this.valD = this.querySelectorAll('.val-d');
+    this.valK = this.querySelectorAll('.val-k');
+    this.valL = this.querySelectorAll('.val-l');
+    this.valA = this.querySelectorAll('.val-a');
+    this.valArc = this.querySelectorAll('.val-arc');
+    this.valSec = this.querySelectorAll('.val-sec');
+
+    const startDrag = (e) => {
+      e.preventDefault();
+      this.isDragging = true;
+      this.updatePointPosition(e);
+    };
+    const doDrag = (e) => {
+      if (this.isDragging) {
+        e.preventDefault();
+        this.updatePointPosition(e);
+      }
+    };
+    const endDrag = () => {
+      this.isDragging = false;
+    };
+
+    this.pointA.addEventListener('mousedown', startDrag);
+    window.addEventListener('mousemove', doDrag);
+    window.addEventListener('mouseup', endDrag);
+
+    this.pointA.addEventListener('touchstart', startDrag, {passive: false});
+    window.addEventListener('touchmove', doDrag, {passive: false});
+    window.addEventListener('touchend', endDrag);
+
+    this.toggleBtn.addEventListener('click', () => {
+      this.juringMode = !this.juringMode;
+      this.juringCalc.style.display = this.juringMode ? 'block' : 'none';
+      this.juringControls.style.display = this.juringMode ? 'flex' : 'none';
+      this.juringPath.style.display = this.juringMode ? 'block' : 'none';
+      this.juringLine.style.display = this.juringMode ? 'block' : 'none';
+      this.updateUI();
+    });
+
+    this.alphaSlider.addEventListener('input', (e) => {
+      this.juringAngle = parseFloat(e.target.value);
+      this.alphaVal.textContent = this.juringAngle;
+      this.updateUI();
+    });
+
+    this.updateUI();
+  }
+
+  getEventPoint(e) {
+    if (e.touches && e.touches.length > 0) {
+      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  }
+
+  updatePointPosition(e) {
+    const pt = this.getEventPoint(e);
+    const rect = this.svg.getBoundingClientRect();
+    
+    const scaleX = 400 / rect.width;
+    const scaleY = 400 / rect.height;
+    
+    const svgX = (pt.x - rect.left) * scaleX;
+    const svgY = (pt.y - rect.top) * scaleY;
+    
+    const dx = svgX - 200;
+    const dy = svgY - 200;
+    
+    let r = Math.sqrt(dx*dx + dy*dy);
+    r = Math.max(30, Math.min(170, r)); 
+    
+    this.radius = r;
+    this.angle = Math.atan2(dy, dx);
+    
+    this.updateUI();
+  }
+
+  updateUI() {
+    const cx = 200;
+    const cy = 200;
+    const r = this.radius;
+    
+    this.mainCircle.setAttribute('r', r);
+    
+    const ax = cx + r * Math.cos(this.angle);
+    const ay = cy + r * Math.sin(this.angle);
+    
+    this.pointA.setAttribute('cx', ax);
+    this.pointA.setAttribute('cy', ay);
+    
+    this.radiusLine.setAttribute('x2', ax);
+    this.radiusLine.setAttribute('y2', ay);
+    
+    this.diameterLine.setAttribute('x1', cx - r * Math.cos(this.angle));
+    this.diameterLine.setAttribute('y1', cy - r * Math.sin(this.angle));
+    this.diameterLine.setAttribute('x2', ax);
+    this.diameterLine.setAttribute('y2', ay);
+    
+    this.labelR.setAttribute('x', cx + (r/2) * Math.cos(this.angle) - 10 * Math.sin(this.angle));
+    this.labelR.setAttribute('y', cy + (r/2) * Math.sin(this.angle) + 10 * Math.cos(this.angle));
+    
+    this.labelD.setAttribute('x', cx - (r/2) * Math.cos(this.angle) - 10 * Math.sin(this.angle));
+    this.labelD.setAttribute('y', cy - (r/2) * Math.sin(this.angle) + 10 * Math.cos(this.angle));
+    
+    const logicX = (r * Math.cos(this.angle) * 0.1).toFixed(1);
+    const logicY = (-r * Math.sin(this.angle) * 0.1).toFixed(1);
+    this.labelA.setAttribute('x', ax + 15 * Math.cos(this.angle));
+    this.labelA.setAttribute('y', ay + 15 * Math.sin(this.angle) + 5);
+    this.labelA.textContent = `A (${logicX}, ${logicY})`;
+
+    if (this.juringMode) {
+      const alphaRad = this.juringAngle * Math.PI / 180;
+      const bx = cx + r * Math.cos(this.angle - alphaRad);
+      const by = cy + r * Math.sin(this.angle - alphaRad);
+      
+      this.juringLine.setAttribute('x2', bx);
+      this.juringLine.setAttribute('y2', by);
+      
+      const largeArcFlag = this.juringAngle > 180 ? 1 : 0;
+      const dPath = `M ${cx} ${cy} L ${ax} ${ay} A ${r} ${r} 0 ${largeArcFlag} 0 ${bx} ${by} Z`;
+      this.juringPath.setAttribute('d', dPath);
+    }
+    
+    this.updateCalculations();
+  }
+
+  updateCalculations() {
+    const cmR = (this.radius * 0.1);
+    const cmD = cmR * 2;
+    const PI = 3.14159;
+    const K = 2 * PI * cmR;
+    const L = PI * cmR * cmR;
+    
+    const fmt = (n) => n.toFixed(2);
+    
+    this.valR.forEach(el => el.textContent = fmt(cmR));
+    this.valD.forEach(el => el.textContent = fmt(cmD));
+    this.valK.forEach(el => el.textContent = fmt(K));
+    this.valL.forEach(el => el.textContent = fmt(L));
+    
+    if (this.juringMode) {
+      const alpha = this.juringAngle;
+      const arc = (alpha / 360) * K;
+      const sec = (alpha / 360) * L;
+      
+      this.valA.forEach(el => el.textContent = alpha);
+      this.valArc.forEach(el => el.textContent = fmt(arc));
+      this.valSec.forEach(el => el.textContent = fmt(sec));
+    }
+  }
+}
+
+customElements.define('circle-explorer', CircleExplorer);
+</script>

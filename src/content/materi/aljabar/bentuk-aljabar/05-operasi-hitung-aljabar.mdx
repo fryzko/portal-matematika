@@ -1,0 +1,134 @@
+---
+title: "Operasi Hitung Bentuk Aljabar"
+topic: "Aljabar"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlgebraScale from '../../../../components/AlgebraScale.astro';
+
+### Pendahuluan / Pengantar
+Bayangkan kamu sedang pergi ke pasar untuk membeli buah. Kamu membeli 3 buah apel dan 2 buah jeruk. Apakah kamu bisa menyebut total belanjaanmu menjadi "5 buah apel-jeruk"? Tentu saja tidak bisa! Apel tetap apel, dan jeruk tetap jeruk.
+
+Namun, jika besoknya kamu membeli lagi 4 buah apel, kamu bisa menggabungkannya dengan apel yang kemarin. Jadi $3\text{ apel} + 4\text{ apel} = 7\text{ apel}$.
+
+Aturan berbelanja di pasar ini adalah aturan paling penting dalam operasi penjumlahan dan pengurangan bentuk aljabar: **Hanya hal-hal yang sama (suku sejenis) yang bisa dijumlahkan atau dikurangkan!**
+
+### Teori Utama & Rumus
+
+#### 1. Penjumlahan dan Pengurangan Aljabar
+Syarat mutlak untuk menjumlahkan atau mengurangkan suku-suku aljabar adalah: **Variabelnya harus kembar identik (suku sejenis)**. Jika mereka sejenis, kamu cukup menjumlahkan atau mengurangkan angka koefisiennya saja, sementara variabelnya tetap.
+
+- **Contoh Penjumlahan Suku Sejenis:**
+  $$5x + 3x = (5 + 3)x = 8x$$
+- **Contoh Pengurangan Suku Sejenis:**
+  $$7y - 2y = (7 - 2)y = 5y$$
+- **Contoh Suku TIDAK Sejenis (Tidak bisa digabung):**
+  $$4a + 3b$$ *(biarkan saja seperti ini, seperti apel dan jeruk)*
+
+Jika ada banyak suku yang panjang, kumpulkan suku-suku yang sejenis agar berdekatan terlebih dahulu, barulah hitung hasilnya. Ini disebut **menyederhanakan bentuk aljabar**.
+
+#### 2. Pemodelan Matematika (Kalimat Sehari-hari $\rightarrow$ Aljabar)
+Aljabar sering digunakan untuk menerjemahkan soal cerita ke dalam bahasa matematika.
+- Kata kunci Tambah ($+$): lebih, jumlah, bertambah, diberi.
+- Kata kunci Kurang ($-$): kurangnya, selisih, diambil, hilang, sisa.
+
+**Contoh:** "Umur Budi 5 tahun lebih tua dari umur Andi."
+Jika umur Andi dilambangkan dengan $a$, maka umur Budi adalah: $a + 5$.
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Sederhanakan bentuk aljabar berikut: $6m + 2m - 5m$!
+
+**Pembahasan:**
+Karena ketiga suku tersebut memuat variabel yang sama yaitu $m$ (suku sejenis), kita bisa langsung menghitung koefisiennya:
+$$(6 + 2 - 5)m = (8 - 5)m = 3m$$
+Jadi, bentuk sederhananya adalah **$3m$**.
+
+#### Contoh 2 (Menengah)
+Sederhanakanlah bentuk aljabar berikut: $4x + 7y - 2x + y$!
+
+**Pembahasan:**
+- Kelompokkan suku-suku yang sejenis agar berdekatan:
+  $$(4x - 2x) + (7y + y)$$
+  *(Ingat, $y$ sama artinya dengan $1y$)*
+- Hitung masing-masing kelompok:
+  $$2x + 8y$$
+- Karena $x$ dan $y$ tidak sejenis, proses berhenti di sini.
+- Jadi, bentuk sederhananya adalah **$2x + 8y$**.
+
+#### Contoh 3 (Menantang)
+Sebuah bus kota berangkat dengan membawa beberapa penumpang. Di halte pertama, naik 8 orang penumpang. Di halte kedua, turun 5 orang penumpang dan naik 2 orang. Jika jumlah penumpang awal disimbolkan dengan $p$, tulislah bentuk aljabar yang menyatakan total penumpang di dalam bus sekarang, lalu sederhanakan!
+
+**Pembahasan:**
+- Penumpang awal = $p$
+- Halte 1 (naik 8) = $+8$
+- Halte 2 (turun 5, naik 2) = $-5 + 2$
+- Bentuk aljabarnya:
+  $$p + 8 - 5 + 2$$
+- Sederhanakan bagian konstantanya (angka biasa adalah suku sejenis):
+  $$p + (8 - 5 + 2) = p + 5$$
+- Jadi, total penumpang di dalam bus sekarang adalah **$p + 5$** orang.
+
+---
+
+### Simulasi Interaktif
+
+Mari bereksperimen dengan "Timbangan Seimbang Aljabar"! Taruh beberapa beban variabel $x$ dan beban angka satuan di sisi kiri dan kanan. Lihat bagaimana timbangan menyeimbangkan persamaan dan membantu kita menyederhanakan bentuk aljabar yang panjang.
+
+<AlgebraScale />
+
+---
+
+### Asah Kemampuan Mandiri
+
+#### Level 1 (Dasar)
+Hasil penjumlahan dari $8p$ dan $-3p$ adalah...
+A. $5p$
+B. $11p$
+C. $-5p$
+D. $-11p$
+
+#### Level 2 (Sedang)
+Bentuk paling sederhana dari $3a - 5b + 2a + 8b$ adalah...
+A. $5a - 3b$
+B. $5a + 3b$
+C. $a + 3b$
+D. $5a + 13b$
+
+#### Level 3 (Sulit)
+Seorang pedagang memiliki persediaan $5\text{ karung}$ beras dan $10\text{ kg}$ beras di tokonya. Jika ia membeli lagi $2\text{ karung}$ beras, lalu keesokan harinya beras tersebut laku terjual sebanyak $15\text{ kg}$, bagaimana bentuk aljabar dari sisa beras pedagang tersebut? (Asumsikan berat 1 karung beras adalah $x\text{ kg}$)
+A. $3x - 5$
+B. $7x + 25$
+C. $7x - 5$
+D. $5x + 5$
+
+#### Kunci Jawaban
+<details>
+<summary><b>Klik di sini untuk melihat Kunci Jawaban & Pembahasan</b></summary>
+
+1. **A** - (Level 1)
+   Suku $8p$ dan $-3p$ adalah suku sejenis.
+   $$8p + (-3p) = 8p - 3p = (8 - 3)p = 5p$$
+
+2. **B** - (Level 2)
+   Kelompokkan suku sejenis:
+   - Gabungkan $a$: $3a + 2a = 5a$
+   - Gabungkan $b$: $-5b + 8b = 3b$
+   Gabungkan kembali hasilnya menjadi: $5a + 3b$.
+
+3. **C** - (Level 3)
+   - Sisa awal: $5\text{ karung} + 10\text{ kg} \rightarrow 5x + 10$
+   - Beli lagi: $+ 2\text{ karung} \rightarrow + 2x$
+   - Terjual: $- 15\text{ kg} \rightarrow - 15$
+   
+   Gabungkan semuanya:
+   $$5x + 10 + 2x - 15$$
+   Kelompokkan suku sejenis:
+   $$(5x + 2x) + (10 - 15)$$
+   $$7x - 5$$
+   Jadi sisa berasnya adalah $7x - 5$.
+
+</details>

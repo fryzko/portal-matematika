@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Pencarian" description="Cari materi, topik, dan konsep matematika SMP dengan cepat.">
+
+
+        <section class="hero-section">
+            <div class="container">
+                <h1>Pencarian Materi</h1>
+                <p class="hero-description">
+                    Temukan materi, topik, atau konsep matematika yang ingin kamu pelajari.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <form class="search-form--page"
+                      data-search-form
+                      data-results-target="#search-results">
+
+                    <input type="search"
+                           name="q"
+                           placeholder="Cari materi, topik, atau konsep..."
+                           aria-label="Kata kunci pencarian">
+
+                    <button type="submit" class="button button-primary">Cari</button>
+
+                </form>
+
+                <div id="search-results" class="search-results" aria-live="polite"></div>
+            </div>
+        </section>
+
+    
+</Layout>

@@ -1,3 +1,10 @@
+---
+title: "Portal Matematika - Indeks Dokumentasi Acuan"
+topic: "Indeks Dokumentasi"
+difficulty: "Grade 7 - 9"
+needInteractive: false
+---
+
 # Portal Matematika
 
 Portal pembelajaran matematika SMP berbasis:

@@ -1,0 +1,80 @@
+/* =====================================================
+   FOOTER.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.site-footer {
+    padding-block: var(--space-2xl);
+
+    color: var(--color-text-light);
+
+    background-color: var(--color-secondary);
+
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: var(--space-2xl);
+
+    align-items: start;
+}
+
+.site-footer h2,
+.site-footer h3,
+.site-footer h4 {
+    margin-bottom: var(--space-sm);
+
+    color: var(--color-text);
+}
+
+.site-footer p {
+    margin: 0;
+
+    max-width: 55ch;
+
+    line-height: var(--line-height-normal);
+}
+
+.site-footer ul {
+    padding-left: 0;
+
+    list-style: none;
+}
+
+.site-footer li + li {
+    margin-top: var(--space-xs);
+}
+
+.site-footer a {
+    color: var(--color-text-light);
+}
+
+.site-footer a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    margin-top: var(--space-2xl);
+
+    padding-top: var(--space-lg);
+
+    border-top: 1px solid var(--color-border);
+
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: var(--space-xl);
+    }
+
+}

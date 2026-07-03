@@ -1,0 +1,169 @@
+---
+title: "Refleksi: Mencerminkan Bangun di Bidang Koordinat"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import TransformPlane from '../../../../components/TransformPlane.astro';
+
+### Mari Memahami Refleksi
+Ketika kamu bercermin di pagi hari, kamu melihat replika dirimu yang sempurna. Namun, ada satu hal aneh: jika kamu mengangkat tangan kananmu, bayanganmu di cermin justru terlihat sedang mengangkat "tangan kiri". Cermin membalikkan sisi kiri dan kanan! Di dalam matematika geometri, pencerminan ini disebut **Refleksi**, dan kita bisa melakukannya pada sumbu apa pun yang kita inginkan sebagai cerminnya.
+
+### Yuk, Temukan Sendiri Refleksi
+Gunakan Bidang Koordinat di bawah ini. Letakkan cerminmu di **sumbu-$y$** (garis vertikal di tengah). 
+Plot sebuah titik di $A(3, 4)$. Jika sumbu-$y$ adalah cermin, di manakah posisi bayangan $A'$ di seberang cermin? 
+
+<TransformPlane mode="refleksi" instruction="Pilih sumbu cermin dan lihat bayangan titik A terbentuk!" />
+
+Jarak $A$ ke cermin (sumbu-$y$) adalah 3 kotak ke arah kanan. Maka bayangan $A'$ pasti berada 3 kotak ke arah kiri dari cermin. Tingginya (4) tidak berubah! 
+Hasilnya: $(3, 4)$ dicerminkan sumbu-$y$ menjadi $(-3, 4)$.
+
+Sekarang, bisakah kamu menemukan pola matematika yang tersembunyi dari tabel pencerminan di bawah ini?
+
+| Titik Asal | Refleksi Sumbu $x$ (Cermin Mendatar) | Refleksi Sumbu $y$ (Cermin Tegak) |
+| :--- | :--- | :--- |
+| $(3, 4)$ | $(3, -4)$ | $(-3, 4)$ |
+| $(2, -5)$ | $(2, 5)$ | $(-2, -5)$ |
+| $(-1, 3)$ | $(-1, -3)$ | $(1, 3)$ |
+| $(-2, -4)$ | $(-2, 4)$ | $(2, -4)$ |
+
+Pola yang terbentuk sangat jelas: jika dicerminkan terhadap sumbu $x$, nilai $y$-nya berubah tanda. Jika dicerminkan terhadap sumbu $y$, nilai $x$-nya yang berubah tanda!
+
+### Teori & Definisi Formal
+**Refleksi** (Pencerminan) adalah transformasi yang memindahkan setiap titik pada sebuah bangun ke seberang suatu garis cermin (sumbu simetri) dengan jarak yang sama persis antara titik asli ke cermin dengan jarak bayangan ke cermin.
+
+Ada 4 sumbu cermin utama yang wajib kamu kuasai rumusnya:
+
+1. **Refleksi terhadap sumbu-$x$ (Cermin Mendatar):**
+   Nilai $x$ tetap, tanda $y$ berubah.
+   $$\text{Refleksi sumbu } x: (x,y) \rightarrow (x,-y)$$
+
+2. **Refleksi terhadap sumbu-$y$ (Cermin Vertikal):**
+   Nilai $y$ tetap, tanda $x$ berubah.
+   $$\text{Refleksi sumbu } y: (x,y) \rightarrow (-x,y)$$
+
+3. **Refleksi terhadap garis $y = x$ (Cermin Miring /):**
+   Nilai $x$ dan $y$ bertukar tempat.
+   $$\text{Refleksi } y=x: (x,y) \rightarrow (y,x)$$
+
+4. **Refleksi terhadap garis $y = -x$ (Cermin Miring \):**
+   Nilai $x$ dan $y$ bertukar tempat DAN berubah tanda.
+   $$\text{Refleksi } y=-x: (x,y) \rightarrow (-y,-x)$$
+
+### Visualisasi: Refleksi
+Bayangkan sebuah segitiga sembarang di kuadran pertama.
+Jika dicerminkan terhadap **garis $y = x$**, bangun tersebut akan terlipat melintasi garis diagonal yang menanjak. Titik $(1, 5)$ akan melayang jatuh menyeberang garis tersebut dan mendarat persis di $(5, 1)$. Titik-titiknya murni di-swap (ditukar tempat).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Tentukan bayangan titik $P(4, 7)$ jika direfleksikan terhadap sumbu-$x$!
+
+**Pembahasan:**
+
+Cermin sumbu-$x$ membuat nilai $y$ menjadi negatif.
+$(x, y) \rightarrow (x, -y)$
+Maka $P' = (4, -7)$.
+
+#### Contoh 1 (Mudah)
+
+Titik $Q(-3, 8)$ dicerminkan terhadap garis $y = x$. Di manakah posisinya sekarang?
+
+**Pembahasan:**
+
+Cermin $y = x$ menukar posisi absis dan ordinat.
+$(x, y) \rightarrow (y, x)$
+Maka $Q' = (8, -3)$.
+
+#### Contoh 2 (Menengah)
+
+Sebuah titik $R$ dicerminkan terhadap garis $y = -x$ menghasilkan bayangan $R'(-5, 2)$. Tentukan koordinat titik asal $R$!
+
+**Pembahasan:**
+
+Rumus cermin $y = -x$ adalah $(x, y) \rightarrow (-y, -x)$.
+Titik bayangannya adalah $(-5, 2)$. Ini berarti:
+$-y = -5 \Rightarrow y = 5$
+$-x = 2 \Rightarrow x = -2$
+Maka titik asal $R$ adalah $(-2, 5)$.
+
+#### Contoh 3 (Menantang)
+
+Titik $S(6, -2)$ direfleksikan terhadap sumbu-$y$, kemudian dilanjutkan dengan refleksi terhadap sumbu-$x$. Tentukan bayangan akhirnya!
+
+**Pembahasan:**
+
+Tahap 1: Refleksi sumbu-$y$ (ubah tanda $x$)
+$S_1 = (-6, -2)$
+Tahap 2: Hasil $S_1$ direfleksikan sumbu-$x$ (ubah tanda $y$)
+$S_2 = (-6, 2)$
+Jadi bayangan akhirnya adalah $(-6, 2)$. *(Fakta menarik: kombinasi ini sama persis dengan diputar 180 derajat!)*
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Hati-hati dengan garis miring! Kesalahan terbesar siswa ada pada refleksi garis **$y = x$**.
+
+
+Siswa terbiasa mengubah tanda (plus ke minus), sehingga ketika mereka diminta merefleksikan $(3, 5)$ ke $y=x$, mereka malah menjawab $(-3, -5)$. **Itu salah!**
+Aturan untuk $y = x$ hanyalah MENUKAR POSISI, bukan menukar tanda. Posisi $(3, 5)$ cukup ditukar menjadi $(5, 3)$. 
+Hanya pada cermin $y = -x$ kamu harus menukar posisi sekaligus mengubah kedua tandanya.
+
+### Koneksi Dunia Nyata
+1. **Desain & Seni:** Pengrajin batik, arsitek masjid (dengan kubah simetrisnya), dan seniman mandala selalu menggunakan refleksi geometri berlapis-lapis untuk menghasilkan mahakarya simetris yang memukau mata manusia.
+2. **Aplikasi Kamera:** Efek *mirroring* di kamera selfie HP atau filter TikTok menggunakan algoritma refleksi matematis secara instan pada jutaan pixel videomu.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="D">
+  <div slot="question">Bayangan titik $(9, -4)$ jika dicerminkan terhadap sumbu-$y$ adalah...</div>
+  <div slot="option-a">$(9, 4)$</div>
+  <div slot="option-b">$(-9, -4)$</div>
+  <div slot="option-c">$(4, -9)$</div>
+  <div slot="option-d">$(-9, -4)$</div>
+  <div slot="explanation">**Pembahasan:** Cermin sumbu-$y$ berarti tanda $x$-nya yang berubah. Dari $x=9$ menjadi $x=-9$. Ordinat tetap. Bayangannya $(-9, -4)$. (Opsi B dan D sama).</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Titik $(-1, 7)$ dicerminkan terhadap garis $y = x$. Hasilnya adalah...</div>
+  <div slot="option-a">$(1, -7)$</div>
+  <div slot="option-b">$(7, -1)$</div>
+  <div slot="option-c">$(-7, 1)$</div>
+  <div slot="option-d">$(1, 7)$</div>
+  <div slot="explanation">**Pembahasan:** Tukar posisi absis dan ordinat tanpa mengubah tanda bawaan mereka. Menjadi $(7, -1)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Titik $(5, 2)$ dicerminkan terhadap garis $y = -x$. Hasil bayangannya adalah...</div>
+  <div slot="option-a">$(-2, -5)$</div>
+  <div slot="option-b">$(-5, -2)$</div>
+  <div slot="option-c">$(2, 5)$</div>
+  <div slot="option-d">$(5, -2)$</div>
+  <div slot="explanation">**Pembahasan:** Tukar posisinya menjadi $(2, 5)$, lalu balik tandanya menjadi $(-2, -5)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah titik berada di $(0, 8)$. Titik tersebut dicerminkan terhadap sumbu-$y$. Di manakah posisinya sekarang?</div>
+  <div slot="option-a">$(0, -8)$</div>
+  <div slot="option-b">$(8, 0)$</div>
+  <div slot="option-c">$(0, 8)$</div>
+  <div slot="option-d">$(-8, 0)$</div>
+  <div slot="explanation">**Pembahasan:** Rumus sumbu-$y$ adalah $(-x, y)$. Titik asal adalah $(0, 8)$. Karena $-0$ tetap 0, maka titiknya tetap diam di $(0, 8)$. Ia tepat berdiri di atas garis cermin!</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH tentang refleksi?</div>
+  <div slot="option-a">Refleksi terhadap garis $y = x$ akan mengubah tanda $x$ dan $y$ menjadi berlawanan.</div>
+  <div slot="option-b">Jarak antara titik asal ke cermin selalu sama dengan jarak titik bayangan ke cermin.</div>
+  <div slot="option-c">Sebuah bangun yang direfleksikan tidak akan mengalami perubahan ukuran luasan.</div>
+  <div slot="option-d">Refleksi membalik sisi kiri dan kanan dari sebuah bangun.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan A salah. Refleksi garis $y = x$ hanya menukar posisi $(y, x)$, tidak merubah tandanya sama sekali.</div>
+</Quiz>

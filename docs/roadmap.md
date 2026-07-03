@@ -1,21 +1,3 @@
-# Roadmap Portal Matematika
+# Roadmap Portal Matematika (DEPRECATED)
 
-Tahap 1
-- Struktur proyek
-- HTML
-- CSS
-
-Tahap 2
-- JavaScript dasar
-
-Tahap 3
-- Python
-
-Tahap 4
-- Flask
-
-Tahap 5
-- SQLite
-
-Tahap 6
-- Portal lengkap
+> **DEPRECATED**: Dokumen ini sudah usang. Silakan merujuk ke `master-development-roadmap.md` untuk roadmap pengembangan terbaru berbasis Astro.

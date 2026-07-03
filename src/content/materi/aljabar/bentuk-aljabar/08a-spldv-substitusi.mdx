@@ -1,0 +1,203 @@
+---
+title: "SPLDV Bagian 1: Metode Substitusi (Mengganti)"
+topic: "Aljabar"
+difficulty: "Grade 9"
+needInteractive: false
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami SPLDV Bagian 1
+Bayangkan kamu sedang bermain tebak-tebakan dengan temanmu.
+Temanmu berkata: "Uangku ditambah uangmu totalnya Rp50.000."
+Bisakah kamu menebak berapa persisnya uang temanmu? Tentu tidak! Bisa saja dia punya Rp10.000 dan kamu Rp40.000, atau dia punya Rp25.000 dan kamu Rp25.000. Ada terlalu banyak kemungkinan.
+
+Tapi, bagaimana jika temanmu memberi *petunjuk kedua*?
+"Oh ya, uangku sama dengan **dua kali lipat uangmu**."
+Nah, dengan dua petunjuk ini, hanya ada SATU jawaban pasti. Bagaimana cara matematika menyelesaikannya secara instan?
+
+### Yuk, Temukan Sendiri SPLDV Bagian 1
+Coba kita pecahkan teka-teki di atas pakai logika detektif:
+1. Petunjuk 1: Uang Teman + Uangku = $50.000$
+2. Petunjuk 2: Uang Teman = $2 \times$ Uangku
+
+Karena kamu tahu nilai pasti "Uang Teman" dari petunjuk kedua, coba kamu **GANTI** kata "Uang Teman" di petunjuk pertama dengan "$2 \times$ Uangku".
+Maka petunjuk pertama berubah wujud menjadi:
+**(2 $\times$ Uangku)** + Uangku = $50.000$.
+
+Artinya, 3 $\times$ Uangku = $50.000$.
+Maka Uangku = $50.000 \div 3$. Selamat! Tanpa sadar kamu baru saja menggunakan sihir Substitusi!
+
+### Teori & Definisi Formal
+Dalam matematika, dua kalimat petunjuk di atas disebut **Sistem Persamaan Linear Dua Variabel (SPLDV)**.
+Metode yang kita gunakan tadi disebut **Metode Substitusi**, yang artinya **Menggantikan**.
+
+#### Langkah-langkah Metode Substitusi:
+1. **Pilih Persamaan yang Paling Sederhana**: Cari persamaan yang koefisien variabelnya $1$, lalu ubah susunannya menjadi $x = \dots$ atau $y = \dots$.
+2. **Substitusi (Masukkan)**: Masukkan bentuk persamaan yang baru tersebut ke dalam persamaan yang *satunya lagi*. 
+3. **Selesaikan**: Sekarang persamaanmu hanya memiliki satu jenis huruf. Cari nilainya!
+4. **Cari Temannya**: Setelah nilai satu huruf ketemu, masukkan angka itu kembali ke persamaan awal untuk mencari huruf yang belum diketahui.
+
+### Visualisasi: SPLDV Bagian 1
+Agar tidak tertukar, ingat prinsip masuk-memasukkan ini:
+```text
+Persamaan A: x = y + 5
+Persamaan B: 2x + 3y = 20
+
+          (masukkan x ke B)
+                ↓
+Persamaan B: 2(y + 5) + 3y = 20
+```
+Tada! Huruf $x$ menghilang, dan kita bisa menyelesaikan huruf $y$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Carilah penyelesaian dari SPLDV berikut:
+1) $y = 4$
+2) $2x + y = 10$
+
+**Pembahasan:**
+
+Karena $y$ sudah diketahui secara pasti ($y=4$), langsung masukkan ke persamaan 2!
+$$2x + (4) = 10$$
+
+$$2x = 10 - 4$$
+
+$$2x = 6$$
+
+$$x = 3$$
+Jawaban: $x = 3, y = 4$.
+
+#### Contoh 1 (Mudah)
+Selesaikan menggunakan substitusi:
+1) $x = y + 2$
+2) $3x + y = 14$
+
+**Pembahasan:**
+
+- Substitusikan $x$ dari Persamaan 1 ke Persamaan 2.
+  $$3(y + 2) + y = 14$$
+- Buka kurungnya (kalikan ke dalam):
+  $$3y + 6 + y = 14$$
+- Gabungkan yang sama:
+  $$4y + 6 = 14$$
+
+$$4y = 8$$
+
+$$y = 2$$
+- Cari $x$ dengan memasukkan $y = 2$ ke persamaan $x = y + 2$:
+  $$x = 2 + 2 = 4$$
+Jawaban: $x = 4, y = 2$.
+
+#### Contoh 2 (Menengah)
+Carilah Himpunan Penyelesaian dari:
+1) $x + 2y = 8$
+2) $3x - y = 10$
+
+**Pembahasan:**
+
+- Persamaan 1 lebih mudah diubah karena $x$ berdiri sendiri.
+  $x + 2y = 8 \rightarrow x = 8 - 2y$.
+- Substitusikan $x = 8 - 2y$ ke Persamaan 2:
+  $$3(8 - 2y) - y = 10$$
+
+$$24 - 6y - y = 10$$
+
+$$24 - 7y = 10$$
+
+$$-7y = 10 - 24$$
+
+$$-7y = -14$$
+
+$$y = 2$$
+- Cari $x$: $x = 8 - 2(2) = 8 - 4 = 4$.
+Jawaban: HP = $\{4, 2\}$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Lupa Menggunakan Tanda Kurung**: Saat memasukkan variabel yang berupa paket (seperti $y+5$), kamu **WAJIB** menggunakan tanda kurung. Misal: - **Lupa Menggunakan Tanda Kurung**: Saat memasukkan variabel yang berupa paket (seperti $y+5$), kamu **WAJIB** menggunakan tanda kurung. Misal: $2x$ di mana $x=y+5$, harus ditulis $2(y+5) \rightarrow 2y+10$. BUKAN $2y+5$.x$ di mana $x=y+5$, harus ditulis - **Lupa Menggunakan Tanda Kurung**: Saat memasukkan variabel yang berupa paket (seperti $y+5$), kamu **WAJIB** menggunakan tanda kurung. Misal: $2x$ di mana $x=y+5$, harus ditulis $2(y+5) \rightarrow 2y+10$. BUKAN $2y+5$.(y+5) \rightarrow 2y+10$. BUKAN - **Lupa Menggunakan Tanda Kurung**: Saat memasukkan variabel yang berupa paket (seperti $y+5$), kamu **WAJIB** menggunakan tanda kurung. Misal: $2x$ di mana $x=y+5$, harus ditulis $2(y+5) \rightarrow 2y+10$. BUKAN $2y+5$.y+5$.
+
+
+- **Memasukkan ke Persamaan yang Sama**: Mengubah Persamaan 1 menjadi $x = \dots$, lalu memasukkannya ke Persamaan 1 lagi. Ini akan menghasilkan $0 = 0$. Kamu harus memasukkannya ke Persamaan 2!
+
+### Koneksi Dunia Nyata
+Metode substitusi ini adalah dasar logika dari banyak program komputer (*Coding*). Programmer sering kali membuat variabel sementara, lalu "mensubstitusi" variabel tersebut ke fungsi lain agar kode bisa berjalan dengan efisien tanpa perlu mengetik nilai panjang berulang-ulang.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    1. Jika $x = 3y$ dan $x + y = 20$, berapakah nilai $y$?
+  </div>
+  <div slot="option-a">$4$</div>
+  <div slot="option-b">$5$</div>
+  <div slot="option-c">$10$</div>
+  <div slot="option-d">$15$</div>
+  <div slot="explanation">**Pembahasan:** Substitusi $x = 3y$ ke persamaan kedua.
+    $(3y) + y = 20$
+    $4y = 20 \implies y = 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    2. Jika $y = x - 2$ dimasukkan ke dalam persamaan $2x + 3y = 9$, maka persamaan barunya akan menjadi...
+  </div>
+  <div slot="option-a">$2x + 3(x - 2) = 9$</div>
+  <div slot="option-b">$2x + 3x - 2 = 9$</div>
+  <div slot="option-c">$2(x - 2) + 3y = 9$</div>
+  <div slot="option-d">$2x + x - 2 = 9$</div>
+  <div slot="explanation">**Pembahasan:** Kita menggantikan huruf $y$ dengan paket $(x - 2)$. Wajib menggunakan kurung!
+    Maka $2x + 3(x - 2) = 9$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    3. Dari sistem persamaan $2x - y = 5$ dan $y = x + 1$, nilai $x$ adalah...
+  </div>
+  <div slot="option-a">$2$</div>
+  <div slot="option-b">$4$</div>
+  <div slot="option-c">$6$</div>
+  <div slot="option-d">$8$</div>
+  <div slot="explanation">**Pembahasan:** Substitusi $y = x + 1$ ke persamaan pertama:
+    $2x - (x + 1) = 5$
+    Ingat tanda minus bertemu kurung!
+    $2x - x - 1 = 5$
+    $x = 5 + 1 = 6$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">
+    4. Manakah di antara persamaan berikut yang paling mudah diubah bentuknya untuk memulai metode substitusi?
+  </div>
+  <div slot="option-a">$4x + 3y = 12$</div>
+  <div slot="option-b">$2x - 5y = 10$</div>
+  <div slot="option-c">$3x - 3y = 9$</div>
+  <div slot="option-d">$x - 4y = 8$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    Metode substitusi paling mudah dimulai jika salah satu variabel memiliki koefisien 1 (atau -1) agar tidak menghasilkan pecahan.
+    Opsi D memiliki variabel $x$ yang berdiri sendiri, sehingga mudah diubah menjadi $x = 4y + 8$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    5. Penyelesaian dari $x = 2y - 1$ dan $3x + y = 11$ adalah...
+  </div>
+  <div slot="option-a">$(1, 3)$</div>
+  <div slot="option-b">$(3, 2)$</div>
+  <div slot="option-c">$(5, 3)$</div>
+  <div slot="option-d">$(2, 5)$</div>
+  <div slot="explanation">**Pembahasan:** Substitusi $x$:
+    $3(2y - 1) + y = 11$
+    $6y - 3 + y = 11$
+    $7y = 14 \implies y = 2$.
+    Cari $x$: $x = 2(2) - 1 = 3$.
+    Maka $(x, y) = (3, 2)$.</div>
+</Quiz>

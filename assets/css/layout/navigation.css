@@ -1,0 +1,60 @@
+/* =====================================================
+   NAVIGATION.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-sm) var(--space-md);
+    padding-left: 0;
+    list-style: none;
+}
+
+.navigation-list li {
+    margin: 0;
+}
+
+.navigation-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--space-xl);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+.navigation-list a:hover {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.navigation-list a:focus-visible {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+    .main-navigation {
+        width: 100%;
+    }
+
+    .navigation-list {
+        justify-content: flex-start;
+    }
+}

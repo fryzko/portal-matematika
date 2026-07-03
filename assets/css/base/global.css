@@ -1,0 +1,53 @@
+/* =====================================================
+   GLOBAL.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+* {
+    scrollbar-color: var(--color-border) var(--color-secondary);
+}
+
+html {
+    background-color: var(--color-background);
+}
+
+body {
+    background-color: var(--color-background);
+}
+
+main {
+    background-color: var(--color-background);
+}
+
+section {
+    scroll-margin-top: var(--header-height);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: var(--space-xs);
+    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+    text-decoration-color: var(--color-primary-hover);
+}
+
+img {
+    height: auto;
+}
+
+hr {
+    height: 0;
+    margin: var(--space-lg) 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+:focus-visible {
+    outline: var(--space-xs) solid var(--color-primary);
+    outline-offset: var(--space-xs);
+}

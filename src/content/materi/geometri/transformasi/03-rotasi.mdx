@@ -1,0 +1,165 @@
+---
+title: "Rotasi: Memutar Bangun di Sekitar Titik Pusat"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import TransformPlane from '../../../../components/TransformPlane.astro';
+
+### Mari Memahami Rotasi
+Amati jam dinding analog. Jarum pendeknya bergerak mulus dari angka 12, berputar, lalu menunjuk ke angka 3. Pergerakan berputar dengan titik engsel yang diam di tengah ini adalah esensi dari **Rotasi**. Kalau di kehidupan sehari-hari rotasi sering diukur searah jarum jam, di matematika geometri, arah perputaran rotasi sedikit lebih unik dan berlawanan arus! 
+
+### Yuk, Temukan Sendiri Rotasi
+Coba kita putar titik $A(4, 1)$ sejauh $90^\circ$ dengan engsel perputaran berada di titik pangkal (0,0).
+Kamu bisa mencoba menggambarnya di Bidang Koordinat berikut ini. 
+
+<TransformPlane mode="rotasi" instruction="Pilih sudut rotasi dan lihat titik A berputar mengelilingi pusat!" />
+
+**Panduan Penemuan Manual:**
+- Plot titik $A(4, 1)$
+- Ambil penggaris atau bayangkan sebuah tali lurus yang mengikat dari titik $(0,0)$ ke $A$.
+- Putar tali tersebut ke arah kiri atas (berlawanan jarum jam) sebesar $90^\circ$ (siku-siku).
+- Tali tersebut akan berhenti di titik $A'(-1, 4)$.
+- Pola yang terungkap: Dari $(4, 1)$ memutar $90^\circ$ menjadi $(-1, 4)$. Posisi tertukar, dan $x$ (yang asalnya $y$) mendapat tambahan tanda minus! Polanya $(x, y) \rightarrow (-y, x)$.
+
+Coba buktikan sendiri dengan memutar titik $B(2, 3)$. Apakah mendarat di $B'(-3, 2)$?
+
+### Teori & Definisi Formal
+**Rotasi** adalah perpindahan sebuah bangun geometri dengan cara memutarnya mengelilingi sebuah titik engsel tetap (Pusat Rotasi) sejauh sudut tertentu.
+
+**Aturan Arah Rotasi Matematika (PENTING!):**
+- Sudut Positif ($+90^\circ$): Berputar **berlawanan** arah jarum jam (ke kiri).
+- Sudut Negatif ($-90^\circ$): Berputar **searah** jarum jam (ke kanan).
+
+Kita akan fokus pada rotasi dengan pusat di Titik Asal $(0,0)$. Berikut 3 rumus sakti yang harus dihafalkan:
+
+1. **Rotasi $90^\circ$ (atau $-270^\circ$):** 
+   Tukar posisi $x$ dan $y$, lalu beri tanda minus pada depan.
+   $$\text{Rotasi } 90^\circ: (x,y) \rightarrow (-y,x)$$
+
+2. **Rotasi $180^\circ$ (Setengah Putaran):**
+   Tidak ditukar, cukup ubah tanda keduanya menjadi lawannya.
+   $$\text{Rotasi } 180^\circ: (x,y) \rightarrow (-x,-y)$$
+
+3. **Rotasi $270^\circ$ (atau $-90^\circ$):**
+   Tukar posisi $x$ dan $y$, lalu beri tanda minus pada bagian belakang.
+   $$\text{Rotasi } 270^\circ: (x,y) \rightarrow (y,-x)$$
+
+### Visualisasi: Rotasi
+Perhatikan titik $P(5, 2)$.
+- Putar $90^\circ$ (kiri 1 kuadran) $\rightarrow P_1(-2, 5)$.
+- Putar $180^\circ$ (nyeberang kebalik) $\rightarrow P_2(-5, -2)$.
+- Putar $270^\circ$ (kanan 1 kuadran) $\rightarrow P_3(2, -5)$.
+- Putar $360^\circ$ (satu putaran penuh) $\rightarrow P_4(5, 2)$ (kembali ke tempat awal).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Tentukan bayangan titik $C(3, 7)$ jika dirotasikan $180^\circ$ dengan pusat $(0,0)$!
+
+**Pembahasan:**
+
+Rotasi $180^\circ$ hanya mengubah tanda positif menjadi negatif (tanpa tukar posisi).
+$C' = (-3, -7)$
+
+#### Contoh 1 (Mudah)
+
+Titik $D(-4, 5)$ dirotasi $90^\circ$ berlawanan arah jarum jam dari titik asal $(0,0)$. Di mana koordinat barunya?
+
+**Pembahasan:**
+
+Rumus rotasi $90^\circ$ berlawanan arah (positif): $(x, y) \rightarrow (-y, x)$.
+Maka, $D' = (-5, -4)$.
+
+#### Contoh 2 (Menengah)
+
+Sebuah titik diputar sebesar $-90^\circ$ searah jarum jam mengelilingi $(0,0)$ dan mendarat di $E'(3, 8)$. Tentukan koordinat titik aslinya!
+
+**Pembahasan:**
+
+Rotasi searah jarum jam sebesar $-90^\circ$ adalah ekuivalen dengan rotasi $+270^\circ$.
+Rumus rotasi $270^\circ$: $(x, y) \rightarrow (y, -x)$.
+Titik bayangannya adalah $(3, 8)$.
+Artinya $y = 3$, dan $-x = 8 \Rightarrow x = -8$.
+Koordinat titik asli adalah $(-8, 3)$.
+
+#### Contoh 3 (Menantang)
+
+Titik $F(2, -1)$ direfleksikan terhadap garis $y = x$, kemudian hasilnya dirotasikan $90^\circ$ mengelilingi $(0,0)$. Tentukan koordinat akhirnya!
+
+**Pembahasan:**
+
+Tahap 1: Refleksi $y = x \Rightarrow (x, y) \rightarrow (y, x)$.
+Maka $F_1 = (-1, 2)$.
+Tahap 2: Rotasi $90^\circ \Rightarrow (x, y) \rightarrow (-y, x)$.
+Gunakan titik $F_1(-1, 2)$ sebagai modal awal, bukan $F$.
+Maka $F_2 = (-2, -1)$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan masal yang terjadi pada jutaan murid SMP adalah tentang **ARAH**.
+
+
+Kebiasaan kita memutar volume TV atau mengemudi mobil adalah "ke kanan = maju/positif". Di geometri koordinat, putaran **berlawanan jarum jam justru bernilai POSITIF**.
+Jika soal menyebutkan "Dirotasi $90^\circ$" tanpa menyebut arah, maka itu mutlak berarti **berlawanan jarum jam (ke kiri)**.
+Jika soal dengan tegas mengatakan "searah jarum jam $90^\circ$", maka kamu harus menggunakan rumus Rotasi $270^\circ$ (karena $-90^\circ$ bertepatan dengan $+270^\circ$).
+
+### Koneksi Dunia Nyata
+1. **Game Animasi 3D:** Ketika kamu menekan tombol analog gamepad ke kanan dan karakter di game berbalik badan $180^\circ$, *engine* game langsung menjalankan matriks trigonometri rotasi pada jutaan *polygon* karakternya.
+2. **Robotika:** Lengan robot pabrik perakitan mobil harus mengkalkulasi sudut putaran engsel bahunya (derajat rotasi) dengan sangat presisi agar obengnya bisa mengenai sekrup yang tepat.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Bayangan titik $(4, -2)$ oleh rotasi $90^\circ$ dengan pusat $(0,0)$ adalah...</div>
+  <div slot="option-a">$(-2, 4)$</div>
+  <div slot="option-b">$(2, 4)$</div>
+  <div slot="option-c">$(-4, 2)$</div>
+  <div slot="option-d">$(4, 2)$</div>
+  <div slot="explanation">**Pembahasan:** Rumus rotasi $90^\circ$ adalah $(-y, x)$. Nilai $y$ awal adalah $-2$. Maka $-y = -(-2) = 2$. Dan nilai $x$ menjadi di belakang (4). Hasilnya $(2, 4)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Rotasi sejauh $270^\circ$ (berlawanan jarum jam) memiliki hasil bayangan yang SAMA PERSIS dengan rotasi...</div>
+  <div slot="option-a">$-270^\circ$ searah jarum jam</div>
+  <div slot="option-b">$180^\circ$ berlawanan jarum jam</div>
+  <div slot="option-c">$90^\circ$ berlawanan jarum jam</div>
+  <div slot="option-d">$90^\circ$ searah jarum jam</div>
+  <div slot="explanation">**Pembahasan:** Memutar ke kiri (berlawanan jarum jam) sebanyak 3 kuadran ($270^\circ$) jatuhnya di tempat yang sama persis jika kamu memutar ke kanan (searah jarum jam) sebanyak 1 kuadran ($90^\circ$).</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sebuah titik $(-7, -5)$ diputar $180^\circ$. Koordinat bayangannya adalah...</div>
+  <div slot="option-a">$(7, 5)$</div>
+  <div slot="option-b">$(5, 7)$</div>
+  <div slot="option-c">$(-7, 5)$</div>
+  <div slot="option-d">$(-5, -7)$</div>
+  <div slot="explanation">**Pembahasan:** Rotasi $180^\circ$ mengubah kedua tanda tanpa menukar posisi. Dari minus menjadi plus. $(7, 5)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Titik $P(5, 3)$ dirotasikan searah jarum jam sejauh $90^\circ$. Koordinat $P'$ adalah...</div>
+  <div slot="option-a">$(-3, 5)$</div>
+  <div slot="option-b">$(-5, -3)$</div>
+  <div slot="option-c">$(3, -5)$</div>
+  <div slot="option-d">$(3, 5)$</div>
+  <div slot="explanation">**Pembahasan:** Searah jarum jam $90^\circ$ sama dengan rotasi $270^\circ$. Rumusnya $(y, -x)$. Maka jadi $(3, -5)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH mengenai rotasi geometri?</div>
+  <div slot="option-a">Sudut bernilai positif menunjukkan arah putaran berlawanan jarum jam.</div>
+  <div slot="option-b">Rotasi $180^\circ$ berlawanan jarum jam berbeda hasilnya dengan rotasi $180^\circ$ searah jarum jam.</div>
+  <div slot="option-c">Jarak setiap titik sudut bangun datar ke titik pusat putaran akan selalu tetap sama.</div>
+  <div slot="option-d">Rotasi sama sekali tidak merubah luasan keliling dan luas bangun datar.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Rotasi $180^\circ$ sangat unik. Entah diputar ke kiri atau ke kanan setengah lingkaran, hasilnya akan bertemu di titik yang sama persis di seberang.</div>
+</Quiz>

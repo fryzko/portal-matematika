@@ -1,0 +1,174 @@
+---
+title: "Mengenal Pola Bilangan"
+topic: "Aljabar"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import Quiz from '../../../../components/Quiz.astro';
+
+### Pendahuluan / Pengantar
+Pernahkah kamu memperhatikan kelopak bunga matahari atau susunan ubin di lantai rumahmu? Semuanya terlihat begitu rapi, teratur, dan memiliki keindahan karena tersusun mengikuti pola tertentu.
+
+Dalam matematika, keteraturan ini disebut sebagai **pola**. Bayangkan jika kamu menyusun korek api membentuk barisan segitiga seperti di bawah ini:
+- Segitiga pertama membutuhkan $3$ batang korek api.
+- Segitiga kedua membutuhkan $5$ batang korek api.
+- Segitiga ketiga membutuhkan $7$ batang korek api.
+
+Susunan batang korek api tersebut membentuk barisan angka: $3, 5, 7, \dots$. Jika pola ini terus berlanjut, bisakah kamu menebak berapa batang korek api yang dibutuhkan untuk membuat segitiga keempat? 
+
+Ya, benar! Jawabannya adalah $9$. Kamu bisa mengetahuinya dengan cepat karena ada aturan yang teratur, yaitu selalu bertambah $2$ batang korek api untuk segitiga berikutnya!
+
+---
+
+### Teori Utama & Rumus
+**Pola Bilangan** adalah susunan bilangan yang dibentuk dengan mengikuti aturan tertentu secara konsisten. 
+
+Berikut adalah beberapa jenis pola bilangan sederhana yang sering kita temukan:
+
+1. **Pola Bilangan Ganjil**: Susunan bilangan ganjil positif.
+   $$1, 3, 5, 7, 9, \dots$$
+   Rumus suku ke-$n$ ($U_n$):
+   $$U_n = 2n - 1$$
+2. **Pola Bilangan Genap**: Susunan bilangan genap positif.
+   $$2, 4, 6, 8, 10, \dots$$
+   Rumus suku ke-$n$ ($U_n$):
+   $$U_n = 2n$$
+3. **Pola Bilangan Aritmetika (Beda Tetap)**: Pola bilangan di mana selisih antar dua suku yang berurutan selalu tetap (selisih ini disebut beda atau $b$).
+   $$\text{Contoh: } 3, 8, 13, 18, \dots \quad (\text{selalu bertambah } 5)$$
+   Rumus mencari suku ke-$n$ ($U_n$) barisan aritmetika:
+   $$U_n = a + (n - 1)b$$
+   *Keterangan:*
+   - $a$ = suku pertama ($U_1$)
+   - $b$ = beda atau selisih ($U_2 - U_1$)
+   - $n$ = urutan suku yang dicari
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Tentukan dua suku berikutnya dari barisan bilangan berikut: 
+$$4, \quad 7, \quad 10, \quad 13, \dots$$
+
+**Pembahasan:**
+- Amati selisih antara suku-suku yang berurutan:
+  $$7 - 4 = 3$$
+  $$10 - 7 = 3$$
+  $$13 - 10 = 3$$
+- Aturan pola barisan ini adalah **"selalu bertambah $3$"**.
+- Suku kelima: $13 + 3 = 16$.
+- Suku keenam: $16 + 3 = 19$.
+- Jadi, dua suku berikutnya adalah **$16$ dan $19$**.
+
+#### Contoh 2 (Menengah)
+Sebuah barisan aritmetika memiliki suku pertama $a = 5$ dan beda selisih $b = 4$. Tentukan nilai dari suku ke-12 ($U_{12}$)!
+
+**Pembahasan:**
+- Gunakan rumus suku ke-$n$ barisan aritmetika:
+  $$U_n = a + (n - 1)b$$
+- Masukkan nilai yang diketahui ($a = 5, b = 4, n = 12$):
+  $$U_{12} = 5 + (12 - 1) \times 4$$
+  $$U_{12} = 5 + 11 \times 4$$
+  $$U_{12} = 5 + 44 = 49$$
+- Jadi, suku ke-12 dari barisan tersebut adalah **$49$**.
+
+#### Contoh 3 (Menantang)
+Dalam sebuah aula pertemuan, kursi penonton diatur dalam beberapa baris. Baris paling depan (baris pertama) terdiri dari $15$ kursi. Baris di belakangnya selalu memuat $4$ kursi lebih banyak dari baris di depannya. Jika dalam aula tersebut terdapat total $10$ baris kursi, tentukan:
+1. Banyaknya kursi pada baris terakhir (baris ke-10).
+2. Jumlah seluruh kursi di dalam aula tersebut.
+
+**Pembahasan:**
+1. Masalah ini merupakan barisan aritmetika dengan suku pertama $a = 15$ dan beda $b = 4$. Banyaknya kursi pada baris ke-10 ($U_{10}$):
+   $$U_10 = a + (10 - 1)b$$
+   $$U_10 = 15 + 9 \times 4 = 15 + 36 = 51\text{ kursi}$$
+   Jadi, baris terakhir memiliki **$51\text{ kursi}$**.
+2. Untuk mencari total seluruh kursi ($S_{10}$), kita menggunakan rumus jumlah $n$ suku pertama deret aritmetika:
+   $$S_n = \frac{n}{2} (a + U_n)$$
+   $$S_{10} = \frac{10}{2} (a + U_{10})$$
+   $$S_{10} = 5 \times (15 + 51)$$
+   $$S_{10} = 5 \times 66 = 330\text{ kursi}$$
+   Jadi, jumlah total kursi di dalam aula adalah **$330\text{ kursi}$**.
+
+---
+
+### Simulasi Interaktif
+Cobalah bereksperimen dengan generator pola di bawah ini untuk melihat bagaimana perubahan nilai beda ($b$) memengaruhi pertumbuhan pola bilangan.
+
+{/* INTERACTIVE_WIDGET: GENERATOR_POLA_BILANGAN */}
+
+---
+
+### Asah Kemampuan / Kuis Singkat
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    Tiga suku berikutnya dari pola bilangan $3, 7, 11, 15, \dots$ adalah...
+  </div>
+  <div slot="option-a">$19, 23, 27$</div>
+  <div slot="option-b">$18, 21, 24$</div>
+  <div slot="option-c">$19, 22, 25$</div>
+  <div slot="option-d">$20, 25, 30$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Barisan tersebut memiliki beda selisih $+4$. Tiga suku berikutnya: $15+4=19$, $19+4=23$, $23+4=27$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    Rumus suku ke-$n$ dari barisan bilangan $5, 10, 15, 20, \dots$ adalah...
+  </div>
+  <div slot="option-a">$U_n = n + 5$</div>
+  <div slot="option-b">$U_n = 5^n$</div>
+  <div slot="option-c">$U_n = 5n$</div>
+  <div slot="option-d">$U_n = 4n + 1$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Suku-suku barisan merupakan kelipatan $5$. Suku ke-$1 = 5(1)$, Suku ke-$2 = 5(2)$, dst. Maka rumusnya adalah $U_n = 5n$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    Suku ke-20 dari barisan bilangan yang dirumuskan dengan $U_n = 3n - 2$ adalah...
+  </div>
+  <div slot="option-a">$58$</div>
+  <div slot="option-b">$60$</div>
+  <div slot="option-c">$62$</div>
+  <div slot="option-d">$64$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Substitusi nilai $n = 20$ ke dalam rumus $U_n = 3n - 2$:
+    $$U_{20} = 3(20) - 2 = 60 - 2 = 58$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Pola bilangan segitiga memiliki suku-suku: $1, 3, 6, 10, \dots$. Rumus suku ke-$n$ dari pola ini adalah $U_n = \frac{n(n+1)}{2}$. Suku ke-8 dari pola bilangan segitiga adalah...
+  </div>
+  <div slot="option-a">$28$</div>
+  <div slot="option-b">$36$</div>
+  <div slot="option-c">$45$</div>
+  <div slot="option-d">$55$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Substitusi nilai $n = 8$ ke dalam rumus $U_n = \frac{n(n+1)}{2}$:
+    $$U_8 = \frac{8(8+1)}{2} = 4 \times 9 = 36$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    Banyaknya lingkaran kecil pada pola noktah ke-1 adalah 2, pola ke-2 adalah 6, pola ke-3 adalah 12, dan pola ke-4 adalah 20 (pola persegi panjang). Banyak noktah pada pola ke-7 adalah...
+  </div>
+  <div slot="option-a">$42$</div>
+  <div slot="option-b">$49$</div>
+  <div slot="option-c">$56$</div>
+  <div slot="option-d">$72$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Pola persegi panjang dirumuskan dengan $U_n = n(n+1)$. Untuk pola ke-7 ($n = 7$):
+    $$U_7 = 7 \times (7 + 1) = 7 \times 8 = 56$$
+  </div>
+</Quiz>

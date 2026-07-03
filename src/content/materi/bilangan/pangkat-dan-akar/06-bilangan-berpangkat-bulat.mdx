@@ -1,0 +1,122 @@
+---
+title: "Bilangan Berpangkat Bulat"
+topic: "Bilangan"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import ExponentMachine from '../../../../components/ExponentMachine.astro';
+
+
+### Pendahuluan / Pengantar
+Pernahkah kamu menonton film fiksi ilmiah di mana satu sel mutan membelah diri menjadi dua, lalu masing-masing membelah lagi menjadi dua, dan seterusnya? Dalam waktu singkat, dari satu sel saja bisa muncul ribuan sel baru! Proses ledakan jumlah yang sangat cepat ini disebut pertumbuhan **Eksponensial**.
+
+Dalam matematika, kita menyingkat perkalian berulang yang sangat panjang ini dengan menggunakan **Pangkat** (atau *Eksponen*). Alih-alih menulis $2 \times 2 \times 2 \times 2 \times 2 \times 2 \times 2$ hingga kehabisan napas dan tinta bolpoin, kita cukup menulisnya dengan elegan menjadi $2^7$. Angka kecil di atas sana memiliki kekuatan magis untuk membuat angka biasa menjadi raksasa!
+
+### Teori Utama & Rumus
+
+**Bilangan Berpangkat** memiliki dua unsur utama:
+$$a^n$$
+- $a$ disebut **Basis** (angka dasar / bilangan pokok).
+- $n$ disebut **Eksponen** (pangkat), yang menunjukkan berapa kali basis dikalikan dengan dirinya sendiri.
+Jadi, $a^n = a \times a \times a \times \dots \times a$ (sebanyak $n$ kali).
+
+#### 1. Pangkat Nol dan Pangkat Negatif
+Bagaimana jika pangkatnya bukan bilangan positif?
+- **Pangkat Nol**: Aturan emas matematika menyatakan bahwa bilangan apa pun (kecuali nol) jika dipangkatkan dengan $0$, hasilnya pasti $1$.
+  $$a^0 = 1 \quad (a \neq 0)$$
+  *Contoh: $5^0 = 1$, $999^0 = 1$.*
+- **Pangkat Negatif**: Pangkat negatif bukanlah angka minus, melainkan **kebalikan** (pecahan). Ia berfungsi untuk menyusutkan angka menjadi sangat kecil.
+  $$a^{-n} = \frac{1}{a^n}$$
+  *Contoh: $2^{-3} = \frac{1}{2^3} = \frac{1}{8}$.*
+
+#### 2. Sifat-sifat Operasi Pangkat
+Pangkat punya jalan pintas (rumus sakti) jika kita mengoperasikan basis yang sama:
+- **Perkalian (Pangkat Ditambah)**: Jika basis dikali, pangkatnya cukup ditambahkan.
+  $$a^m \times a^n = a^{m+n}$$
+- **Pembagian (Pangkat Dikurang)**: Jika basis dibagi, pangkatnya cukup dikurangkan.
+  $$a^m \div a^n = a^{m-n}$$
+- **Pangkat Dipangkatkan (Pangkat Dikali)**: Jika bentuk pangkat dipangkatkan lagi, pangkatnya dikalikan.
+  $$(a^m)^n = a^{m \times n}$$
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Hitunglah hasil dari $3^4$ dan $5^{-2}$!
+
+**Pembahasan:**
+- $3^4 = 3 \times 3 \times 3 \times 3 = 81$
+- $5^{-2} = \frac{1}{5^2} = \frac{1}{25}$
+
+#### Contoh 2 (Menengah)
+Sederhanakan bentuk perkalian dan pembagian ini: $\frac{2^5 \times 2^4}{2^6}$!
+
+**Pembahasan:**
+- Selesaikan bagian atas (perkalian) dengan menambahkan pangkatnya: $2^{5+4} = 2^9$.
+- Sekarang bentuknya menjadi $\frac{2^9}{2^6}$.
+- Selesaikan pembagian dengan mengurangkan pangkatnya: $2^{9-6} = 2^3$.
+- Nilai akhir: $2^3 = 8$.
+
+#### Contoh 3 (Menantang)
+Berapakah hasil dari $(3^2)^{-1} \times 3^5$?
+
+**Pembahasan:**
+- Selesaikan "pangkat dipangkatkan" terlebih dahulu dengan mengalikannya: $(3^2)^{-1} = 3^{2 \times (-1)} = 3^{-2}$.
+- Sekarang soal berubah menjadi: $3^{-2} \times 3^5$.
+- Gunakan sifat perkalian (pangkat ditambahkan): $3^{-2+5} = 3^3$.
+- Nilai akhir: $3^3 = 27$.
+
+---
+
+### Simulasi Interaktif
+
+Jadilah ilmuwan gila di laboratorium matematika! Gunakan "Mesin Pengganda Angka" di bawah ini. Masukkan angka dasar bakteri yang kamu punya, lalu geser slider pangkat ke kanan untuk melihat angka meledak (pangkat positif), atau geser ke kiri untuk membasminya hingga menyusut ke angka pecahan mikroskopis (pangkat negatif).
+
+<ExponentMachine />
+
+---
+
+### Asah Kemampuan Mandiri
+
+#### Level 1 (Dasar)
+Nilai dari $4^{-3}$ sama dengan...
+A. $-12$
+B. $-64$
+C. $\frac{1}{12}$
+D. $\frac{1}{64}$
+
+#### Level 2 (Sedang)
+Bentuk paling sederhana dari $\frac{m^7}{m^2 \times m^3}$ adalah...
+A. $m^2$
+B. $m^3$
+C. $m^5$
+D. $m^8$
+
+#### Level 3 (Sulit)
+Hasil dari $100^0 + 2^{-3} \times 2^5$ adalah...
+A. $3$
+B. $5$
+C. $104$
+D. $108$
+
+#### Kunci Jawaban
+<details>
+<summary><b>Klik di sini untuk melihat Kunci Jawaban & Pembahasan</b></summary>
+
+1. **D** - (Level 1)
+   Pangkat negatif berarti $\frac{1}{a^n}$.
+   $$4^{-3} = \frac{1}{4^3} = \frac{1}{4 \times 4 \times 4} = \frac{1}{64}$$
+
+2. **A** - (Level 2)
+   Kerjakan bagian bawah (penyebut) terlebih dahulu menggunakan sifat perkalian:
+   $$m^2 \times m^3 = m^{2+3} = m^5$$
+   Sekarang lakukan pembagian dengan mengurangkan pangkatnya:
+   $$\frac{m^7}{m^5} = m^{7-5} = m^2$$
+
+3. **B** - (Level 3)
+   - $100^0 = 1$ (Angka berapapun pangkat $0$ adalah $1$)
+   - $2^{-3} \times 2^5 = 2^{-3+5} = 2^2 = 4$
+   Jumlahkan keduanya: $1 + 4 = 5$.
+
+</details>

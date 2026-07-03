@@ -1,0 +1,172 @@
+---
+title: "Keliling dan Luas Segitiga: Mengukur Bidang Tiga Sisi"
+topic: "Geometri"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Keliling dan Luas Segitiga
+Bayangkan seorang tukang kebun diminta untuk merenovasi sebuah taman kota yang berbentuk segitiga. Ia memiliki dua tugas utama: memasang pagar pembatas di **sekeliling** taman agar aman, dan menaburkan bibit rumput hias **di bagian dalam** taman. 
+Untuk menyelesaikan pekerjaannya, tukang kebun tersebut membutuhkan dua perhitungan yang sangat berbeda. Mengukur panjang pagar berarti mencari "Keliling", sedangkan menghitung kebutuhan rumput berarti mencari "Luas". Bagaimana cara menghitung keduanya? Mari kita pelajari bersama-sama!
+
+### Yuk, Temukan Sendiri Keliling dan Luas Segitiga
+Apakah kamu tahu bahwa segitiga sebenarnya memiliki hubungan erat dengan persegi panjang? Coba perhatikan ilustrasi pemotongan persegi panjang secara diagonal berikut:
+
+```text
+Potong persegi panjang secara diagonal:
+┌──────────┐       ╲          │
+│          │  →    ╲  Segitiga│
+│          │       ╲         │
+└──────────┘        ╲────────┘
+Luas segitiga = ½ × Luas persegi panjang
+```
+
+Jika luas persegi panjang dihitung dengan panjang $\times$ lebar, dan sebuah segitiga (siku-siku) terbentuk dari setengah persegi panjang, maka kita bisa menarik kesimpulan yang sangat menakjubkan tentang rumus luas segitiga!
+
+### Teori & Definisi Formal
+**Segitiga** adalah bangun datar yang dibatasi oleh tiga buah sisi dan memiliki tiga buah titik sudut.
+
+Berdasarkan panjang sisinya, segitiga dibagi menjadi 3 jenis:
+1. **Segitiga Sama Sisi:** Ketiga sisinya sama panjang.
+2. **Segitiga Sama Kaki:** Dua dari tiga sisinya sama panjang.
+3. **Segitiga Sembarang:** Ketiga sisinya memiliki panjang yang berbeda.
+
+Berdasarkan besar sudutnya, segitiga dibagi menjadi 3 jenis:
+1. **Segitiga Siku-siku:** Salah satu sudutnya bernilai $90^\circ$.
+2. **Segitiga Tumpul:** Salah satu sudutnya lebih dari $90^\circ$.
+3. **Segitiga Lancip:** Ketiga sudutnya kurang dari $90^\circ$.
+
+**Rumus Keliling ($K$)**
+Keliling adalah total panjang batas luar dari suatu bangun. Untuk segitiga dengan sisi-sisi $a$, $b$, dan $c$:
+$$K = a + b + c$$
+
+**Rumus Luas ($L$)**
+Luas adalah besar area di dalam batas bangun tersebut. Dalam segitiga, kita mengenal **alas ($a$)** dan **tinggi ($t$)**. Tinggi adalah garis yang ditarik lurus (tegak lurus $90^\circ$) dari titik puncak menuju alas.
+$$L = \frac{1}{2} \times a \times t$$
+
+### Visualisasi: Keliling dan Luas Segitiga
+Ingatlah selalu bahwa **Tinggi ($t$) dan Alas ($a$) harus saling tegak lurus**.
+- Pada segitiga siku-siku, kedua sisi yang membentuk siku-siku langsung berfungsi sebagai alas dan tinggi.
+- Pada segitiga sembarang/lancip, tinggi ditarik dari puncak ke bawah.
+- Pada segitiga tumpul, garis alas terkadang harus "diperpanjang" secara imajiner agar garis tinggi bisa tegak lurus dengannya.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Sebuah segitiga sembarang memiliki panjang sisi 5 cm, 7 cm, dan 10 cm. Berapakah kelilingnya?
+
+**Pembahasan:**
+
+Keliling adalah jumlah semua sisi:
+$$K = 5 + 7 + 10 = 22 \text{ cm}$$
+
+#### Contoh 1 (Mudah)
+
+Sebuah segitiga memiliki alas 8 cm dan tinggi 5 cm. Berapakah luas segitiga tersebut?
+
+**Pembahasan:**
+
+$$L = \frac{1}{2} \times a \times t$$
+
+$$L = \frac{1}{2} \times 8 \times 5 = 4 \times 5 = 20 \text{ cm}^2$$
+
+#### Contoh 2 (Menengah)
+
+Keliling sebuah segitiga sama kaki adalah 32 cm. Jika panjang sisi alasnya adalah 12 cm, berapakah panjang sisi-sisi yang sama (kaki segitiga)?
+
+**Pembahasan:**
+
+Segitiga sama kaki memiliki 2 sisi yang panjangnya sama, misal disebut sisi $x$.
+$$K = \text{alas} + x + x$$
+
+$$32 = 12 + 2x$$
+
+$$2x = 32 - 12$$
+
+$$2x = 20 \Rightarrow x = 10$$
+Jadi, panjang kaki segitiganya adalah 10 cm.
+
+#### Contoh 3 (Menantang)
+
+Sebuah segitiga memiliki luas $42 \text{ cm}^2$. Jika tingginya adalah 6 cm, berapakah panjang alas segitiga tersebut?
+
+**Pembahasan:**
+
+Gunakan rumus luas dan masukkan nilai yang diketahui:
+$$L = \frac{1}{2} \times a \times t$$
+
+$$42 = \frac{1}{2} \times a \times 6$$
+
+$$42 = 3 \times a$$
+
+$$a = \frac{42}{3} = 14 \text{ cm}$$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan yang **paling sering** dilakukan siswa (terutama pada segitiga siku-siku atau segitiga sembarang) adalah menggunakan sisi yang miring sebagai "tinggi" segitiga.
+
+
+
+Ingat aturan emas ini: **Tinggi segitiga harus selalu ditarik tegak lurus (membentuk sudut siku-siku) terhadap alas**. Garis sisi yang miring **bukan** tinggi dari segitiga! Tinggi harus lurus dari bawah ke atas.
+
+### Koneksi Dunia Nyata
+Rumus luas dan keliling segitiga tidak cuma muncul di kertas ujian!
+1. **Arsitek:** Sering menghitung luas rangka atap rumah atau struktur rangka baja yang dibentuk dari susunan segitiga agar kuat (karena segitiga adalah struktur paling stabil).
+2. **Desainer Grafis:** Sering memanfaatkan segitiga untuk mendesain logo, ikon, dan layout digital.
+3. **Navigasi Pelayaran:** Pengukuran luas area di peta lautan menggunakan metode triangulasi (membagi area menjadi banyak segitiga).
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Sebuah segitiga memiliki panjang alas 10 cm dan tinggi 8 cm. Berapakah luas segitiga tersebut?</div>
+  <div slot="option-a">80 cm²</div>
+  <div slot="option-b">40 cm²</div>
+  <div slot="option-c">20 cm²</div>
+  <div slot="option-d">18 cm²</div>
+  <div slot="explanation">**Pembahasan:** $L = \frac{1}{2} \times 10 \times 8 = 5 \times 8 = 40$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah segitiga sama sisi memiliki keliling 45 cm. Berapakah panjang masing-masing sisinya?</div>
+  <div slot="option-a">10 cm</div>
+  <div slot="option-b">12 cm</div>
+  <div slot="option-c">15 cm</div>
+  <div slot="option-d">20 cm</div>
+  <div slot="explanation">**Pembahasan:** Segitiga sama sisi ketiga sisinya sama panjang. Panjang sisi = $45 / 3 = 15$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Jika sebuah segitiga memiliki alas 12 cm dan luas 60 cm², berapakah tinggi segitiga tersebut?</div>
+  <div slot="option-a">10 cm</div>
+  <div slot="option-b">5 cm</div>
+  <div slot="option-c">12 cm</div>
+  <div slot="option-d">8 cm</div>
+  <div slot="explanation">**Pembahasan:** $L = \frac{1}{2} \times a \times t \Rightarrow 60 = \frac{1}{2} \times 12 \times t \Rightarrow 60 = 6 \times t \Rightarrow t = 10$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Keliling segitiga dengan sisi-sisi berukuran $x$ cm, $(x+2)$ cm, dan $(x+4)$ cm adalah 24 cm. Berapakah panjang sisi yang terpanjang?</div>
+  <div slot="option-a">6 cm</div>
+  <div slot="option-b">8 cm</div>
+  <div slot="option-c">9 cm</div>
+  <div slot="option-d">10 cm</div>
+  <div slot="explanation">**Pembahasan:** $x + (x+2) + (x+4) = 24 \Rightarrow 3x + 6 = 24 \Rightarrow 3x = 18 \Rightarrow x = 6$. Sisi terpanjang adalah $x + 4 = 6 + 4 = 10$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai segitiga?</div>
+  <div slot="option-a">Segitiga siku-siku memiliki tepat satu sudut yang besarnya $90^\circ$.</div>
+  <div slot="option-b">Tinggi segitiga adalah jarak tegak lurus dari alas ke titik sudut yang berhadapan dengannya.</div>
+  <div slot="option-c">Keliling segitiga selalu sama dengan jumlah dari panjang ketiga sisinya.</div>
+  <div slot="option-d">Sisi miring pada segitiga siku-siku dapat digunakan secara langsung sebagai tinggi segitiga.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah! Sisi miring (hipotenusa) pada segitiga siku-siku tidak tegak lurus terhadap alas, sehingga tidak bisa digunakan sebagai tinggi. Tinggi harus selalu tegak lurus terhadap alas.</div>
+</Quiz>

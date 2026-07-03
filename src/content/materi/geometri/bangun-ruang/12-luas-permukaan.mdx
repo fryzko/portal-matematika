@@ -1,0 +1,181 @@
+---
+title: "Luas Permukaan Bangun Ruang: Mengukur Kulit Luar Sebuah Bangun"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import GeometryFolder from '../../../../components/GeometryFolder.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Luas Permukaan
+
+Bayangkan kamu memiliki sebuah kotak hadiah dan ingin membungkusnya dengan kertas kado dengan sempurna (tidak berlebih dan tidak kurang). Berapa banyak luas kertas kado yang kamu butuhkan? Ukuran yang sedang kamu cari inilah yang disebut **Luas Permukaan**.
+
+Luas permukaan adalah jumlah total dari luas seluruh sisi atau muka yang menyelimuti bagian luar dari sebuah bangun ruang tiga dimensi. Semakin besar permukaan kotak hadiahmu, maka akan semakin besar pula luas kertas kado yang dibutuhkan.
+
+### Yuk, Temukan Sendiri Konsep Luas Permukaan
+
+Gunakan simulasi di bawah ini untuk melihat bagaimana bangun ruang 3D terbentuk dari jaring-jaring 2D. 
+
+**Instruksi Eksplorasi:**
+1. Buka *slider* (penggeser) ke posisi 0% agar bangun ruang (misalnya kubus) terbuka menjadi jaring-jaring datar.
+2. Hitunglah ada berapa banyak bentuk datar (persegi) yang kamu lihat.
+3. Luas permukaan total adalah hasil penjumlahan dari semua luas bentuk datar tersebut!
+
+<GeometryFolder />
+
+### Teori & Definisi Formal
+
+**Luas Permukaan** suatu bangun ruang merupakan total keseluruhan luas dari bangun-bangun datar penyusunnya (yang juga sering disebut sebagai jaring-jaring bangun ruang).
+
+Karena ini adalah "Luas", maka satuan ukurnya menggunakan satuan persegi (pangkat dua), seperti $\text{cm}^2$ atau $\text{m}^2$.
+
+Berikut adalah rumus-rumus utama luas permukaan (LP) yang penting untuk diingat:
+- **Kubus**: $$LP_{\text{kubus}} = 6s^2$$
+- **Balok**: $$LP_{\text{balok}} = 2(pl + pt + lt)$$
+- **Prisma (Umum)**: $$LP_{\text{prisma}} = (2 \times L_{\text{alas}}) + (\text{Keliling}_{\text{alas}} \times t)$$
+- **Silinder (Tabung)**: $$LP_{\text{silinder}} = 2\pi r(r + t)$$
+- **Limas Segiempat**: $$LP_{\text{limas}} = L_{\text{alas}} + \text{Total Luas Sisi Tegak (Segitiga)}$$
+- **Kerucut**: $$LP_{\text{kerucut}} = \pi r(r + s)$$ *(dengan $s$ adalah garis pelukis)*
+- **Bola**: $$LP_{\text{bola}} = 4\pi r^2$$
+
+### Visualisasi: Jaring-jaring Kubus
+
+Perhatikan jaring-jaring kubus di bawah ini. Ketika sebuah kubus dibuka, kita bisa melihat bahwa "kulit luar" kubus sebenarnya terdiri dari 6 buah persegi yang identik! Oleh karena itu, rumusnya adalah $6 \times s^2$.
+
+```text
+            Bentuk Datar (Jaring-jaring)
+                  ┌───────┐
+                  │ Sisi  │
+                  │ Atas  │
+          ┌───────┼───────┼───────┐
+          │ Sisi  │ Sisi  │ Sisi  │
+          │ Kiri  │ Depan │ Kanan │
+          └───────┼───────┼───────┘
+                  │ Sisi  │
+                  │ Bawah │
+                  ├───────┤
+                  │ Sisi  │
+                  │Blakang│
+                  └───────┘
+            Total: 6 buah persegi
+```
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Berapakah luas permukaan dari sebuah kubus yang panjang sisinya $4 \text{ cm}$?
+
+**Pembahasan:**
+
+- Rumus luas permukaan kubus adalah $LP = 6s^2$.
+- $LP = 6 \times (4^2)$
+- $LP = 6 \times 16 = 96 \text{ cm}^2$.
+- Jadi, luas permukaan kubus tersebut adalah $96 \text{ cm}^2$.
+
+#### Contoh 1 (Mudah)
+
+Sebuah kotak sepatu berbentuk balok memiliki ukuran panjang $2 \text{ cm}$, lebar $3 \text{ cm}$, dan tinggi $4 \text{ cm}$. Tentukan luas permukaan kotak sepatu tersebut!
+
+**Pembahasan:**
+
+- Gunakan rumus balok: $LP = 2(pl + pt + lt)$.
+- Substitusi nilai: $p=2, l=3, t=4$.
+- $LP = 2((2 \times 3) + (2 \times 4) + (3 \times 4))$
+- $LP = 2(6 + 8 + 12)$
+- $LP = 2(26) = 52 \text{ cm}^2$.
+- Jadi, luas permukaannya adalah $52 \text{ cm}^2$.
+
+#### Contoh 2 (Menengah)
+
+Berapakah luas permukaan sebuah topi ulang tahun berbentuk kerucut yang *tanpa alas*, dengan jari-jari $3 \text{ cm}$ dan garis pelukis ($s$) $5 \text{ cm}$?
+
+**Pembahasan:**
+
+- Rumus *Luas Permukaan Total Kerucut* adalah $\pi r(r + s)$. Ini bisa dipecah menjadi *Luas Alas* ($\pi r^2$) + *Luas Selimut* ($\pi r s$).
+- Karena topi **tanpa alas**, kita HANYA menghitung Luas Selimutnya.
+- $LP_{\text{selimut}} = \pi r s$
+- $LP = \pi \times 3 \times 5 = 15\pi \text{ cm}^2$.
+- Jadi, luas permukaan kertas topi tersebut adalah $15\pi \text{ cm}^2$.
+
+#### Contoh 3 (Menantang)
+
+Tentukan luas permukaan sebuah silinder yang memiliki jari-jari $5 \text{ cm}$ dan tinggi $5 \text{ cm}$! Biarkan jawaban dalam bentuk $\pi$.
+
+**Pembahasan:**
+
+- Rumus $LP_{\text{silinder}} = 2\pi r(r + t)$.
+- Substitusikan nilai $r = 5$ dan $t = 5$.
+- $LP = 2\pi (5) \times (5 + 5)$
+- $LP = 10\pi \times (10) = 100\pi \text{ cm}^2$.
+- Jadi, luas permukaannya adalah $100\pi \text{ cm}^2$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+Banyak siswa terkecoh dengan dua kesalahan populer ini:
+
+1. **Lupa Menambahkan 2 Buah Lingkaran pada Silinder**
+   Ketika mencari luas permukaan silinder utuh, jangan hanya menghitung luas selimut melengkungnya saja ($2\pi r t$). Kamu harus menambahkan tutup (atas) dan alas (bawah) yang berbentuk lingkaran, sehingga rumusnya menjadi $2\pi r (r + t)$.
+2. **Keliru antara Tinggi Kerucut ($t$) dengan Garis Pelukis ($s$)**
+   Untuk luas permukaan kerucut, yang digunakan pada rumus adalah **garis pelukis ($s$)**, yaitu garis miring pada selimut kerucut. Jika di soal hanya diketahui tinggi tegak ($t$), kamu WAJIB mencari $s$ terlebih dahulu menggunakan teorema Pythagoras: $s = \sqrt{r^2 + t^2}$.
+
+### Koneksi Dunia Nyata
+
+- **Pengecatan Rumah**: Saat ayahmu ingin mengecat dinding ruangan dan plafon (langit-langit), beliau harus menghitung luas permukaan dinding yang akan dicat untuk menentukan berapa kaleng cat yang perlu dibeli.
+- **Industri Kaleng Minuman**: Pabrik minuman soda selalu menghitung luas permukaan bahan aluminium kaleng yang dibutuhkan. Mereka berusaha mencari proporsi ukuran jari-jari dan tinggi kaleng yang paling optimal agar bisa menampung isi maksimal namun dengan luas bahan paling minimal demi menghemat biaya.
+- **Pembuatan Tenda Dome**: Produsen tenda *camping* harus memperhitungkan luas permukaan model setengah bola untuk mengukur total luas kain anti-air yang harus dijahit.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Luas permukaan kubus yang memiliki panjang sisi $4 \text{ cm}$ adalah...</div>
+  <div slot="option-a">$64 \text{ cm}^2$</div>
+  <div slot="option-b">$16 \text{ cm}^2$</div>
+  <div slot="option-c">$96 \text{ cm}^2$</div>
+  <div slot="option-d">$24 \text{ cm}^2$</div>
+  <div slot="explanation">**Pembahasan:** Luas Permukaan Kubus = $6s^2 = 6 \times (4^2) = 6 \times 16 = 96 \text{ cm}^2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sebuah balok memiliki ukuran $2 \text{ cm} \times 3 \text{ cm} \times 4 \text{ cm}$. Luas permukaannya adalah...</div>
+  <div slot="option-a">$52 \text{ cm}^2$</div>
+  <div slot="option-b">$24 \text{ cm}^2$</div>
+  <div slot="option-c">$48 \text{ cm}^2$</div>
+  <div slot="option-d">$104 \text{ cm}^2$</div>
+  <div slot="explanation">**Pembahasan:** Luas Permukaan Balok = $2(pl + pt + lt) = 2(6 + 8 + 12) = 2(26) = 52 \text{ cm}^2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Berapakah luas permukaan topi ulang tahun tanpa alas yang jari-jarinya $3 \text{ cm}$ dan garis pelukisnya $5 \text{ cm}$?</div>
+  <div slot="option-a">$24\pi \text{ cm}^2$</div>
+  <div slot="option-b">$15\pi \text{ cm}^2$</div>
+  <div slot="option-c">$12\pi \text{ cm}^2$</div>
+  <div slot="option-d">$9\pi \text{ cm}^2$</div>
+  <div slot="explanation">**Pembahasan:** Topi tanpa alas = luas selimut kerucut. Luas Selimut = $\pi r s = \pi \times 3 \times 5 = 15\pi \text{ cm}^2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Luas permukaan silinder utuh dengan $r = 5 \text{ cm}$ dan $t = 5 \text{ cm}$ adalah...</div>
+  <div slot="option-a">$50\pi \text{ cm}^2$</div>
+  <div slot="option-b">$75\pi \text{ cm}^2$</div>
+  <div slot="option-c">$100\pi \text{ cm}^2$</div>
+  <div slot="option-d">$150\pi \text{ cm}^2$</div>
+  <div slot="explanation">**Pembahasan:** Luas Permukaan Silinder = $2\pi r(r+t) = 2\pi(5)(5+5) = 10\pi(10) = 100\pi \text{ cm}^2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH?</div>
+  <div slot="option-a">Garis pelukis pada kerucut panjangnya sama dengan tinggi tegak kerucut tersebut.</div>
+  <div slot="option-b">Luas permukaan kubus selalu 6 kali dari luas salah satu sisinya.</div>
+  <div slot="option-c">Luas permukaan silinder utuh memperhitungkan dua buah lingkaran (atas dan bawah).</div>
+  <div slot="option-d">Luas permukaan bola dirumuskan dengan $4\pi r^2$.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan yang SALAH adalah A. Garis pelukis ($s$) adalah sisi miring, sehingga selalu LEBIH PANJANG dari tinggi tegak ($t$). Hubungannya adalah $s = \sqrt{r^2 + t^2}$.</div>
+</Quiz>

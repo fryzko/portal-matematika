@@ -1,0 +1,48 @@
+/* =====================================================
+   MATERI.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.page-materi .hero-section {
+    padding-block: var(--space-2xl);
+    text-align: center;
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-materi .hero-section .container {
+    max-width: 800px;
+}
+
+.page-materi .hero-description {
+    margin-inline: auto;
+    color: var(--color-text-light);
+}
+
+.page-materi .section-materi {
+    padding-block: var(--space-2xl);
+}
+
+.page-materi .materi-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-lg);
+    margin-top: var(--space-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+.page-materi .materi-meta span {
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 576px) {
+    .page-materi .hero-section h1 {
+        font-size: var(--font-size-h2);
+    }
+}

@@ -1,0 +1,173 @@
+---
+title: "Mengenal Teorema Pythagoras"
+topic: "Geometri"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import Quiz from '../../../../components/Quiz.astro';
+
+### Pendahuluan / Pengantar
+Pernahkah kamu melihat seorang tukang bangunan mengukur sudut ruangan saat membuat fondasi rumah? Agar bangunan berdiri kokoh dan tegak lurus, sudut pertemuan antar dinding harus membentuk sudut siku-siku yang sempurna ($90^\circ$).
+
+Untuk memastikannya, para tukang sering menggunakan teknik kuno dengan seutas tali pembatas yang memiliki perbandingan ukuran $3\text{ meter}$, $4\text{ meter}$, dan $5\text{ meter}$. Ketika ketiga sisi ini disatukan membentuk segitiga, secara ajaib sudut yang terbentuk pasti siku-siku!
+
+Mengapa perbandingan angka ini selalu menghasilkan sudut siku-siku yang sempurna? 
+
+Jawabannya ada pada aturan matematika luar biasa yang ditemukan oleh seorang filsuf dan matematikawan Yunani kuno bernama **Pythagoras** sekitar 2.500 tahun yang lalu. Aturan ini dinamakan **Teorema Pythagoras**, yang menjelaskan hubungan erat antara panjang sisi-sisi pada segitiga siku-siku.
+
+---
+
+### Teori Utama & Rumus
+Teorema Pythagoras menyatakan bahwa pada setiap **segitiga siku-siku**, kuadrat panjang sisi miring (hipotenusa) sama dengan jumlah kuadrat panjang kedua sisi siku-sikunya.
+
+Hipotenusa (sisi miring) adalah sisi terpanjang pada segitiga siku-siku dan letaknya selalu berada **tepat di depan sudut siku-siku**.
+
+```text
+               /|
+              / |
+          c  /  |  b (Sisi Tegak)
+            /   |
+           /____|
+             a
+      (Sisi Mendatar)
+```
+
+Jika panjang sisi-sisi siku-sikunya adalah $a$ dan $b$, serta panjang sisi miringnya adalah $c$, maka berlaku rumus:
+$$a^2 + b^2 = c^2$$
+
+Rumus turunan untuk mencari panjang masing-masing sisi:
+- **Mencari sisi miring ($c$):**
+  $$c = \sqrt{a^2 + b^2}$$
+- **Mencari sisi mendatar ($a$):**
+  $$a = \sqrt{c^2 - b^2}$$
+- **Mencari sisi tegak ($b$):**
+  $$b = \sqrt{c^2 - a^2}$$
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Sebuah segitiga siku-siku memiliki panjang sisi siku-siku mendatar $a = 6\text{ cm}$ dan sisi tegak $b = 8\text{ cm}$. Tentukan panjang sisi miring ($c$) dari segitiga tersebut!
+
+**Pembahasan:**
+- Gunakan rumus Teorema Pythagoras untuk mencari sisi miring ($c$):
+  $$c = \sqrt{a^2 + b^2}$$
+- Masukkan nilai $a = 6$ dan $b = 8$:
+  $$c = \sqrt{6^2 + 8^2}$$
+  $$c = \sqrt{36 + 64}$$
+  $$c = \sqrt{100} = 10\text{ cm}$$
+- Jadi, panjang sisi miring segitiga tersebut adalah **$10\text{ cm}$**.
+
+#### Contoh 2 (Menengah)
+Diketahui panjang sisi miring sebuah segitiga siku-siku adalah $c = 13\text{ cm}$ dan panjang salah satu sisi siku-sikunya adalah $a = 5\text{ cm}$. Berapakah panjang sisi siku-siku lainnya ($b$)?
+
+**Pembahasan:**
+- Gunakan rumus turunan untuk mencari sisi siku-siku tegak ($b$):
+  $$b = \sqrt{c^2 - a^2}$$
+- Masukkan nilai $c = 13$ dan $a = 5$:
+  $$b = \sqrt{13^2 - 5^2}$$
+  $$b = \sqrt{169 - 25}$$
+  $$b = \sqrt{144} = 12\text{ cm}$$
+- Jadi, panjang sisi siku-siku lainnya adalah **$12\text{ cm}$**.
+
+#### Contoh 3 (Menantang)
+Sebuah tangga yang panjangnya $2,5\text{ meter}$ disandarkan pada dinding sebuah bangunan tegak. Jika jarak kaki tangga di lantai ke dinding adalah $0,7\text{ meter}$, berapakah tinggi dinding yang dapat dicapai oleh ujung atas tangga tersebut?
+
+**Pembahasan:**
+- Tangga, dinding, dan permukaan tanah membentuk segitiga siku-siku.
+  - Sisi miring (panjang tangga) $c = 2,5\text{ meter}$.
+  - Sisi siku-siku mendatar (jarak kaki tangga ke dinding) $a = 0,7\text{ meter}$.
+  - Sisi siku-siku tegak (tinggi dinding) $b$ adalah variabel yang dicari.
+- Gunakan rumus Pythagoras untuk mencari $b$:
+  $$b = \sqrt{c^2 - a^2}$$
+  $$b = \sqrt{2,5^2 - 0,7^2}$$
+  $$b = \sqrt{6,25 - 0,49}$$
+  $$b = \sqrt{5,76} = 2,4\text{ meter}$$
+- Jadi, tinggi dinding yang dapat dicapai oleh ujung atas tangga adalah **$2,4\text{ meter}$**.
+
+---
+
+### Simulasi Interaktif
+Gunakan widget di bawah ini untuk menarik sudut-sudut segitiga siku-siku dan perhatikan bagaimana nilai kuadrat $a^2 + b^2$ akan selalu sama dengan $c^2$.
+
+{/* INTERACTIVE_WIDGET: VISUALISASI_SEGITIGA_PYTHAGORAS */}
+
+---
+
+### Asah Kemampuan / Kuis Singkat
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Manakah di antara kelompok tiga bilangan berikut yang merupakan Tripel Pythagoras?
+  </div>
+  <div slot="option-a">$3, 4, 6$</div>
+  <div slot="option-b">$5, 12, 13$</div>
+  <div slot="option-c">$6, 8, 12$</div>
+  <div slot="option-d">$8, 15, 18$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Kelompok bilangan $5, 12, 13$ memenuhi persamaan Pythagoras karena:
+    $$5^2 + 12^2 = 25 + 144 = 169 = 13^2$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    Sebuah segitiga siku-siku memiliki panjang hipotenusa $17\text{ cm}$ dan panjang salah satu sisi siku-sikunya adalah $15\text{ cm}$. Panjang sisi siku-siku yang lain adalah...
+  </div>
+  <div slot="option-a">$8\text{ cm}$</div>
+  <div slot="option-b">$9\text{ cm}$</div>
+  <div slot="option-c">$10\text{ cm}$</div>
+  <div slot="option-d">$12\text{ cm}$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Sisi siku-siku yang dicari adalah $b = \sqrt{c^2 - a^2}$:
+    $$b = \sqrt{17^2 - 15^2} = \sqrt{289 - 225} = \sqrt{64} = 8\text{ cm}$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    Suatu segitiga siku-siku memiliki sisi siku-siku mendatar $a = 9\text{ cm}$ dan sisi siku-siku tegak $b = 12\text{ cm}$. Panjang sisi miring ($c$) segitiga tersebut adalah...
+  </div>
+  <div slot="option-a">$13\text{ cm}$</div>
+  <div slot="option-b">$14\text{ cm}$</div>
+  <div slot="option-c">$15\text{ cm}$</div>
+  <div slot="option-d">$16\text{ cm}$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Sisi miring $c = \sqrt{a^2 + b^2}$:
+    $$c = \sqrt{9^2 + 12^2} = \sqrt{81 + 144} = \sqrt{225} = 15\text{ cm}$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Segitiga siku-siku memiliki panjang sisi siku-siku mendatar $a = 12\text{ cm}$ dan sisi miring $c = 20\text{ cm}$. Luas dari segitiga tersebut adalah...
+  </div>
+  <div slot="option-a">$120\text{ cm}^2$</div>
+  <div slot="option-b">$96\text{ cm}^2$</div>
+  <div slot="option-c">$80\text{ cm}^2$</div>
+  <div slot="option-d">$60\text{ cm}^2$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Langkah pertama, cari tinggi segitiga $b = \sqrt{20^2 - 12^2} = \sqrt{400 - 144} = \sqrt{256} = 16\text{ cm}$. Langkah kedua, hitung luas:
+    $$L = \frac{1}{2} \times 12 \times 16 = 6 \times 16 = 96\text{ cm}^2$$
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    Seorang anak berjalan kaki ke arah timur sejauh $8\text{ meter}$, kemudian berbelok ke arah utara sejauh $6\text{ meter}$. Jarak terpendek anak tersebut saat ini dari titik awal ia mulai berjalan adalah...
+  </div>
+  <div slot="option-a">$10\text{ meter}$</div>
+  <div slot="option-b">$12\text{ meter}$</div>
+  <div slot="option-c">$14\text{ meter}$</div>
+  <div slot="option-d">$16\text{ meter}$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Rute timur dan utara membentuk sudut siku-siku. Jarak terpendek adalah sisi miring ($c$):
+    $$c = \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = \sqrt{100} = 10\text{ meter}$$
+  </div>
+</Quiz>

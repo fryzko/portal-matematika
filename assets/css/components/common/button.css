@@ -1,0 +1,74 @@
+/* =====================================================
+   BUTTON.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+
+    min-height: 44px;
+
+    padding: var(--space-sm) var(--space-lg);
+
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.button-primary {
+    color: var(--color-surface);
+    background-color: var(--color-primary);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+    background-color: var(--color-primary-hover);
+}
+
+.button-secondary {
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    border-color: var(--color-border);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+    background-color: var(--color-background);
+}
+
+.button-outline {
+    color: var(--color-primary);
+    background-color: transparent;
+    border-color: var(--color-primary);
+}
+
+.button-outline:hover,
+.button-outline:focus-visible {
+    color: var(--color-surface);
+    background-color: var(--color-primary);
+}

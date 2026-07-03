@@ -1,0 +1,760 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CircleExplorer from '../../components/CircleExplorer.astro';
+---
+
+<Layout title="Eksplorasi Pi (π)">
+  <div class="pi-exploration-page">
+    
+    <!-- SEKSI 1 — Hero Header -->
+    <header class="hero">
+      <div class="hero-pi">π</div>
+      <h1>Pi &mdash; Angka Paling Ajaib di Alam Semesta</h1>
+      <p>Dari pizza hingga orbit planet, &pi; selalu muncul di mana-mana</p>
+    </header>
+
+    <div class="container mx-auto px-4 py-8 space-y-16 max-w-4xl">
+      <!-- SEKSI 2 — Penjelasan Dasar (SVG inline) -->
+      <section>
+        <h2>Apa Itu Pi?</h2>
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-xl shadow-sm border">
+          <svg viewBox="0 0 300 320" width="250" height="270">
+            <!-- Label K di ATAS lingkaran dengan jarak aman -->
+            <text x="150" y="30" text-anchor="middle" fill="#6366f1" font-size="16" font-weight="bold">K = 3.14159...</text>
+            <!-- Panah melengkung dari label K ke lingkaran -->
+            <path d="M 150 38 Q 150 55 150 65" stroke="#6366f1" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <!-- Definisi panah -->
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+              </marker>
+            </defs>
+            <!-- Lingkaran utama -->
+            <circle cx="150" cy="175" r="100" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="8,4"/>
+            <!-- Garis diameter D -->
+            <line x1="50" y1="175" x2="250" y2="175" stroke="#f59e0b" stroke-width="3"/>
+            <!-- Label D di tengah diameter, di DALAM lingkaran tapi di bawah garis -->
+            <text x="150" y="195" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="bold">D = 1</text>
+            <!-- Titik pusat -->
+            <circle cx="150" cy="175" r="4" fill="#1e293b"/>
+          </svg>
+          <div>
+            <p class="text-xl leading-relaxed">
+              Gambar lingkaran dengan diameter 1.<br/>
+              Kelilingnya selalu <strong>3.14159265...</strong> &mdash; inilah Pi!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKSI 3 — Animasi Lingkaran Menggelinding -->
+      <section>
+        <h2>Lingkaran Menggelinding</h2>
+        <div class="animation-container">
+          <div class="animation-controls mb-4 flex gap-4">
+            <button id="btn-play-anim" class="px-4 py-2 bg-indigo-600 text-white rounded font-bold hover:bg-indigo-700">▶ Putar Animasi</button>
+            <button id="btn-reset-anim" class="px-4 py-2 bg-slate-600 text-white rounded font-bold hover:bg-slate-700">↺ Ulangi</button>
+          </div>
+          
+          <canvas id="rolling-canvas" width="700" height="200" class="w-full h-auto bg-slate-900 rounded border border-slate-700"></canvas>
+          
+          <div class="mt-4 text-center text-slate-300 font-mono text-lg bg-slate-800 p-3 rounded">
+            Jarak tempuh: <span id="dist-val">0.0</span> px = &pi; &times; diameter (<span id="diam-val">80</span> px)
+          </div>
+          <div id="anim-success" class="mt-2 text-center text-emerald-400 font-bold text-lg opacity-0 transition-opacity">
+            ✓ Satu putaran = &pi; &times; diameter = 251.3 px
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKSI 4 — Temukan Pi Sendiri -->
+      <section>
+        <h2>Temukan Pi Sendiri</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="mb-4">Perbandingan Keliling (K) dengan Diameter (d) pada benda-benda nyata:</p>
+            <!-- GANTI dari list biasa ke kartu grid -->
+            <div class="bukti-grid">
+              <div class="bukti-card">
+                <div class="bukti-emoji">🍽️</div>
+                <div class="bukti-info">
+                  <h3>Piring</h3>
+                  <p>Keliling = 82 cm</p>
+                  <p>Diameter = 26 cm</p>
+                  <p class="bukti-hasil">K ÷ d = <strong>3.1538...</strong></p>
+                </div>
+              </div>
+              <div class="bukti-card">
+                <div class="bukti-emoji">🪣</div>
+                <div class="bukti-info">
+                  <h3>Ember</h3>
+                  <p>Keliling = 94 cm</p>
+                  <p>Diameter = 30 cm</p>
+                  <p class="bukti-hasil">K ÷ d = <strong>3.1333...</strong></p>
+                </div>
+              </div>
+              <div class="bukti-card">
+                <div class="bukti-emoji">🌍</div>
+                <div class="bukti-info">
+                  <h3>Bumi*</h3>
+                  <p>Keliling = 40.075 km</p>
+                  <p>Diameter = 12.742 km</p>
+                  <p class="bukti-hasil">K ÷ d = <strong>3.1416...</strong></p>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">*Data nyata keliling dan diameter Bumi!</p>
+          </div>
+          
+          <div class="kalkulator-mini">
+            <h3>🧮 Kalkulator Mini Pi</h3>
+            <p>Masukkan keliling dan diameter benda bulatmu, lalu lihat hasilnya!</p>
+            <div class="kalk-inputs">
+              <div class="kalk-field">
+                <label>Keliling (K)</label>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <input type="number" id="kalk-k" value="100" step="0.1">
+                  <span>cm</span>
+                </div>
+              </div>
+              <div class="kalk-divider">÷</div>
+              <div class="kalk-field">
+                <label>Diameter (d)</label>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <input type="number" id="kalk-d" value="31.83" step="0.01">
+                  <span>cm</span>
+                </div>
+              </div>
+              <div class="kalk-divider">=</div>
+              <div class="kalk-result">
+                <label>K ÷ d</label>
+                <div id="kalk-output" class="kalk-output">3.14169...</div>
+              </div>
+            </div>
+            <p class="kalk-hint">💡 Coba masukkan keliling dan diameter benda bundar di sekitarmu!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKSI 5 — Simulator Lingkaran Interaktif -->
+      <section>
+        <h2>🔵 Eksplorasi Lingkaran Interaktif</h2>
+        <p class="mb-4">Geser titik A dan aktifkan Mode Juring untuk eksplorasi penuh!</p>
+        <CircleExplorer />
+      </section>
+
+      <!-- SEKSI 6 — Menggunakan Pi -->
+      <section>
+        <h2>Menggunakan Pi</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-xl border shadow-sm">
+            <h3 class="font-bold text-lg mb-3 pb-2 border-b">Diketahui Diameter &rarr; Keliling</h3>
+            <p class="text-slate-600 text-sm mb-4">Sebuah lapangan memiliki diameter 100 m.</p>
+            <div class="font-mono bg-slate-50 p-3 rounded text-sm">
+              K = &pi; &times; d<br/>
+              K = 3.14159... &times; 100<br/>
+              K = <strong>314.159... m</strong>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl border shadow-sm">
+            <h3 class="font-bold text-lg mb-3 pb-2 border-b">Diketahui Keliling &rarr; Diameter</h3>
+            <p class="text-slate-600 text-sm mb-4">Lingkar batang pohon adalah 94 cm.</p>
+            <div class="font-mono bg-slate-50 p-3 rounded text-sm">
+              K = &pi; &times; d<br/>
+              d = K &divide; &pi;<br/>
+              d = 94 &divide; 3.14159...<br/>
+              d &approx; <strong>29.9 cm</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKSI 7 — Digit Pi -->
+      <section>
+        <h2>100 Digit Pertama Pi</h2>
+        <div class="pi-digits">
+          <span class="integer">3.</span><span class="decimal">1415926535 8979323846 2643383279 5028841971 6939937510 5820974944 5923078164 0628620899 8628034825 3421170679</span>
+        </div>
+        <p class="text-center mt-4 text-slate-600 font-semibold italic">Digit-digitnya tidak pernah berulang dan tidak pernah berhenti...</p>
+      </section>
+
+      <!-- SEKSI 8 — Perjalanan Manusia Mencari Pi -->
+      <section>
+        <h2>Sejarah Singkat Pi</h2>
+        <div class="timeline">
+          <div class="timeline-item"><strong>1900 SM &mdash; Babilonia:</strong> &pi; &approx; 3.125 (salah 0.5%)</div>
+          <div class="timeline-item"><strong>250 SM &mdash; Archimedes:</strong> 3.1408 &lt; &pi; &lt; 3.1429</div>
+          <div class="timeline-item"><strong>480 M &mdash; Zu Chongzhi:</strong> 355/113 (akurat 7 digit!)</div>
+          <div class="timeline-item"><strong>1706 &mdash; William Jones:</strong> pertama pakai simbol &pi;</div>
+          <div class="timeline-item"><strong>1949 &mdash; Komputer ENIAC:</strong> 2.037 digit dalam 70 jam</div>
+          <div class="timeline-item"><strong>2022 &mdash; Google Cloud:</strong> 100 TRILIUN digit dalam 157 hari</div>
+        </div>
+      </section>
+
+      <!-- SEKSI 9 — Pi di Kehidupan Nyata -->
+      <section>
+        <h2>Pi di Kehidupan Nyata</h2>
+        <div class="kehidupan-grid">
+          <div class="kehidupan-card" style="--kartu-warna: #ef4444; --kartu-bg: #fef2f2;">
+            <div class="k-emoji">🍕</div>
+            <h3>Pizza</h3>
+            <p>Luas pizza = πr². Pizza bulat berdiameter 30cm memiliki luas 3x lebih besar dari pizza berdiameter 10cm!</p>
+          </div>
+          <div class="kehidupan-card" style="--kartu-warna: #3b82f6; --kartu-bg: #eff6ff;">
+            <div class="k-emoji">🌊</div>
+            <h3>Gelombang</h3>
+            <p>Gelombang suara dan cahaya menggunakan sin dan cos yang keduanya berbasis π untuk menggambarkan osilasi.</p>
+          </div>
+          <div class="kehidupan-card" style="--kartu-warna: #8b5cf6; --kartu-bg: #f5f3ff;">
+            <div class="k-emoji">🚀</div>
+            <h3>NASA</h3>
+            <p>NASA menggunakan π untuk menghitung orbit satelit, jalur pesawat antariksa, dan landing di planet lain.</p>
+          </div>
+          <div class="kehidupan-card" style="--kartu-warna: #f59e0b; --kartu-bg: #fffbeb;">
+            <div class="k-emoji">🎵</div>
+            <h3>Audio</h3>
+            <p>Frekuensi gelombang suara diukur dalam Hertz (putaran per detik) — putaran menggunakan 2π radian.</p>
+          </div>
+          <div class="kehidupan-card" style="--kartu-warna: #10b981; --kartu-bg: #ecfdf5;">
+            <div class="k-emoji">🏗️</div>
+            <h3>Konstruksi</h3>
+            <p>Terowongan melingkar, kubah masjid, dan jembatan melengkung semuanya dihitung menggunakan π.</p>
+          </div>
+          <div class="kehidupan-card" style="--kartu-warna: #06b6d4; --kartu-bg: #ecfeff;">
+            <div class="k-emoji">💻</div>
+            <h3>Komputer</h3>
+            <p>Rendering grafik 3D, game engine, dan animasi digital menggunakan π untuk menghitung rotasi objek.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEKSI 10 — Tantangan (Accordion) -->
+      <section>
+        <h2>Tantangan Pi</h2>
+        <div class="challenge-grid">
+          <details>
+            <summary>Mudah: Keliling lingkaran r=7cm (gunakan 22/7)</summary>
+            <div class="mt-2 text-slate-700 border-t pt-2">
+              K = 2 &times; (22/7) &times; 7 = 44 cm
+            </div>
+          </details>
+          <details>
+            <summary>Sedang: Pizza A d=20cm vs Pizza B d=30cm, berapa kali lebih luas B?</summary>
+            <div class="mt-2 text-slate-700 border-t pt-2">
+              Luas proporsional dengan d&sup2;.<br/>
+              (30/20)&sup2; = 1.5&sup2; = 2.25 kali lebih luas.
+            </div>
+          </details>
+          <details>
+            <summary>Sulit: Roda r=35cm berputar 100 kali, berapa meter?</summary>
+            <div class="mt-2 text-slate-700 border-t pt-2">
+              1 putaran = 2 &times; (22/7) &times; 35 = 220 cm.<br/>
+              100 putaran = 22.000 cm = 220 meter.
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- SEKSI 11 — Fakta Seru tentang Pi -->
+      <section>
+        <h2>Fakta Seru tentang Pi</h2>
+        <ul class="list-disc pl-6 space-y-3 text-lg">
+          <li><strong>Pi Day:</strong> 14 Maret (3/14) &mdash; dirayakan seluruh dunia!</li>
+          <li><strong>Mnemonik Bahasa Inggris:</strong> "May I have a large container of butter today" &rarr; jumlah huruf setiap kata menghasilkan digit 3.1415926</li>
+          <li><strong>Versi Indonesia:</strong> "Dengan rajin dan tekun pi akan kamu ketahui" &rarr; 3.14159265</li>
+          <li>Dalam 999.999 digit pertama Pi, angka 0-9 muncul hampir sama banyaknya!</li>
+        </ul>
+      </section>
+
+      <!-- SEKSI 12 — Navigasi -->
+      <div class="nav-eksplorasi pb-16">
+        <h2>📚 Materi Terkait di Kurikulum</h2>
+        <div class="nav-grid">
+          <a href="/materi/geometri/lingkaran/01-keliling-dan-luas-lingkaran" class="nav-card nav-prev">
+            <span class="nav-arrow">←</span>
+            <div>
+              <div class="nav-label">Materi Kurikulum</div>
+              <div class="nav-title">Keliling &amp; Luas Lingkaran</div>
+            </div>
+          </a>
+          <a href="/materi/geometri/lingkaran/02-busur-juring-dan-tali-busur" class="nav-card nav-next">
+            <div>
+              <div class="nav-label">Materi Kurikulum</div>
+              <div class="nav-title">Busur, Juring &amp; Tali Busur</div>
+            </div>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="/elemen/geometri" class="nav-card nav-elemen">
+            <span class="nav-arrow">🔷</span>
+            <div>
+              <div class="nav-label">Kembali ke Elemen</div>
+              <div class="nav-title">Geometri</div>
+            </div>
+          </a>
+          <a href="/eksplorasi" class="nav-card nav-eksplorasi-home">
+            <span class="nav-arrow">🔭</span>
+            <div>
+              <div class="nav-label">Halaman Eksplorasi</div>
+              <div class="nav-title">Semua Topik Eksplorasi</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* CSS khusus */
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    max-height: 400px;
+  }
+  .hero-pi {
+    font-size: 6rem;
+    color: #fbbf24;
+    line-height: 1;
+    font-family: serif;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #c7d2fe;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  }
+
+  .animation-container {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .timeline {
+    border-left: 3px solid #6366f1;
+    padding-left: 2rem;
+    margin: 1rem 0 1rem 1rem;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    background: #6366f1;
+    border-radius: 50%;
+  }
+  
+  .pi-digits {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    line-height: 2;
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+    word-break: break-all;
+  }
+  .pi-digits .integer { color: #f59e0b; font-size: 2rem; font-weight: bold; }
+  .pi-digits .decimal { color: #e2e8f0; }
+  
+  .challenge-grid { display: grid; gap: 1rem; }
+  .challenge-grid details {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 4px solid #6366f1;
+  }
+  .challenge-grid summary {
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    outline: none;
+  }
+
+  /* CSS Tambahan Bukti Grid */
+  .bukti-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .bukti-card {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .bukti-card:hover { transform: translateY(-4px); }
+  .bukti-emoji {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .bukti-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .bukti-info p { color: #64748b; font-size: 0.9rem; margin: 0.25rem 0; }
+  .bukti-hasil {
+    margin-top: 0.75rem !important;
+    font-size: 1.1rem !important;
+    color: #6366f1 !important;
+  }
+
+  /* CSS Tambahan Kehidupan Nyata Grid */
+  .kehidupan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  @media (max-width: 768px) {
+    .kehidupan-grid { grid-template-columns: repeat(2, 1fr); }
+    .bukti-grid { grid-template-columns: 1fr; }
+    .nav-grid { grid-template-columns: 1fr !important; }
+  }
+  .kehidupan-card {
+    background: var(--kartu-bg);
+    border: 2px solid var(--kartu-warna);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .kehidupan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  .k-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .kehidupan-card h3 {
+    color: var(--kartu-warna);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .kehidupan-card p {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* CSS Kalkulator Mini */
+  .kalkulator-mini {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border: 2px solid #6366f1;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem 0;
+  }
+  .kalkulator-mini h3 {
+    font-size: 1.3rem;
+    color: #4338ca;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  .kalkulator-mini > p {
+    color: #6366f1;
+    margin-bottom: 1.5rem;
+  }
+  .kalk-inputs {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .kalk-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .kalk-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4338ca;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .kalk-field input {
+    width: 140px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #6366f1;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    background: white;
+  }
+  .kalk-divider {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6366f1;
+    padding-bottom: 0.5rem;
+  }
+  .kalk-result { display: flex; flex-direction: column; gap: 0.4rem; }
+  .kalk-output {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #4338ca;
+    background: white;
+    border: 2px solid #6366f1;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    min-width: 160px;
+  }
+  .kalk-hint {
+    margin-top: 1rem;
+    color: #6366f1;
+    font-size: 0.9rem;
+  }
+
+  /* CSS Tambahan Navigasi Eksplorasi */
+  .nav-eksplorasi {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e2e8f0;
+  }
+  .nav-eksplorasi h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .nav-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1e293b;
+    transition: all 0.2s;
+  }
+  .nav-card:hover {
+    border-color: #6366f1;
+    background: #eef2ff;
+    transform: translateY(-2px);
+  }
+  .nav-arrow { font-size: 1.5rem; flex-shrink: 0; }
+  .nav-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+  .nav-title { font-size: 1rem; font-weight: 700; color: #1e293b; margin-top: 0.2rem; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------
+    // Script Animasi Lingkaran Menggelinding (Canvas)
+    // ----------------------------------------------------
+    const btnPlay = document.getElementById('btn-play-anim');
+    const btnReset = document.getElementById('btn-reset-anim');
+    const canvas = document.getElementById('rolling-canvas') as HTMLCanvasElement | null;
+    const distVal = document.getElementById('dist-val');
+    const animSuccess = document.getElementById('anim-success');
+    
+    if (canvas && btnPlay && btnReset && distVal && animSuccess) {
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        const startX = 60;
+        const groundY = 140;
+        const radius = 40;
+        const circleY = groundY - radius;
+        const endX = startX + 2 * Math.PI * radius; 
+        
+        let progress = 0; // 0 sampai 1
+        let isAnimating = false;
+        let animFrame: number | null = null;
+        let lastTime = 0;
+        const duration = 2500; // 2.5 detik untuk 1 putaran
+        
+        function drawLine(x1: number, y1: number, x2: number, y2: number, color: string, width: number) {
+          if (!ctx) return;
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = width;
+          ctx.stroke();
+        }
+        
+        function drawCircle(cx: number, cy: number, r: number, color: string) {
+          if (!ctx) return;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+          ctx.fillStyle = 'rgba(99,102,241,0.2)';
+          ctx.fill();
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 4;
+          ctx.stroke();
+          
+          ctx.beginPath();
+          ctx.arc(cx, cy, 4, 0, 2 * Math.PI);
+          ctx.fillStyle = '#f59e0b';
+          ctx.fill();
+        }
+        
+        function drawArc(cx: number, cy: number, r: number, startAngle: number, endAngle: number, color: string, width: number) {
+          if (!ctx) return;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, startAngle, endAngle);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = width;
+          ctx.stroke();
+        }
+        
+        function drawFrame(p: number) {
+          if (!ctx) return;
+          if (!canvas) return;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          const totalCircumference = 2 * Math.PI * radius;
+          const distanceTraveled = p * totalCircumference;
+          const angleRotated = p * 2 * Math.PI; 
+          
+          const circleX = startX + distanceTraveled;
+          
+          // Lintasan
+          drawLine(startX - 20, groundY, canvas.width - 20, groundY, '#475569', 2);
+          
+          // Penanda awal & akhir
+          drawLine(startX, groundY - 5, startX, groundY + 5, '#e2e8f0', 2);
+          drawLine(endX, groundY - 5, endX, groundY + 5, '#e2e8f0', 2);
+          
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '12px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('Awal (0)', startX, groundY + 20);
+          ctx.fillText('1 Putaran (π × D)', endX, groundY + 20);
+          
+          // Tali merah di lintasan
+          if (distanceTraveled > 0) {
+            drawLine(startX, groundY, circleX, groundY, '#ef4444', 4);
+          }
+          
+          drawCircle(circleX, circleY, radius, '#6366f1');
+          
+          // Sisa tali merah melingkar
+          const remainingAngle = 2 * Math.PI - angleRotated;
+          if (remainingAngle > 0.01) {
+            const startAngleArc = Math.PI / 2 + angleRotated; 
+            const endAngleArc = startAngleArc + remainingAngle;
+            drawArc(circleX, circleY, radius + 3, startAngleArc, endAngleArc, '#ef4444', 4);
+          }
+          
+          // Garis penanda rotasi (Jarum jam)
+          // Agar menggelinding ke kanan dengan benar, jarum menunjuk rotasi
+          const needleEndX = circleX + radius * Math.sin(angleRotated);
+          const needleEndY = circleY - radius * Math.cos(angleRotated);
+          drawLine(circleX, circleY, needleEndX, needleEndY, '#fbbf24', 3);
+          
+          if (distVal) distVal.textContent = distanceTraveled.toFixed(1);
+          
+          if (p >= 1 && animSuccess) {
+            animSuccess.style.opacity = '1';
+          } else if (animSuccess) {
+            animSuccess.style.opacity = '0';
+          }
+        }
+        
+        function animate(time: number) {
+          if (!lastTime) lastTime = time;
+          const dt = time - lastTime;
+          lastTime = time;
+          
+          progress += dt / duration;
+          if (progress >= 1) {
+            progress = 1;
+            drawFrame(progress);
+            isAnimating = false;
+            return;
+          }
+          
+          drawFrame(progress);
+          animFrame = requestAnimationFrame(animate);
+        }
+        
+        btnPlay.addEventListener('click', () => {
+          if (isAnimating || progress >= 1) return;
+          isAnimating = true;
+          lastTime = 0;
+          animFrame = requestAnimationFrame(animate);
+        });
+        
+        btnReset.addEventListener('click', () => {
+          if (animFrame) cancelAnimationFrame(animFrame);
+          isAnimating = false;
+          progress = 0;
+          drawFrame(progress);
+          lastTime = 0;
+        });
+        
+        // Initial render
+        drawFrame(0);
+      }
+    }
+    
+    // ----------------------------------------------------
+    // Script Kalkulator Mini Pi
+    // ----------------------------------------------------
+    const calcK = document.getElementById('kalk-k') as HTMLInputElement | null;
+    const calcD = document.getElementById('kalk-d') as HTMLInputElement | null;
+    const calcResult = document.getElementById('kalk-output');
+    
+    function updateCalc() {
+      if(!calcK || !calcD || !calcResult) return;
+      const k = parseFloat(calcK.value);
+      const d = parseFloat(calcD.value);
+      if (d && d !== 0) {
+        calcResult.textContent = (k / d).toFixed(5) + '...';
+      } else {
+        calcResult.textContent = '???';
+      }
+    }
+    
+    if(calcK) calcK.addEventListener('input', updateCalc);
+    if(calcD) calcD.addEventListener('input', updateCalc);
+    updateCalc(); // Initialize calculation display
+  });
+</script>

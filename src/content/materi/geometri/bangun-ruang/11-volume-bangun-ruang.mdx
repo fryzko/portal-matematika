@@ -1,0 +1,185 @@
+---
+title: "Volume Bangun Ruang: Mengukur Isi Sebuah Ruang"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import GeometryFolder from '../../../../components/GeometryFolder.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Volume Bangun Ruang
+
+Bayangkan kamu memiliki sebuah aquarium kosong di rumah, dan kamu ingin mengisinya dengan air sampai penuh. Seberapa banyak air yang bisa ditampung oleh aquarium yang berbentuk balok tersebut? Konsep "seberapa banyak isi yang bisa ditampung" inilah yang disebut sebagai **Volume**.
+
+Hal ini sangat berbeda dengan luas permukaan. Jika luas permukaan hanya mengukur seberapa banyak kaca pembungkus yang digunakan untuk membuat aquarium, volume mengukur besarnya ruang tiga dimensi di bagian dalamnya!
+
+### Yuk, Temukan Sendiri Konsep Volume
+
+Gunakan simulasi interaktif di bawah ini untuk melihat langsung hubungan antara ukuran bangun dengan volumenya.
+
+**Instruksi:**
+1. Geser penggeser panjang sisi untuk memperbesar kubus.
+2. Perhatikan angka volume ($s^3$) dan luas permukaan ($6s^2$) pada kotak kalkulasi.
+3. Apakah kamu menyadari bahwa saat ukuran membesar, nilai Volume bertambah jauh lebih cepat melesat dibandingkan Luas Permukaan?
+
+<GeometryFolder />
+
+### Teori & Definisi Formal
+
+**Volume** adalah ukuran seberapa banyak ruang tiga dimensi yang ditempati oleh suatu objek atau kapasitas maksimal yang bisa ditampung di dalamnya. 
+
+Satuan ukur untuk volume menggunakan satuan kubik (pangkat tiga), seperti $\text{cm}^3$, $\text{m}^3$, atau menggunakan satuan kapasitas zat cair seperti liter ($1 \text{ liter} = 1\text{ dm}^3$).
+
+Berikut adalah rumus-rumus utama volume bangun ruang yang wajib kamu kuasai:
+- **Kubus**: $$V_{\text{kubus}} = s^3$$ (atau $s \times s \times s$)
+- **Balok**: $$V_{\text{balok}} = p \times l \times t$$
+- **Prisma**: $$V_{\text{prisma}} = L_{\text{alas}} \times t$$
+- **Silinder (Tabung)**: $$V_{\text{silinder}} = \pi r^2 t$$
+- **Limas**: $$V_{\text{limas}} = \frac{1}{3} \times L_{\text{alas}} \times t$$
+- **Kerucut**: $$V_{\text{kerucut}} = \frac{1}{3} \pi r^2 t$$
+- **Bola**: $$V_{\text{bola}} = \frac{4}{3} \pi r^3$$
+
+*(Catatan: Rumus yang berujung lancip ke atas, seperti limas dan kerucut, selalu memiliki faktor pengali $\frac{1}{3}$)*
+
+### Visualisasi: Perbandingan Volume Kubus
+
+Perhatikan perbandingan dua kubus di bawah ini. Ketika panjang sisi ($s$) digandakan dari 2 menjadi 4, volumenya tidak hanya ikut dua kali lipat, melainkan 8 kali lipat!
+
+```text
+       Kubus Kecil (s=2)            Kubus Besar (s=4)
+                                     
+           ┌───────┐                 ┌───────────────┐
+          /       /│                /               /│
+         /       / │               /               / │
+        ┌───────┐  │              /               /  │
+        │       │  │             ┌───────────────┐   │
+        │       │  │             │               │   │
+        │       │ /              │               │   │
+        └───────┘/               │               │  /
+                                 │               │ /
+ V = 2 x 2 x 2 = 8               │               │/
+                                 └───────────────┘
+                                 V = 4 x 4 x 4 = 64
+```
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Hitunglah volume sebuah kubus yang memiliki panjang rusuk $3 \text{ cm}$.
+
+**Pembahasan:**
+
+- Rumus volume kubus adalah $V = s^3$.
+- Diketahui $s = 3 \text{ cm}$.
+- Maka $V = 3 \times 3 \times 3 = 27 \text{ cm}^3$.
+- Jadi, volume kubus tersebut adalah $27 \text{ cm}^3$.
+
+#### Contoh 1 (Mudah)
+
+Sebuah balok memiliki panjang $5 \text{ cm}$, lebar $4 \text{ cm}$, dan tinggi $2 \text{ cm}$. Tentukan volumenya!
+
+**Pembahasan:**
+
+- Rumus volume balok adalah $V = p \times l \times t$.
+- $V = 5 \times 4 \times 2$
+- $V = 20 \times 2 = 40 \text{ cm}^3$
+- Jadi, volume balok tersebut adalah $40 \text{ cm}^3$.
+
+#### Contoh 2 (Menengah)
+
+Sebuah kaleng susu berbentuk silinder memiliki jari-jari alas $7 \text{ cm}$ dan tinggi $10 \text{ cm}$. Jika $\pi = \frac{22}{7}$, berapakah volume susu yang bisa ditampung maksimal?
+
+**Pembahasan:**
+
+- Rumus volume silinder adalah $V = \pi r^2 t$.
+- Substitusi nilai: $V = \frac{22}{7} \times 7^2 \times 10$.
+- $V = \frac{22}{7} \times 49 \times 10$.
+- Coret angka 49 dengan 7 menjadi 7.
+- $V = 22 \times 7 \times 10 = 154 \times 10 = 1540 \text{ cm}^3$.
+- Jadi, volume silinder tersebut adalah $1540 \text{ cm}^3$.
+
+#### Contoh 3 (Menantang)
+
+Terdapat sebuah limas dengan alas berbentuk persegi. Jika keliling alas persegi tersebut adalah $40 \text{ cm}$ dan tinggi limas adalah $12 \text{ cm}$, berapakah volumenya?
+
+**Pembahasan:**
+
+- Langkah 1: Cari panjang sisi alas. Keliling persegi $= 4 \times s$. $40 = 4s \implies s = 10 \text{ cm}$.
+- Langkah 2: Hitung Luas alas persegi. $L_{\text{alas}} = s \times s = 10 \times 10 = 100 \text{ cm}^2$.
+- Langkah 3: Gunakan rumus volume limas.
+  $V = \frac{1}{3} \times L_{\text{alas}} \times t$
+  $V = \frac{1}{3} \times 100 \times 12$
+  $V = 100 \times 4 = 400 \text{ cm}^3$.
+- Jadi, volume limas tersebut adalah $400 \text{ cm}^3$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+Hati-hati, karena banyak siswa kehilangan nilai hanya karena hal sepele ini:
+
+1. **Mengira Volume dan Luas Permukaan Sama Saja**
+   Volume mengukur ISI ruang di dalam, sedangkan luas permukaan mengukur KULIT LUAR bangun tersebut. Rumus dan satuannya juga berbeda ($\text{cm}^3$ vs $\text{cm}^2$).
+2. **Lupa Menggunakan Faktor $\frac{1}{3}$**
+   Bangun ruang yang bentuknya meruncing ke atas pada satu titik puncak (Limas dan Kerucut) SELALU dikali dengan $\frac{1}{3}$. Banyak siswa yang menjawab soal kerucut namun malah menggunakan rumus volume silinder.
+
+### Koneksi Dunia Nyata
+
+- **Arsitektur & HVAC**: Insinyur dan arsitek menghitung volume ruangan (kapasitas udara) untuk menentukan seberapa kuat tenaga *Air Conditioner* (AC) yang diperlukan untuk mendinginkan ruangan tersebut secara efektif.
+- **Ahli Gizi**: Dalam industri pangan, volume wadah dihitung secara presisi untuk menakar jumlah porsi, jumlah kalori yang dikandung, dan menjaga konsistensi.
+- **Manufaktur Botol Minum**: Produsen botol menghitung volume agar mengetahui persis berapa mililiter cairan yang bisa dimasukkan dalam desain botol mereka.
+
+### Asah Kemampuan Mandiri
+
+Uji pemahamanmu dengan menjawab soal-soal di bawah ini!
+
+<Quiz correctAnswer="A">
+  <div slot="question">Volume sebuah kubus yang memiliki panjang rusuk $4 \text{ cm}$ adalah...</div>
+  <div slot="option-a">$64 \text{ cm}^3$</div>
+  <div slot="option-b">$16 \text{ cm}^3$</div>
+  <div slot="option-c">$24 \text{ cm}^3$</div>
+  <div slot="option-d">$12 \text{ cm}^3$</div>
+  <div slot="explanation">**Pembahasan:** Volume Kubus = $s^3 = 4 \times 4 \times 4 = 64 \text{ cm}^3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika sebuah balok memiliki dimensi $5 \text{ m} \times 3 \text{ m} \times 2 \text{ m}$, berapakah volumenya?</div>
+  <div slot="option-a">$10 \text{ m}^3$</div>
+  <div slot="option-b">$30 \text{ m}^3$</div>
+  <div slot="option-c">$15 \text{ m}^3$</div>
+  <div slot="option-d">$62 \text{ m}^3$</div>
+  <div slot="explanation">**Pembahasan:** Volume Balok = $p \times l \times t = 5 \times 3 \times 2 = 30 \text{ m}^3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Ada sebuah silinder dan kerucut yang memiliki ukuran jari-jari alas dan tinggi yang sama persis. Jika volume silinder tersebut adalah $300 \text{ cm}^3$, maka volume kerucutnya adalah...</div>
+  <div slot="option-a">$300 \text{ cm}^3$</div>
+  <div slot="option-b">$150 \text{ cm}^3$</div>
+  <div slot="option-c">$100 \text{ cm}^3$</div>
+  <div slot="option-d">$900 \text{ cm}^3$</div>
+  <div slot="explanation">**Pembahasan:** Ingat bahwa rumus kerucut adalah sepertiga dari rumus silinder jika ukuran $r$ dan $t$ sama. Maka Volume Kerucut = $\frac{1}{3} \times 300 = 100 \text{ cm}^3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sebuah bola karet memiliki jari-jari $3 \text{ cm}$. Berapakah volumenya? (Biar dalam bentuk $\pi$)</div>
+  <div slot="option-a">$36\pi \text{ cm}^3$</div>
+  <div slot="option-b">$12\pi \text{ cm}^3$</div>
+  <div slot="option-c">$9\pi \text{ cm}^3$</div>
+  <div slot="option-d">$27\pi \text{ cm}^3$</div>
+  <div slot="explanation">**Pembahasan:** Volume Bola = $\frac{4}{3} \pi r^3 = \frac{4}{3} \pi (3^3) = \frac{4}{3} \pi (27) = 4 \times 9\pi = 36\pi \text{ cm}^3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Dari pernyataan-pernyataan di bawah ini, manakah yang SALAH?</div>
+  <div slot="option-a">Volume kerucut adalah sepertiga dari volume silinder jika alas dan tingginya sama</div>
+  <div slot="option-b">Volume adalah ukuran luas permukaan kulit luar dari suatu bangun ruang</div>
+  <div slot="option-c">Satuan yang digunakan untuk menyatakan volume adalah satuan kubik (pangkat 3)</div>
+  <div slot="option-d">Rumus volume limas pasti memiliki faktor pengali sepertiga ($\frac{1}{3}$)</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan yang SALAH adalah B. Volume adalah ukuran *isi ruang dalam*, sedangkan ukuran kulit luar disebut Luas Permukaan.</div>
+</Quiz>

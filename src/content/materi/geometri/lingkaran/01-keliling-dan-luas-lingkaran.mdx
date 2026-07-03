@@ -1,0 +1,193 @@
+---
+title: "Keliling dan Luas Lingkaran: Misteri Angka Pi"
+topic: "Geometri"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import CircleExplorer from '../../../../components/CircleExplorer.astro';
+import ExplorasiLink from '../../../../components/ExplorasiLink.astro';
+
+### Mari Memahami Keliling dan Luas Lingkaran
+
+Pernahkah kamu memikirkan sebuah roda sepeda yang berputar? Setiap kali roda berputar satu putaran penuh, sepeda maju sejauh keliling roda tersebut. Namun, bagaimana cara kita mengukur jarak yang ditempuh hanya dengan mengetahui ukuran diameter rodanya? Pertanyaan sederhana inilah yang akan membawa kita pada penemuan salah satu angka paling misterius dan penting dalam matematika!
+
+### Yuk, Temukan Sendiri Misteri Angka Pi
+
+Mari kita lakukan eksperimen kecil.
+
+<CircleExplorer />
+
+Geser titik **A** pada lingkaran di atas untuk mengubah jari-jarinya.
+Perhatikan bagaimana Keliling (K) dan Luas (L) berubah secara real-time!
+Bisakah kamu membuktikan bahwa K ÷ d selalu menghasilkan angka yang sama (π)?
+
+Jika kamu menghitungnya, kamu akan mendapati bahwa semua hasilnya sangat mendekati angka **3,14...** Inilah yang disebut dengan **Pi ($\pi$)**! Pi adalah konstanta matematika yang menunjukkan perbandingan antara keliling dan diameter lingkaran mana pun. Biasanya kita menggunakan nilai pendekatan $\pi \approx \frac{22}{7}$ atau $\pi \approx 3,14$.
+
+### Teori & Definisi Formal
+
+Sebelum kita menghitung lebih jauh, mari kita kenali definisi formal bagian-bagian dari sebuah lingkaran. Lingkaran adalah kumpulan semua titik pada bidang datar yang memiliki jarak yang sama dari sebuah titik tetap yang disebut titik pusat.
+
+- **Titik Pusat (P)**: Titik tepat di tengah lingkaran.
+- **Jari-jari (r)**: Garis dari titik pusat ke tepi lingkaran.
+- **Diameter (d)**: Garis lurus melintasi pusat yang menghubungkan dua titik di tepi lingkaran (d = 2r).
+- **Busur**: Garis lengkung pada tepi lingkaran.
+- **Tali Busur**: Garis lurus yang menghubungkan dua titik pada tepi lingkaran, tetapi tidak harus melalui pusat.
+- **Apotema**: Jarak terpendek dari titik pusat ke tali busur (membentuk sudut siku-siku).
+
+Berdasarkan penemuan tentang Pi, kita dapat merumuskan cara menghitung keliling dan luas lingkaran:
+
+**Keliling Lingkaran (K)**
+Keliling adalah jarak di sekeliling tepi luar lingkaran.
+$$K = \pi d$$
+atau
+$$K = 2\pi r$$
+
+**Luas Lingkaran (L)**
+Luas adalah ukuran area di dalam batas lingkaran.
+$$L = \pi r^2$$
+
+### Visualisasi: Unsur-unsur Lingkaran
+
+Berikut adalah visualisasi unsur-unsur lingkaran:
+
+```text
+         Busur
+       .-'''''-.
+     .'    |    '.
+    /      |r     \
+   ;       |       ;
+  |    Pusat(P)     |
+  |--------+--------| Diameter (d)
+  ;        |        ;
+   \       |       /
+    '.     |     .'  Tali Busur
+      '-.,___,.-'
+```
+
+### Contoh Soal & Pembahasan
+
+Berikut adalah latihan soal untuk mengasah pemahamanmu:
+
+#### Contoh 1 (Pemahaman Dasar)
+
+Sebuah piring memiliki jari-jari 7 cm. Berapakah keliling dan luasnya? (Gunakan $\pi = \frac{22}{7}$)
+
+**Pembahasan:**
+
+Diketahui $r = 7$ cm.
+Keliling: $K = 2\pi r = 2 \times \frac{22}{7} \times 7 = 44$ cm.
+Luas: $L = \pi r^2 = \frac{22}{7} \times 7 \times 7 = 154$ cm².
+
+#### Contoh 2 (Mencari Unsur yang Hilang)
+
+Sebuah meja bundar memiliki keliling 132 cm. Berapakah diameter meja tersebut? (Gunakan $\pi = \frac{22}{7}$)
+
+**Pembahasan:**
+
+$K = \pi d$
+$132 = \frac{22}{7} \times d$
+$d = \frac{132 \times 7}{22} = 6 \times 7 = 42$ cm.
+
+#### Contoh 3 (Soal Cerita Kontekstual)
+
+Sebuah roda sepeda memiliki jari-jari 35 cm. Jika roda tersebut berputar sebanyak 100 kali, berapa meter jarak yang ditempuh sepeda tersebut?
+
+**Pembahasan:**
+
+Keliling satu putaran roda: $K = 2\pi r = 2 \times \frac{22}{7} \times 35 = 220$ cm.
+Jarak tempuh 100 putaran: $220 \times 100 = 22.000$ cm = 220 meter.
+
+#### Contoh 4 (Analisis dan Pemecahan Masalah)
+
+Sebuah taman berbentuk lingkaran dengan luas 1.386 m². Di sekeliling taman akan ditanami pohon dengan jarak antar pohon 4 meter. Berapa banyak pohon yang dibutuhkan? (Gunakan $\pi = \frac{22}{7}$)
+
+**Pembahasan:**
+
+Cari jari-jari dari luas:
+$L = \pi r^2$
+$1386 = \frac{22}{7} \times r^2$
+$r^2 = \frac{1386 \times 7}{22} = 63 \times 7 = 441$
+$r = \sqrt{441} = 21$ m.
+
+Cari keliling taman:
+$K = 2\pi r = 2 \times \frac{22}{7} \times 21 = 132$ m.
+
+Banyak pohon = Keliling ÷ jarak = $132 \div 4 = 33$ pohon.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+Saat mempelajari lingkaran, ada beberapa jebakan yang sering membuat siswa keliru. Hati-hati ya!
+
+1. **Tertukar antara jari-jari dan diameter saat menghitung keliling**: Rumus keliling menggunakan $2\pi r$ ATAU $\pi d$. Kadang siswa mencampurkannya menjadi $2\pi d$. Ingat, keliling itu cuma satu kali keliling penuh, bukan dua kali lipat!
+2. **Salah menguadratkan pada rumus luas**: Saat menghitung luas, yang dikuadratkan adalah jari-jari ($r^2$), BUKAN diameter. Jangan sampai kamu menghitung $\pi d^2$!
+
+### Koneksi Dunia Nyata
+
+Rumus-rumus ini bukan cuma ada di buku pelajaran. Di dunia nyata, perhitungan lingkaran sangat krusial!
+- **Insinyur** menggunakannya untuk menghitung panjang sabuk (belt) pada mesin agar pas menggerakkan roda gigi.
+- **Arsitek** memakainya saat merancang kubah masjid yang megah dan proporsional.
+- **Atlet dan panitia olahraga** menghitung secara presisi jarak lari di lintasan atletik yang berbentuk oval (gabungan lurus dan setengah lingkaran).
+
+### Asah Kemampuan Mandiri
+
+Mari uji kemampuanmu dengan 5 pertanyaan berikut!
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika sebuah lingkaran memiliki diameter 14 cm, berapakah kelilingnya? (Gunakan $\pi = \frac{22}{7}$)</div>
+  <div slot="option-a">22 cm</div>
+  <div slot="option-b">44 cm</div>
+  <div slot="option-c">88 cm</div>
+  <div slot="option-d">154 cm</div>
+  <div slot="explanation">**Pembahasan:** Gunakan rumus $K = \pi d$. Jadi, $K = \frac{22}{7} \times 14 = 44$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah hiasan dinding berbentuk lingkaran memiliki jari-jari 10 cm. Berapakah luasnya? (Gunakan $\pi = 3,14$)</div>
+  <div slot="option-a">31,4 cm²</div>
+  <div slot="option-b">62,8 cm²</div>
+  <div slot="option-c">314 cm²</div>
+  <div slot="option-d">628 cm²</div>
+  <div slot="explanation">**Pembahasan:** Gunakan rumus $L = \pi r^2$. Jadi, $L = 3,14 \times 10^2 = 314$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Jika luas sebuah lingkaran adalah 616 cm², berapakah panjang jari-jarinya? (Gunakan $\pi = \frac{22}{7}$)</div>
+  <div slot="option-a">14 cm</div>
+  <div slot="option-b">21 cm</div>
+  <div slot="option-c">28 cm</div>
+  <div slot="option-d">44 cm</div>
+  <div slot="explanation">**Pembahasan:** $L = \pi r^2 \Rightarrow 616 = \frac{22}{7} \times r^2 \Rightarrow r^2 = 196 \Rightarrow r = 14$ cm.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Sebuah roda mobil memiliki diameter 60 cm. Berapa jarak tempuh untuk 10 kali putaran? (Gunakan $\pi = 3,14$)</div>
+  <div slot="option-a">18,84 meter</div>
+  <div slot="option-b">188,4 meter</div>
+  <div slot="option-c">1.884 meter</div>
+  <div slot="option-d">18,84 meter (1.884 cm)</div>
+  <div slot="explanation">**Pembahasan:** Keliling roda = $\pi d = 3,14 \times 60 = 188,4$ cm. 10 putaran = $1.884$ cm = $18,84$ meter.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai lingkaran?</div>
+  <div slot="option-a">Diameter adalah dua kali lipat panjang jari-jari.</div>
+  <div slot="option-b">Nilai Pi ($\pi$) didapat dari perbandingan keliling dengan diameter.</div>
+  <div slot="option-c">Tali busur terpanjang pada sebuah lingkaran adalah diameternya.</div>
+  <div slot="option-d">Untuk menghitung luas lingkaran, kita menguadratkan diameternya lalu dikali dengan Pi ($\pi$).</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah karena untuk menghitung luas, yang dikuadratkan adalah jari-jari ($r^2$), bukan diameter ($d^2$). Rumus luas yang benar adalah $L = \pi r^2$.</div>
+</Quiz>
+
+<ExplorasiLink
+  href="/eksplorasi/pi"
+  judul="Menyelami Misteri Pi (π)"
+  deskripsi="Jelajahi sejarah Pi, buktikan nilainya sendiri, dan temukan Pi di berbagai bidang ilmu!"
+/>

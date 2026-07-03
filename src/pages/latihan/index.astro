@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Latihan - Ruang Matematika SMP">
+  <div class="coming-soon-hero">
+    <div class="cs-icon">🎯</div>
+    <h1>Latihan Interaktif</h1>
+    <p class="cs-subtitle">Fitur ini sedang dalam pengembangan dan akan segera hadir!</p>
+  </div>
+
+  <div class="cs-preview">
+    <h2>Yang Akan Hadir:</h2>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <span>⚡</span>
+        <h3>Soal Interaktif</h3>
+        <p>Latihan soal bergaya game dengan visual menarik dan feedback langsung</p>
+      </div>
+      <div class="cs-card">
+        <span>📊</span>
+        <h3>Progress Tracking</h3>
+        <p>Pantau perkembangan belajarmu per topik dan per elemen</p>
+      </div>
+      <div class="cs-card">
+        <span>🏆</span>
+        <h3>Tantangan Harian</h3>
+        <p>Soal tantangan baru setiap hari untuk mengasah kemampuan</p>
+      </div>
+      <div class="cs-card">
+        <span>🎖️</span>
+        <h3>Streak & Badge</h3>
+        <p>Kumpulkan badge dan pertahankan streak belajarmu</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-action">
+    <p>Sambil menunggu, mulai belajar dari materi yang sudah tersedia:</p>
+    <div class="cs-links">
+      <a href="/kelas/vii" class="cs-btn">Kelas VII</a>
+      <a href="/kelas/viii" class="cs-btn">Kelas VIII</a>
+      <a href="/kelas/ix" class="cs-btn">Kelas IX</a>
+      <a href="/elemen" class="cs-btn cs-btn-outline">Jelajahi Elemen</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.coming-soon-hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: 24px;
+  margin-bottom: 3rem;
+}
+.cs-icon { font-size: 5rem; margin-bottom: 1rem; }
+.coming-soon-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #14532d;
+  margin-bottom: 1rem;
+}
+.cs-subtitle {
+  font-size: 1.1rem;
+  color: #166534;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.cs-preview { margin-bottom: 3rem; }
+.cs-preview h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 768px) { .cs-grid { grid-template-columns: 1fr; } }
+.cs-card {
+  background: white;
+  border: 2px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.cs-card:hover { transform: translateY(-4px); }
+.cs-card span { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+.cs-card h3 { font-size: 1.1rem; font-weight: 700; color: #14532d; margin-bottom: 0.5rem; }
+.cs-card p { color: #64748b; font-size: 0.9rem; line-height: 1.6; }
+.cs-action {
+  text-align: center;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+.cs-action p { color: #64748b; margin-bottom: 1.5rem; }
+.cs-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cs-btn {
+  padding: 0.75rem 1.5rem;
+  background: #16a34a;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.cs-btn:hover { opacity: 0.85; }
+.cs-btn-outline {
+  background: white;
+  color: #16a34a;
+  border: 2px solid #16a34a;
+}
+</style>

@@ -1,0 +1,166 @@
+---
+title: "SPLDV Bagian 3: Titik Tabrakan (Metode Grafik)"
+topic: "Aljabar"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import SpldvSolver from '../../../../components/SpldvSolver.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami SPLDV Bagian 3
+Sebelumnya kamu sudah belajar menghitung nilai $x$ dan $y$ menggunakan kekuatan bongkar pasang angka (Substitusi dan Eliminasi). Tapi pernahkah kamu bertanya-tanya, apa *bentuk asli* dari sebuah persamaan linear seperti $y = 2x + 1$ di dunia nyata?
+
+Matematika bukan sekadar angka yang melayang-layang. Setiap persamaan linear ternyata melambangkan sebuah **garis lurus** yang tergambar di ruang angkasa (bidang Kartesius)! Jadi, jika kita punya DUA persamaan, berarti kita punya DUA garis lurus. Lalu, apa hubungannya dengan mencari nilai $x$ dan $y$?
+
+### Yuk, Temukan Sendiri SPLDV Bagian 3
+Ayo kita buktikan bahwa sebuah persamaan adalah sebuah garis. 
+1. Ambil persamaan pertama: $y = 2x - 1$.
+   - Jika kamu memilih $x=1$, maka $y = 2(1) - 1 = 1$. (Titik A: 1, 1).
+   - Jika kamu memilih $x=3$, maka $y = 2(3) - 1 = 5$. (Titik B: 3, 5).
+2. Cobalah klik/buat Titik A dan Titik B pada Bidang Kartesius di bawah ini! (Abaikan perhitungan Pythagoras-nya untuk sementara, perhatikan saja garis miring yang terbentuk menghubungkan kedua titik tersebut).
+
+<SpldvSolver />
+
+Bayangkan jika kamu menggambar satu persamaan lagi (garis lain) di bidang yang sama. Jika kedua garis itu saling berpotongan, titik potong (titik tabrakan) itulah jawaban SPLDV-mu!
+
+### Teori & Definisi Formal
+**Metode Grafik** adalah teknik menyelesaikan Sistem Persamaan Linear Dua Variabel dengan menggambar kedua garis pada bidang koordinat, lalu mencari titik temu (perpotongan) kedua garis tersebut.
+
+Titik potong tersebut akan memiliki koordinat $(x, y)$, dan itulah **Himpunan Penyelesaian** (HP) yang kamu cari selama ini.
+
+#### Tiga Jenis Tabrakan Garis:
+1. **Berpotongan**: Kedua garis tabrakan di satu titik pasti. SPLDV ini memiliki **SATU** penyelesaian.
+2. **Sejajar (Paralel)**: Kedua garis berjalan beriringan dan tidak akan pernah bertemu. SPLDV jenis ini **TIDAK MEMILIKI** penyelesaian. (Contoh: $x + y = 5$ dan $x + y = 10$. Mustahil dua angka yang sama jika dijumlahkan hasilnya berbeda!).
+3. **Berimpit**: Kedua garis menumpuk persis di tempat yang sama (mereka sebenarnya adalah garis yang sama). SPLDV ini memiliki **TAKK TERHINGGA** penyelesaian. (Contoh: $x+y=5$ dan $2x+2y=10$).
+
+### Visualisasi: SPLDV Bagian 3
+Cara termudah menggambar garis tanpa harus menghitung banyak titik adalah dengan mencari "Titik Potong Sumbu X" dan "Titik Potong Sumbu Y".
+- Tutup huruf $x$ (anggap $x=0$), temukan angka $y$-nya.
+- Tutup huruf $y$ (anggap $y=0$), temukan angka $x$-nya.
+
+Misal garis: $2x + y = 4$
+- Tutup $x$: Tinggal $y = 4$. (Titik potong sumbu Y di angka 4).
+- Tutup $y$: Tinggal $2x = 4 \implies x = 2$. (Titik potong sumbu X di angka 2).
+Tarik garis dari sumbu Y (di angka 4) ke sumbu X (di angka 2)! Sangat cepat!
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Diketahui dua buah garis berpotongan di koordinat Kartesius pada titik $(3, 5)$. Apakah Himpunan Penyelesaian dari sistem persamaan kedua garis tersebut?
+
+**Pembahasan:**
+
+Karena Metode Grafik berprinsip bahwa titik perpotongan = himpunan penyelesaian, maka secara otomatis nilai $x$ adalah koordinat depan (3) dan nilai $y$ adalah koordinat belakang (5).
+Jawaban: HP = $\{3, 5\}$.
+
+#### Contoh 1 (Mudah)
+Tentukan himpunan penyelesaian dari $x + y = 4$ dan $x - y = 2$ menggunakan metode grafik!
+
+**Pembahasan:**
+
+- **Garis 1 ($x + y = 4$):**
+  - Tutup $x$: $y = 4$. (Titik $(0,4)$)
+  - Tutup $y$: $x = 4$. (Titik $(4,0)$)
+  - Tarik garis yang menghubungkan angka 4 di sumbu Y dan angka 4 di sumbu X.
+- **Garis 2 ($x - y = 2$):**
+  - Tutup $x$: $-y = 2 \implies y = -2$. (Titik $(0,-2)$)
+  - Tutup $y$: $x = 2$. (Titik $(2,0)$)
+  - Tarik garis yang menghubungkan angka -2 di sumbu Y dan angka 2 di sumbu X.
+- Jika digambar dengan rapi di kertas berpetak, kedua garis akan bertemu di koordinat **$(3, 1)$**.
+- Mari kita uji: $3 + 1 = 4$ (Benar!), $3 - 1 = 2$ (Benar!).
+Jawaban: HP = $\{3, 1\}$.
+
+#### Contoh 2 (Menengah)
+Bagaimana bentuk grafik dari $x + y = 3$ dan $2x + 2y = 12$? Berapa penyelesaiannya?
+
+**Pembahasan:**
+
+Coba kita selidiki polanya.
+- Garis pertama: jumlahnya harus 3.
+- Garis kedua jika kita bagi 2 seluruh angkanya, menjadi $x + y = 6$. Jumlahnya harus 6.
+Tidak mungkin sepasang angka yang sama memiliki jumlah 3 SEKALIGUS 6.
+Jika digambar, kedua garis ini akan membentuk rel kereta api (sejajar) yang tidak pernah bertemu.
+Jawaban: **Tidak ada penyelesaian**.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Garis Melenceng karena Kertas Polos**: Menggunakan metode grafik di atas kertas buku tulis biasa (tanpa garis bantu/buku kotak) sering menyebabkan titik potong terbaca salah (misal terlihat seperti 2,3 padahal sebenarnya 2,5). Selalu gunakan penggaris yang presisi atau buku milimeter blok!
+
+
+- **Terbalik X dan Y**: Ingat, angka pertama di dalam kurung $(x,y)$ selalu letaknya di sumbu mendatar/horizontal (X), dan angka kedua adalah sumbu vertikal (Y). Banyak yang salah menaruh titik $(0, 4)$ di sumbu X padahal seharusnya di sumbu Y!
+
+### Koneksi Dunia Nyata
+1. **Ekonomi (Titik Keseimbangan)**: Metode grafik digunakan oleh para ekonom untuk menggambarkan Garis Penawaran (Supply) dan Garis Permintaan (Demand). Titik tabrakan kedua garis tersebut menentukan "Harga Pasar" yang akan terjadi!
+2. **Radar Penerbangan**: Menghitung rute dua buah pesawat yang berada di ketinggian yang sama. Persamaan linear jalur terbangnya digambar di radar, dan titik tabrakannya diawasi secara ketat agar pesawat dapat diminta untuk memutar dan menghindari kecelakaan.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    1. Penyelesaian dari SPLDV dengan metode grafik adalah...
+  </div>
+  <div slot="option-a">Titik potong garis terhadap sumbu X</div>
+  <div slot="option-b">Titik potong garis terhadap sumbu Y</div>
+  <div slot="option-c">Titik perpotongan kedua garis tersebut</div>
+  <div slot="option-d">Titik origin (0,0)</div>
+  <div slot="explanation">**Pembahasan:** Inti dari metode grafik adalah mencari tempat di mana kedua garis bertemu (berpotongan), yang melambangkan nilai $x$ dan $y$ yang berlaku untuk keduanya.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    2. Jika dua buah persamaan membentuk garis yang saling sejajar pada grafik, maka SPLDV tersebut...
+  </div>
+  <div slot="option-a">Memiliki penyelesaian tak terhingga</div>
+  <div slot="option-b">Tidak memiliki penyelesaian</div>
+  <div slot="option-c">Memiliki tepat satu penyelesaian</div>
+  <div slot="option-d">Himpunan penyelesaiannya adalah (0,0)</div>
+  <div slot="explanation">**Pembahasan:** Garis sejajar (seperti rel kereta) tidak akan pernah bertemu/berpotongan. Tanpa titik potong, tidak ada jawaban (Himpunan Penyelesaian kosong).</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    3. Titik potong terhadap sumbu Y dari persamaan garis $3x - 2y = 12$ berada di koordinat...
+  </div>
+  <div slot="option-a">$(0, -6)$</div>
+  <div slot="option-b">$(4, 0)$</div>
+  <div slot="option-c">$(0, 4)$</div>
+  <div slot="option-d">$(-6, 0)$</div>
+  <div slot="explanation">**Pembahasan:** Untuk mencari titik potong sumbu Y, anggap (tutup) $x=0$.
+    $-2y = 12 \implies y = -6$.
+    Koordinat selalu ditulis $(x, y) \rightarrow (0, -6)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">
+    4. Manakah di bawah ini yang akan menghasilkan dua garis yang berimpit (menumpuk menjadi satu)?
+  </div>
+  <div slot="option-a">$x + y = 5$ dan $x - y = 5$</div>
+  <div slot="option-b">$2x + y = 4$ dan $2x + y = 8$</div>
+  <div slot="option-c">$3x - y = 1$ dan $x + 3y = 1$</div>
+  <div slot="option-d">$x + 2y = 5$ dan $2x + 4y = 10$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    Garis berimpit artinya kedua persamaan tersebut SEBENARNYA SAMA, hanya berbeda faktor pengalinya.
+    Opsi D: $2x + 4y = 10$ jika dibagi 2 seluruhnya, akan kembali menjadi $x + 2y = 5$. Karena persamaannya sama persis, gambarnya akan menumpuk!
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    5. Dari hasil penggambaran grafik, garis $A$ memotong sumbu X di angka 4 dan sumbu Y di angka 4. Garis $B$ memotong sumbu X di angka -2 dan sumbu Y di angka 2. Jika kedua garis ditarik memanjang, titik potongnya akan bernilai...
+  </div>
+  <div slot="option-a">$(1, 3)$</div>
+  <div slot="option-b">$(1, 3)$ (Gunakan persamaan untuk menguji)</div>
+  <div slot="option-c">$(2, 2)$</div>
+  <div slot="option-d">$(3, 1)$</div>
+  <div slot="explanation">**Pembahasan:** Garis A adalah $x+y=4$. Garis B adalah $-x+y=2$.
+    Eliminasi (tambahkan keduanya): $(x-x) + (y+y) = 4 + 2 \implies 2y = 6 \implies y = 3$.
+    Jika $y=3$, maka $x=1$.
+    Jawabannya adalah titik $(1, 3)$.</div>
+</Quiz>

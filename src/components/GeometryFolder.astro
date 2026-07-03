@@ -1,0 +1,273 @@
+---
+// src/components/GeometryFolder.astro
+---
+
+<geometry-folder class="geo-widget">
+  <div class="geo-header">
+    <h3>Simulator Lipat Jaring-jaring 3D</h3>
+    <p>Geser tuas di bawah ini untuk merakit jaring-jaring 2D datar menjadi sebuah Kubus 3D yang memiliki ruang!</p>
+  </div>
+
+  <div class="geo-body">
+    <div class="controls-panel">
+      <label for="fold-slider">Lipat Jaring-jaring: <span id="fold-percent">0%</span></label>
+      <input type="range" id="fold-slider" min="0" max="100" value="0" />
+      <div class="slider-labels">
+        <span>2D (Datar)</span>
+        <span>3D (Bangun Ruang)</span>
+      </div>
+      <label for="side-input" style="margin-top: 1rem;">Panjang Sisi (s):</label>
+      <input type="number" id="side-input" min="1" max="20" value="5" />
+
+      <div class="info-box">
+        <p><strong>Kalkulasi Real-time:</strong></p>
+        <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+          <li>Panjang Sisi: s = <strong id="calc-s">5</strong></li>
+          <li>Luas Satu Sisi: s&sup2; = <strong id="calc-area">25</strong></li>
+          <li>Luas Permukaan: 6 &times; s&sup2; = <strong id="calc-surface">150</strong></li>
+          <li>Volume: s&sup3; = <strong id="calc-volume">125</strong></li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #475569; margin-top: 1rem;">*Luas permukaan = total luas 6 persegi panjang penyusun kubus. Volume = kapasitas ruang di dalamnya.</p>
+      </div>
+    </div>
+
+    <div class="canvas-panel">
+      <div class="scene">
+        <div class="cube-net" id="cube-net">
+          <div class="face base">Alas</div>
+          <div class="face left" id="face-left">Kiri</div>
+          <div class="face right" id="face-right">Kanan</div>
+          <div class="face back" id="face-back">Belakang</div>
+          <div class="face front" id="face-front">
+            Depan
+            <div class="face top" id="face-top">Atas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</geometry-folder>
+
+<script>
+// @ts-nocheck
+  class GeometryFolder extends HTMLElement {
+    constructor() {
+      super();
+      this.slider = this.querySelector('#fold-slider');
+      this.percentText = this.querySelector('#fold-percent');
+      
+      this.faceLeft = this.querySelector('#face-left');
+      this.faceRight = this.querySelector('#face-right');
+      this.faceBack = this.querySelector('#face-back');
+      this.faceFront = this.querySelector('#face-front');
+      this.faceTop = this.querySelector('#face-top');
+      this.cubeNet = this.querySelector('#cube-net');
+
+      this.sideInput = this.querySelector('#side-input');
+      this.calcS = this.querySelector('#calc-s');
+      this.calcArea = this.querySelector('#calc-area');
+      this.calcSurface = this.querySelector('#calc-surface');
+      this.calcVolume = this.querySelector('#calc-volume');
+
+      this.currentScale = 1;
+
+      this.slider.addEventListener('input', () => this.updateFold());
+      this.sideInput.addEventListener('input', () => this.updateFold());
+
+      // Auto rotation for the whole scene so it looks 3D
+      this.rotationZ = 45;
+      this.rotationX = 60;
+      
+      // Let's add slight mouse interaction to rotate the 3D scene
+      let isDragging = false;
+      let startX, startY;
+      const scene = this.querySelector('.scene');
+      
+      scene.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        this.rotationZ += deltaX * 0.5;
+        this.rotationX -= deltaY * 0.5;
+        // Clamp X rotation to prevent flipping upside down awkwardly
+        this.rotationX = Math.max(0, Math.min(90, this.rotationX)); 
+        this.cubeNet.style.transform = `rotateX(${this.rotationX}deg) rotateZ(${this.rotationZ}deg) scale(${this.currentScale})`;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      // Init display
+      this.updateFold();
+    }
+
+    updateFold() {
+      const val = parseInt(this.slider.value);
+      this.percentText.textContent = `${val}%`;
+      
+      const angle = (val / 100) * 90; // Fold up to 90 degrees
+      
+      // We want them all to fold UP (+Z) relative to the base
+      this.faceLeft.style.transform = `rotateY(${angle}deg)`;
+      this.faceRight.style.transform = `rotateY(${-angle}deg)`;
+      this.faceBack.style.transform = `rotateX(${angle}deg)`;
+      this.faceFront.style.transform = `rotateX(${-angle}deg)`;
+      
+      // Top is attached to Front. When Front folds up, Top goes with it.
+      // To form the lid, Top needs an additional -90deg fold relative to Front.
+      this.faceTop.style.transform = `rotateX(${-angle}deg)`;
+
+      // Side calculation
+      let s = parseInt(this.sideInput.value) || 5;
+      if (s < 1) s = 1;
+      if (s > 20) s = 20;
+
+      this.calcS.textContent = s;
+      this.calcArea.textContent = s * s;
+      this.calcSurface.textContent = 6 * s * s;
+      this.calcVolume.textContent = s * s * s;
+
+      this.currentScale = s / 5;
+      this.cubeNet.style.transform = `rotateX(${this.rotationX}deg) rotateZ(${this.rotationZ}deg) scale(${this.currentScale})`;
+    }
+  }
+
+  customElements.define('geometry-folder', GeometryFolder);
+</script>
+
+<style>
+  .geo-widget {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 4px 15px -3px rgba(0,0,0,0.1);
+  }
+  .geo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .geo-header h3 { margin-top: 0; color: #1e293b; }
+  .geo-body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .geo-body { grid-template-columns: 1fr; }
+  }
+
+  .controls-panel {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    display: flex;
+    flex-direction: column;
+  }
+  .controls-panel label {
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  #fold-percent { color: #0284c7; }
+  #fold-slider, #side-input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+  #side-input {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    font-size: 1rem;
+    cursor: text;
+  }
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+  .info-box {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    margin-top: auto;
+  }
+  .info-box p { margin-top: 0; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* 3D Canvas */
+  .canvas-panel {
+    background: #0f172a;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+  }
+  .canvas-panel:active { cursor: grabbing; }
+  
+  .scene {
+    width: 100%;
+    height: 350px;
+    perspective: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cube-net {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) rotateZ(45deg);
+    transition: transform 0.1s;
+  }
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(56, 189, 248, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+  }
+
+  /* Absolute positioning for a standard cross-shaped cube net */
+  .base { top: 0; left: 0; background: rgba(14, 165, 233, 0.9); }
+  
+  .left { top: 0; left: -100px; transform-origin: right; }
+  .right { top: 0; left: 100px; transform-origin: left; }
+  .back { top: 100px; left: 0; transform-origin: top; }
+  
+  .front { top: -100px; left: 0; transform-origin: bottom; }
+  
+  /* Top is attached to the top edge of Front */
+  .top {
+    top: -100px;
+    left: -2px; /* compensate for 2px border */
+    transform-origin: bottom;
+    background: rgba(2, 132, 199, 0.9);
+  }
+</style>

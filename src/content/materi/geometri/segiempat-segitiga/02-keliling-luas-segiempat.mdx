@@ -1,0 +1,176 @@
+---
+title: "Keliling dan Luas Segiempat: Dari Persegi hingga Trapesium"
+topic: "Geometri"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Keliling dan Luas Segiempat
+Seorang kontraktor rumah diminta untuk memasang keramik di berbagai ruangan. Kamar tidur berbentuk persegi, ruang tamu berbentuk persegi panjang, dan taman kecil di depan berbentuk jajar genjang. Untuk mengetahui berapa banyak dus keramik yang harus dibeli, sang kontraktor tidak bisa menggunakan satu rumus yang sama! Bentuk ruangan yang berbeda ternyata menuntut cara perhitungan luas yang berbeda pula. Mengapa bisa begitu? Karena keluarga segiempat memiliki banyak "saudara" yang punya sifatnya masing-masing.
+
+### Yuk, Temukan Sendiri Keliling dan Luas Segiempat
+Mari kenali keluarga segiempat dengan melengkapi tabel perbandingan sifat-sifatnya berikut ini:
+
+| Bangun | Sisi Sejajar | Sisi Sama Panjang | Sudut Siku-siku |
+| :--- | :---: | :---: | :---: |
+| Persegi | 2 pasang | Semua | Ya |
+| Persegi Panjang | 2 pasang | 2 pasang | Ya |
+| Jajar Genjang | 2 pasang | 2 pasang | Tidak |
+| Belah Ketupat | 2 pasang | Semua | Tidak |
+| Trapesium | 1 pasang | ? | ? |
+
+*(Tahukah kamu: Trapesium adalah segiempat yang paling "bebas", ia hanya diwajibkan punya 1 pasang sisi sejajar. Sisi lainnya bebas, sehingga panjang sisinya dan sudutnya bisa bermacam-macam!)*
+
+### Teori & Definisi Formal
+**Segiempat** adalah poligon (bangun datar) yang memiliki empat buah sisi dan empat titik sudut.
+Berikut adalah 5 jenis segiempat yang paling utama beserta rumus Luas ($L$) dan Kelilingnya ($K$):
+
+1. **Persegi**
+   Memiliki empat sisi sama panjang ($s$) dan empat sudut siku-siku.
+   $$K = 4 \times s$$
+
+$$L_{\text{persegi}} = s^2$$
+
+2. **Persegi Panjang**
+   Memiliki dua sisi panjang ($p$) dan dua sisi lebar ($l$) serta empat sudut siku-siku.
+   $$K = 2 \times (p + l)$$
+
+$$L_{\text{persegi panjang}} = p \times l$$
+
+3. **Jajar Genjang**
+   Miring seperti layangan yang tertiup angin, tapi punya dua pasang sisi sejajar. Punya alas ($a$) dan tinggi tegak lurus ($t$).
+   $$K = 2 \times (a + \text{sisi miring})$$
+
+$$L_{\text{jajar genjang}} = a \times t$$
+
+4. **Belah Ketupat**
+   Bentuknya seperti wajik. Empat sisinya sama panjang, tapi sudutnya tidak siku-siku. Kita menghitungnya menggunakan dua garis diagonalnya ($d_1$ dan $d_2$).
+   $$K = 4 \times s$$
+
+$$L_{\text{belah ketupat}} = \frac{d_1 \times d_2}{2}$$
+
+5. **Trapesium**
+   Memiliki sepasang sisi sejajar (disebut sisi atas $a$ dan sisi bawah $b$), serta garis tinggi ($t$) yang tegak lurus di antaraeduanya.
+   $$K = \text{jumlah semua sisi}$$
+
+$$L_{\text{trapesium}} = \frac{(a + b)}{2} \times t$$
+
+### Visualisasi: Keliling dan Luas Segiempat
+Perhatikan bahwa rumus **Jajar Genjang** sebenarnya sama dengan **Persegi Panjang**.
+Jika kamu memotong bagian segitiga miring di jajar genjang, lalu memindahkannya ke sisi seberangnya, maka jajar genjang tersebut akan "berubah wujud" secara sempurna menjadi sebuah persegi panjang! Itulah sebabnya rumusnya menggunakan konsep yang sama: alas dikali tinggi (sama dengan panjang dikali lebar).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Sebuah persegi memiliki panjang sisi 6 cm. Berapakah keliling dan luasnya?
+
+**Pembahasan:**
+
+Keliling: $K = 4 \times 6 = 24$ cm.
+Luas: $L = 6^2 = 36 \text{ cm}^2$.
+
+#### Contoh 1 (Mudah)
+
+Sebuah persegi panjang memiliki panjang 10 cm dan lebar 4 cm. Hitunglah luas dan kelilingnya!
+
+**Pembahasan:**
+
+Luas: $L = p \times l = 10 \times 4 = 40 \text{ cm}^2$.
+Keliling: $K = 2 \times (10 + 4) = 2 \times 14 = 28$ cm.
+
+#### Contoh 2 (Menengah)
+
+Lantai belah ketupat memiliki diagonal-diagonal yang panjangnya 8 cm dan 12 cm. Berapakah luas belah ketupat tersebut?
+
+**Pembahasan:**
+
+Gunakan rumus luas belah ketupat (kali diagonal lalu bagi dua):
+$$L = \frac{d_1 \times d_2}{2} = \frac{8 \times 12}{2} = \frac{96}{2} = 48 \text{ cm}^2$$
+
+#### Contoh 3 (Menantang)
+
+Sebuah trapesium memiliki luas $90 \text{ cm}^2$. Jarak antara kedua sisi yang sejajar (tinggi trapesium) adalah 6 cm. Jika salah satu sisi sejajar panjangnya 12 cm, berapakah panjang sisi sejajar yang satunya lagi?
+
+**Pembahasan:**
+
+Gunakan rumus luas trapesium:
+$$L = \frac{(a + b)}{2} \times t$$
+
+$$90 = \frac{(12 + b)}{2} \times 6$$
+
+$$90 = (12 + b) \times 3$$
+Bagi kedua ruas dengan 3:
+$$30 = 12 + b$$
+
+$$b = 30 - 12 = 18$$
+Jadi, panjang sisi sejajar yang lain adalah 18 cm.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan yang paling sering ditemui adalah saat menghitung luas **Belah Ketupat**.
+
+
+Banyak siswa dengan terburu-buru mengalikan panjang sisinya seperti menghitung persegi panjang atau jajar genjang ($L = s \times s$ atau $L = \text{panjang} \times \text{lebar}$). **INI SALAH BESAR!**
+Luas belah ketupat **tidak dihitung dari sisinya**, melainkan dari garis **diagonalnya** (garis menyilang di bagian dalam belah ketupat). Rumus yang benar adalah membagi dua hasil perkalian diagonalnya: $\frac{d_1 \times d_2}{2}$.
+
+### Koneksi Dunia Nyata
+Konsep perhitungan luas dan keliling segiempat dipakai luas di berbagai profesi:
+1. **Desain Interior & Konstruksi:** Menghitung jumlah cat, wallpaper dinding, dan keramik ubin.
+2. **Pertanian:** Mengukur keliling untuk membeli panjang kawat pagar yang pas agar ternak tidak kabur, dan mengukur luas untuk menentukan jumlah pupuk.
+3. **Pembuatan Pakaian:** Penjahit menghitung luas potongan kain (yang seringkali trapesium atau belah ketupat) untuk meminimalkan sisa potongan terbuang.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah persegi panjang memiliki panjang 15 cm dan lebar 6 cm. Luas persegi panjang tersebut adalah...</div>
+  <div slot="option-a">42 cm²</div>
+  <div slot="option-b">80 cm²</div>
+  <div slot="option-c">90 cm²</div>
+  <div slot="option-d">120 cm²</div>
+  <div slot="explanation">**Pembahasan:** $L = p \times l = 15 \times 6 = 90$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Keliling sebuah persegi adalah 36 cm. Berapakah luas persegi tersebut?</div>
+  <div slot="option-a">18 cm²</div>
+  <div slot="option-b">81 cm²</div>
+  <div slot="option-c">36 cm²</div>
+  <div slot="option-d">72 cm²</div>
+  <div slot="explanation">**Pembahasan:** Jika $K = 36$, maka $s = 36 / 4 = 9$ cm. Luas persegi = $s^2 = 9^2 = 81$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Luas jajar genjang dengan alas 14 cm dan tinggi 5 cm adalah...</div>
+  <div slot="option-a">70 cm²</div>
+  <div slot="option-b">35 cm²</div>
+  <div slot="option-c">38 cm²</div>
+  <div slot="option-d">140 cm²</div>
+  <div slot="explanation">**Pembahasan:** Rumus luas jajar genjang adalah $L = a \times t$ (tidak perlu dibagi dua). Maka $14 \times 5 = 70$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Atap rumah berbentuk trapesium dengan panjang sisi sejajar 10 m dan 6 m. Tinggi trapesium tersebut adalah 4 m. Berapakah luasnya?</div>
+  <div slot="option-a">64 m²</div>
+  <div slot="option-b">60 m²</div>
+  <div slot="option-c">16 m²</div>
+  <div slot="option-d">32 m²</div>
+  <div slot="explanation">**Pembahasan:** $L = \frac{(a+b)}{2} \times t = \frac{(10 + 6)}{2} \times 4 = \frac{16}{2} \times 4 = 8 \times 4 = 32$ m².</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH?</div>
+  <div slot="option-a">Persegi dan persegi panjang sama-sama memiliki empat sudut siku-siku.</div>
+  <div slot="option-b">Luas belah ketupat dihitung dengan cara mengalikan kedua panjang sisinya lalu dibagi dua.</div>
+  <div slot="option-c">Jajar genjang adalah segiempat yang memiliki dua pasang sisi sejajar.</div>
+  <div slot="option-d">Luas segitiga adalah persis setengah dari luas persegi panjang yang memiliki alas dan tinggi yang sama.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Luas belah ketupat tidak dihitung dengan mengalikan sisinya, melainkan mengalikan *diagonalnya* lalu dibagi dua ($\frac{d_1 \times d_2}{2}$).</div>
+</Quiz>

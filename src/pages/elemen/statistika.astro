@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Statistika & Peluang">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="elemen-header">
+      <svg viewBox="0 0 100 100" width="100" height="100" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+        <line x1="10" y1="90" x2="90" y2="90" stroke="white" stroke-width="4"/>
+        <line x1="10" y1="90" x2="10" y2="10" stroke="white" stroke-width="4"/>
+        <rect x="20" y="50" width="15" height="40" fill="white"/>
+        <rect x="45" y="20" width="15" height="70" fill="white" opacity="0.8"/>
+        <rect x="70" y="65" width="15" height="25" fill="white" opacity="0.6"/>
+      </svg>
+      <div>
+        <h1 class="text-4xl font-bold mb-2">Statistika & Peluang</h1>
+        <p class="text-lg opacity-90">Mengumpulkan, menyajikan, dan menganalisis data, serta memahami kemungkinan</p>
+      </div>
+    </div>
+
+    <div class="topik-section">
+      <h2>Topik dalam Elemen Ini</h2>
+      
+      <h3 class="font-semibold text-lg mt-6 mb-3">Penyajian Data</h3>
+      <div class="topik-grid">
+        <a href="/materi/statistika/penyajian-data/09-statistika-dan-penyajian-data" class="topik-link">Statistika & Penyajian Data</a>
+        <a href="/materi/statistika/penyajian-data/10-mean-median-modus" class="topik-link">Mean, Median & Modus</a>
+        <a href="/materi/statistika/penyajian-data/11-diagram-dan-grafik" class="topik-link">Diagram & Grafik</a>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-3">Peluang</h3>
+      <div class="topik-grid">
+        <a href="/materi/statistika/peluang/01-peluang-teoretik" class="topik-link">Peluang Teoretik</a>
+        <a href="/materi/statistika/peluang/02-peluang-empirik" class="topik-link">Peluang Empirik</a>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <h3 class="font-bold text-xl mb-4 flex items-center gap-2">
+          <span class="text-2xl">🌍</span> Mengapa Belajar Statistika & Peluang?
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-2">
+            <span class="text-red-500 font-bold">•</span>
+            <span><strong>Survei:</strong> Mengambil sampel data dan menarik kesimpulan yang valid.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-red-500 font-bold">•</span>
+            <span><strong>Prediksi Cuaca:</strong> Menghitung probabilitas hujan berdasarkan data historis.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-red-500 font-bold">•</span>
+            <span><strong>Asuransi:</strong> Menilai risiko dan menentukan premi berdasarkan peluang kejadian.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+        <h3 class="font-bold text-xl mb-4 flex items-center gap-2 text-red-800">
+          <span class="text-2xl">🚀</span> Mulai dari Mana?
+        </h3>
+        <p class="mb-4 text-gray-700">Rekomendasi urutan belajar yang terstruktur:</p>
+        <ol class="space-y-2 text-red-900 font-medium">
+          <li>1. Penyajian Data</li>
+          <li>2. Mean/Median/Modus</li>
+          <li>3. Diagram</li>
+          <li>4. Peluang Teoretik</li>
+          <li>5. Peluang Empirik</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.elemen-header {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topik-section {
+  margin-bottom: 2rem;
+}
+.topik-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #ef4444;
+  margin-bottom: 1rem;
+}
+.topik-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+.topik-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  border-left: 4px solid #ef4444;
+}
+.topik-link:hover {
+  background: #fee2e2;
+  border-color: #ef4444;
+  transform: translateX(4px);
+}
+@media (max-width: 768px) {
+  .elemen-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+}
+</style>

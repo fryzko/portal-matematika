@@ -1,0 +1,152 @@
+---
+title: "Mengenal Himpunan: Mengelompokkan Dunia di Sekitar Kita"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Mengenal Himpunan
+Pernahkah kamu memperhatikan laci meja belajarmu? Mungkin di salah satu laci, kamu menyimpan pensil, penggaris, penghapus, dan bolpoin bersama-sama. Mengapa mereka dikelompokkan di tempat yang sama? Betul sekali! Karena benda-benda tersebut memiliki kesamaan fungsi, yaitu sebagai "alat tulis". Di dalam matematika, cara kita mengelompokkan benda-benda yang memiliki kesamaan ciri atau aturan yang jelas ini disebut sebagai **Himpunan**.
+
+### Yuk, Temukan Sendiri Mengenal Himpunan
+Coba bayangkan sebuah lemari pakaian. Di rak atas ada kaos, kemeja, dan jaket. Di rak bawah ada celana jeans, celana pendek, dan celana bahan.
+Apakah kita bisa mengelompokkan "Pakaian yang nyaman dipakai"? Jawabannya: **Tidak bisa!**
+Mengapa? Karena kata "nyaman" itu relatif. Kaos mungkin nyaman untukmu, tapi belum tentu untuk orang lain saat ke pesta.
+Namun, jika kita menyebut "Pakaian yang merupakan celana", maka jelas batasannya. Semua orang akan setuju bahwa celana jeans masuk ke kelompok itu, sedangkan kaos tidak. Dari sini, kita bisa melihat bahwa sebuah kelompok harus memiliki definisi yang **jelas** agar bisa disebut himpunan.
+
+### Teori & Definisi Formal
+**Himpunan** adalah kumpulan objek, benda, atau angka yang memiliki syarat dan batasan yang jelas, sehingga kita bisa dengan tegas menentukan apakah suatu anggota termasuk ke dalam kelompok tersebut atau tidak.
+
+Objek di dalam sebuah himpunan disebut **anggota** atau **elemen**. 
+- Himpunan biasanya diberi nama dengan huruf kapital, seperti $A, B, C$, dan seterusnya.
+- Anggota himpunan ditulis di dalam tanda kurung kurawal $\{ \}$.
+- Jika $x$ adalah anggota himpunan $A$, kita menuliskannya sebagai $x \in A$.
+- Jika $y$ bukan anggota himpunan $A$, kita menuliskannya sebagai $y \notin A$.
+
+**Cara Menyatakan Himpunan:**
+1. **Mendaftar Anggotanya (Enumerasi):** Menuliskan semua anggota di dalam kurung kurawal. Contoh: $A = \{2, 3, 5, 7\}$.
+2. **Dengan Deskripsi Kata-kata:** Contoh: $B = \{ \text{bilangan prima kurang dari 10} \}$.
+3. **Notasi Pembentuk Himpunan:** Menggunakan lambang variabel. Contoh: $C = \{ x \mid x < 10, x \in \text{Bilangan Prima} \}$.
+
+**Himpunan Kosong dan Kardinalitas**
+- **Himpunan Kosong** adalah himpunan yang tidak memiliki anggota sama sekali. Dilambangkan dengan $\{\}$ atau $\emptyset$.
+- **Kardinalitas Himpunan** adalah banyak anggota dari suatu himpunan. Kardinalitas himpunan $A$ dinotasikan dengan $n(A)$. Contoh, jika $A = \{1, 2, 3\}$, maka $n(A) = 3$.
+
+### Visualisasi: Mengenal Himpunan
+Mari kita lihat perbedaan antara kumpulan yang merupakan himpunan dan yang bukan himpunan:
+
+| Kumpulan | Apakah Himpunan? | Alasan |
+| :--- | :---: | :--- |
+| Kumpulan siswa tinggi di kelas | ❌ Bukan | Kata "tinggi" tidak jelas batasannya (relatif). |
+| Kumpulan siswa dengan tinggi badan > 160 cm | ✅ Ya | Syaratnya jelas (di atas 160 cm). |
+| Kumpulan warna pelangi | ✅ Ya | Syaratnya jelas (Merah, Jingga, Kuning, dll). |
+| Kumpulan makanan enak | ❌ Bukan | Kata "enak" relatif setiap orang. |
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Manakah dari kumpulan berikut yang merupakan himpunan?
+a. Kumpulan hewan berkaki empat.
+b. Kumpulan hewan yang lucu.
+
+**Pembahasan:**
+
+Jawaban yang benar adalah **a**. "Hewan berkaki empat" memiliki batasan yang jelas (misal: kucing, sapi). Sedangkan "hewan yang lucu" itu relatif, ada yang menganggap kucing lucu, ada yang tidak.
+
+#### Contoh 1 (Mudah)
+
+Jika $P = \{\text{huruf vokal pada abjad}\}$, berapakah nilai dari $n(P)$?
+
+**Pembahasan:**
+
+Mari kita daftar anggotanya terlebih dahulu: $P = \{a, i, u, e, o\}$.
+Karena terdapat 5 anggota di dalam himpunan $P$, maka $n(P) = 5$.
+
+#### Contoh 2 (Menengah)
+
+Nyatakan himpunan $K = \{2, 4, 6, 8\}$ dengan notasi pembentuk himpunan!
+
+**Pembahasan:**
+
+Anggota himpunan $K$ adalah bilangan genap positif yang kurang dari 10.
+Maka, notasi pembentuk himpunannya adalah:
+$K = \{ x \mid 0 < x < 10, x \in \text{Bilangan Genap} \}$ atau bisa juga $K = \{ x \mid x \le 8, x \in \text{Bilangan Genap Positif} \}$.
+
+#### Contoh 3 (Menantang)
+
+Diberikan sebuah himpunan $M$ yang berisi bilangan bulat antara -3 dan 3. Apakah -3 termasuk anggota himpunan $M$? Berapa kardinalitas himpunan tersebut?
+
+**Pembahasan:**
+
+Kata "antara" berarti batas awal dan akhir tidak ikut dihitung.
+Jadi, anggotanya adalah bilangan bulat yang lebih besar dari -3 dan lebih kecil dari 3, yaitu:
+$M = \{-2, -1, 0, 1, 2\}$.
+Karena -3 tidak ada di dalam daftar tersebut, maka $-3 \notin M$.
+Banyaknya anggota ada 5, sehingga $n(M) = 5$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Satu hal yang sangat sering mengecoh siswa adalah membedakan antara himpunan yang hanya memiliki satu anggota berupa angka nol $\{0\}$ dengan himpunan kosong $\emptyset$.
+
+
+- $\{0\}$ **bukanlah himpunan kosong**. Ini adalah himpunan yang berisi **tepat satu anggota**, yaitu angka nol. Jadi kardinalitasnya adalah $n = 1$.
+- $\emptyset$ atau $\{\}$ adalah himpunan yang **benar-benar kosong**, tidak ada isinya sama sekali. Kardinalitasnya adalah $n = 0$.
+
+### Koneksi Dunia Nyata
+Konsep himpunan sangat dekat dengan kehidupan digital kita. Misalnya, sistem "tag" (label) di media sosial. Ketika kamu mencari post dengan tag `#kucing`, sistem akan memunculkan himpunan semua post yang memiliki kesamaan tersebut. Begitu juga dengan kategori produk di *marketplace* (toko online). Himpunan "Sepatu Olahraga" akan memudahkan kita memilah barang dari jutaan produk lainnya. Menguasai himpunan berarti kamu menguasai cara kerja pengelompokan data di dunia nyata!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah dari kumpulan berikut ini yang BUKAN merupakan sebuah himpunan?</div>
+  <div slot="option-a">Kumpulan negara di Asia Tenggara</div>
+  <div slot="option-b">Kumpulan lukisan yang indah</div>
+  <div slot="option-c">Kumpulan nama bulan yang berakhiran huruf i</div>
+  <div slot="option-d">Kumpulan bilangan cacah ganjil</div>
+  <div slot="explanation">**Pembahasan:** Kumpulan lukisan yang indah bukan himpunan karena kata "indah" bersifat relatif atau tidak pasti batasannya.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Jika $A = \{ \text{bilangan prima ganjil kurang dari 15} \}$, maka anggota dari himpunan A adalah...</div>
+  <div slot="option-a">\{2, 3, 5, 7, 11, 13\}</div>
+  <div slot="option-b">\{1, 3, 5, 7, 11, 13\}</div>
+  <div slot="option-c">\{3, 5, 7, 11, 13\}</div>
+  <div slot="option-d">\{3, 5, 7, 9, 11, 13\}</div>
+  <div slot="explanation">**Pembahasan:** Bilangan prima kurang dari 15 adalah 2, 3, 5, 7, 11, 13. Karena diminta bilangan prima *ganjil*, maka 2 tidak termasuk. Anggotanya adalah \{3, 5, 7, 11, 13\}. (Angka 9 bukan prima).</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Diketahui $B = \{ x \mid 1 < x \le 5, x \in \text{Bilangan Asli} \}$. Berapakah nilai dari $n(B)$?</div>
+  <div slot="option-a">3</div>
+  <div slot="option-b">4</div>
+  <div slot="option-c">5</div>
+  <div slot="option-d">6</div>
+  <div slot="explanation">**Pembahasan:** Anggota himpunan B adalah bilangan asli lebih besar dari 1 dan lebih kecil atau sama dengan 5, yaitu \{2, 3, 4, 5\}. Terdapat 4 anggota, sehingga $n(B) = 4$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah penulisan himpunan kosong yang benar?</div>
+  <div slot="option-a">$\{0\}$</div>
+  <div slot="option-b">$\{\emptyset\}$</div>
+  <div slot="option-c">0</div>
+  <div slot="option-d">$\emptyset$</div>
+  <div slot="explanation">**Pembahasan:** Himpunan kosong dilambangkan dengan $\{\}$ atau $\emptyset$. Pilihan A berarti himpunan berisi angka 0. Pilihan B berarti himpunan yang berisi himpunan kosong. Pilihan C adalah angka nol.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Manakah pernyataan di bawah ini yang SALAH?</div>
+  <div slot="option-a">Himpunan $\{0\}$ memiliki kardinalitas 0 karena isinya angka nol.</div>
+  <div slot="option-b">Kumpulan siswa dengan tinggi badan di atas 150 cm adalah sebuah himpunan.</div>
+  <div slot="option-c">Notasi $x \in A$ dibaca "x adalah anggota dari himpunan A".</div>
+  <div slot="option-d">Kumpulan buku tebal bukan merupakan himpunan.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan A salah. Himpunan $\{0\}$ bukanlah himpunan kosong. Himpunan tersebut memiliki tepat satu anggota (yaitu angka 0), sehingga kardinalitasnya adalah 1.</div>
+</Quiz>

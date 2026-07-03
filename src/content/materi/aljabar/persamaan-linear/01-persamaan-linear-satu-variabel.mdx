@@ -1,0 +1,178 @@
+---
+title: "Persamaan Linear Satu Variabel: Mencari Angka yang Tersembunyi"
+topic: "Aljabar"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import AlgebraScale from '../../../../components/AlgebraScale.astro';
+
+### Mari Memahami Persamaan Linear Satu Variabel
+Pernahkah kamu bermain dengan timbangan neraca? Bayangkan sebuah timbangan yang saat ini dalam keadaan seimbang. Di sebelah kiri ada sebuah kotak tertutup (kita tidak tahu berapa beratnya) dan 2 buah batu timbangan masing-masing seberat 1 kg. Di sebelah kanan ada 5 buah batu timbangan masing-masing seberat 1 kg. Bagaimana cara kita mengetahui berat kotak tertutup tersebut tanpa membukanya? Tentu saja, kita bisa mengambil 2 batu dari kiri, dan agar timbangan tidak miring, kita juga harus mengambil 2 batu dari kanan. Taraa! Berat kotak misterius itu langsung ketahuan. Konsep "menjaga keseimbangan" inilah inti dari **Persamaan Linear Satu Variabel**!
+
+### Yuk, Temukan Sendiri Persamaan Linear Satu Variabel
+Mari kita coba simulasi timbangan di bawah ini untuk mencari nilai $x$ (berat kotak misterius).
+<AlgebraScale />
+Setiap kali kamu menambah atau mengurangi beban di salah satu sisi, perhatikan apa yang terjadi jika kamu tidak melakukan hal yang sama di sisi lainnya. Kuncinya: Apa yang kamu lakukan pada sisi kiri, harus kamu lakukan juga pada sisi kanan!
+
+### Teori & Definisi Formal
+**Persamaan Linear Satu Variabel (PLSV)** adalah kalimat terbuka yang dihubungkan dengan tanda sama dengan ($=$) dan hanya memiliki satu variabel (peubah) berpangkat satu.
+
+Bentuk umum dari PLSV adalah:
+$$ax + b = c$$
+di mana:
+- $x$ adalah variabel (huruf yang melambangkan angka yang belum diketahui).
+- $a$ adalah koefisien (angka yang mengalikan variabel).
+- $b$ dan $c$ adalah konstanta (angka tetap).
+
+**Tujuan kita** menyelesaikan persamaan ini adalah mencari nilai $x$. Langkah penyelesaian sistematisnya adalah dengan prinsip **kesetaraan**:
+1. Menambah/mengurangi kedua ruas (sisi kiri dan kanan) dengan bilangan yang sama.
+2. Mengalikan/membagi kedua ruas dengan bilangan yang sama (selain nol).
+Hasil akhirnya akan berupa bentuk $x = \dots$, atau secara rumus dasar:
+$$x = \frac{c - b}{a}$$
+*(Tapi jangan dihafal rumusnya, pahami prosesnya!)*
+
+Setelah menemukan jawabannya, kamu bisa melakukan **substitusi** (memasukkan nilai yang ditemukan ke persamaan awal) untuk memverifikasi apakah jawabanmu benar.
+
+### Visualisasi: Persamaan Linear Satu Variabel
+Kita akan melihat proses langkah demi langkah menjaga kesetaraan:
+Persamaan: $2x + 4 = 10$
+
+| Langkah | Ruas Kiri | Ruas Kanan | Keterangan |
+| :--- | :--- | :--- | :--- |
+| **Awal** | $2x + 4$ | $10$ | Timbangan seimbang |
+| **Kurangi 4** | $2x + 4 - 4$ | $10 - 4$ | Ambil 4 beban dari kedua sisi |
+| **Hasil** | $2x$ | $6$ | Timbangan masih seimbang |
+| **Bagi 2** | $\frac{2x}{2}$ | $\frac{6}{2}$ | Bagi beban jadi dua bagian sama rata |
+| **Akhir** | $x$ | $3$ | Ketemu nilai $x$! |
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Carilah nilai $x$ dari persamaan $x + 5 = 12$!
+
+**Pembahasan:**
+
+Agar nilai $x$ sendirian di sebelah kiri, kita perlu menghilangkan $+5$.
+Caranya, kurangi kedua ruas dengan 5:
+$$x + 5 - 5 = 12 - 5$$
+
+$$x = 7$$
+*(Cek: Jika kita ganti $x$ dengan 7, maka $7 + 5 = 12$. Benar!)*
+
+#### Contoh 1 (Mudah)
+
+Tentukan penyelesaian dari $3y = 15$!
+
+**Pembahasan:**
+
+Variabelnya sekarang adalah $y$. Karena $3y$ artinya $3 \times y$, maka untuk mencari $y$, kita harus membagi kedua ruas dengan 3:
+$$\frac{3y}{3} = \frac{15}{3}$$
+
+$$y = 5$$
+
+#### Contoh 2 (Menengah)
+
+Carilah nilai $m$ yang memenuhi persamaan $4m - 3 = 9$!
+
+**Pembahasan:**
+
+Langkah 1: Hilangkan $-3$ dengan menjumlahkan kedua ruas dengan 3.
+$$4m - 3 + 3 = 9 + 3$$
+
+$$4m = 12$$
+Langkah 2: Bagi kedua ruas dengan 4.
+$$\frac{4m}{4} = \frac{12}{4}$$
+
+$$m = 3$$
+
+#### Contoh 3 (Menantang)
+
+Tentukan nilai $p$ dari $2p + 5 = 5p - 7$!
+
+**Pembahasan:**
+
+Tujuan kita adalah mengumpulkan semua suku yang memiliki variabel $p$ di satu sisi, dan angka biasa (konstanta) di sisi lain.
+Langkah 1: Kurangi kedua ruas dengan $2p$ agar variabel $p$ pindah ke ruas kanan.
+$$2p - 2p + 5 = 5p - 2p - 7$$
+
+$$5 = 3p - 7$$
+Langkah 2: Tambahkan 7 ke kedua ruas.
+$$5 + 7 = 3p - 7 + 7$$
+
+$$12 = 3p$$
+Langkah 3: Bagi kedua ruas dengan 3.
+$$\frac{12}{3} = \frac{3p}{3}$$
+
+$$4 = p \quad \text{atau} \quad p = 4$$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan yang paling sering dialami siswa (mungkin kamu juga) adalah lupa **membalik tanda operasi** ketika memindahkan suku ke ruas yang lain secara langsung.
+
+
+Contoh: Persamaan $x + 5 = 12$.
+Siswa sering mengerjakannya menjadi: $x = 12 + 5$, sehingga $x = 17$. **(Ini SALAH FATAL!)**
+Seharusnya: Ketika angka $+5$ pindah ruas, ia berubah menjadi lawannya, yaitu $-5$.
+Maka yang benar adalah: $x = 12 - 5 = 7$.
+
+### Koneksi Dunia Nyata
+Pernahkah kamu pergi ke warung dan kasir menghitung kembalian uangmu? Itu adalah PLSV dalam kehidupan nyata!
+Misal: Kamu membeli jajan seharga Rp 12.000, lalu kamu membayar dengan uang Rp 20.000. Berapa kembalianmu?
+Secara matematis, ini ditulis sebagai $12.000 + x = 20.000$. Dan nilai $x$ adalah kembalianmu, yaitu Rp 8.000.
+Atau saat memasak: Jika resep untuk 6 porsi membutuhkan 3 telur, berapa telur yang dibutuhkan untuk 1 porsi? $6 \times x = 3$, maka $x = \frac{3}{6} = 0,5$ butir telur.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari kalimat berikut yang merupakan Persamaan Linear Satu Variabel?</div>
+  <div slot="option-a">$x + y = 10$</div>
+  <div slot="option-b">$x^2 - 4 = 0$</div>
+  <div slot="option-c">$2a - 5 = 7$</div>
+  <div slot="option-d">$3x + 2 < 11$</div>
+  <div slot="explanation">**Pembahasan:** Pilihan A salah karena ada 2 variabel (x dan y). Pilihan B salah karena variabel x berpangkat dua. Pilihan D salah karena menggunakan tanda kurang dari (pertidaksamaan). Pilihan C benar, variabelnya hanya $a$ berpangkat 1 dan memakai tanda sama dengan.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Nilai $x$ yang memenuhi persamaan $x - 8 = 15$ adalah...</div>
+  <div slot="option-a">23</div>
+  <div slot="option-b">7</div>
+  <div slot="option-c">-7</div>
+  <div slot="option-d">-23</div>
+  <div slot="explanation">**Pembahasan:** Tambahkan kedua ruas dengan 8. $x = 15 + 8$, maka $x = 23$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Penyelesaian dari persamaan $5x + 3 = 18$ adalah...</div>
+  <div slot="option-a">10</div>
+  <div slot="option-b">8</div>
+  <div slot="option-c">5</div>
+  <div slot="option-d">3</div>
+  <div slot="explanation">**Pembahasan:** Kurangi kedua ruas dengan 3, sehingga $5x = 15$. Kemudian bagi 5, sehingga $x = \frac{15}{5} = 3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika $3p - 4 = p + 10$, berapakah nilai $p$?</div>
+  <div slot="option-a">14</div>
+  <div slot="option-b">7</div>
+  <div slot="option-c">3</div>
+  <div slot="option-d">-7</div>
+  <div slot="explanation">**Pembahasan:** Pindahkan huruf ke kiri dan angka ke kanan: $3p - p = 10 + 4$. Maka $2p = 14$, sehingga $p = 7$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah pernyataan di bawah ini yang SALAH terkait dengan PLSV?</div>
+  <div slot="option-a">PLSV selalu menggunakan tanda sama dengan ($=$).</div>
+  <div slot="option-b">Jika kita mengalikan ruas kiri dengan 2, ruas kanan boleh dikali dengan 3.</div>
+  <div slot="option-c">Tujuan menyelesaikan PLSV adalah untuk menemukan nilai variabel yang belum diketahui.</div>
+  <div slot="option-d">Mensubstitusi nilai hasil ke persamaan awal dapat digunakan untuk mengecek jawaban.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Prinsip kesetaraan mewajibkan kita untuk melakukan operasi yang sama dengan angka yang sama persis pada kedua ruas. Jika kiri dikali 2, kanan juga wajib dikali 2.</div>
+</Quiz>

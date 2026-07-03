@@ -1,0 +1,156 @@
+---
+title: "Statistika Dasar: Menyajikan dan Menganalisis Data"
+topic: "Analisis Data & Peluang"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import DataVisualizer from '../../../../components/DataVisualizer.astro';
+
+### Mari Memahami Statistika Dasar
+Bayangkan kamu adalah ketua kelas yang ditugaskan untuk membeli konsumsi jajanan acara perpisahan. Jika kamu membelikan cilok untuk semua orang, mungkin ada teman yang tidak suka dan protes! 
+Cara paling cerdas agar semua orang bahagia adalah dengan mendata kesukaan tiap orang, mencatatnya, lalu merekapnya. Bagaimana cara kita menyulap coretan kertas yang berantakan itu menjadi sebuah grafik warna-warni yang instan dimengerti oleh wali kelas dalam hitungan detik? Selamat datang di dunia ajaib Statistika!
+
+### Yuk, Temukan Sendiri Statistika Dasar
+Coba bermain sebagai analis data di **Pabrik Diagram Interaktif** ini! 
+- Ubah angka jumlah siswa pada tabel "Jajanan Favorit" di bawah ini. 
+- Coba tebak apa yang terjadi jika kamu membuat satu jajanan memiliki skor sangat tinggi! 
+- Tekan tombol sakelar untuk membandingkan bentuk *Diagram Batang* dan *Diagram Garis*. Menurutmu, mana yang lebih mudah dibaca untuk jajanan?
+
+<DataVisualizer />
+
+Dari diagram tersebut, kamu pasti bisa secara otomatis mengetahui "Modus" (yang paling laku) tanpa harus membaca angka satu-per-satu!
+
+### Teori & Definisi Formal
+Ilmu yang mempelajari pengumpulan, pengolahan, dan penyimpulan data disebut **Statistika**.
+Data mentah diubah ke dalam visual. Ada tiga bentuk penyajian data:
+
+**1. Tabel Frekuensi**
+Kolom pertama untuk kategori (misal jajanan), dan kolom kedua untuk **frekuensi** (jumlah orang). Contoh: Bakso (12), Mie Ayam (8).
+
+**2. Diagram Batang**
+Menyajikan data menggunakan balok-balok persegi panjang. 
+- Garis mendatar (Sumbu-X): kategori.
+- Garis tegak (Sumbu-Y): frekuensi.
+- Semakin tinggi batangnya, semakin tinggi frekuensinya. Sangat mudah melihat perbandingan antar kategori!
+
+**3. Diagram Garis**
+Balok diganti titik yang dihubungkan dengan garis. 
+- Sangat cocok digunakan untuk data yang **berubah seiring waktu** (misal suhu harian Senin-Minggu).
+
+**Menganalisis Data**
+- **Modus/Mayoritas:** Kategori yang paling banyak muncul.
+- **Minoritas:** Kategori paling sedikit.
+- **Selisih:** Beda jumlah tertinggi dan terendah.
+- **Total/Mean:** Keseluruhan data.
+
+### Visualisasi: Statistika Dasar
+**Mengapa Visual Itu Penting?**
+Lihat deretan angka mentah ini: `3,3,3,3,3,3,3,2,2,2,4,4`
+Memusingkan, bukan? 
+Tapi jika dibentuk Tabel Frekuensi:
+- Nilai 2: 3 orang
+- Nilai 3: 7 orang
+- Nilai 4: 2 orang
+Otak manusia 60.000 kali lebih cepat memproses gambar dan tabel terstruktur daripada teks panjang yang semrawut!
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Nilai ulangan matematika Budi: 80, 85, 90. Berapakah rata-rata (mean) nya?
+
+**Pembahasan:**
+
+Total = $80 + 85 + 90 = 255$. Dibagi 3 data = $255 \div 3 = 85$.
+
+#### Contoh 1 (Mudah)
+
+Data sepatu: 38, 39, 40, 38, 41, 39, 38, 40, 39, 39. Berapa banyak yang berukuran 39?
+
+**Pembahasan:**
+
+Hitung angka 39: 1, 2, 3, 4 kali muncul. Jawabannya 4 siswa.
+
+#### Contoh 2 (Menengah)
+
+Dari diagram: Kucing (15), Anjing (10), Burung (5), Ikan (8). Berapa selisih Kucing dan Ikan?
+
+**Pembahasan:**
+
+Penyuka Kucing = 15, Ikan = 8. Selisih = $15 - 8 = 7$ orang.
+
+#### Contoh 3 (Menantang)
+
+Sebuah kelas mendata hobi. $\frac{1}{4}$ Membaca, $\frac{1}{2}$ Olahraga, sisa Musik. Jika Olahraga = 20 siswa, berapa yang suka Musik?
+
+**Pembahasan:**
+
+- Olahraga ($\frac{1}{2}$) = 20. Berarti total kelas = $20 \times 2 = 40$ siswa.
+- Membaca ($\frac{1}{4}$) = $40 \div 4 = 10$ siswa.
+- Sisa Musik = $40 - (20 + 10) = 40 - 30 = 10$ siswa.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+1. **Salah Pilih Jenis Diagram**: Menggunakan diagram garis untuk mendata rasa es krim. Rasa es krim tidak berhubungan dengan waktu, seharusnya gunakan diagram batang atau lingkaran!
+
+
+2. **Gagal Menghitung Rata-rata dari Tabel**: Jika nilai 7 (frekuensi 2) dan nilai 8 (frekuensi 3). Siswa sering hanya menambahkan $7 + 8 = 15$. Padahal harus dikalikan frekuensi: $(7 \times 2) + (8 \times 3) = 14 + 24 = 38$, lalu dibagi total siswa (5).
+
+### Koneksi Dunia Nyata
+- **Data Scientist**: Profesi yang sangat diminati (dan bergaji besar) di era digital; tugasnya mencari "insight" atau strategi bisnis tersembunyi dari lautan big data milik perusahaan.
+- **BMKG (Meteorologi)**: Merekap dan membuat diagram garis mengenai suhu serta curah hujan untuk memprediksi kapan musim kemarau dan badai tiba secara akurat.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Diagram yang paling cocok untuk menunjukkan tren peningkatan penjualan toko dari Januari hingga Desember adalah...</div>
+  <div slot="option-a">Tabel Frekuensi</div>
+  <div slot="option-b">Diagram Lingkaran</div>
+  <div slot="option-c">Diagram Garis</div>
+  <div slot="option-d">Diagram Batang</div>
+  <div slot="explanation">**Pembahasan:** Diagram garis ideal untuk melihat tren seiring berjalannya **waktu** (bulan ke bulan).</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Perhatikan data: Merah (12), Biru (8), Hijau (5), Hitam (10). Berapa persentase siswa penyuka Hitam?</div>
+  <div slot="option-a">$25\%$</div>
+  <div slot="option-b">$28,5\%$</div>
+  <div slot="option-c">$30\%$</div>
+  <div slot="option-d">$35\%$</div>
+  <div slot="explanation">**Pembahasan:** Total siswa = $12+8+5+10 = 35$. Hitam = $10$. Persentase = $\frac{10}{35} \times 100\% \approx 28,5\%$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Rata-rata 4 siswa adalah 80. Saat nilai Budi dimasukkan, rata-ratanya naik jadi 82. Berapakah nilai Budi?</div>
+  <div slot="option-a">85</div>
+  <div slot="option-b">88</div>
+  <div slot="option-c">90</div>
+  <div slot="option-d">92</div>
+  <div slot="explanation">**Pembahasan:** Total 4 siswa = $4 \times 80 = 320$. Total 5 siswa = $5 \times 82 = 410$. Nilai Budi = $410 - 320 = 90$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Nilai ujian: 7, 8, 9, 7, 7, 8, 10. Modus dari data tersebut adalah...</div>
+  <div slot="option-a">7</div>
+  <div slot="option-b">8</div>
+  <div slot="option-c">9</div>
+  <div slot="option-d">10</div>
+  <div slot="explanation">**Pembahasan:** Modus adalah nilai yang paling sering muncul. Angka 7 muncul 3 kali (paling banyak).</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai penyajian data?</div>
+  <div slot="option-a">Diagram batang menggunakan sumbu X dan sumbu Y.</div>
+  <div slot="option-b">Modus adalah kategori dengan batang paling tinggi di diagram batang.</div>
+  <div slot="option-c">Diagram garis cocok digunakan untuk melihat selisih jumlah penyuka kucing dan anjing.</div>
+  <div slot="option-d">Total frekuensi di tabel harus sama dengan jumlah responden.</div>
+  <div slot="explanation">**Pembahasan:** C salah mutlak. Hewan peliharaan bukan data tren berbasis waktu, sehingga menggunakan diagram garis sangat tidak tepat! Harus pakai diagram batang.</div>
+</Quiz>

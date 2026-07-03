@@ -1,0 +1,98 @@
+---
+interface Props {
+  judul?: string;
+  tipe?: 'bahaya' | 'peringatan' | 'info';
+}
+
+const { 
+  judul = "⚠️ Jebakan & Kesalahan Umum",
+  tipe = 'bahaya' 
+} = Astro.props;
+
+let icon = '🚨';
+if (tipe === 'peringatan') icon = '⚠️';
+if (tipe === 'info') icon = '💡';
+---
+
+<div class={`alert-kesalahan alert-${tipe}`}>
+  <div class="alert-header">
+    <span class="alert-icon">{icon}</span>
+    <h3 class="alert-judul">{judul}</h3>
+  </div>
+  <div class="alert-body">
+    <slot />
+  </div>
+</div>
+
+<style>
+.alert-kesalahan {
+  border-radius: 16px;
+  padding: 0;
+  margin: 2.5rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.alert-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+.alert-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.alert-judul {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+.alert-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+/* Tipe bahaya - merah mencolok */
+.alert-bahaya {
+  border: 3px solid #dc2626;
+  background: #fff5f5;
+}
+.alert-bahaya .alert-header {
+  background: #dc2626;
+  color: white;
+}
+.alert-bahaya .alert-judul { color: white; }
+.alert-bahaya .alert-body { background: #fff5f5; color: #1e293b; }
+/* Tipe peringatan - amber mencolok */
+.alert-peringatan {
+  border: 3px solid #d97706;
+  background: #fffbeb;
+}
+.alert-peringatan .alert-header {
+  background: #d97706;
+  color: white;
+}
+.alert-peringatan .alert-judul { color: white; }
+.alert-peringatan .alert-body { background: #fffbeb; color: #1e293b; }
+/* Tipe info - biru */
+.alert-info {
+  border: 3px solid #2563eb;
+  background: #eff6ff;
+}
+.alert-info .alert-header {
+  background: #2563eb;
+  color: white;
+}
+.alert-info .alert-judul { color: white; }
+.alert-info .alert-body { background: #eff6ff; color: #1e293b; }
+/* Styling konten di dalam alert body */
+.alert-body :global(ul) { margin: 0.5rem 0 0 1.25rem; }
+.alert-body :global(li) {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.alert-body :global(li::marker) { color: #dc2626; font-weight: bold; }
+.alert-body :global(strong) { color: #dc2626; }
+.alert-body :global(p) { margin: 0.5rem 0; line-height: 1.7; font-size: 0.95rem; }
+</style>

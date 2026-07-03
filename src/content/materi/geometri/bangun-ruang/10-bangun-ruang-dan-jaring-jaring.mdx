@@ -1,0 +1,149 @@
+---
+title: "Bangun Ruang dan Jaring-jaring: Keajaiban 3D"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import GeometryFolder from '../../../../components/GeometryFolder.astro';
+
+### Mari Memahami Bangun Ruang dan Jaring-jaring
+Pernahkah kamu membongkar kardus sepatu, kemasan cokelat Toblerone, atau merobek kardus susu kotak hingga mendatar di lantai? Saat kamu membedah kardus tersebut menjadi selembar karton datar (2D), kamu baru saja melihat wujud rahasia yang disebut **Jaring-jaring**. 
+Jika dirakit kembali, jaring-jaring datar tersebut melipat, berdiri, dan memiliki ruang yang bisa diisi. Apa perbedaan utama antara bangun datar (2D) dan Bangun Ruang (3D)? Jawabannya adalah *tebal* dan *volume*. Tapi bagaimana selembar kertas datar bisa disulap membungkus ruang 3 dimensi secara presisi?
+
+### Yuk, Temukan Sendiri Bangun Ruang dan Jaring-jaring
+Bermainlah dengan "Simulator Lipat Jaring-jaring 3D" di bawah ini!
+- Coba lipat kardus 2D yang datar itu menjadi sebuah Kubus 3D dengan menggeser slider.
+- Perhatikan bagaimana setiap bagian persegi datar terangkat menjadi dinding-dinding kubus!
+- (Tips: Tahan *mouse*/sentuhanmu di area hitam untuk merotasi sudut pandang kamera 3D)
+
+<GeometryFolder />
+
+Berapa jumlah persegi (kertas jaring-jaring) yang dibutuhkan untuk membungkus seluruh sisi kubus? Ya, betul, jumlahnya ada 6 persegi kembar. Luas ke-6 persegi ini dinamakan **Luas Permukaan**.
+
+### Teori & Definisi Formal
+Dunia arsitektur dan kemasan membagi bangun ruang ke dalam dua kubu besar:
+
+**1. Bangun Ruang Sisi Datar (Berdinding Tembok)**
+- **Kubus & Balok:** Punya 6 sisi yang semuanya datar. (Contoh: Kardus TV, Dadu).
+- **Prisma:** Atap dan alasnya kembar. Jika alasnya segitiga, atapnya pasti segitiga. (Contoh: Kemasan Toblerone).
+- **Limas:** Alasnya berupa bangun datar, namun semua dindingnya mengerucut ke **satu titik puncak**. (Contoh: Piramida Mesir).
+
+**2. Bangun Ruang Sisi Lengkung (Berdinding Kurva)**
+- **Tabung (Silinder):** Alas dan atap lingkaran, selimut lengkung. (Contoh: Kaleng susu).
+- **Kerucut:** Alas lingkaran, mengerucut ke atas. (Contoh: Topi ultah).
+- **Bola:** Tidak punya sudut, permukaannya melengkung ke semua arah.
+
+**3. Luas Permukaan vs Volume**
+- **Luas Permukaan:** Total *kertas kado* yang kamu butuhkan untuk membungkus bangun ruang. Menghitung luas seluruh jaring-jaring.
+- **Volume:** Total *air/isi* yang bisa ditampung. Ingat hukum alam ini: **Volume Prisma dan Tabung** = $\text{Luas Alas} \times \text{Tinggi}$.
+
+### Visualisasi: Bangun Ruang dan Jaring-jaring
+**Kertas Kado vs Botol Minum**
+Untuk membedakan Luas Permukaan dan Volume secara mental:
+- Apakah kamu akan mengecat tembok ruangan ini? $\rightarrow$ Kamu sedang berurusan dengan **Luas Permukaan** (Bungkus luar 2D).
+- Apakah kamu akan mengisi ruangan ini dengan air hingga ke langit-langit? $\rightarrow$ Kamu sedang berurusan dengan **Volume** (Kapasitas isi 3D).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Sebuah balok memiliki ukuran alas $5 \times 4\text{ m}$ dan tinggi $2\text{ m}$. Berapa volumenya?
+
+**Pembahasan:**
+
+$\text{Volume} = (\text{Panjang} \times \text{Lebar}) \times \text{Tinggi} = (5 \times 4) \times 2 = 20 \times 2 = 40\text{ m}^3$.
+
+#### Contoh 1 (Mudah)
+
+Sebuah bak mandi berbentuk balok memiliki panjang 2 m, lebar 1 m, dan tinggi 1,5 m. Berapakah volume air yang bisa diisi penuh?
+
+**Pembahasan:**
+
+- Bangun: Balok (Prisma segi empat).
+- $\text{Volume} = (Panjang \times Lebar) \times Tinggi = (2 \times 1) \times 1,5 = 3\text{ m}^3$.
+
+#### Contoh 2 (Menengah)
+
+Sebuah kaleng cat (tabung) memiliki jari-jari alas 7 cm dan tinggi 10 cm. Jika HANYA bagian selimutnya dicat biru, berapakah luasnya? ($\pi = \frac{22}{7}$)
+
+**Pembahasan:**
+
+- Rumus Luas Selimut Tabung = Keliling Alas $\times$ Tinggi = $(2 \times \pi \times r) \times t$
+- Luas Selimut = $(2 \times \frac{22}{7} \times 7) \times 10 = 44 \times 10 = 440\text{ cm}^2$.
+
+#### Contoh 3 (Menantang)
+
+Sebuah limas persegi memiliki keliling alas 40 cm dan tinggi limas 12 cm. Berapakah luas permukaan limas tersebut?
+
+**Pembahasan:**
+
+- Keliling alas = 40 cm $\rightarrow$ Sisi persegi = $40 \div 4 = 10\text{ cm}$. Luas Alas = $10 \times 10 = 100\text{ cm}^2$.
+- Tinggi segitiga (Pythagoras): Setengah sisi = 5, tinggi limas = 12. Tinggi miring = $\sqrt{5^2 + 12^2} = \sqrt{169} = 13\text{ cm}$.
+- Luas 4 Dinding Segitiga = $4 \times (\frac{1}{2} \times 10 \times 13) = 260\text{ cm}^2$.
+- Luas Permukaan Total = $100 + 260 = 360\text{ cm}^2$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+1. **Ketukar Luas Selimut dan Luas Permukaan Total**: Banyak siswa yang menghitung luas selimut saja padahal soal menanyakan "luas permukaan kaleng seluruhnya" (harus ditambahkan dengan 2 lingkaran atap alas).
+
+
+2. **Lupa Membedakan Tinggi Limas dan Tinggi Segitiga (Miring)**: Tinggi limas adalah tiang tegak dari puncak lurus ke titik tengah alas. Sedangkan tinggi dinding samping adalah garis miring, harus dicari pakai Pythagoras.
+
+### Koneksi Dunia Nyata
+- **Industri Desain Kemasan**: Pabrik membuat jaring-jaring datar untuk kotak sereal atau cokelat meminimalisir kertas karton yang terbuang saat dipotong, menghemat jutaan rupiah tiap hari!
+- **Sipil & Arsitektur**: Menghitung kebutuhan material pembungkus gedung (seperti kaca pada gedung prisma) yang secara langsung bergantung pada luas permukaan bangun.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Bangun ruang bersisi lengkung yang memiliki sepasang alas dan tutup berbentuk lingkaran identik adalah...</div>
+  <div slot="option-a">Bola</div>
+  <div slot="option-b">Tabung</div>
+  <div slot="option-c">Kerucut</div>
+  <div slot="option-d">Limas Lingkaran</div>
+  <div slot="explanation">**Pembahasan:** Tabung memiliki atap dan alas lingkaran. (Kerucut tidak punya atap).</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah kubus memiliki panjang rusuk 5 cm. Berapakah luas jaring-jaring (luas permukaan) dari kubus tersebut?</div>
+  <div slot="option-a">$25\text{ cm}^2$</div>
+  <div slot="option-b">$125\text{ cm}^2$</div>
+  <div slot="option-c">$150\text{ cm}^2$</div>
+  <div slot="option-d">$250\text{ cm}^2$</div>
+  <div slot="explanation">**Pembahasan:** Luas 1 persegi alas = $5 \times 5 = 25$. Ada 6 sisi pada kubus, jadi $6 \times 25 = 150$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Volume kerucut adalah $314\text{ cm}^3$. Jika jari-jarinya diperbesar 2 kali lipat dan tinggi tetap, volume baru adalah...</div>
+  <div slot="option-a">$314\text{ cm}^3$</div>
+  <div slot="option-b">$628\text{ cm}^3$</div>
+  <div slot="option-c">$942\text{ cm}^3$</div>
+  <div slot="option-d">$1.256\text{ cm}^3$</div>
+  <div slot="explanation">**Pembahasan:** Volume berbanding lurus kuadrat jari-jarinya ($r^2$). Jari-jari 2x lipat = Volume naik $2^2 = 4$ kali lipat. $4 \times 314 = 1.256$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Volume sebuah prisma tegak segi empat (balok) yang alasnya $6\text{ cm} \times 8\text{ cm}$ dan tingginya $10\text{ cm}$ adalah...</div>
+  <div slot="option-a">$480\text{ cm}^3$</div>
+  <div slot="option-b">$140\text{ cm}^3$</div>
+  <div slot="option-c">$376\text{ cm}^3$</div>
+  <div slot="option-d">$240\text{ cm}^3$</div>
+  <div slot="explanation">**Pembahasan:** $\text{Luas Alas} \times \text{Tinggi} = (6 \times 8) \times 10 = 48 \times 10 = 480$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai bangun ruang?</div>
+  <div slot="option-a">Kubus memiliki 6 sisi persegi yang kongruen.</div>
+  <div slot="option-b">Limas dengan alas segitiga memiliki 4 sisi segitiga secara total.</div>
+  <div slot="option-c">Kerucut hanya memiliki 1 rusuk lengkung.</div>
+  <div slot="option-d">Volume bola dapat dihitung dengan $\text{Luas Alas} \times \text{Tinggi}$.</div>
+  <div slot="explanation">**Pembahasan:** Bola sama sekali tidak memiliki bidang datar sebagai 'alas', jadi rumus Luas Alas x Tinggi salah besar untuk bola.</div>
+</Quiz>

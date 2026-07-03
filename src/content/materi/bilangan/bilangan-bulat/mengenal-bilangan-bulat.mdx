@@ -1,0 +1,161 @@
+---
+title: "Mengenal Bilangan Bulat"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import Quiz from '../../../../components/Quiz.astro';
+
+### Pendahuluan / Pengantar
+Bayangkan kamu sedang berada di puncak gunung salju yang sangat dingin. Termometer di sana menunjukkan angka di bawah nol derajat, misalnya $-5^\circ\text{C}$. Apa artinya? Artinya suhu di sana lebih dingin daripada titik beku air ($0^\circ\text{C}$).
+
+Atau bayangkan ketika kamu meminjam uang Rp5.000 dari temanmu untuk membeli makanan di kantin. Karena uang tersebut harus dikembalikan, kondisi keuanganmu saat itu memiliki "utang" sebesar Rp5.000. Dalam matematika, keadaan memiliki utang ini dapat ditulis sebagai $-5.000$.
+
+Tanda minus ($-$) di depan angka membantu kita menggambarkan situasi yang nilainya kurang dari nol, atau berlawanan arah dengan nilai positif biasa. Bilangan-bilangan seperti $-5$ dan $-5.000$ inilah yang kita sebut sebagai **bilangan bulat negatif**.
+
+---
+
+### Teori Utama & Rumus
+Himpunan bilangan bulat (dilambangkan dengan $\mathbb{Z}$) adalah gabungan dari tiga kelompok bilangan:
+
+1. **Bilangan Bulat Positif**: Bilangan yang nilainya lebih besar dari nol.
+   $$\text{Contoh: } 1, 2, 3, 4, 5, \dots$$
+2. **Nol ($0$)**: Bilangan netral yang tidak bernilai positif maupun negatif. Nol berfungsi sebagai batas pemisah.
+3. **Bilangan Bulat Negatif**: Bilangan yang nilainya lebih kecil dari nol. Bilangan ini selalu ditulis dengan tanda minus ($-$) di depannya.
+   $$\text{Contoh: } -1, -2, -3, -4, -5, \dots$$
+
+#### Visualisasi pada Garis Bilangan
+Untuk mempermudah membandingkan nilainya, kita dapat menggunakan garis bilangan:
+
+```text
+  Negatif (< 0)                     Nol                     Positif (> 0)
+<---------------|----|----|----|-----|-----|-----|----|----|--------------->
+               -4   -3   -2   -1     0     1     2    3    4
+```
+
+**Aturan Penting Garis Bilangan:**
+- **Semakin ke kanan**, nilai bilangan akan **semakin besar**. Contoh: $3 > 1$ dan $0 > -2$.
+- **Semakin ke kiri**, nilai bilangan akan **semakin kecil**. Contoh: $-4 < -1$ dan $-100 < 1$.
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Kelompokkan bilangan-bilangan berikut berdasarkan jenisnya:
+$$-7, \quad 4, \quad 0, \quad -2, \quad 8, \quad -5, \quad 1$$
+
+**Pembahasan:**
+- Bilangan yang memiliki tanda minus ($-$) di depannya termasuk **Bilangan Bulat Negatif**: $-7, -2, -5$.
+- Angka **Nol**: $0$.
+- Bilangan positif tanpa tanda minus (dan bukan nol) termasuk **Bilangan Bulat Positif**: $4, 8, 1$.
+
+#### Contoh 2 (Menengah)
+Sisipkan tanda perbandingan yang tepat ($>$ atau $<$) di antara pasangan bilangan berikut:
+1. $-6$ dan $-2$
+2. $-3$ dan $1$
+
+**Pembahasan:**
+1. Pada garis bilangan, posisi $-6$ terletak di sebelah kiri $-2$. Karena letaknya lebih ke kiri, nilainya lebih kecil. Jadi:
+   $$-6 < -2$$
+2. Bilangan negatif selalu terletak di sebelah kiri bilangan positif, sehingga nilainya pasti lebih kecil. Jadi:
+   $$-3 < 1$$
+
+#### Contoh 3 (Menantang)
+Seekor lumba-lumba berenang pada kedalaman $8\text{ meter}$ di bawah permukaan laut. Di atasnya, seekor burung camar terbang pada ketinggian $5\text{ meter}$ di atas permukaan laut. 
+1. Nyatakan posisi lumba-lumba dan burung camar menggunakan lambang bilangan bulat (ambil permukaan laut sebagai titik acuan $0$).
+2. Berapakah jarak vertikal antara burung camar dan lumba-lumba tersebut?
+
+**Pembahasan:**
+1. Karena lumba-lumba berada di bawah permukaan laut (di bawah nol), posisinya ditulis sebagai bilangan bulat negatif: **$-8\text{ meter}$**. Burung camar berada di atas permukaan laut (di atas nol), posisinya ditulis sebagai bilangan bulat positif: **$5\text{ meter}$** (atau $+5\text{ meter}$).
+2. Jarak vertikal dihitung dengan mencari selisih posisi tertinggi dengan posisi terendah:
+   $$\text{Jarak} = \text{Posisi Camar} - \text{Posisi Lumba-lumba}$$
+   $$\text{Jarak} = 5 - (-8)$$
+   $$\text{Jarak} = 5 + 8 = 13\text{ meter}$$
+   Jadi, jarak vertikal antara keduanya adalah **$13\text{ meter}$**.
+
+---
+
+### Simulasi Interaktif
+Di bawah ini adalah area simulasi interaktif untuk membantu kamu memvisualisasikan posisi bilangan bulat pada garis bilangan.
+
+{/* INTERACTIVE_WIDGET: GARIS_BILANGAN_INTERAKTIF */}
+
+---
+
+### Asah Kemampuan / Kuis Singkat
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    Manakah di antara bilangan berikut yang nilainya paling kecil?
+  </div>
+  <div slot="option-a">$-1$</div>
+  <div slot="option-b">$0$</div>
+  <div slot="option-c">$-10$</div>
+  <div slot="option-d">$-5$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Pada garis bilangan, semakin ke kiri letak suatu bilangan negatif, nilainya akan semakin kecil. Karena $-10$ terletak paling kiri dibanding $-5$, $-1$, dan $0$, maka $-10$ memiliki nilai terkecil.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Suhu udara di dalam ruang pembeku daging adalah $7^\circ\text{C}$ di bawah nol. Lambang bilangan bulat yang menyatakan suhu tersebut adalah...
+  </div>
+  <div slot="option-a">$7$</div>
+  <div slot="option-b">$-7$</div>
+  <div slot="option-c">$0,7$</div>
+  <div slot="option-d">$-0,7$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Kata "di bawah nol" menunjukkan bilangan bulat negatif, sehingga $7$ di bawah nol ditulis sebagai $-7$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Perhatikan pernyataan berikut:
+    (i) $-4 > -8$  
+    (ii) $-3 < -6$  
+    (iii) $0 > -2$  
+    (iv) $-5 > 2$  
+    Pernyataan yang benar adalah...
+  </div>
+  <div slot="option-a">(i) dan (ii)</div>
+  <div slot="option-b">(i) dan (iii)</div>
+  <div slot="option-c">(ii) dan (iv)</div>
+  <div slot="option-d">(iii) dan (iv)</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Pernyataan (i) $-4 > -8$ benar karena $-4$ di sebelah kanan $-8$. Pernyataan (iii) $0 > -2$ juga benar karena nol selalu lebih besar dari bilangan bulat negatif.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    Urutan bilangan bulat berikut: $-8, 3, -1, 0, -5, 4$ dari yang terkecil ke terbesar adalah...
+  </div>
+  <div slot="option-a">$-8, -5, -1, 0, 3, 4$</div>
+  <div slot="option-b">$-1, -5, -8, 0, 3, 4$</div>
+  <div slot="option-c">$4, 3, 0, -1, -5, -8$</div>
+  <div slot="option-d">$-8, -1, -5, 0, 3, 4$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Urutan dari yang terkecil dimulai dari bilangan negatif dengan angka terbesar: $-8$, dilanjutkan dengan $-5$, $-1$, $0$, dan bilangan positif dari terkecil: $3, 4$.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    Kapal selam berada pada kedalaman $200\text{ meter}$ di bawah permukaan laut. Kapal tersebut kemudian bergerak naik sejauh $40\text{ meter}$. Posisi kedalaman kapal selam sekarang adalah...
+  </div>
+  <div slot="option-a">$-240\text{ meter}$</div>
+  <div slot="option-b">$-160\text{ meter}$</div>
+  <div slot="option-c">$160\text{ meter}$</div>
+  <div slot="option-d">$240\text{ meter}$</div>
+  <div slot="explanation">
+    **Pembahasan:**
+    Posisi awal kapal selam adalah $-200$. Karena bergerak naik (bertambah), posisinya menjadi $-200 + 40 = -160\text{ meter}$ (atau $160\text{ meter}$ di bawah permukaan laut).
+  </div>
+</Quiz>

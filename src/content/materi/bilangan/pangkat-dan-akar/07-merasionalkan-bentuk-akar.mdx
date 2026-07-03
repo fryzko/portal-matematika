@@ -1,0 +1,122 @@
+---
+title: "Bentuk Akar dan Merasionalkan Pecahan"
+topic: "Bilangan"
+difficulty: "Grade 8"
+needInteractive: true
+---
+
+### Pendahuluan / Pengantar
+Masih ingat dengan "Teorema Pythagoras" di mana kamu mencari sisi miring segitiga menggunakan rumus $c = \sqrt{a^2 + b^2}$? Tanda kurung kurawal berlengkung ($\sqrt{}$) itu disebut lambang **Akar**.
+
+Akar adalah musuh bebuyutan dari Pangkat. Jika pangkat dua berarti "mengalikan bilangan dengan dirinya sendiri" (contoh: $4^2 = 16$), maka akar pangkat dua bertanya sebaliknya: "Bilangan kembar berapakah yang jika dikalikan hasilnya adalah 16?" (Jawabannya: $\sqrt{16} = 4$).
+
+Namun, di dunia nyata, angka di dalam akar jarang ada yang sempurna. Sering kali kita menemui bentuk seperti $\sqrt{12}$ atau bahkan akar yang bersembunyi di bawah pecahan (penyebut). Di sinilah kemampuan "Dekodifikasi" atau menyederhanakan bentuk akar sangat dibutuhkan!
+
+### Teori Utama & Rumus
+
+#### 1. Menyederhanakan Bentuk Akar
+Banyak bilangan akar yang tidak bulat (tidak sempurna), tetapi bisa kita perkecil ukurannya dengan mencari **faktor kuadrat sempurna**. (Catatan: Bilangan kuadrat sempurna adalah $4, 9, 16, 25, 36$, dsb).
+- Pisahkan angka di dalam akar menjadi perkalian dua bilangan, di mana salah satunya haruslah kuadrat sempurna.
+  $$\sqrt{12} = \sqrt{4 \times 3}$$
+- Tarik akar dari bilangan kuadrat sempurnanya, sementara bilangan pasangannya tetap terkurung di dalam akar.
+  $$\sqrt{12} = \sqrt{4} \times \sqrt{3} = 2\sqrt{3}$$
+
+#### 2. Operasi Hitung Akar
+- **Penjumlahan & Pengurangan**: Akar yang dijumlahkan/dikurangkan **isi dalamnya harus sama persis**. Ini persis seperti aturan suku sejenis di Aljabar!
+  $$a\sqrt{c} \pm b\sqrt{c} = (a \pm b)\sqrt{c}$$
+  *Contoh: $5\sqrt{2} + 3\sqrt{2} = 8\sqrt{2}$*
+- **Perkalian & Pembagian**: Angka luar dikali luar, angka dalam akar dikali dalam akar.
+  $$a\sqrt{b} \times c\sqrt{d} = (a \times c)\sqrt{b \times d}$$
+
+#### 3. Merasionalkan Penyebut Bentuk Akar
+Dalam etika matematika, sebuah bentuk akar *tidak sopan* jika dibiarkan berada di bagian bawah pecahan (sebagai penyebut). Untuk mengusirnya ke atas, kita kalikan pecahan tersebut dengan "bentuk sekawan" dari penyebutnya.
+$$\frac{a}{\sqrt{b}} = \frac{a}{\sqrt{b}} \times \frac{\sqrt{b}}{\sqrt{b}} = \frac{a\sqrt{b}}{b}$$
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Sederhanakan bentuk akar dari $\sqrt{50}$!
+
+**Pembahasan:**
+- Carilah perkalian yang menghasilkan $50$ dan salah satunya adalah bilangan kuadrat sempurna ($4, 9, 16, 25, \dots$).
+- Kita temukan: $50 = 25 \times 2$.
+- $\sqrt{50} = \sqrt{25 \times 2} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2}$.
+
+#### Contoh 2 (Menengah)
+Berapakah hasil dari $3\sqrt{5} \times 2\sqrt{10}$?
+
+**Pembahasan:**
+- Kalikan angka luar dengan angka luar: $3 \times 2 = 6$.
+- Kalikan akar dengan akar: $\sqrt{5} \times \sqrt{10} = \sqrt{50}$.
+- Hasil sementara adalah $6\sqrt{50}$.
+- Tunggu! $\sqrt{50}$ masih bisa disederhanakan (seperti di Contoh 1).
+- $6\sqrt{50} = 6 \times (5\sqrt{2}) = 30\sqrt{2}$.
+- Jadi, hasilnya adalah **$30\sqrt{2}$**.
+
+#### Contoh 3 (Menantang)
+Rasionalkanlah penyebut dari pecahan $\frac{6}{\sqrt{3}}$!
+
+**Pembahasan:**
+- Kalikan pecahan dengan bentuk sekawan dari penyebutnya (yaitu $\sqrt{3}$).
+  $$\frac{6}{\sqrt{3}} \times \frac{\sqrt{3}}{\sqrt{3}}$$
+- Kalikan atas: $6 \times \sqrt{3} = 6\sqrt{3}$.
+- Kalikan bawah: $\sqrt{3} \times \sqrt{3} = \sqrt{9} = 3$.
+- Gabungkan kembali: $\frac{6\sqrt{3}}{3}$.
+- Bagi angka luarnya ($6 \div 3 = 2$). Hasil akhirnya adalah **$2\sqrt{3}$**.
+
+---
+
+### Simulasi Interaktif
+
+Angka di dalam akar seringkali terlihat menakutkan dan sulit ditebak. Gunakan widget "Dekodifikasi Akar Misterius" di bawah ini! Masukkan angka raksasa di dalam kolom, dan mesin ini akan men-scan dan menembakkan laser untuk memecahnya menjadi perkalian angka kuadrat secara instan dan visual!
+
+{/* INTERACTIVE_WIDGET: DEKODIFIKASI_AKAR_MISTERIUS */}
+
+---
+
+### Asah Kemampuan Mandiri
+
+#### Level 1 (Dasar)
+Bentuk sederhana dari $\sqrt{48}$ adalah...
+A. $2\sqrt{12}$
+B. $4\sqrt{3}$
+C. $3\sqrt{4}$
+D. $16\sqrt{3}$
+
+#### Level 2 (Sedang)
+Hasil dari $4\sqrt{2} + 3\sqrt{8}$ adalah...
+A. $7\sqrt{10}$
+B. $7\sqrt{16}$
+C. $10\sqrt{2}$
+D. $12\sqrt{2}$
+
+#### Level 3 (Sulit)
+Bentuk rasional dari $\frac{10}{3\sqrt{5}}$ adalah...
+A. $\frac{2\sqrt{5}}{3}$
+B. $2\sqrt{5}$
+C. $\frac{10\sqrt{5}}{15}$
+D. $\frac{10\sqrt{5}}{3}$
+
+#### Kunci Jawaban
+<details>
+<summary><b>Klik di sini untuk melihat Kunci Jawaban & Pembahasan</b></summary>
+
+1. **B** - (Level 1)
+   Cari faktor kuadrat terbesar dari $48$, yaitu $16$.
+   $$\sqrt{48} = \sqrt{16 \times 3} = \sqrt{16} \times \sqrt{3} = 4\sqrt{3}$$
+
+2. **C** - (Level 2)
+   Sederhanakan $\sqrt{8}$ terlebih dahulu agar menjadi suku sejenis dengan $\sqrt{2}$.
+   $\sqrt{8} = \sqrt{4 \times 2} = 2\sqrt{2}$.
+   Maka, $3\sqrt{8} = 3 \times 2\sqrt{2} = 6\sqrt{2}$.
+   Sekarang jumlahkan: $4\sqrt{2} + 6\sqrt{2} = 10\sqrt{2}$.
+
+3. **A** - (Level 3)
+   Kalikan dengan bentuk akar sekawannya, yaitu $\frac{\sqrt{5}}{\sqrt{5}}$ (angka 3 tidak perlu diikutkan).
+   $$\frac{10}{3\sqrt{5}} \times \frac{\sqrt{5}}{\sqrt{5}} = \frac{10\sqrt{5}}{3 \times 5} = \frac{10\sqrt{5}}{15}$$
+   Sederhanakan pecahannya (bagi pembilang dan penyebut dengan 5):
+   $$\frac{(10 \div 5)\sqrt{5}}{(15 \div 5)} = \frac{2\sqrt{5}}{3}$$
+
+</details>

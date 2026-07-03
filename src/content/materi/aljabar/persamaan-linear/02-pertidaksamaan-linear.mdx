@@ -1,0 +1,180 @@
+---
+title: "Pertidaksamaan Linear: Ketika Jawaban Bukan Satu Angka"
+topic: "Aljabar"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Pertidaksamaan Linear
+Pernahkah kamu masuk ke dalam lift dan melihat tulisan: *"Kapasitas Maksimal 450 kg"*?
+Aturan itu tidak mengharuskan berat total penumpang *tepat* 450 kg agar lift bisa jalan. Lift akan aman digunakan asalkan berat totalnya 450 kg **atau kurang dari itu**. Jika rata-rata berat satu orang adalah 60 kg, berapa maksimal orang yang boleh masuk lift? Masalah ini bukan lagi mencari satu jawaban yang pas ($=$), tetapi mencari rentang kemungkinan jawaban. Di sinilah kita menggunakan **Pertidaksamaan Linear**!
+
+### Yuk, Temukan Sendiri Pertidaksamaan Linear
+Coba bayangkan kamu sedang di arena bermain yang punya aturan: *"Tinggi badan minimal untuk naik Roller Coaster adalah 140 cm"*. 
+Jika tinggi badanmu 139 cm, kamu **tidak boleh** naik.
+Jika tinggi badanmu 140 cm, kamu **boleh** naik.
+Jika tinggi badanmu 155 cm, kamu **boleh** naik.
+Jadi, jawaban untuk "siapa saja yang boleh naik?" bukanlah satu angka yang pasti (bukan cuma yang 140 cm persis), melainkan siapapun yang ada di batas 140 cm ke atas. Secara matematis, kita menuliskannya: $\text{Tinggi} \geq 140$. 
+
+### Teori & Definisi Formal
+**Pertidaksamaan Linear Satu Variabel (PtLSV)** adalah kalimat terbuka yang memiliki satu variabel berpangkat satu, dan dihubungkan oleh salah satu dari tanda pertidaksamaan berikut:
+- $<$ : Kurang dari
+- $>$ : Lebih dari
+- $\leq$ : Kurang dari atau sama dengan (tidak lebih dari / maksimal)
+- $\geq$ : Lebih dari atau sama dengan (tidak kurang dari / minimal)
+
+Bentuk umumnya mirip dengan persamaan linear, contohnya:
+$$ax + b < c$$ 
+(atau menggunakan tanda $>$, $\leq$, $\geq$)
+
+**Langkah Penyelesaian PtLSV** sangat mirip dengan PLSV, dengan **SATU ATURAN KRITIS TAMBAHAN**:
+1. Menambah atau mengurangi kedua ruas dengan angka yang sama $\rightarrow$ **Tanda Tetap**.
+2. Mengalikan atau membagi kedua ruas dengan bilangan **positif** yang sama $\rightarrow$ **Tanda Tetap**.
+3. **[PENTING]** Mengalikan atau membagi kedua ruas dengan bilangan **negatif** yang sama $\rightarrow$ **Tanda Wajib Dibalik** (misal dari $<$ menjadi $>$).
+
+### Visualisasi: Pertidaksamaan Linear
+Berbeda dengan persamaan yang jawabannya cuma satu titik, pertidaksamaan memiliki banyak jawaban (rentang). Kita memvisualisasikannya di **Garis Bilangan**.
+
+Ada dua jenis titik pada garis bilangan:
+- **Lingkaran Terbuka / Kosong (o):** Untuk tanda $<$ dan $>$. Artinya, angka batas tersebut *tidak termasuk* sebagai jawaban.
+- **Lingkaran Tertutup / Penuh (●):** Untuk tanda $\leq$ dan $\geq$. Artinya, angka batas tersebut *termasuk* sebagai jawaban.
+
+#### Contoh 1 (Semua angka yang lebih besar dari 3, tapi 3 tidak ikut)
+
+Contoh 2:** $x \leq 3$
+(Semua angka yang lebih kecil atau sama dengan 3, dan 3 ikut).
+```text
+<═══════════●────────────
+            3
+```
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Tentukan himpunan penyelesaian dari $x + 4 > 10$!
+
+**Pembahasan:**
+
+Langkah penyelesaiannya persis seperti persamaan linear. Kita kurangi kedua ruas dengan 4.
+$$x + 4 - 4 > 10 - 4$$
+
+$$x > 6$$
+Artinya, semua angka yang lebih besar dari 6 (seperti 7, 8, 9, ...) adalah jawaban yang benar.
+
+#### Contoh 1 (Mudah)
+
+Selesaikan pertidaksamaan $3y \leq 12$!
+
+**Pembahasan:**
+
+Bagi kedua ruas dengan angka 3 (karena 3 adalah positif, maka **tanda tetap**).
+$$\frac{3y}{3} \leq \frac{12}{3}$$
+
+$$y \leq 4$$
+
+#### Contoh 2 (Menengah)
+
+Carilah rentang nilai $m$ dari pertidaksamaan $-2m + 5 < 11$!
+
+**Pembahasan:**
+
+Langkah 1: Kurangi kedua ruas dengan 5.
+$$-2m < 11 - 5$$
+
+$$-2m < 6$$
+Langkah 2: Bagi kedua ruas dengan -2. **AWAS! Karena kita membagi dengan bilangan negatif, tanda $<$ wajib dibalik menjadi $>$ !**
+$$\frac{-2m}{-2} > \frac{6}{-2}$$
+
+$$m > -3$$
+
+#### Contoh 3 (Menantang)
+
+Tentukan nilai himpunan penyelesaian dari $3(x - 2) \geq 5x + 4$!
+
+**Pembahasan:**
+
+Langkah 1: Kalikan angka 3 ke dalam kurung (sifat distributif).
+$$3x - 6 \geq 5x + 4$$
+Langkah 2: Pindahkan $5x$ ke ruas kiri, dan pindahkan $-6$ ke ruas kanan.
+$$3x - 5x \geq 4 + 6$$
+
+$$-2x \geq 10$$
+Langkah 3: Bagi kedua ruas dengan -2. Ingat, membagi dengan angka negatif akan **membalik tanda**.
+$$x \leq \frac{10}{-2}$$
+
+$$x \leq -5$$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Jebakan yang **paling sering** dan hampir selalu menjebak siswa adalah aturan pembagian dengan bilangan negatif.
+
+
+Contoh: $-2x < 6$.
+Banyak siswa dengan cepat membagi dengan -2 lalu menuliskan jawabannya: $x < -3$. **(INI SALAH!)**
+Mari kita buktikan. Kalau $x < -3$ itu benar, coba kita ambil angka -4 dan masukkan ke soal awal:
+$-2(-4) < 6 \rightarrow 8 < 6$. Apakah 8 kurang dari 6? Tentu tidak!
+Seharusnya: Ingat, membagi dengan negatif membalik tanda pertidaksamaan.
+$-2x < 6 \rightarrow x > -3$.
+Coba kita buktikan, ambil angka 0 (karena $0 > -3$): $-2(0) < 6 \rightarrow 0 < 6$. Benar!
+
+### Koneksi Dunia Nyata
+Pertidaksamaan adalah bahasa alami kehidupan kita!
+- Rambu batas kecepatan di jalan raya bertuliskan 60 km/jam, artinya kecepatan mobilmu, $v$, tidak boleh lebih dari 60. Maka pertidaksamaannya adalah $v \leq 60$.
+- Syarat lulus sebuah ujian adalah nilai minimal 75. Maka nilai kelulusan dituliskan sebagai $\text{nilai} \geq 75$.
+- Syarat untuk mendapatkan SIM A adalah berusia minimal 17 tahun. Maka batas usia adalah $\text{Usia} \geq 17$.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Notasi pertidaksamaan yang tepat untuk menyatakan "Sebuah bilangan, $k$, tidak lebih dari 15" adalah...</div>
+  <div slot="option-a">$k < 15$</div>
+  <div slot="option-b">$k > 15$</div>
+  <div slot="option-c">$k \leq 15$</div>
+  <div slot="option-d">$k \geq 15$</div>
+  <div slot="explanation">**Pembahasan:** Kata "tidak lebih dari" berarti boleh kurang, dan boleh persis sama dengan 15. Maka tanda yang paling tepat adalah kurang dari atau sama dengan ($\leq$).</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Penyelesaian dari pertidaksamaan $y - 7 > 2$ adalah...</div>
+  <div slot="option-a">$y > 5$</div>
+  <div slot="option-b">$y < 9$</div>
+  <div slot="option-c">$y > -5$</div>
+  <div slot="option-d">$y > 9$</div>
+  <div slot="explanation">**Pembahasan:** Tambahkan kedua ruas dengan angka 7. Maka $y > 2 + 7$, sehingga $y > 9$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Nilai $x$ yang memenuhi $-4x \geq 20$ adalah...</div>
+  <div slot="option-a">$x \leq -5$</div>
+  <div slot="option-b">$x \geq -5$</div>
+  <div slot="option-c">$x \leq 5$</div>
+  <div slot="option-d">$x \geq 5$</div>
+  <div slot="explanation">**Pembahasan:** Bagi kedua ruas dengan angka -4. Karena dibagi dengan bilangan negatif, tanda $\geq$ wajib dibalik menjadi $\leq$. Maka $x \leq \frac{20}{-4} \rightarrow x \leq -5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Pada garis bilangan, pertidaksamaan $x \geq 2$ digambarkan dengan...</div>
+  <div slot="option-a">Lingkaran terbuka di angka 2, panah ke kanan.</div>
+  <div slot="option-b">Lingkaran tertutup di angka 2, panah ke kanan.</div>
+  <div slot="option-c">Lingkaran tertutup di angka 2, panah ke kiri.</div>
+  <div slot="option-d">Lingkaran terbuka di angka 2, panah ke kiri.</div>
+  <div slot="explanation">**Pembahasan:** Tanda $\geq$ mengandung sama dengan, jadi harus menggunakan lingkaran tertutup (angka 2 termasuk jawaban). Karena "lebih dari", maka panahnya mengarah ke kanan.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH?</div>
+  <div slot="option-a">Menambahkan bilangan negatif ke kedua ruas tidak akan mengubah arah tanda pertidaksamaan.</div>
+  <div slot="option-b">Pertidaksamaan $2x < 10$ memiliki himpunan penyelesaian $x < 5$.</div>
+  <div slot="option-c">Jika ruas kiri dan kanan sebuah pertidaksamaan dikalikan bilangan negatif yang sama, tanda pertidaksamaan tetap.</div>
+  <div slot="option-d">Tanda $\leq$ dibaca sebagai "kurang dari atau sama dengan".</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Ini adalah aturan yang sangat krusial: Jika sebuah pertidaksamaan dikalikan (atau dibagi) dengan bilangan negatif, arah tanda pertidaksamaannya WAJIB DIBALIK.</div>
+</Quiz>

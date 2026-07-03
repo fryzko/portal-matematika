@@ -1,0 +1,105 @@
+/* =====================================================
+   HOME.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.hero-section {
+    padding-block: var(--space-3xl);
+
+    text-align: center;
+}
+
+.hero-section h1 {
+    margin-bottom: var(--space-lg);
+}
+
+.hero-description {
+    max-width: 60ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-xl);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.search-form {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: var(--space-xl);
+
+    max-width: 700px;
+
+    margin-inline: auto;
+}
+
+.card-grid {
+    display: grid;
+    gap: var(--space-xl);
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+}
+
+.learning-path {
+
+    display: grid;
+
+    gap: var(--space-lg);
+
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    text-align: center;
+
+}
+
+.section-cta {
+    text-align: center;
+}
+
+.section-cta p {
+    margin-inline: auto;
+}
+
+.section-cta .button {
+    margin-top: var(--space-lg);
+}
+
+.section-heading {
+
+    max-width: 700px;
+
+    margin-inline: auto;
+
+    margin-bottom: var(--space-2xl);
+
+    text-align: center;
+}
+
+.section-heading h2 {
+
+    margin-bottom: var(--space-md);
+}
+
+.section-heading p {
+
+    margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-block: var(--space-2xl);
+    }
+}

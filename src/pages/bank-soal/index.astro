@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Bank Soal - Ruang Matematika SMP">
+  <div class="coming-soon-hero">
+    <div class="cs-icon">📚</div>
+    <h1>Bank Soal</h1>
+    <p class="cs-subtitle">Fitur ini sedang dalam pengembangan dan akan segera hadir!</p>
+  </div>
+
+  <div class="cs-preview">
+    <h2>Yang Akan Hadir:</h2>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <span>📝</span>
+        <h3>Soal per Topik</h3>
+        <p>Ribuan soal dikelompokkan per topik dan tingkat kesulitan</p>
+      </div>
+      <div class="cs-card">
+        <span>🎯</span>
+        <h3>Simulasi Ujian</h3>
+        <p>Latihan ujian dengan timer seperti kondisi ujian nyata</p>
+      </div>
+      <div class="cs-card">
+        <span>📈</span>
+        <h3>Analisis Jawaban</h3>
+        <p>Lihat soal mana yang sering salah dan pelajari pembahasannya</p>
+      </div>
+      <div class="cs-card">
+        <span>🔍</span>
+        <h3>Cari Soal</h3>
+        <p>Cari soal berdasarkan topik, kelas, atau tingkat kesulitan</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-action">
+    <p>Sambil menunggu, mulai belajar dari materi yang sudah tersedia:</p>
+    <div class="cs-links">
+      <a href="/kelas/vii" class="cs-btn">Kelas VII</a>
+      <a href="/kelas/viii" class="cs-btn">Kelas VIII</a>
+      <a href="/kelas/ix" class="cs-btn">Kelas IX</a>
+      <a href="/elemen" class="cs-btn cs-btn-outline">Jelajahi Elemen</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.coming-soon-hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+  border-radius: 24px;
+  margin-bottom: 3rem;
+}
+.cs-icon { font-size: 5rem; margin-bottom: 1rem; }
+.coming-soon-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #4c1d95;
+  margin-bottom: 1rem;
+}
+.cs-subtitle {
+  font-size: 1.1rem;
+  color: #5b21b6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.cs-preview { margin-bottom: 3rem; }
+.cs-preview h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 768px) { .cs-grid { grid-template-columns: 1fr; } }
+.cs-card {
+  background: white;
+  border: 2px solid #ddd6fe;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.cs-card:hover { transform: translateY(-4px); }
+.cs-card span { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+.cs-card h3 { font-size: 1.1rem; font-weight: 700; color: #4c1d95; margin-bottom: 0.5rem; }
+.cs-card p { color: #64748b; font-size: 0.9rem; line-height: 1.6; }
+.cs-action {
+  text-align: center;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+.cs-action p { color: #64748b; margin-bottom: 1.5rem; }
+.cs-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cs-btn {
+  padding: 0.75rem 1.5rem;
+  background: #7c3aed;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.cs-btn:hover { opacity: 0.85; }
+.cs-btn-outline {
+  background: white;
+  color: #7c3aed;
+  border: 2px solid #7c3aed;
+}
+</style>

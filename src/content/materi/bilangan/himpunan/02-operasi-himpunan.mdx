@@ -1,0 +1,172 @@
+---
+title: "Operasi Himpunan: Menggabung, Memotong, dan Mengecualikan"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Operasi Himpunan
+Bayangkan dua kelompok siswa di sekolah yang sedang mengikuti ekstrakurikuler (ekskul). Kelompok pertama adalah anak-anak yang ikut ekskul basket, dan kelompok kedua adalah anak-anak yang ikut ekskul musik. Ternyata, ada beberapa anak super sibuk yang mengikuti *kedua* ekskul tersebut! Jika kita ingin tahu siapa saja yang hanya ikut basket, siapa saja yang ikut keduanya, atau berapa total siswa yang ikut ekskul, bagaimana cara menghitungnya? Di sinilah konsep **Operasi Himpunan** menjadi sangat berguna untuk menyelesaikan masalah-masalah pengelompokan yang saling tumpang tindih.
+
+### Yuk, Temukan Sendiri Operasi Himpunan
+Misalkan kita punya dua keranjang buah.
+- Keranjang A berisi: Apel, Jeruk, Mangga.
+- Keranjang B berisi: Mangga, Pisang, Anggur.
+Jika kita menuangkan isi kedua keranjang ke sebuah meja besar, kita tidak akan mengatakan ada dua mangga (asumsikan jenis dan bentuk mangganya sama persis), kita cukup mengatakan buah yang ada di meja adalah: Apel, Jeruk, Mangga, Pisang, Anggur.
+Lalu, buah apa yang tadinya ada di Keranjang A *sekaligus* ada di Keranjang B? Jawabannya tentu saja Mangga.
+Cara kita menggabungkan dan mencari irisan dari isi kedua keranjang inilah yang menjadi dasar dari operasi himpunan.
+
+### Teori & Definisi Formal
+Dalam matematika, himpunan-himpunan bisa dioperasikan satu sama lain, mirip seperti penjumlahan atau pengurangan pada bilangan. Ada empat operasi dasar himpunan:
+
+1. **Irisan (Intersection): $A \cap B$**
+   Irisan dari himpunan $A$ dan $B$ adalah himpunan yang anggotanya ada di $A$ **dan** juga ada di $B$.
+   Notasi: $A \cap B = \{x \mid x \in A \text{ dan } x \in B\}$
+
+2. **Gabungan (Union): $A \cup B$**
+   Gabungan dari himpunan $A$ dan $B$ adalah himpunan yang anggotanya merupakan gabungan dari anggota $A$ **atau** anggota $B$. Jika ada anggota yang sama, cukup ditulis satu kali.
+   Notasi: $A \cup B = \{x \mid x \in A \text{ atau } x \in B\}$
+
+3. **Selisih (Difference): $A - B$**
+   Selisih himpunan $A$ dan $B$ adalah himpunan yang anggotanya ada di $A$ tetapi **tidak ada** di $B$.
+   Notasi: $A - B = \{x \mid x \in A \text{ dan } x \notin B\}$
+
+4. **Komplemen (Complement): $A^c$ atau $A'$**
+   Komplemen himpunan $A$ adalah himpunan semua anggota di dalam himpunan semesta ($S$) yang **bukan** merupakan anggota $A$.
+   Notasi: $A^c = \{x \mid x \in S \text{ dan } x \notin A\}$
+
+### Visualisasi: Operasi Himpunan
+Untuk memudahkan membayangkan operasi himpunan, kita biasa menggunakan **Diagram Venn**. Berikut adalah visualisasi sederhana diagram Venn dari himpunan $A$ dan $B$:
+
+```text
+       S (Semesta)
+  _____________________________
+ |                             |
+ |      ___           ___      |
+ |    /     \       /     \    |
+ |   |   A   | A∩B |   B   |   |
+ |   |       | ___ |       |   |
+ |    \ ___ /       \ ___ /    |
+ |                             |
+ |_____________________________|
+```
+- Area `A` sebelah kiri (tanpa irisan) mewakili $A - B$.
+- Area `A∩B` di tengah mewakili irisan $A \cap B$.
+- Area `B` sebelah kanan (tanpa irisan) mewakili $B - A$.
+- Keseluruhan lingkaran $A$ dan $B$ mewakili gabungan $A \cup B$.
+- Area di luar lingkaran mewakili komplemen $(A \cup B)^c$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Diketahui $A = \{1, 2, 3\}$ dan $B = \{3, 4, 5\}$. Tentukan $A \cap B$!
+
+**Pembahasan:**
+
+Irisan ($A \cap B$) adalah anggota yang ada di himpunan $A$ sekaligus ada di himpunan $B$. Angka yang sama adalah 3.
+Maka, $A \cap B = \{3\}$.
+
+#### Contoh 1 (Mudah)
+
+Masih menggunakan himpunan yang sama: $A = \{1, 2, 3\}$ dan $B = \{3, 4, 5\}$. Tentukan $A \cup B$!
+
+**Pembahasan:**
+
+Gabungan ($A \cup B$) berarti menuliskan semua anggota $A$ dan $B$. Anggota yang sama cukup ditulis satu kali.
+Maka, $A \cup B = \{1, 2, 3, 4, 5\}$.
+
+#### Contoh 2 (Menengah)
+
+Diketahui semesta $S = \{1, 2, 3, 4, 5, 6, 7, 8\}$.
+Himpunan $P = \{2, 4, 6, 8\}$ dan himpunan $Q = \{2, 3, 5, 7\}$.
+Tentukan komplemen dari gabungan himpunan $P$ dan $Q$, atau $(P \cup Q)^c$!
+
+**Pembahasan:**
+
+Pertama, cari gabungan $P$ dan $Q$:
+$P \cup Q = \{2, 3, 4, 5, 6, 7, 8\}$
+Komplemen dari $(P \cup Q)$ adalah anggota himpunan $S$ yang *tidak ada* di dalam $P \cup Q$. Satu-satunya angka yang tersisa di $S$ adalah 1.
+Maka, $(P \cup Q)^c = \{1\}$.
+
+#### Contoh 3 (Menantang)
+
+Dalam sebuah kelas yang terdiri dari 30 siswa, diketahui 20 siswa menyukai Matematika, 15 siswa menyukai IPA, dan 5 siswa tidak menyukai keduanya. Berapa banyak siswa yang menyukai **kedua** mata pelajaran tersebut (Matematika dan IPA)?
+
+**Pembahasan:**
+
+Banyak siswa total, $n(S) = 30$.
+Banyak siswa yang tidak suka keduanya = 5.
+Maka, banyak siswa yang suka minimal satu pelajaran: $30 - 5 = 25$ siswa. (Ini adalah $n(M \cup I)$).
+Rumus gabungan:
+$n(M \cup I) = n(M) + n(I) - n(M \cap I)$
+$25 = 20 + 15 - n(M \cap I)$
+$25 = 35 - n(M \cap I)$
+$n(M \cap I) = 35 - 25 = 10$.
+Jadi, terdapat 10 siswa yang menyukai kedua mata pelajaran tersebut.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Siswa sering sekali tertukar antara simbol dan makna dari irisan ($\cap$) dengan gabungan ($\cup$).
+
+
+- **Irisan ($\cap$) bentuknya seperti mangkok terbalik.** Ingatlah bahwa irisan itu ketat, hanya menampung sedikit anggota (hanya yang sama-sama dimiliki kedua belah pihak).
+- **Gabungan ($\cup$) bentuknya seperti mangkok terbuka (huruf U / Union).** Ingatlah bahwa ia menampung semua anggota dari kedua himpunan tersebut menjadi satu wadah besar.
+
+### Koneksi Dunia Nyata
+Konsep irisan dan gabungan sangat sering dipakai di dunia nyata! Misalnya, pada fitur filter di aplikasi belanja *online*. Jika kamu mencari sepatu dengan memfilter "Warna Hitam" **DAN** "Ukuran 40", aplikasi sedang mencari irisan ($A \cap B$) dari dua himpunan sepatu tersebut. Selain itu, di dunia pemrograman dan *database*, konsep ini menjadi dasar untuk *query SQL* menggunakan perintah `INTERSECT` (irisan) dan `UNION` (gabungan).
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="A">
+  <div slot="question">Diketahui $A = \{a, b, c, d\}$ dan $B = \{c, d, e, f\}$. Himpunan dari $A \cup B$ adalah...</div>
+  <div slot="option-a">$\{a, b, c, d, e, f\}$</div>
+  <div slot="option-b">$\{c, d\}$</div>
+  <div slot="option-c">$\{a, b, e, f\}$</div>
+  <div slot="option-d">$\{a, b, c, d, c, d, e, f\}$</div>
+  <div slot="explanation">**Pembahasan:** Gabungan berarti menggabungkan seluruh anggota. Anggota yang sama ditulis satu kali saja. Jadi jawabannya adalah $\{a, b, c, d, e, f\}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Dari himpunan $A$ dan $B$ pada soal sebelumnya ($A = \{a, b, c, d\}$ dan $B = \{c, d, e, f\}$), manakah yang merupakan $A \cap B$?</div>
+  <div slot="option-a">$\{a, b\}$</div>
+  <div slot="option-b">$\{c, d\}$</div>
+  <div slot="option-c">$\{e, f\}$</div>
+  <div slot="option-d">$\{a, b, e, f\}$</div>
+  <div slot="explanation">**Pembahasan:** Irisan berarti mencari anggota yang sama-sama ada di himpunan $A$ dan $B$, yaitu $c$ dan $d$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Diketahui $P = \{1, 2, 3, 4\}$ dan $Q = \{3, 4, 5, 6\}$. Hasil dari selisih $P - Q$ adalah...</div>
+  <div slot="option-a">$\{5, 6\}$</div>
+  <div slot="option-b">$\{3, 4\}$</div>
+  <div slot="option-c">$\{1, 2\}$</div>
+  <div slot="option-d">$\{1, 2, 5, 6\}$</div>
+  <div slot="explanation">**Pembahasan:** Selisih $P - Q$ artinya anggota yang ada di $P$ tetapi TIDAK ada di $Q$. Anggota $P$ yang tidak ada di $Q$ adalah 1 dan 2.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Dalam sekelompok orang, 10 orang suka teh, 8 orang suka kopi, dan 3 orang suka keduanya. Berapa jumlah total orang jika semua orang menyukai minimal salah satu minuman tersebut?</div>
+  <div slot="option-a">21 orang</div>
+  <div slot="option-b">18 orang</div>
+  <div slot="option-c">11 orang</div>
+  <div slot="option-d">15 orang</div>
+  <div slot="explanation">**Pembahasan:** Gunakan rumus $n(T \cup K) = n(T) + n(K) - n(T \cap K)$. Total $= 10 + 8 - 3 = 15$ orang.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah pernyataan yang SALAH di bawah ini tentang operasi himpunan?</div>
+  <div slot="option-a">$A \cap B$ selalu menghasilkan anggota yang lebih sedikit atau sama banyak dengan $A$ maupun $B$.</div>
+  <div slot="option-b">Simbol $\cup$ dibaca sebagai irisan, yang artinya mengambil anggota yang sama.</div>
+  <div slot="option-c">Hasil dari $A - B$ tidak selalu sama dengan hasil dari $B - A$.</div>
+  <div slot="option-d">Komplemen dari himpunan $A$, yaitu $A^c$, berisi anggota semesta yang bukan anggota $A$.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B salah. Simbol $\cup$ (union) dibaca gabungan, bukan irisan. Irisan menggunakan simbol $\cap$.</div>
+</Quiz>

@@ -1,0 +1,131 @@
+---
+title: "Operasi dan Estimasi Bilangan Rasional"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+
+### Pendahuluan / Pengantar
+Bayangkan kamu sedang merakit sebuah robot yang membutuhkan energi tepat sebesar $1,00\text{ unit}$ untuk bisa menyala. Kamu memiliki beberapa baterai cadangan dengan ukuran energi yang berbeda-beda: ada baterai $\frac{1}{2}\text{ unit}$, baterai $0,25\text{ unit}$, dan baterai $\frac{1}{8}\text{ unit}$. 
+
+Untuk membuat robot tersebut menyala tanpa meledak akibat kelebihan energi, kamu harus menjumlahkan baterai-baterai tersebut secara akurat. Operasi hitung pada pecahan dan desimal sangat penting di dunia nyata—baik itu untuk memasak resep kue, menghitung bahan bangunan, hingga memprogram daya pada robot!
+
+Selain berhitung presisi, terkadang kita butuh keputusan cepat. Di sinilah **Estimasi** (penaksiran/pembulatan) bermain peran untuk memperkirakan hasil tanpa harus menghitung angka rumit sampai titik desimal terakhir.
+
+### Teori Utama & Rumus
+
+#### 1. Operasi Pecahan
+- **Penjumlahan & Pengurangan:** Samakan penyebutnya (cari KPK) terlebih dahulu sebelum menjumlah atau mengurang pembilangnya.
+  $$\frac{a}{c} + \frac{b}{c} = \frac{a + b}{c}$$
+- **Perkalian:** Kalikan pembilang dengan pembilang, dan penyebut dengan penyebut.
+  $$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$$
+- **Pembagian:** Ubah tanda bagi jadi kali, lalu **balik** posisi pembilang dan penyebut pada pecahan kedua.
+  $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$$
+
+#### 2. Operasi Desimal
+- **Penjumlahan/Pengurangan:** Susun angka ke bawah dan **sejajarkan tanda koma** (,).
+- **Perkalian:** Kalikan seperti bilangan bulat biasa. Setelah dapat hasil, hitung total digit di belakang koma dari kedua bilangan asal untuk menaruh koma pada hasil.
+- **Pembagian:** Geser tanda koma ke kanan pada pembagi agar menjadi bilangan bulat. Lakukan hal yang sama (geser koma sebanyak yang sama) pada bilangan yang dibagi.
+
+#### 3. Estimasi (Pembulatan)
+Aturan pembulatan:
+- Jika angka di sebelah kanannya $5, 6, 7, 8, 9$, bulatkan ke **atas** (+1).
+- Jika angka di sebelah kanannya $0, 1, 2, 3, 4$, bulatkan ke **bawah** (tetap).
+Contoh: $3,7$ dibulatkan menjadi $4$. Sedangkan $3,2$ dibulatkan menjadi $3$.
+
+---
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 1 (Mudah)
+Hitunglah hasil dari $\frac{2}{3} + \frac{1}{4}$!
+
+**Pembahasan:**
+- Samakan penyebut dengan mencari KPK dari 3 dan 4, yaitu 12.
+- $\frac{2}{3} = \frac{8}{12}$
+- $\frac{1}{4} = \frac{3}{12}$
+- Jumlahkan pembilangnya: $\frac{8}{12} + \frac{3}{12} = \frac{11}{12}$.
+- Jadi, hasilnya adalah **$\frac{11}{12}$**.
+
+#### Contoh 2 (Menengah)
+Berapakah hasil kali dari $1,5 \times 0,04$?
+
+**Pembahasan:**
+- Hiraukan koma sejenak dan kalikan angkanya: $15 \times 4 = 60$.
+- Hitung total digit di belakang koma dari soal asal: 
+  $1,5$ (1 digit) dan $0,04$ (2 digit). Total = 3 digit di belakang koma.
+- Pindahkan koma 3 langkah ke kiri dari angka 60: $0,060$.
+- Jadi, hasilnya adalah **$0,06$**.
+
+#### Contoh 3 (Menantang)
+Ibu membeli gula pasir seberat $4,25\text{ kg}$ dan terigu seberat $2\frac{3}{4}\text{ kg}$. Jika ibu menggunakan sebagian bahan tersebut untuk membuat kue sehingga total berat yang tersisa adalah $3,5\text{ kg}$, berapakah total berat bahan yang telah dipakai? (Gunakan bentuk desimal)
+
+**Pembahasan:**
+- Ubah berat terigu ke desimal: $2\frac{3}{4} = 2,75\text{ kg}$.
+- Total bahan yang dibeli = $4,25 + 2,75$.
+  Susun koma sejajar:
+  ```text
+    4,25
+    2,75
+    ---- +
+    7,00
+  ```
+  Total bahan awal = $7\text{ kg}$.
+- Sisa bahan = $3,5\text{ kg}$.
+- Bahan terpakai = Total Awal - Sisa = $7,0 - 3,5 = 3,5\text{ kg}$.
+- Jadi, berat bahan yang dipakai adalah **$3,5\text{ kg}$**.
+
+---
+
+### Simulasi Interaktif
+
+Ayo bantu robot kita! Gunakan **Kalkulator Energi Robot** di bawah ini. Gabungkan beberapa baterai pecahan dan desimal agar total meteran energi mencapai angka tepat 1,00. Jika berlebih, robot akan *korslet*!
+
+{/* INTERACTIVE_WIDGET: KALKULATOR_ENERGI_ROBOT */}
+
+---
+
+### Asah Kemampuan Mandiri
+
+#### Level 1 (Dasar)
+Hasil dari $\frac{3}{5} \times \frac{10}{9}$ adalah...
+A. $\frac{2}{3}$
+B. $\frac{1}{2}$
+C. $\frac{13}{14}$
+D. $\frac{30}{45}$
+
+#### Level 2 (Sedang)
+Hasil pembagian $3,6 \div 0,06$ adalah...
+A. $0,6$
+B. $6$
+C. $60$
+D. $600$
+
+#### Level 3 (Sulit)
+Pak Budi mengisi bensin mobilnya sebanyak $12,8\text{ liter}$. Karena macet parah, taksiran/estimasi bensin yang terbakar adalah $4,15\text{ liter}$. Jika Pak Budi ingin membulatkan angka-angka tersebut ke bilangan bulat terdekat sebelum menghitung sisa bensin, taksiran sisa bensin Pak Budi adalah...
+A. $8\text{ liter}$
+B. $9\text{ liter}$
+C. $10\text{ liter}$
+D. $11\text{ liter}$
+
+#### Kunci Jawaban
+<details>
+<summary><b>Klik di sini untuk melihat Kunci Jawaban & Pembahasan</b></summary>
+
+1. **A** - (Level 1)
+   Kalikan atas dengan atas, bawah dengan bawah:
+   $$\frac{3 \times 10}{5 \times 9} = \frac{30}{45}$$
+   Sederhanakan dengan membagi pembilang dan penyebut dengan 15:
+   $$\frac{30 \div 15}{45 \div 15} = \frac{2}{3}$$
+
+2. **C** - (Level 2)
+   Geser tanda koma 2 langkah ke kanan pada $0,06$ agar menjadi $6$. Lakukan hal yang sama pada $3,6$ (tambah nol) sehingga menjadi $360$.
+   $$360 \div 6 = 60$$
+
+3. **B** - (Level 3)
+   Lakukan pembulatan terlebih dahulu ke bilangan bulat terdekat:
+   - $12,8$ dibulatkan menjadi $13$ (karena angka $8 \ge 5$, bulatkan ke atas).
+   - $4,15$ dibulatkan menjadi $4$ (karena angka $1 < 5$, bulatkan ke bawah).
+   Hitung sisa taksiran: $13 - 4 = 9\text{ liter}$.
+
+</details>

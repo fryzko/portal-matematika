@@ -1,0 +1,241 @@
+/* =====================================================
+   KELAS.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+/* =====================================================
+   HERO KELAS
+===================================================== */
+
+.page-kelas .hero-section {
+    padding-block: var(--space-3xl);
+    text-align: center;
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-kelas .hero-section .container {
+    max-width: 800px;
+}
+
+.page-kelas .hero-section h1 {
+    margin-bottom: var(--space-md);
+}
+
+.page-kelas .hero-description {
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+}
+
+/* =====================================================
+   METADATA KELAS
+===================================================== */
+
+.class-metadata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md) var(--space-xl);
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.class-metadata div {
+    text-align: center;
+}
+
+.class-metadata dt {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-light);
+}
+
+.class-metadata dd {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+}
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.page-kelas .section-heading {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.page-kelas .section-heading h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.page-kelas .section-heading p {
+    margin-inline: auto;
+    color: var(--color-text-light);
+}
+
+/* =====================================================
+   TENTANG KELAS
+===================================================== */
+
+.class-summary {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.class-summary p {
+    color: var(--color-text);
+}
+
+/* =====================================================
+   TUJUAN PEMBELAJARAN
+===================================================== */
+
+.learning-objectives {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.learning-objectives .card {
+    height: 100%;
+}
+
+/* =====================================================
+   ELEMEN PEMBELAJARAN
+===================================================== */
+
+.element-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.element-grid .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.element-grid .card p {
+    flex-grow: 1;
+}
+
+.element-grid .button {
+    margin-top: var(--space-md);
+    align-self: flex-start;
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.page-kelas .section-cta {
+    text-align: center;
+}
+
+.page-kelas .section-cta .section-heading {
+    margin-bottom: var(--space-lg);
+}
+
+.page-kelas .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: "›";
+    margin-left: var(--space-xs);
+    color: var(--color-text-light);
+}
+
+.breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary-hover);
+}
+
+.breadcrumb span {
+    color: var(--color-text-light);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .page-kelas .hero-section {
+        padding-block: var(--space-2xl);
+    }
+
+    .page-kelas .section-heading {
+        text-align: center;
+    }
+
+    .class-summary {
+        text-align: center;
+    }
+
+    .class-metadata {
+        gap: var(--space-md);
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .page-kelas .hero-section {
+        padding-block: var(--space-xl);
+    }
+
+    .page-kelas .hero-section h1 {
+        font-size: var(--font-size-h2);
+    }
+
+    .page-kelas .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-kelas .hero-actions .button {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .class-metadata {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}

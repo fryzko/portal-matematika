@@ -1,0 +1,87 @@
+/* =====================================================
+   UTILITY.CSS
+   Halaman utilitas (latihan, bank soal, search, tentang)
+   Portal Ruang Matematika SMP
+===================================================== */
+
+.page-utility .hero-section {
+    padding-block: var(--space-3xl);
+    text-align: center;
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-utility .section-heading {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.page-utility .section-heading p {
+    margin-inline: auto;
+    color: var(--color-text-light);
+}
+
+.feature-list {
+    max-width: 700px;
+    margin-inline: auto;
+    padding-left: var(--space-lg);
+}
+
+.feature-list li + li {
+    margin-top: var(--space-sm);
+}
+
+.search-form--page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.search-form--page input[type="search"] {
+    flex: 1 1 240px;
+    min-height: 44px;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.search-form--page input[type="search"]:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.page-utility .hero-actions {
+    margin-top: var(--space-xl);
+}
+
+.search-results {
+    max-width: 700px;
+    margin-inline: auto;
+    margin-top: var(--space-xl);
+}
+
+.search-results:empty {
+    display: none;
+}
+
+.search-result-item {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.search-result-item a {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.search-result-item p {
+    margin-top: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}

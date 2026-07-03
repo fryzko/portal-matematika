@@ -1,0 +1,183 @@
+---
+title: "Pola Bilangan Geometri: Lipatan dan Pembelahan"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: false
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Pola Bilangan Geometri
+Ambil selembar kertas. Jika kamu melipatnya menjadi dua bagian, kertas itu akan memiliki 2 lapis. Lipat lagi, menjadi 4 lapis. Lipat lagi, 8 lapis.
+Kelihatannya lapisannya bertambah pelan, bukan? Tapi tahukah kamu, jika kamu bisa melipat kertas tersebut sebanyak 42 kali saja, ketebalan kertas itu akan cukup untuk **mencapai Bulan**! 
+
+Bagaimana mungkin sesuatu yang bermula dari selembar kertas tipis bisa tumbuh secepat itu? Inilah keajaiban dari kekuatan perkalian berulang!
+
+### Yuk, Temukan Sendiri Pola Bilangan Geometri
+Mari kita amati eksperimen pembelahan bakteri di laboratorium. Seekor bakteri membelah diri menjadi 2 setiap jamnya.
+- Jam ke-0 (Awal) : $1$ bakteri
+- Jam ke-1 : $2$ bakteri
+- Jam ke-2 : $4$ bakteri
+- Jam ke-3 : $8$ bakteri
+
+Coba tebak tanpa menghitung satu per satu, apakah pada jam ke-10 jumlah bakteri akan mencapai lebih dari $1.000$ ekor? 
+Berbeda dengan pola aritmatika yang sifatnya hanya "ditambah", pola di atas bekerja dengan cara "dikali". Apakah kamu melihat angka pengalinya?
+
+### Teori & Definisi Formal
+Barisan yang baru saja kamu temukan disebut **Barisan Geometri**.
+Barisan Geometri adalah susunan bilangan yang rasio (perbandingan) antara suku yang berurutan selalu **tetap** (sama). Jarak antar bilangan ini bukan ditambah/dikurang, melainkan **dikali atau dibagi**.
+
+- **Suku Pertama ($a$ atau $U_1$)**: Angka paling depan di barisan.
+- **Rasio ($r$)**: Angka pengali tetapnya. Cara mencarinya: bagikan angka kedua dengan angka pertama ($r = U_2 \div U_1$).
+
+#### Rumus Suku ke-n ($U_n$)
+Karena setiap langkah kita mengalikan dengan $r$, maka untuk melompat ke suku ke-$n$, kita mengalikan rasio tersebut sebanyak $(n-1)$ kali.
+$$ U_n = a \times r^{(n-1)} $$
+
+### Visualisasi: Pola Bilangan Geometri
+Perhatikan bedanya Barisan Aritmatika (bertumbuh lambat) vs Barisan Geometri (bertumbuh eksplosif):
+
+| Suku Ke- ($n$) | Aritmatika (Ditambah 2) | Geometri (Dikali 2) |
+| :---: | :---: | :---: |
+| 1 | $2$ | $2$ |
+| 2 | $4$ | $4$ |
+| 3 | $6$ | $8$ |
+| 4 | $8$ | $16$ |
+| 10 | **$20$** | **$1.024$** |
+
+Hanya dalam 10 langkah, perkalian (geometri) jauh meninggalkan penjumlahan (aritmatika)! Inilah yang disebut dengan pertumbuhan eksponensial.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Tentukan rasio ($r$) dari barisan berikut: $3, 9, 27, 81, \dots$
+
+**Pembahasan:**
+
+Pilih dua angka yang berurutan, misalnya $9$ dan $3$.
+Rasio $r = \frac{U_2}{U_1} = \frac{9}{3} = 3$.
+Jadi, rasionya adalah **$3$**. (Artinya polanya selalu dikali 3).
+
+#### Contoh 1 (Mudah)
+Diketahui sebuah barisan geometri: $2, 10, 50, \dots$ Berapakah suku ke-4 nya?
+
+**Pembahasan:**
+
+- Suku pertama ($a$) = $2$.
+- Rasio ($r$) = $10 \div 2 = 5$.
+- Suku ke-4 dicari dengan melanjutkan pola: kalikan $50$ dengan $5$.
+- $50 \times 5 = 250$.
+Jawaban: Suku ke-4 adalah **$250$**.
+
+#### Contoh 2 (Menengah)
+Temukan rumus suku ke-n ($U_n$) dari barisan: $4, 8, 16, 32, \dots$ lalu carilah nilai suku ke-8!
+
+**Pembahasan:**
+
+- $a = 4$
+- $r = \frac{8}{4} = 2$
+Rumus umum: $U_n = a \times r^{(n-1)}$
+$U_8 = 4 \times 2^{(8-1)}$
+$U_8 = 4 \times 2^7$
+$U_8 = 4 \times 128 = 512$.
+Jawaban: Suku ke-8 adalah **$512$**.
+
+#### Contoh 3 (Menantang)
+Sebuah bola dijatuhkan dari ketinggian $16\text{ m}$. Setiap kali memantul, bola tersebut mencapai ketinggian setengah ($1/2$) dari ketinggian sebelumnya. Berapa ketinggian bola pada pantulan ke-5?
+
+**Pembahasan:**
+
+- Ketinggian awal ($U_1$, pantulan pertama/awal jatuh) = $16$.
+- Rasio ($r$) = $\frac{1}{2}$.
+- Pantulan ke-5 berarti kita mencari $U_6$ (karena awal belum memantul adalah $U_1$, pantulan ke-1 adalah $U_2$). *Atau lebih aman manual:*
+  - Awal: $16\text{ m}$
+  - Pantulan 1: $16 \times \frac{1}{2} = 8\text{ m}$
+  - Pantulan 2: $8 \times \frac{1}{2} = 4\text{ m}$
+  - Pantulan 3: $4 \times \frac{1}{2} = 2\text{ m}$
+  - Pantulan 4: $2 \times \frac{1}{2} = 1\text{ m}$
+  - Pantulan 5: $1 \times \frac{1}{2} = 0,5\text{ m}$
+Jawaban: Ketinggiannya **$0,5\text{ meter}$**.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Salah Memilih $a$ dan $r$ pada Rumus**: Pada rumus $U_n = a \times r^{n-1}$, banyak yang mengira pangkat $n-1$ berlaku untuk variabel $a$ juga. **SALAH!** Hanya rasionya ($r$) yang dipangkatkan! Kerjakan pangkatnya terlebih dahulu sebelum dikalikan dengan $a$.
+
+
+- **Rasio Terbalik**: Pada barisan yang mengecil seperti $81, 27, 9 \dots$, rasio dicari dengan membagi suku kanan ke kiri: $r = \frac{27}{81} = \frac{1}{3}$. Jangan terbalik menjadi $\frac{81}{27} = 3$!
+
+### Koneksi Dunia Nyata
+1. **Penyebaran Virus**: Kasus pandemi yang menular dari 1 orang ke 3 orang, lalu 3 orang itu menularkan ke 9 orang, adalah contoh menakutkan dari Barisan Geometri. Oleh karena itu pembatasan sosial dibutuhkan untuk "memutus rasio" penyebaran.
+2. **Bunga Majemuk Bank**: Saat kamu menabung dan bunganya dibiarkan menumpuk bertahun-tahun, uangmu akan tumbuh secara geometri!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    1. Rasio dari barisan $5, -10, 20, -40, \dots$ adalah...
+  </div>
+  <div slot="option-a">$2$</div>
+  <div slot="option-b">$1/2$</div>
+  <div slot="option-c">$-2$</div>
+  <div slot="option-d">$-5$</div>
+  <div slot="explanation">**Pembahasan:** $r = \frac{U_2}{U_1} = \frac{-10}{5} = -2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    2. Suku ke-6 dari barisan geometri $1, 3, 9, 27, \dots$ adalah...
+  </div>
+  <div slot="option-a">$81$</div>
+  <div slot="option-b">$243$</div>
+  <div slot="option-c">$729$</div>
+  <div slot="option-d">$343$</div>
+  <div slot="explanation">**Pembahasan:** $a = 1$, $r = 3$. 
+    $U_6 = 1 \times 3^{(6-1)} = 3^5 = 243$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    3. Pada suatu barisan geometri, $U_1 = 2$ dan $U_4 = 54$. Rasio barisan tersebut adalah...
+  </div>
+  <div slot="option-a">$2$</div>
+  <div slot="option-b">$-3$</div>
+  <div slot="option-c">$3$</div>
+  <div slot="option-d">$4$</div>
+  <div slot="explanation">**Pembahasan:** $U_4 = a \times r^3$
+    $54 = 2 \times r^3$
+    $r^3 = 54 \div 2 = 27$
+    Akar pangkat tiga dari $27$ adalah $3$. Maka $r = 3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    4. Manakah di bawah ini yang BUKAN merupakan barisan geometri?
+  </div>
+  <div slot="option-a">$2, 4, 6, 8, \dots$</div>
+  <div slot="option-b">$2, 4, 8, 16, \dots$</div>
+  <div slot="option-c">$100, 50, 25, \dots$</div>
+  <div slot="option-d">$3, -3, 3, -3, \dots$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    Opsi A adalah barisan aritmatika (selalu ditambah 2, bukan dikali 2). Sisanya memiliki pengali yang tetap ($r = 2$, $r = 1/2$, dan $r = -1$).
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">
+    5. Amoeba membelah diri menjadi 2 setiap 20 menit. Jika mula-mula ada 10 amoeba, jumlah amoeba setelah 1 jam adalah...
+  </div>
+  <div slot="option-a">$20$</div>
+  <div slot="option-b">$40$</div>
+  <div slot="option-c">$60$</div>
+  <div slot="option-d">$80$</div>
+  <div slot="explanation">**Pembahasan:** 1 jam = 60 menit. Amoeba membelah sebanyak $60 \div 20 = 3$ kali.
+    Awal: 10
+    Pembelahan ke-1: 20
+    Pembelahan ke-2: 40
+    Pembelahan ke-3: 80.</div>
+</Quiz>

@@ -1,0 +1,25 @@
+/* =====================================================
+   CONTAINER.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.container {
+    width: var(--content-width);
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-inline: var(--space-lg);
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-inline: var(--space-md);
+    }
+}

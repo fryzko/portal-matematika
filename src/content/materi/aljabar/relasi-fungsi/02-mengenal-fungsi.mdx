@@ -1,0 +1,169 @@
+---
+title: "Mengenal Fungsi: Relasi yang Istimewa"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Mengenal Fungsi
+Bayangkan sebuah mesin pencetak nama peserta di sebuah karnaval. Setiap orang yang masuk (input) ke dalam mesin tersebut pasti akan mendapatkan SATU nama yang tercetak di tiketnya (output). Mesin ini beroperasi secara logis: tidak mungkin satu orang yang masuk mendapatkan dua nama yang berbeda secara bersamaan. Dan, mesin ini juga menjamin semua orang yang mengantri pasti diproses. Nah, mesin dengan aturan ketat seperti ini di dalam matematika disebut sebagai **Fungsi**. Fungsi adalah relasi yang sangat disiplin!
+
+### Yuk, Temukan Sendiri Mengenal Fungsi
+Di bawah ini ada empat kondisi mesin (diagram panah). Coba tebak mana mesin yang normal (Fungsi) dan mana mesin yang rusak (Bukan Fungsi):
+
+- **Diagram A:** Setiap orang menekan tombol satu kali dan mendapat satu tiket berbeda. 
+- **Diagram B:** Ada satu orang yang menekan tombol dan keluar dua tiket atas namanya.
+- **Diagram C:** Ada satu orang yang tidak bisa menekan tombol sama sekali.
+- **Diagram D:** Ada dua orang berbeda yang mendapatkan warna tiket yang sama.
+
+Jawabannya: 
+Mesin A dan D adalah **FUNGSI**. 
+Mesin B BUKAN fungsi (satu input menghasilkan >1 output).
+Mesin C BUKAN fungsi (ada input yang tidak punya output).
+
+### Teori & Definisi Formal
+**Fungsi (Pemetaan)** adalah relasi khusus yang memasangkan **setiap** anggota daerah asal (domain) dengan **tepat satu** anggota daerah kawan (kodomain).
+
+Ada dua syarat mutlak agar sebuah relasi bisa disebut Fungsi:
+1. **Semua anggota domain HARUS punya pasangan** (tidak boleh ada yang jomblo/kosong).
+2. **Semua anggota domain HANYA boleh punya SATU pasangan** (tidak boleh selingkuh/bercabang).
+
+*Catatan: Aturan ini HANYA berlaku untuk Domain. Anggota Kodomain bebas (boleh jomblo, boleh dipilih berkali-kali).*
+
+**Notasi dan Rumus Fungsi**
+Fungsi biasanya dilambangkan dengan huruf kecil seperti $f$, $g$, atau $h$. 
+Fungsi $f$ yang memetakan himpunan A ke B dinotasikan dengan:
+$$f: A \rightarrow B$$
+
+Jika fungsi memetakan $x$ ke suatu aturan, misalnya dikalikan 2 lalu ditambah 1, kita menuliskannya sebagai rumus fungsi:
+$$f(x) = 2x + 1$$
+Untuk mencari nilai fungsinya, kita substitusi $x$ dengan angka. Misalnya untuk $x = 3$:
+$$f(3) = 2(3) + 1 = 7$$
+
+**Jenis Fungsi (Pengenalan Ringan)**
+- **Injektif (Satu-satu):** Tidak ada anggota kodomain yang diplih lebih dari sekali.
+- **Surjektif (Onto):** Semua anggota kodomain habis terpilih (Range = Kodomain).
+
+### Visualisasi: Mengenal Fungsi
+Agar gampang ingat bedanya fungsi dan bukan fungsi pada himpunan pasangan berurutan, cukup lihat nilai $x$-nya (angka pertama)!
+Misal domain = $\{1, 2, 3\}$.
+- $\{(1, a), (2, a), (3, b)\} \rightarrow$ **Fungsi**. (Setiap x muncul satu kali, biarpun y-nya sama).
+- $\{(1, a), (1, b), (3, c)\} \rightarrow$ **BUKAN Fungsi**. (Angka 1 muncul dua kali / bercabang).
+- $\{(1, a), (2, c)\} \rightarrow$ **BUKAN Fungsi**. (Angka 3 tidak punya pasangan).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Diberikan himpunan pasangan berurutan $\{(2, 4), (3, 9), (4, 16)\}$. Apakah ini sebuah fungsi?
+
+**Pembahasan:**
+
+Lihat angka pertamanya (domain): 2, 3, dan 4. Karena tidak ada angka pertama yang berulang, maka ini **adalah fungsi**.
+
+#### Contoh 1 (Mudah)
+
+Diketahui fungsi $f(x) = 3x - 2$. Berapakah nilai dari $f(4)$?
+
+**Pembahasan:**
+
+Ganti setiap huruf $x$ dengan angka 4.
+$$f(4) = 3(4) - 2$$
+
+$$f(4) = 12 - 2 = 10$$
+
+#### Contoh 2 (Menengah)
+
+Jika $h(x) = px + q$, diketahui $h(1) = 5$ dan $h(2) = 8$. Tentukan nilai $p$ dan $q$!
+
+**Pembahasan:**
+
+Kita buat dua persamaan:
+1) $h(1) = p(1) + q = 5 \Rightarrow p + q = 5$
+2) $h(2) = p(2) + q = 8 \Rightarrow 2p + q = 8$
+Gunakan eliminasi (kurangi persamaan 2 dengan persamaan 1):
+$2p + q = 8$
+$p + q = 5$
+------------- $(-)$
+$p = 3$
+Jika $p = 3$, maka $3 + q = 5 \Rightarrow q = 2$.
+Jadi, $p = 3$ dan $q = 2$.
+
+#### Contoh 3 (Menantang)
+
+Berapa banyak kemungkinan pemetaan (fungsi) yang bisa dibuat dari Himpunan A yang berisi 2 anggota ke Himpunan B yang berisi 3 anggota?
+
+**Pembahasan:**
+
+Banyak fungsi dari A ke B dirumuskan dengan $n(B)^{n(A)}$.
+$n(A) = 2$ dan $n(B) = 3$.
+Banyak kemungkinan fungsi $= 3^2 = 9$ cara.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Siswa seringkali keliru menganggap bahwa: "Jika ada dua panah menunjuk ke satu anggota kodomain yang sama, maka itu BUKAN fungsi". **Ini adalah mitos yang salah!**
+
+
+Ingat syaratnya: Yang tidak boleh bercabang adalah **Domain** (daerah asal).
+Kodomain (daerah tujuan) boleh saja ditunjuk oleh banyak panah. Ibaratnya, banyak siswa berbeda boleh memilih es krim rasa cokelat yang sama. Itu tetap sebuah fungsi!
+
+### Koneksi Dunia Nyata
+Konsep input-output pada fungsi digunakan di mana-mana!
+1. **Konversi Suhu:** Merubah suhu Celsius ke Fahrenheit menggunakan fungsi $F = \frac{9}{5}C + 32$. Satu nilai derajat Celsius pasti hanya akan menghasilkan satu nilai derajat Fahrenheit.
+2. **Kalkulator:** Apapun tombol yang kamu pencet, proses di dalamnya adalah sebuah fungsi matematis.
+3. **Mesin Penjual Minuman:** Input koinmu, tekan satu tombol minuman, dan mesin mengeluarkan satu jenis minuman yang tepat.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Perhatikan himpunan pasangan berurutan berikut ini. Manakah yang merupakan fungsi?</div>
+  <div slot="option-a">$\{(1, a), (1, b), (2, c)\}$</div>
+  <div slot="option-b">$\{(a, 1), (b, 2), (a, 3)\}$</div>
+  <div slot="option-c">$\{(1, x), (2, x), (3, x)\}$</div>
+  <div slot="option-d">$\{(x, 1), (y, 2), (y, 3)\}$</div>
+  <div slot="explanation">**Pembahasan:** Fungsi tidak boleh memiliki domain (angka pertama) yang berulang. Pada pilihan C, domainnya adalah 1, 2, dan 3 (tidak ada yang berulang), meskipun kodomainnya (x) sama semua. Itu sah sebagai fungsi!</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Diketahui fungsi $f(x) = 5x - 4$. Nilai dari $f(3)$ adalah...</div>
+  <div slot="option-a">11</div>
+  <div slot="option-b">15</div>
+  <div slot="option-c">19</div>
+  <div slot="option-d">1</div>
+  <div slot="explanation">**Pembahasan:** $f(3) = 5(3) - 4 = 15 - 4 = 11$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Syarat utama sebuah relasi dari himpunan A ke himpunan B dapat dikatakan sebagai fungsi adalah...</div>
+  <div slot="option-a">Setiap anggota B memiliki pasangan di A.</div>
+  <div slot="option-b">Setiap anggota A dipasangkan dengan tepat satu anggota B.</div>
+  <div slot="option-c">Anggota A boleh memiliki lebih dari satu pasangan di B.</div>
+  <div slot="option-d">Jumlah anggota himpunan A dan B harus sama.</div>
+  <div slot="explanation">**Pembahasan:** Syarat mutlak fungsi adalah domain (A) harus habis dipasangkan, dan masing-masing anggota A tidak boleh bercabang (tepat satu).</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Jika $f(x) = 2x + b$ dan nilai $f(4) = 13$, berapakah nilai $b$?</div>
+  <div slot="option-a">2</div>
+  <div slot="option-b">3</div>
+  <div slot="option-c">4</div>
+  <div slot="option-d">5</div>
+  <div slot="explanation">**Pembahasan:** $f(4) = 2(4) + b \Rightarrow 13 = 8 + b \Rightarrow b = 13 - 8 = 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH tentang fungsi?</div>
+  <div slot="option-a">Fungsi adalah bentuk khusus dari relasi.</div>
+  <div slot="option-b">Dalam fungsi, daerah asal disebut domain.</div>
+  <div slot="option-c">Satu nilai input pada fungsi hanya akan menghasilkan satu nilai output.</div>
+  <div slot="option-d">Dalam diagram panah fungsi, kodomain dilarang ditunjuk oleh lebih dari satu panah.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah. Pada fungsi, Kodomain (daerah kawan/tujuan) BEBAS ditunjuk oleh berapapun panah, asalkan Domainnya tidak bercabang.</div>
+</Quiz>

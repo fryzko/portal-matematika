@@ -1,0 +1,195 @@
+---
+title: "Persamaan Garis Lurus: Menulis Rumus Sebuah Garis"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+
+### Mari Memahami Persamaan Garis Lurus
+Ketika kamu menggunakan aplikasi GPS (seperti Google Maps) untuk mencari rute lurus terpendek antara dua tempat, bagaimana komputer bisa menggambar garis lurus dengan presisi yang sangat akurat? Komputer tidak menggunakan penggaris! Mereka menggunakan matematika, di mana setiap titik di jalan yang digambar dipandu oleh satu aturan ketat dan seragam. Aturan seragam yang memastikan garis tidak melengkung inilah yang kita sebut dengan **Persamaan Garis Lurus**.
+
+### Yuk, Temukan Sendiri Persamaan Garis Lurus
+Bisakah kamu menyusun rumus persamaan garis sendiri hanya dengan modal dua buah titik? Mari kita buktikan bahwa itu sangat mungkin!
+Sebagai contoh, kita akan mencari persamaan garis lurus yang melewati titik $(1, 3)$ dan $(3, 7)$.
+
+**Langkah 1: Hitung gradiennya ($m$)**
+$m = \frac{7 - 3}{3 - 1} = \frac{4}{2} = 2$
+
+**Langkah 2: Gunakan rumus titik-gradien $y - y_1 = m(x - x_1)$**
+Pilih salah satu titik, misalnya $(1, 3)$, maka:
+$y - 3 = 2(x - 1)$
+
+**Langkah 3: Sederhanakan persamaannya**
+$y - 3 = 2x - 2$
+$y = 2x - 2 + 3$
+$y = 2x + 1$
+
+**Langkah 4: Verifikasi (Uji kebenaran)**
+Mari kita masukkan titik kedua $(3, 7)$ ke dalam rumus kita! Jika $x = 3$, maka $y = 2(3) + 1 = 6 + 1 = 7$. Jawabannya terbukti benar! (Garisnya sah!).
+
+### Teori & Definisi Formal
+**Persamaan Garis Lurus** adalah persamaan matematika yang membentuk sebuah garis lurus ketika digambar pada bidang kartesius.
+Ada beberapa bentuk penulisan persamaan garis:
+
+1. **Bentuk Gradien-Intersep (Eksplisit):**
+   $$y = mx + c$$
+   Dimana $m$ adalah gradien, dan $c$ adalah intersep-$y$ (titik potong dengan sumbu $y$).
+
+2. **Bentuk Umum (Implisit):**
+   $$ax + by + c = 0$$
+   Persamaan ditulis menyatu dengan nilai 0 di salah satu ruasnya.
+
+3. **Bentuk Intersep Sumbu:**
+   $$\frac{x}{a} + \frac{y}{b} = 1$$
+   Digunakan jika kita mengetahui dengan jelas titik potong sumbu-$x$ di $(a, 0)$ dan sumbu-$y$ di $(0, b)$.
+
+**Rumus Membentuk Persamaan Garis:**
+Jika kamu sudah tahu nilai gradiennya ($m$) dan satu titik singgah $(x_1, y_1)$, gunakan rumus sakti ini:
+$$y - y_1 = m(x - x_1)$$
+
+### Visualisasi: Persamaan Garis Lurus
+Coba kamu gunakan bidang koordinat ini! Plot titik $(1, 3)$ dan titik $(3, 7)$ yang baru saja kita kerjakan di atas. Bayangkan ada sebuah garis lurus yang melewati kedua titik tersebut. 
+
+Coba plot titik-titik berikut dan hubungkan dengan garis lurus:
+
+| x  | y=2x+1 | Titik    |
+|----|--------|----------|
+| -2 | -3     | (-2,-3)  |
+| 0  | 1      | (0,1)    |
+| 2  | 5      | (2,5)    |
+
+Perhatikan bahwa garis memotong sumbu Y di titik (0, 1)
+
+Perhatikan perpotongan garis maya tersebut terhadap sumbu-$y$ (garis tegak). Garis itu akan memotong tepat di koordinat $(0, 1)$. Inilah arti dari angka 1 pada persamaan $y = 2x + \mathbf{1}$. Angka penambahan yang sering disebut huruf $c$ itu menunjukkan posisi *intersep-$y$* (titik pendaratan di sumbu vertikal).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Ubah persamaan $y = 3x - 4$ ke dalam bentuk umum $ax + by + c = 0$!
+
+**Pembahasan:**
+
+Pindahkan semua variabel ke ruas kiri agar ruas kanan menjadi 0.
+$y = 3x - 4$
+$-3x + y + 4 = 0$
+Selesai!
+
+#### Contoh 1 (Mudah)
+
+Tentukan persamaan garis yang memiliki gradien $m = 4$ dan melewati titik $(2, 5)$!
+
+**Pembahasan:**
+
+Gunakan rumus sakti:
+$$y - y_1 = m(x - x_1)$$
+
+$$y - 5 = 4(x - 2)$$
+
+$$y - 5 = 4x - 8$$
+
+$$y = 4x - 8 + 5$$
+
+$$y = 4x - 3$$
+
+#### Contoh 2 (Menengah)
+
+Carilah titik potong sumbu-$x$ dan sumbu-$y$ dari persamaan garis $3x - 2y = 12$!
+
+**Pembahasan:**
+
+- Titik potong sumbu-$y$ (saat $x = 0$):
+  $3(0) - 2y = 12 \Rightarrow -2y = 12 \Rightarrow y = -6$. Titik: $(0, -6)$
+- Titik potong sumbu-$x$ (saat $y = 0$):
+  $3x - 2(0) = 12 \Rightarrow 3x = 12 \Rightarrow x = 4$. Titik: $(4, 0)$
+
+#### Contoh 3 (Menantang)
+
+Tentukan persamaan garis lurus yang melalui titik $(-1, 4)$ dan sejajar dengan garis $y = -2x + 5$!
+
+**Pembahasan:**
+
+1) Cari gradiennya dulu. Karena sejajar dengan $y = -2x + 5$, maka gradien kita sama yaitu $m = -2$.
+2) Gunakan titik yang diminta: $(-1, 4)$.
+$$y - y_1 = m(x - x_1)$$
+
+$$y - 4 = -2(x - (-1))$$
+
+$$y - 4 = -2(x + 1)$$
+
+$$y - 4 = -2x - 2$$
+
+$$y = -2x - 2 + 4$$
+
+$$y = -2x + 2$$
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan umum yang sering dibuat siswa adalah salah menafsirkan arti nilai **$c$** pada persamaan $y = mx + c$.
+
+
+Banyak siswa yang mengira $c$ adalah titik potong dengan sumbu-$x$. **Itu keliru!**
+Nilai $c$ adalah perpotongan dengan **sumbu-$y$** (karena pada saat potong sumbu-$y$, nilai $x=0$, maka $y = m(0) + c \rightarrow y = c$).
+Untuk menemukan potong sumbu-$x$, jangan tebak sembarangan! Kamu harus substitusi nilai $y$ dengan $0$ pada persamaan.
+
+### Koneksi Dunia Nyata
+Penerapan persamaan garis lurus ini banyak sekali:
+1. **Ekonomi Bisnis:** Menentukan fungsi biaya tetap dan variabel perusahaan ($C = 5000x + 20000$).
+2. **Fisika:** Grafik hubungan Gerak Lurus Beraturan (GLB) di mana jarak tempuh proporsional (membentuk garis lurus) seiring bertambahnya waktu.
+3. **Data Science:** Prediksi machine learning dasar (Regresi Linear) bekerja dengan mencari garis lurus paling akurat di kumpulan data yang tersebar!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Titik potong sumbu-$y$ (intersep-$y$) dari persamaan garis $y = -7x + 15$ adalah...</div>
+  <div slot="option-a">$(15, 0)$</div>
+  <div slot="option-b">$(-7, 0)$</div>
+  <div slot="option-c">$(0, 15)$</div>
+  <div slot="option-d">$(0, -7)$</div>
+  <div slot="explanation">**Pembahasan:** Pada bentuk $y = mx + c$, nilai $c$ adalah titik potong sumbu-$y$. Jadi titiknya adalah $(0, c) = (0, 15)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Persamaan garis lurus yang memiliki gradien $m = 3$ dan melalui titik $(1, 4)$ adalah...</div>
+  <div slot="option-a">$y = 3x - 1$</div>
+  <div slot="option-b">$y = 3x + 1$</div>
+  <div slot="option-c">$y = -3x + 4$</div>
+  <div slot="option-d">$y = 4x + 3$</div>
+  <div slot="explanation">**Pembahasan:** $y - 4 = 3(x - 1) \Rightarrow y - 4 = 3x - 3 \Rightarrow y = 3x + 1$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Persamaan garis lurus yang tegak lurus dengan $y = \frac{1}{2}x - 4$ dan melalui titik $(0, 5)$ adalah...</div>
+  <div slot="option-a">$y = -2x - 5$</div>
+  <div slot="option-b">$y = \frac{1}{2}x + 5$</div>
+  <div slot="option-c">$y = 2x + 5$</div>
+  <div slot="option-d">$y = -2x + 5$</div>
+  <div slot="explanation">**Pembahasan:** Gradien mula-mula 1/2. Agar tegak lurus: $m_1 \times m_2 = -1$, maka $m_2 = -2$. Karena memotong titik sumbu-$y$ di $(0, 5)$, berarti $c = 5$. Fungsinya $y = -2x + 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Ubah bentuk persamaan $2x + 4y - 8 = 0$ menjadi bentuk $y = mx + c$! Bentuk yang benar adalah...</div>
+  <div slot="option-a">$y = -\frac{1}{2}x + 2$</div>
+  <div slot="option-b">$y = 2x - 4$</div>
+  <div slot="option-c">$y = -2x + 8$</div>
+  <div slot="option-d">$y = \frac{1}{2}x + 4$</div>
+  <div slot="explanation">**Pembahasan:** $2x + 4y - 8 = 0 \Rightarrow 4y = -2x + 8$. Dibagi 4 semua: $y = -\frac{2}{4}x + \frac{8}{4} \Rightarrow y = -\frac{1}{2}x + 2$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah pernyataan di bawah ini yang SALAH tentang persamaan garis lurus?</div>
+  <div slot="option-a">Bentuk umum persamaan garis lurus bisa ditulis sebagai $ax + by + c = 0$.</div>
+  <div slot="option-b">Untuk mencari titik potong sumbu-$x$, kita perlu mensubstitusi nilai $y$ menjadi $0$.</div>
+  <div slot="option-c">Nilai $c$ dalam persamaan $y = mx + c$ mewakili titik potong antara garis dengan sumbu-$x$.</div>
+  <div slot="option-d">Setiap titik yang dilalui oleh garis lurus jika dimasukkan ke persamaannya akan membuat nilai ruas kiri dan kanan menjadi seimbang.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan C salah. Nilai $c$ pada persamaan $y = mx + c$ menunjukkan titik potong dengan sumbu-$y$ (saat $x=0$), BUKAN sumbu-$x$.</div>
+</Quiz>

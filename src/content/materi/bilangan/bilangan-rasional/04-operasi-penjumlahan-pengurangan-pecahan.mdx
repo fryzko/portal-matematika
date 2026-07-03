@@ -1,0 +1,161 @@
+---
+title: "Penjumlahan dan Pengurangan Pecahan: Menyamakan Penyebut Dulu!"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import FractionVisualizer from '../../../../components/FractionVisualizer.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Penjumlahan dan Pengurangan Pecahan
+
+Bayangkan kamu makan $\frac{1}{4}$ pizza, dan adikmu makan $\frac{2}{4}$ pizza. Berapa total pizza yang dimakan? Mudah, jawabannya $\frac{3}{4}$! Karena pembaginya (penyebutnya) sama-sama 4.
+
+Tapi bagaimana jika kamu makan $\frac{1}{3}$ pizza dan adikmu $\frac{1}{4}$ pizza? Kamu **tidak bisa langsung menjumlahkan** $1+1$ dan $3+4$! Kenapa? Karena ukuran potongan pizzamu dan adikmu berbeda. Kamu harus memotong-motong ulang pizza tersebut agar ukurannya sama sebelum bisa dihitung totalnya. Itulah konsep dasar dari mencari KPK (Kelipatan Persekutuan Terkecil) untuk menyamakan penyebut.
+
+### Yuk, Temukan Sendiri Pentingnya Menyamakan Penyebut
+
+Gunakan alat di bawah ini untuk mengatur dua pecahan yang berbeda penyebutnya. Amati visualisasi batangnya untuk menemukan pecahan mana yang lebih besar sebelum kamu mencoba menjumlahkannya!
+
+<FractionVisualizer />
+
+Jika penyebutnya berbeda, ukuran balok/potongannya berbeda, sehingga tidak adil jika langsung ditambahkan. Kita harus membuat ukuran potongannya seragam terlebih dahulu!
+
+### Teori & Definisi Formal
+
+**1. Penjumlahan & Pengurangan Berpenyebut Sama**
+Jika penyebutnya sudah sama, kita cukup menjumlahkan atau mengurangkan **pembilangnya saja**, penyebutnya tetap.
+$$\frac{a}{b} + \frac{c}{b} = \frac{a+c}{b}$$
+
+**2. Penjumlahan & Pengurangan Berpenyebut Berbeda**
+Kita wajib menyamakan penyebutnya menggunakan KPK (Kelipatan Persekutuan Terkecil) dari kedua penyebut, lalu menyesuaikan pembilangnya. Atau menggunakan rumus kali silang:
+$$\frac{a}{b} + \frac{c}{d} = \frac{a \times d + c \times b}{b \times d}$$
+
+**3. Operasi dengan Pecahan Campuran**
+Lebih mudah jika pecahan campuran diubah terlebih dahulu menjadi pecahan biasa sebelum dioperasikan, atau menjumlahkan bilangan bulat dengan bilangan bulat, dan pecahan dengan pecahan (hati-hati jika bagian pecahan menghasilkan angka negatif saat pengurangan).
+
+### Visualisasi: Menyamakan Penyebut dengan KPK
+
+Mari kita lihat secara visual langkah-langkah menyamakan penyebut untuk $\frac{1}{2} + \frac{1}{3}$:
+
+```text
+½ + ⅓ = ?
+
+Langkah 1: Cari KPK(2,3) = 6
+
+Langkah 2: Ubah kedua pecahan
+½ = (1×3)/(2×3) = 3/6
+⅓ = (1×2)/(3×2) = 2/6
+
+Langkah 3: Jumlahkan pembilangnya!
+3/6 + 2/6 = 5/6
+```
+
+### Contoh Soal & Pembahasan
+
+#### Level 1: Penyebut Sama
+
+Berapakah hasil dari $\frac{3}{8} + \frac{2}{8}$?
+
+**Pembahasan:**
+Karena penyebut sudah sama (8), jumlahkan pembilangnya:
+$\frac{3}{8} + \frac{2}{8} = \frac{3+2}{8} = \frac{5}{8}$.
+
+#### Level 2: Penyebut Berbeda
+
+Berapakah hasil dari $\frac{2}{5} + \frac{1}{4}$?
+
+**Pembahasan:**
+KPK dari 5 dan 4 adalah 20.
+$\frac{2}{5} = \frac{2 \times 4}{5 \times 4} = \frac{8}{20}$
+$\frac{1}{4} = \frac{1 \times 5}{4 \times 5} = \frac{5}{20}$
+Jumlahkan: $\frac{8}{20} + \frac{5}{20} = \frac{13}{20}$.
+
+#### Level 3: Pengurangan Pecahan
+
+Berapakah hasil dari $\frac{5}{6} - \frac{1}{3}$?
+
+**Pembahasan:**
+KPK dari 6 dan 3 adalah 6.
+$\frac{1}{3} = \frac{1 \times 2}{3 \times 2} = \frac{2}{6}$
+Kurangkan: $\frac{5}{6} - \frac{2}{6} = \frac{3}{6}$.
+Sederhanakan: $\frac{3}{6} = \frac{1}{2}$.
+
+#### Level 4: Pecahan Campuran
+
+Berapakah hasil dari $2\frac{1}{2} + 1\frac{1}{3}$?
+
+**Pembahasan:**
+Ubah ke pecahan biasa:
+$2\frac{1}{2} = \frac{5}{2}$
+$1\frac{1}{3} = \frac{4}{3}$
+KPK(2,3) = 6.
+$\frac{5}{2} = \frac{15}{6}$
+$\frac{4}{3} = \frac{8}{6}$
+Jumlahkan: $\frac{15}{6} + \frac{8}{6} = \frac{23}{6}$.
+Ubah kembali ke campuran: $\frac{23}{6} = 3\frac{5}{6}$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+1. **Menjumlahkan Atas dan Bawah Sekaligus**: Kesalahan paling fatal! Banyak siswa menjumlahkan pembilang dan penyebut secara terpisah: $\frac{1}{2} + \frac{1}{3} \neq \frac{2}{5}$. Ingat, penyebut TIDAK BOLEH dijumlahkan secara langsung.
+2. **Lupa Menyederhanakan**: Jika hasil akhirmu adalah $\frac{4}{8}$, itu belum selesai! Biasakan menyederhanakan pecahan ke bentuk paling kecil menjadi $\frac{1}{2}$.
+
+### Koneksi Dunia Nyata
+
+- **Resep Masakan**: Pernah membaca resep yang mengatakan "$\frac{1}{2}$ cangkir tepung + $\frac{1}{4}$ cangkir gula"? Jika kamu ingin mencampur semuanya di mangkuk besar, kamu harus menghitung $\frac{1}{2} + \frac{1}{4} = \frac{3}{4}$ cangkir!
+- **Pengukuran Pertukangan**: Tukang kayu sering memotong papan berukuran pecahan inci atau sentimeter, lalu menyambungnya, yang membutuhkan operasi penjumlahan pecahan agar presisi.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Hasil dari $\frac{2}{7} + \frac{3}{7}$ adalah...</div>
+  <div slot="option-a">$\frac{5}{14}$</div>
+  <div slot="option-b">$\frac{5}{7}$</div>
+  <div slot="option-c">$\frac{6}{7}$</div>
+  <div slot="option-d">$\frac{6}{14}$</div>
+  <div slot="explanation">**Pembahasan:** Penyebut sama, langsung jumlahkan pembilangnya: $2 + 3 = 5$. Hasil = $\frac{5}{7}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Hasil dari $\frac{3}{4} - \frac{1}{5}$ adalah...</div>
+  <div slot="option-a">$\frac{11}{20}$</div>
+  <div slot="option-b">$\frac{2}{20}$</div>
+  <div slot="option-c">$\frac{2}{-1}$</div>
+  <div slot="option-d">$\frac{11}{4}$</div>
+  <div slot="explanation">**Pembahasan:** KPK(4,5)=20. $\frac{15}{20} - \frac{4}{20} = \frac{11}{20}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Berapakah hasil dari $\frac{1}{2} + \frac{1}{6} + \frac{1}{3}$?</div>
+  <div slot="option-a">$\frac{3}{11}$</div>
+  <div slot="option-b">$\frac{3}{12}$</div>
+  <div slot="option-c">$1$</div>
+  <div slot="option-d">$\frac{5}{6}$</div>
+  <div slot="explanation">**Pembahasan:** KPK=6. $\frac{3}{6} + \frac{1}{6} + \frac{2}{6} = \frac{6}{6} = 1$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Hasil dari $3\frac{1}{4} - 1\frac{1}{2}$ adalah...</div>
+  <div slot="option-a">$2\frac{1}{2}$</div>
+  <div slot="option-b">$2\frac{1}{4}$</div>
+  <div slot="option-c">$1\frac{1}{4}$</div>
+  <div slot="option-d">$1\frac{3}{4}$</div>
+  <div slot="explanation">**Pembahasan:** Ubah jadi biasa: $\frac{13}{4} - \frac{3}{2} = \frac{13}{4} - \frac{6}{4} = \frac{7}{4} = 1\frac{3}{4}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Manakah pernyataan yang SALAH tentang penjumlahan dan pengurangan pecahan?</div>
+  <div slot="option-a">Jika penyebutnya berbeda, kita harus mencari KPK terlebih dahulu.</div>
+  <div slot="option-b">$\frac{1}{3} + \frac{2}{5}$ hasilnya sama dengan $\frac{3}{8}$.</div>
+  <div slot="option-c">Pecahan campuran lebih mudah diubah menjadi pecahan biasa terlebih dahulu sebelum dikurangkan.</div>
+  <div slot="option-d">Hasil akhir pecahan harus disederhanakan jika pembilang dan penyebut bisa dibagi angka yang sama.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan B SALAH karena itu menjumlahkan atas dan bawah sekaligus ($\frac{1+2}{3+5}$), yang dilarang! Jawaban benarnya KPK 15: $\frac{5}{15} + \frac{6}{15} = \frac{11}{15}$.</div>
+</Quiz>

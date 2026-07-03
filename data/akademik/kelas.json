@@ -1,0 +1,20 @@
+[
+    {
+        "id": "vii",
+        "nama": "Kelas VII",
+        "fase": "D",
+        "elemen": 5
+    },
+    {
+        "id": "viii",
+        "nama": "Kelas VIII",
+        "fase": "D",
+        "elemen": 3
+    },
+    {
+        "id": "ix",
+        "nama": "Kelas IX",
+        "fase": "D",
+        "elemen": 4
+    }
+]

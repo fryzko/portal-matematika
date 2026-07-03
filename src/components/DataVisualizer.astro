@@ -1,0 +1,420 @@
+---
+// src/components/DataVisualizer.astro
+---
+
+<data-visualizer class="dv-widget">
+  <div class="dv-header">
+    <h3>Pabrik Diagram Interaktif</h3>
+    <p>Ubah data di dalam tabel, dan lihat bagaimana grafik di sebelahnya langsung berubah wujud. Coba ganti tipe grafiknya juga!</p>
+  </div>
+
+  <div class="dv-body">
+    <div class="dv-table-panel">
+      <div class="panel-header">
+        <h4>Tabel Jajanan Favorit</h4>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Jenis Jajanan</th>
+            <th>Banyak Siswa</th>
+          </tr>
+        </thead>
+        <tbody id="data-rows">
+          <tr>
+            <td><input type="text" class="cat-input" value="Bakso" /></td>
+            <td><input type="number" class="val-input" value="12" min="0" max="50" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="cat-input" value="Mie Ayam" /></td>
+            <td><input type="number" class="val-input" value="8" min="0" max="50" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="cat-input" value="Siomay" /></td>
+            <td><input type="number" class="val-input" value="15" min="0" max="50" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="cat-input" value="Cilok" /></td>
+            <td><input type="number" class="val-input" value="10" min="0" max="50" /></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="cat-input" value="Es Teh" /></td>
+            <td><input type="number" class="val-input" value="5" min="0" max="50" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="dv-controls">
+        <button id="btn-bar" class="active">Diagram Batang</button>
+        <button id="btn-line">Diagram Garis</button>
+      </div>
+    </div>
+
+    <div class="dv-graph-panel">
+      <svg id="chart-svg" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bar-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#0284c7" />
+          </linearGradient>
+        </defs>
+        
+        <!-- Y Axis Lines & Labels -->
+        <g id="y-grid"></g>
+        
+        <!-- Axes -->
+        <line x1="50" y1="20" x2="50" y2="300" stroke="#94a3b8" stroke-width="2" />
+        <line x1="50" y1="300" x2="480" y2="300" stroke="#94a3b8" stroke-width="2" />
+        
+        <!-- Graph Contents -->
+        <g id="graph-content"></g>
+        
+        <!-- X Axis Labels -->
+        <g id="x-labels"></g>
+      <div id="calc-stats" style="margin-top: 1.5rem; background: #f0fdf4; padding: 1rem; border-radius: 8px; border: 1px solid #bbf7d0; width: 100%; display: flex; justify-content: space-around; font-family: monospace; font-size: 1.1rem; color: #166534; flex-wrap: wrap; gap: 1rem;">
+        <div>Jumlah data: <strong id="stat-n">0</strong></div>
+        <div>Nilai terbesar: <strong id="stat-max">0</strong></div>
+        <div>Nilai terkecil: <strong id="stat-min">0</strong></div>
+        <div>Total: <strong id="stat-sum">0</strong></div>
+        <div>Rata-rata: <strong id="stat-mean">0</strong></div>
+      </div>
+    </div>
+  </div>
+</data-visualizer>
+
+<script>
+// @ts-nocheck
+  class DataVisualizer extends HTMLElement {
+    constructor() {
+      super();
+      this.mode = 'bar'; // 'bar' or 'line'
+      
+      this.btnBar = this.querySelector('#btn-bar');
+      this.btnLine = this.querySelector('#btn-line');
+      
+      this.catInputs = Array.from(this.querySelectorAll('.cat-input'));
+      this.valInputs = Array.from(this.querySelectorAll('.val-input'));
+      
+      this.svgGraph = this.querySelector('#graph-content');
+      this.svgXLabels = this.querySelector('#x-labels');
+      this.svgYGrid = this.querySelector('#y-grid');
+
+      this.statN = this.querySelector('#stat-n');
+      this.statMax = this.querySelector('#stat-max');
+      this.statMin = this.querySelector('#stat-min');
+      this.statSum = this.querySelector('#stat-sum');
+      this.statMean = this.querySelector('#stat-mean');
+
+      // Bind events
+      this.btnBar.addEventListener('click', () => this.setMode('bar'));
+      this.btnLine.addEventListener('click', () => this.setMode('line'));
+      
+      [...this.catInputs, ...this.valInputs].forEach(input => {
+        input.addEventListener('input', () => this.drawChart());
+      });
+
+      // Resize listener for window changes (optional, since SVG scales automatically)
+      window.addEventListener('resize', () => this.drawChart());
+
+      this.drawChart();
+    }
+
+    setMode(newMode) {
+      this.mode = newMode;
+      if (this.mode === 'bar') {
+        this.btnBar.classList.add('active');
+        this.btnLine.classList.remove('active');
+      } else {
+        this.btnLine.classList.add('active');
+        this.btnBar.classList.remove('active');
+      }
+      this.drawChart();
+    }
+
+    getData() {
+      const data = [];
+      for (let i = 0; i < this.catInputs.length; i++) {
+        data.push({
+          label: this.catInputs[i].value || '?',
+          value: parseInt(this.valInputs[i].value) || 0
+        });
+      }
+      return data;
+    }
+
+    drawChart() {
+      const data = this.getData();
+      
+      // Graph config
+      const xStart = 50;
+      const xEnd = 480;
+      const yStart = 20;
+      const yEnd = 300;
+      const graphWidth = xEnd - xStart;
+      const graphHeight = yEnd - yStart;
+      
+      // Determine Max Y scale (snap to nearest nice number)
+      let maxVal = Math.max(...data.map(d => d.value));
+      if (maxVal === 0) maxVal = 10;
+      
+      let scaleMax = Math.ceil(maxVal / 5) * 5;
+      if (scaleMax < 5) scaleMax = 5;
+
+      // Draw Y Grid
+      this.svgYGrid.innerHTML = '';
+      const step = scaleMax > 20 ? 10 : 5;
+      for (let i = 0; i <= scaleMax; i += step) {
+        const yPos = yEnd - (i / scaleMax) * graphHeight;
+        
+        // Grid line
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", xStart);
+        line.setAttribute("y1", yPos);
+        line.setAttribute("x2", xEnd);
+        line.setAttribute("y2", yPos);
+        line.setAttribute("stroke", "#e2e8f0");
+        line.setAttribute("stroke-dasharray", "4 4");
+        this.svgYGrid.appendChild(line);
+        
+        // Label
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", xStart - 10);
+        text.setAttribute("y", yPos + 4);
+        text.setAttribute("text-anchor", "end");
+        text.setAttribute("fill", "#64748b");
+        text.setAttribute("font-size", "12");
+        text.textContent = i;
+        this.svgYGrid.appendChild(text);
+      }
+
+      // Draw Graph Content
+      this.svgGraph.innerHTML = '';
+      this.svgXLabels.innerHTML = '';
+      
+      const gap = 20;
+      const itemWidth = (graphWidth / data.length);
+      const barWidth = Math.min(itemWidth - gap, 50);
+      
+      let pointsForLine = [];
+
+      data.forEach((item, index) => {
+        const xCenter = xStart + (index * itemWidth) + (itemWidth / 2);
+        const barHeight = (item.value / scaleMax) * graphHeight;
+        const yTop = yEnd - barHeight;
+
+        // X Label
+        const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        labelText.setAttribute("x", xCenter);
+        labelText.setAttribute("y", yEnd + 20);
+        labelText.setAttribute("text-anchor", "middle");
+        labelText.setAttribute("fill", "#475569");
+        labelText.setAttribute("font-size", "11");
+        // Truncate long labels
+        let dispLabel = item.label;
+        if(dispLabel.length > 8) dispLabel = dispLabel.substring(0, 7) + '..';
+        labelText.textContent = dispLabel;
+        this.svgXLabels.appendChild(labelText);
+
+        if (this.mode === 'bar') {
+          // Draw Bar
+          const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          rect.setAttribute("x", xCenter - (barWidth / 2));
+          rect.setAttribute("y", yTop);
+          rect.setAttribute("width", barWidth);
+          rect.setAttribute("height", barHeight);
+          rect.setAttribute("fill", "url(#bar-grad)");
+          rect.setAttribute("rx", "4");
+          
+          // Animate height
+          const anim = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+          anim.setAttribute("attributeName", "y");
+          anim.setAttribute("from", yEnd);
+          anim.setAttribute("to", yTop);
+          anim.setAttribute("dur", "0.4s");
+          anim.setAttribute("fill", "freeze");
+          
+          const animH = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+          animH.setAttribute("attributeName", "height");
+          animH.setAttribute("from", "0");
+          animH.setAttribute("to", barHeight);
+          animH.setAttribute("dur", "0.4s");
+          animH.setAttribute("fill", "freeze");
+          
+          rect.appendChild(anim);
+          rect.appendChild(animH);
+          this.svgGraph.appendChild(rect);
+          
+          // Value text above bar
+          const valText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          valText.setAttribute("x", xCenter);
+          valText.setAttribute("y", yTop - 8);
+          valText.setAttribute("text-anchor", "middle");
+          valText.setAttribute("fill", "#0284c7");
+          valText.setAttribute("font-size", "12");
+          valText.setAttribute("font-weight", "bold");
+          valText.textContent = item.value;
+          this.svgGraph.appendChild(valText);
+
+        } else {
+          // Prepare line mode points
+          pointsForLine.push({x: xCenter, y: yTop, val: item.value});
+        }
+      });
+
+      if (this.mode === 'line' && pointsForLine.length > 0) {
+        // Draw connecting line
+        const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+        const pointsStr = pointsForLine.map(p => `${p.x},${p.y}`).join(" ");
+        polyline.setAttribute("points", pointsStr);
+        polyline.setAttribute("fill", "none");
+        polyline.setAttribute("stroke", "#f43f5e");
+        polyline.setAttribute("stroke-width", "3");
+        this.svgGraph.appendChild(polyline);
+
+        // Draw points
+        pointsForLine.forEach(p => {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("cx", p.x);
+          circle.setAttribute("cy", p.y);
+          circle.setAttribute("r", "5");
+          circle.setAttribute("fill", "white");
+          circle.setAttribute("stroke", "#f43f5e");
+          circle.setAttribute("stroke-width", "3");
+          this.svgGraph.appendChild(circle);
+          
+          // Value text above point
+          const valText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          valText.setAttribute("x", p.x);
+          valText.setAttribute("y", p.y - 12);
+          valText.setAttribute("text-anchor", "middle");
+          valText.setAttribute("fill", "#e11d48");
+          valText.setAttribute("font-size", "12");
+          valText.setAttribute("font-weight", "bold");
+          valText.textContent = p.val;
+          this.svgGraph.appendChild(valText);
+        });
+      }
+
+      // Update Statistics
+      const vals = data.map(d => d.value);
+      const n = vals.length;
+      const sum = vals.reduce((a, b) => a + b, 0);
+      const mean = n > 0 ? (sum / n) : 0;
+      const maxValStat = n > 0 ? Math.max(...vals) : 0;
+      const minValStat = n > 0 ? Math.min(...vals) : 0;
+      
+      this.statN.textContent = n;
+      this.statMax.textContent = maxValStat;
+      this.statMin.textContent = minValStat;
+      this.statSum.textContent = sum;
+      this.statMean.textContent = Number.isInteger(mean) ? mean : mean.toFixed(2);
+    }
+
+  }
+
+  customElements.define('data-visualizer', DataVisualizer);
+</script>
+
+<style>
+  .dv-widget {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 4px 15px -3px rgba(0,0,0,0.1);
+  }
+  .dv-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .dv-header h3 { margin-top: 0; color: #1e293b; }
+  .dv-body {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .dv-body { grid-template-columns: 1fr; }
+  }
+
+  .dv-table-panel {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel-header h4 { margin: 0 0 1rem 0; color: #334155; text-align: center; }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  .data-table th {
+    background: #e2e8f0;
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #475569;
+  }
+  .data-table td {
+    padding: 0.25rem 0;
+  }
+  .cat-input {
+    width: 90%;
+    padding: 0.4rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  .val-input {
+    width: 80%;
+    padding: 0.4rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
+    color: #0284c7;
+  }
+
+  .dv-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  .dv-controls button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background: #e2e8f0;
+    color: #475569;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .dv-controls button:hover { background: #cbd5e1; }
+  .dv-controls button.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .dv-graph-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  #chart-svg {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    background: white;
+    border-radius: 8px;
+  }
+</style>

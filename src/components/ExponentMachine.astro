@@ -1,0 +1,314 @@
+---
+// src/components/ExponentMachine.astro
+---
+
+<exponent-machine class="exponent-widget">
+  <div class="machine-header">
+    <h3>Mesin Pengganda Angka</h3>
+    <p>Masukkan angka dasar (Basis) dan geser tuas pangkat (Eksponen) untuk melihat kekuatan perkalian berulang!</p>
+  </div>
+
+  <div class="machine-body">
+    <div class="input-section">
+      <div class="input-group">
+        <label for="base-input">Angka Dasar (Basis):</label>
+        <input type="number" id="base-input" value="2" min="1" max="10" />
+      </div>
+      <div class="input-group">
+        <label for="exponent-slider">Pangkat (Eksponen): <span id="exp-val" class="badge">3</span></label>
+        <input type="range" id="exponent-slider" min="-3" max="5" value="3" step="1" />
+        <div class="slider-labels">
+          <span>-3 (Menyusut)</span>
+          <span>0</span>
+          <span>5 (Meledak)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-section">
+      <div class="math-display">
+        <div style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.5rem; font-family: system-ui;">Kalkulasi Real-time:</div>
+        <span class="base-disp" id="base-disp">2</span><sup class="exp-disp" id="exp-sup">3</sup>
+        <span class="equals">=</span>
+        <span class="process-disp" id="process-disp">2 &times; 2 &times; 2</span>
+        <span class="equals">=</span>
+        <span class="result-disp" id="result-disp">8</span>
+      </div>
+      
+      <div class="animation-container" id="animation-container">
+        <!-- Visual cells will be generated here -->
+      </div>
+    </div>
+  </div>
+</exponent-machine>
+
+<script>
+// @ts-nocheck
+  class ExponentMachine extends HTMLElement {
+    constructor() {
+      super();
+      this.baseInput = this.querySelector('#base-input');
+      this.expSlider = this.querySelector('#exponent-slider');
+      
+      this.expValBadge = this.querySelector('#exp-val');
+      this.baseDisp = this.querySelector('#base-disp');
+      this.expSup = this.querySelector('#exp-sup');
+      this.processDisp = this.querySelector('#process-disp');
+      this.resultDisp = this.querySelector('#result-disp');
+      this.animationContainer = this.querySelector('#animation-container');
+
+      this.baseInput.addEventListener('input', () => this.updateMachine());
+      this.expSlider.addEventListener('input', () => this.updateMachine());
+
+      this.updateMachine();
+    }
+
+    updateMachine() {
+      const base = parseInt(this.baseInput.value) || 1;
+      const exp = parseInt(this.expSlider.value) || 0;
+
+      // Update UI displays
+      this.expValBadge.textContent = exp;
+      this.baseDisp.textContent = base;
+      this.expSup.textContent = exp;
+
+      // Logic
+      let processText = "";
+      let resultValue = "";
+      let isFraction = false;
+
+      if (exp === 0) {
+        processText = `(Semua angka pangkat 0 adalah 1)`;
+        resultValue = "1";
+      } else if (exp > 0) {
+        const parts = Array(exp).fill(base);
+        processText = parts.join(' &times; ');
+        resultValue = Math.pow(base, exp).toString();
+      } else {
+        // Negative exponent
+        const posExp = Math.abs(exp);
+        const parts = Array(posExp).fill(base);
+        processText = `1 / (${parts.join(' &times; ')})`;
+        const denominator = Math.pow(base, posExp);
+        resultValue = `1 / ${denominator} = ${(1/denominator).toFixed(3)}`;
+        isFraction = true;
+      }
+
+      this.processDisp.innerHTML = processText;
+      this.resultDisp.innerHTML = resultValue;
+
+      this.drawAnimation(base, exp, isFraction);
+    }
+
+    drawAnimation(base, exp, isFraction) {
+      this.animationContainer.innerHTML = '';
+      
+      if (exp === 0) {
+        this.createCell('1', 'cell-neutral');
+        return;
+      }
+
+      if (!isFraction) {
+        const total = Math.pow(base, exp);
+        // Limit visual rendering so browser doesn't freeze
+        const renderCount = Math.min(total, 100); 
+        
+        for (let i = 0; i < renderCount; i++) {
+          this.createCell(base, 'cell-positive');
+        }
+        
+        if (total > 100) {
+          const over = document.createElement('div');
+          over.textContent = `... dan ${total - 100} lainnya!`;
+          over.className = 'overflow-text';
+          this.animationContainer.appendChild(over);
+        }
+      } else {
+        // Negative
+        const posExp = Math.abs(exp);
+        const denominator = Math.pow(base, posExp);
+        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'fraction-visual';
+        
+        const oneCell = document.createElement('div');
+        oneCell.className = 'cell cell-positive';
+        oneCell.textContent = '1';
+        
+        const arrow = document.createElement('div');
+        arrow.textContent = 'dipecah menjadi';
+        arrow.style.margin = '0 1rem';
+        
+        const piecesContainer = document.createElement('div');
+        piecesContainer.className = 'pieces-grid';
+        
+        const renderCount = Math.min(denominator, 64);
+        for(let i=0; i<renderCount; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'cell-piece';
+            piecesContainer.appendChild(piece);
+        }
+        if (denominator > 64) {
+            piecesContainer.innerHTML += `...${denominator} bagian`;
+        }
+        
+        wrapper.appendChild(oneCell);
+        wrapper.appendChild(arrow);
+        wrapper.appendChild(piecesContainer);
+        this.animationContainer.appendChild(wrapper);
+      }
+    }
+
+    createCell(text, className) {
+      const cell = document.createElement('div');
+      cell.className = `cell ${className}`;
+      // Optional: don't put text if too many
+      this.animationContainer.appendChild(cell);
+    }
+  }
+
+  customElements.define('exponent-machine', ExponentMachine);
+</script>
+
+<style>
+  .exponent-widget {
+    display: block;
+    background: #1e293b;
+    color: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+  }
+  .machine-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 1rem;
+  }
+  .machine-header h3 {
+    margin-top: 0;
+    color: #38bdf8;
+  }
+  .machine-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .machine-body { grid-template-columns: 1fr; }
+  }
+
+  .input-section {
+    background: #0f172a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+  }
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #94a3b8;
+  }
+  .input-group input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background: #1e293b;
+    color: white;
+    font-size: 1.1rem;
+  }
+  .input-group input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .badge {
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 2px 8px;
+    border-radius: 12px;
+    float: right;
+  }
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 4px;
+  }
+
+  .visual-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .math-display {
+    background: #0f172a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+    text-align: center;
+    border: 1px solid #334155;
+  }
+  .base-disp { font-weight: bold; font-size: 1.5rem; color: #38bdf8; }
+  .exp-disp { color: #f472b6; font-weight: bold; }
+  .equals { margin: 0 1rem; color: #64748b; }
+  .process-disp { color: #cbd5e1; }
+  .result-disp { color: #34d399; font-weight: bold; font-size: 1.5rem; }
+
+  .animation-container {
+    min-height: 150px;
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #334155;
+    overflow: hidden;
+  }
+  
+  .cell {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: popIn 0.3s ease-out;
+  }
+  .cell-positive { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+  .cell-neutral { background: #94a3b8; width: 40px; height: 40px; }
+  .overflow-text { color: #94a3b8; font-style: italic; font-size: 0.9rem; margin-top: 1rem; width: 100%; text-align: center; }
+
+  .fraction-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .pieces-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 10px);
+    gap: 2px;
+  }
+  .cell-piece {
+    width: 10px;
+    height: 10px;
+    background: #f472b6;
+    border-radius: 2px;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>

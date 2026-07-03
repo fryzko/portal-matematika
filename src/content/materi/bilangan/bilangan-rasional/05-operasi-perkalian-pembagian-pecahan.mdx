@@ -1,0 +1,162 @@
+---
+title: "Perkalian dan Pembagian Pecahan: Kalikan Silang, Balik Lalu Kali!"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import FractionVisualizer from '../../../../components/FractionVisualizer.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Perkalian dan Pembagian Pecahan
+
+Bayangkan ada $\frac{1}{2}$ dari $\frac{3}{4}$ kue. Apa artinya? Artinya kamu mengambil SETENGAH dari tiga perempat kue yang ada. Kata **"dari"** dalam bahasa matematika sering kali berarti **"kali"**! Setengah dari tiga perempat berarti $\frac{1}{2} \times \frac{3}{4}$, yang hasilnya $\frac{3}{8}$ kue.
+
+Berbeda dengan penjumlahan, pada perkalian kamu **TIDAK PERLU** menyamakan penyebut. Cukup kalikan atas dengan atas, dan bawah dengan bawah! Bagaimana dengan pembagian? Kamu cukup "membalik" pecahan yang di belakang, lalu mengubah tanda bagi menjadi tanda kali. Simpel kan?
+
+### Yuk, Temukan Sendiri Konsep Perkalian Pecahan
+
+Gunakan alat di bawah ini untuk mengeksplorasi perkalian dua pecahan secara visual! Cobalah mengatur dua pecahan yang akan dikalikan dan perhatikan hasil akhir visualnya.
+
+<FractionVisualizer />
+
+Perhatikan bahwa mengalikan dua pecahan (yang kurang dari 1) akan selalu menghasilkan pecahan yang ukurannya **lebih kecil**! Menarik, bukan?
+
+### Teori & Definisi Formal
+
+**1. Perkalian Pecahan**
+Untuk mengalikan pecahan, kalikan pembilang dengan pembilang (atas × atas) dan penyebut dengan penyebut (bawah × bawah).
+$$\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d}$$
+
+**2. Pembagian Pecahan**
+Untuk membagi dengan suatu pecahan, aturannya adalah: **Kalikan dengan kebalikannya (resiprokal)**. Balik pembilang dan penyebut pada pecahan KEDUA, lalu kalikan.
+$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{a \times d}{b \times c}$$
+
+**3. Operasi dengan Bilangan Bulat dan Campuran**
+- Bilangan bulat $n$ bisa ditulis sebagai $\frac{n}{1}$. Contoh: $5 = \frac{5}{1}$.
+- Pecahan campuran **WAJIB** diubah menjadi pecahan biasa sebelum dikalikan atau dibagi.
+
+### Visualisasi: Balik Lalu Kali!
+
+Mari kita lihat langkah demi langkah menyelesaikan soal pembagian pecahan $\frac{3}{4} \div \frac{1}{2}$:
+
+```text
+¾ ÷ ½ = ?
+
+Langkah 1: Balik pecahan kedua (inilah yang disebut resiprokal)
+  ½ dibalik menjadi 2/1
+
+Langkah 2: Ganti tanda ÷ dengan tanda ×
+  ¾ × 2/1
+
+Langkah 3: Kalikan atas dengan atas, bawah dengan bawah!
+  = (3 × 2) / (4 × 1) 
+  = 6 / 4 
+  = 3 / 2
+  = 1½
+```
+
+### Contoh Soal & Pembahasan
+
+#### Level 1: Perkalian Pecahan Biasa
+
+Berapakah hasil dari $\frac{2}{3} \times \frac{4}{5}$?
+
+**Pembahasan:**
+Kalikan atas-atas dan bawah-bawah:
+$\frac{2 \times 4}{3 \times 5} = \frac{8}{15}$.
+
+#### Level 2: Pembagian Pecahan Biasa
+
+Berapakah hasil dari $\frac{5}{7} \div \frac{2}{3}$?
+
+**Pembahasan:**
+Balik pecahan kedua dan ubah tanda bagi jadi kali:
+$\frac{5}{7} \times \frac{3}{2} = \frac{15}{14} = 1\frac{1}{14}$.
+
+#### Level 3: Perkalian dengan Bilangan Bulat
+
+Berapakah hasil dari $6 \times \frac{2}{9}$?
+
+**Pembahasan:**
+Ubah 6 menjadi $\frac{6}{1}$:
+$\frac{6}{1} \times \frac{2}{9} = \frac{12}{9}$.
+Sederhanakan menjadi $\frac{4}{3} = 1\frac{1}{3}$. 
+*(Trik cepat: sederhanakan angka 6 dan 9 dengan membagi keduanya dengan 3 sebelum dikali!)*
+
+#### Level 4: Operasi Pecahan Campuran
+
+Berapakah hasil dari $2\frac{1}{2} \div 1\frac{1}{4}$?
+
+**Pembahasan:**
+WAJIB ubah ke pecahan biasa dulu:
+$2\frac{1}{2} = \frac{5}{2}$
+$1\frac{1}{4} = \frac{5}{4}$
+Sekarang operasikan:
+$\frac{5}{2} \div \frac{5}{4} = \frac{5}{2} \times \frac{4}{5}$
+Coret angka 5 di atas dan di bawah, maka tersisa:
+$\frac{4}{2} = 2$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+
+1. **Salah Membalik Saat Pembagian**: Yang dibalik posisinya adalah pecahan **KEDUA (pembaginya)**, bukan pecahan yang pertama di depan!
+2. **Pecahan Campuran Lupa Diubah**: Berbeda dengan penjumlahan yang bisa langsung dioperasikan bilangan bulatnya, pada perkalian dan pembagian, pecahan campuran **WAJIB** diubah ke bentuk pecahan biasa terlebih dahulu! Mengalikan $2\frac{1}{2} \times 1\frac{1}{3}$ BUKAN berarti $(2 \times 1)$ dan $(\frac{1}{2} \times \frac{1}{3})$.
+
+### Koneksi Dunia Nyata
+
+- **Membagi Kain Jahitan**: Jika kamu punya $\frac{2}{3}$ meter kain dan ingin membaginya merata kepada 4 orang, kamu menggunakan pembagian $\frac{2}{3} \div 4 = \frac{2}{3} \times \frac{1}{4} = \frac{2}{12} = \frac{1}{6}$ meter per orang.
+- **Skala dan Gambar Teknik**: Dalam arsitektur, denah yang berskala sangat kecil dibuat dengan sistem perkalian pecahan berulang, misal "seperempat dari sepertiga ukuran asli".
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Hasil dari $\frac{3}{5} \times \frac{2}{7}$ adalah...</div>
+  <div slot="option-a">$\frac{5}{12}$</div>
+  <div slot="option-b">$\frac{6}{35}$</div>
+  <div slot="option-c">$\frac{21}{10}$</div>
+  <div slot="option-d">$\frac{6}{12}$</div>
+  <div slot="explanation">**Pembahasan:** Kalikan pembilang dan penyebut masing-masing: $\frac{3 \times 2}{5 \times 7} = \frac{6}{35}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Berapakah hasil dari $\frac{4}{9} \div \frac{2}{3}$?</div>
+  <div slot="option-a">$\frac{8}{27}$</div>
+  <div slot="option-b">$\frac{3}{8}$</div>
+  <div slot="option-c">$\frac{2}{3}$</div>
+  <div slot="option-d">$\frac{6}{11}$</div>
+  <div slot="explanation">**Pembahasan:** Balik pecahan kedua: $\frac{4}{9} \times \frac{3}{2} = \frac{12}{18} = \frac{2}{3}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Nilai dari $12 \times \frac{3}{4}$ adalah...</div>
+  <div slot="option-a">$9$</div>
+  <div slot="option-b">$16$</div>
+  <div slot="option-c">$15$</div>
+  <div slot="option-d">$\frac{36}{48}$</div>
+  <div slot="explanation">**Pembahasan:** $\frac{12 \times 3}{4} = \frac{36}{4} = 9$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Hasil kali dari $1\frac{1}{2} \times 2\frac{1}{3}$ adalah...</div>
+  <div slot="option-a">$2\frac{1}{6}$</div>
+  <div slot="option-b">$3\frac{1}{6}$</div>
+  <div slot="option-c">$\frac{7}{6}$</div>
+  <div slot="option-d">$3\frac{1}{2}$</div>
+  <div slot="explanation">**Pembahasan:** Ubah ke pecahan biasa: $\frac{3}{2} \times \frac{7}{3} = \frac{21}{6} = \frac{7}{2} = 3\frac{1}{2}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH terkait operasi pecahan?</div>
+  <div slot="option-a">Untuk membagi dua pecahan, kita mengalikan pecahan pertama dengan kebalikan dari pecahan kedua.</div>
+  <div slot="option-b">$\frac{2}{3} \times \frac{3}{2} = 1$</div>
+  <div slot="option-c">Semua pecahan campuran harus diubah menjadi pecahan biasa sebelum dikalikan.</div>
+  <div slot="option-d">Hasil dari $\frac{1}{2} \div \frac{1}{4}$ adalah $\frac{1}{8}$.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah! Seharusnya $\frac{1}{2} \div \frac{1}{4} = \frac{1}{2} \times \frac{4}{1} = \frac{4}{2} = 2$.</div>
+</Quiz>

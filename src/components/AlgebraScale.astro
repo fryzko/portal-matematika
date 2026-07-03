@@ -1,0 +1,433 @@
+---
+// src/components/AlgebraScale.astro
+---
+
+<algebra-scale class="algebra-scale-widget">
+  <div class="scale-header">
+    <h3>Timbangan Aljabar</h3>
+    <p>Tambahkan kotak <span class="box-x">x</span> dan beban satuan <span class="box-1">1</span>. Temukan nilai <span class="box-x">x</span> agar timbangan seimbang!</p>
+  </div>
+
+  <div class="scale-container">
+    <div class="scale-beam" id="beam">
+      <div class="scale-pan left-pan">
+        <div class="pan-contents" id="left-contents"></div>
+        <div class="pan-base"></div>
+      </div>
+      <div class="scale-fulcrum-top"></div>
+      <div class="scale-pan right-pan">
+        <div class="pan-contents" id="right-contents"></div>
+        <div class="pan-base"></div>
+      </div>
+    </div>
+    <div class="scale-base"></div>
+  </div>
+
+  <div class="equation-display">
+    <div class="eq-side" id="eq-left">0</div>
+    <div class="eq-sign" id="eq-sign">=</div>
+    <div class="eq-side" id="eq-right">0</div>
+  </div>
+
+  <div class="calc-panel" style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border: 1px solid #bbf7d0; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;">
+    <h4 style="margin-top: 0; color: #166534; margin-bottom: 1rem;">Kalkulasi Real-time</h4>
+    <div style="font-family: monospace; font-size: 1.2rem; color: #374151; line-height: 1.6; text-align: left; width: 100%; max-width: 400px;">
+      <div>Sisi Kiri: <span id="calc-left-eq">0</span> = <strong id="calc-left-val">0</strong></div>
+      <div>Sisi Kanan: <span id="calc-right-eq">0</span> = <strong id="calc-right-val">0</strong></div>
+      <div style="margin-top: 1rem; border-top: 1px solid #bbf7d0; padding-top: 1rem; font-size: 1.1rem;">
+        Nilai <span class="box-x" style="font-size: 0.9rem;">x</span> yang membuat seimbang: <br/>
+        <strong id="calc-x-val" style="color: #2563eb; font-size: 1.4rem;">x = ?</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls-container">
+    <div class="control-panel">
+      <h4>Sisi Kiri</h4>
+      <div class="btn-group">
+        <button data-action="add-x-left" class="btn btn-x">+ x</button>
+        <button data-action="sub-x-left" class="btn btn-x-sub">- x</button>
+      </div>
+      <div class="btn-group">
+        <button data-action="add-1-left" class="btn btn-1">+ 1</button>
+        <button data-action="sub-1-left" class="btn btn-1-sub">- 1</button>
+      </div>
+    </div>
+
+    <div class="control-panel">
+      <h4>Sisi Kanan</h4>
+      <div class="btn-group">
+        <button data-action="add-x-right" class="btn btn-x">+ x</button>
+        <button data-action="sub-x-right" class="btn btn-x-sub">- x</button>
+      </div>
+      <div class="btn-group">
+        <button data-action="add-1-right" class="btn btn-1">+ 1</button>
+        <button data-action="sub-1-right" class="btn btn-1-sub">- 1</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="status-message" id="status-message">Timbangan Seimbang.</div>
+</algebra-scale>
+
+<script>
+// @ts-nocheck
+  class AlgebraScale extends HTMLElement {
+    constructor() {
+      super();
+      // State
+      this.state = {
+        leftX: 0,
+        left1: 0,
+        rightX: 0,
+        right1: 0,
+        secretX: Math.floor(Math.random() * 3) + 2 // random value between 2 and 4
+      };
+
+      // Elements
+      this.beam = this.querySelector('#beam');
+      this.leftContents = this.querySelector('#left-contents');
+      this.rightContents = this.querySelector('#right-contents');
+      this.eqLeft = this.querySelector('#eq-left');
+      this.eqRight = this.querySelector('#eq-right');
+      this.eqSign = this.querySelector('#eq-sign');
+      this.statusMessage = this.querySelector('#status-message');
+
+      this.calcLeftEq = this.querySelector('#calc-left-eq');
+      this.calcRightEq = this.querySelector('#calc-right-eq');
+      this.calcLeftVal = this.querySelector('#calc-left-val');
+      this.calcRightVal = this.querySelector('#calc-right-val');
+      this.calcXVal = this.querySelector('#calc-x-val');
+
+      // Bind buttons
+      this.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const action = e.target.getAttribute('data-action');
+          this.handleAction(action);
+        });
+      });
+
+      this.updateDisplay();
+    }
+
+    handleAction(action) {
+      switch(action) {
+        case 'add-x-left': this.state.leftX++; break;
+        case 'sub-x-left': if(this.state.leftX > 0) this.state.leftX--; break;
+        case 'add-1-left': this.state.left1++; break;
+        case 'sub-1-left': if(this.state.left1 > 0) this.state.left1--; break;
+        
+        case 'add-x-right': this.state.rightX++; break;
+        case 'sub-x-right': if(this.state.rightX > 0) this.state.rightX--; break;
+        case 'add-1-right': this.state.right1++; break;
+        case 'sub-1-right': if(this.state.right1 > 0) this.state.right1--; break;
+      }
+      this.updateDisplay();
+    }
+
+    formatEquation(xCount, constCount) {
+      if (xCount === 0 && constCount === 0) return '0';
+      let parts = [];
+      if (xCount > 0) parts.push(xCount === 1 ? 'x' : `${xCount}x`);
+      if (constCount > 0) parts.push(`${constCount}`);
+      return parts.join(' + ');
+    }
+
+    renderItems(container, xCount, constCount) {
+      container.innerHTML = '';
+      for(let i=0; i<xCount; i++) {
+        const el = document.createElement('div');
+        el.className = 'item item-x';
+        el.textContent = 'x';
+        container.appendChild(el);
+      }
+      for(let i=0; i<constCount; i++) {
+        const el = document.createElement('div');
+        el.className = 'item item-1';
+        el.textContent = '1';
+        container.appendChild(el);
+      }
+    }
+
+    updateDisplay() {
+      // Update DOM items
+      this.renderItems(this.leftContents, this.state.leftX, this.state.left1);
+      this.renderItems(this.rightContents, this.state.rightX, this.state.right1);
+
+      // Update equations
+      this.eqLeft.textContent = this.formatEquation(this.state.leftX, this.state.left1);
+      this.eqRight.textContent = this.formatEquation(this.state.rightX, this.state.right1);
+
+      // Calculate physics
+      const leftWeight = (this.state.leftX * this.state.secretX) + this.state.left1;
+      const rightWeight = (this.state.rightX * this.state.secretX) + this.state.right1;
+      
+      // Update Calculation Panel
+      this.calcLeftEq.textContent = this.eqLeft.textContent;
+      this.calcRightEq.textContent = this.eqRight.textContent;
+      this.calcLeftVal.textContent = leftWeight;
+      this.calcRightVal.textContent = rightWeight;
+
+      const diffX = this.state.leftX - this.state.rightX;
+      const diff1 = this.state.right1 - this.state.left1;
+      if (diffX === 0) {
+        if (diff1 === 0) {
+          this.calcXVal.textContent = "Selalu Seimbang (Berapapun x)";
+          this.calcXVal.style.fontSize = "1rem";
+        } else {
+          this.calcXVal.textContent = "Tidak mungkin seimbang";
+          this.calcXVal.style.fontSize = "1rem";
+        }
+      } else {
+        const xNeeded = diff1 / diffX;
+        this.calcXVal.textContent = `x = ${xNeeded}`;
+        this.calcXVal.style.fontSize = "1.4rem";
+      }
+      
+      let angle = 0;
+      if (leftWeight > rightWeight) {
+        angle = -15; // tilt left
+        this.eqSign.textContent = '>';
+        this.statusMessage.textContent = 'Sisi kiri lebih berat!';
+        this.statusMessage.className = 'status-message error';
+      } else if (rightWeight > leftWeight) {
+        angle = 15; // tilt right
+        this.eqSign.textContent = '<';
+        this.statusMessage.textContent = 'Sisi kanan lebih berat!';
+        this.statusMessage.className = 'status-message error';
+      } else {
+        angle = 0; // balanced
+        this.eqSign.textContent = '=';
+        this.statusMessage.className = 'status-message success';
+        
+        // Special success message if equation is not 0=0
+        if (leftWeight > 0) {
+           this.statusMessage.innerHTML = `<strong>Timbangan Seimbang!</strong><br>Persamaan benar untuk nilai rahasia x = ${this.state.secretX}`;
+        } else {
+           this.statusMessage.textContent = 'Timbangan Seimbang.';
+        }
+      }
+
+      // Apply rotation
+      this.beam.style.transform = `rotate(${angle}deg)`;
+      
+      // Counter-rotate pans so they stay level
+      const leftPan = this.querySelector('.left-pan');
+      const rightPan = this.querySelector('.right-pan');
+      leftPan.style.transform = `rotate(${-angle}deg)`;
+      rightPan.style.transform = `rotate(${-angle}deg)`;
+    }
+  }
+
+  customElements.define('algebra-scale', AlgebraScale);
+</script>
+
+<style>
+  .algebra-scale-widget {
+    display: block;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .scale-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .scale-header h3 {
+    margin-top: 0;
+    color: #1e293b;
+  }
+  .box-x {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .box-1 {
+    display: inline-block;
+    background: #ef4444;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  /* Physics Scale CSS */
+  .scale-container {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+  .scale-base {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 150px;
+    background: #64748b;
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+  }
+  .scale-beam {
+    position: absolute;
+    bottom: 140px;
+    width: 300px;
+    height: 10px;
+    background: #475569;
+    border-radius: 5px;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center center;
+    z-index: 2;
+  }
+  .scale-fulcrum-top {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: #94a3b8;
+    border-radius: 50%;
+  }
+  .scale-pan {
+    position: absolute;
+    width: 100px;
+    height: 120px;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transform-origin: top center;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .left-pan { left: 0; }
+  .right-pan { right: 0; }
+  
+  .pan-base {
+    width: 100px;
+    height: 8px;
+    background: #94a3b8;
+    border-radius: 4px;
+    position: relative;
+  }
+  /* Cords */
+  .pan-base::before, .pan-base::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    width: 2px;
+    height: 110px;
+    background: #cbd5e1;
+  }
+  .pan-base::before { left: 5px; transform-origin: bottom left; transform: rotate(20deg); }
+  .pan-base::after { right: 5px; transform-origin: bottom right; transform: rotate(-20deg); }
+
+  .pan-contents {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+    z-index: 10;
+    max-width: 90px;
+  }
+  .item {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .item-x {
+    background: #3b82f6;
+    border-radius: 4px;
+  }
+  .item-1 {
+    background: #ef4444;
+    border-radius: 50%;
+  }
+
+  /* Equations */
+  .equation-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  .eq-side { color: #334155; min-width: 100px; text-align: center; }
+  .eq-sign { color: #94a3b8; }
+
+  /* Controls */
+  .controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .control-panel {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    flex: 1;
+    max-width: 250px;
+  }
+  .control-panel h4 { margin-top: 0; margin-bottom: 1rem; color: #475569; }
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+    color: white;
+  }
+  .btn:hover { opacity: 0.8; }
+  .btn-x { background: #3b82f6; }
+  .btn-x-sub { background: #93c5fd; color: #1e3a8a; }
+  .btn-1 { background: #ef4444; }
+  .btn-1-sub { background: #fca5a5; color: #7f1d1d; }
+
+  /* Status */
+  .status-message {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  .status-message.success {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+  }
+  .status-message.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+  }
+</style>

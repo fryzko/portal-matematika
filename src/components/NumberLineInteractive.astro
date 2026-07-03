@@ -1,0 +1,442 @@
+---
+// src/components/NumberLineInteractive.astro
+---
+
+<number-line-interactive class="number-line-widget">
+  <div class="widget-header">
+    <h3>Simulasi Garis Bilangan</h3>
+    <p>Lihat bagaimana operasi bilangan bulat bekerja pada garis bilangan. Arah panah menunjukkan operasi (kanan untuk tambah, kiri untuk kurang), dan nilai negatif membuat panah berjalan mundur!</p>
+  </div>
+
+  <div class="equation-builder">
+    <div class="input-group">
+      <label>Angka A</label>
+      <input type="number" id="num-a" value="2" min="-10" max="10" />
+    </div>
+    
+    <div class="input-group">
+      <label>Operasi</label>
+      <select id="operation">
+        <option value="+">Ditambah (+)</option>
+        <option value="-">Dikurang (-)</option>
+      </select>
+    </div>
+    
+    <div class="input-group">
+      <label>Angka B</label>
+      <input type="number" id="num-b" value="-3" min="-10" max="10" />
+    </div>
+
+    <button id="btn-simulate" class="btn-primary">Jalankan</button>
+  </div>
+
+  <div class="result-display" id="result-display">
+    <div class="op-row">Operasi: <span class="math-expr" id="math-expr-disp">2 + (-3) = ?</span></div>
+    <div class="pos-row">Posisi akhir pada garis bilangan: <strong id="final-pos">?</strong></div>
+  </div>
+
+  <div class="canvas-container">
+    <div class="number-line-container">
+      <div class="line-axis"></div>
+      <div class="ticks-container" id="ticks-container"></div>
+      
+      <!-- The character/arrow that jumps -->
+      <div class="marker" id="marker">
+        <div class="marker-icon" id="marker-icon">➔</div>
+        <div class="marker-label" id="marker-label">0</div>
+      </div>
+      
+      <!-- Path SVG to draw the jumps -->
+      <svg class="jumps-svg" id="jumps-svg" width="100%" height="100px"></svg>
+    </div>
+  </div>
+  
+  <div class="narrative" id="narrative">Siap untuk melompat! Tekan "Jalankan".</div>
+</number-line-interactive>
+
+<script>
+// @ts-nocheck
+  class NumberLineInteractive extends HTMLElement {
+    constructor() {
+      super();
+      // Config
+      this.minVal = -15;
+      this.maxVal = 15;
+      this.range = this.maxVal - this.minVal;
+      this.isAnimating = false;
+
+      // Elements
+      this.els = {
+        numA: this.querySelector('#num-a'),
+        op: this.querySelector('#operation'),
+        numB: this.querySelector('#num-b'),
+        btnSimulate: this.querySelector('#btn-simulate'),
+        resultDisplay: this.querySelector('#result-display'),
+        ticksContainer: this.querySelector('#ticks-container'),
+        marker: this.querySelector('#marker'),
+        markerIcon: this.querySelector('#marker-icon'),
+        markerLabel: this.querySelector('#marker-label'),
+        svg: this.querySelector('#jumps-svg'),
+        narrative: this.querySelector('#narrative'),
+        mathExprDisp: this.querySelector('#math-expr-disp'),
+        finalPos: this.querySelector('#final-pos')
+      };
+
+      this.els.btnSimulate.addEventListener('click', () => this.runSimulation());
+      
+      this.renderTicks();
+      this.resetMarker();
+    }
+
+    renderTicks() {
+      this.els.ticksContainer.innerHTML = '';
+      for(let i = this.minVal; i <= this.maxVal; i++) {
+        const tick = document.createElement('div');
+        tick.className = 'tick';
+        
+        const mark = document.createElement('div');
+        mark.className = 'tick-mark';
+        if (i === 0) mark.classList.add('tick-zero');
+        
+        const label = document.createElement('div');
+        label.className = 'tick-label';
+        label.textContent = i;
+        if (i === 0) label.style.fontWeight = 'bold';
+        
+        tick.appendChild(mark);
+        tick.appendChild(label);
+        this.els.ticksContainer.appendChild(tick);
+      }
+    }
+
+    getPosPercent(val) {
+      // Clamp for visual safety
+      const clamped = Math.max(this.minVal, Math.min(this.maxVal, val));
+      return ((clamped - this.minVal) / this.range) * 100;
+    }
+
+    setMarkerPosition(val, faceRight = true) {
+      const pct = this.getPosPercent(val);
+      this.els.marker.style.left = `${pct}%`;
+      this.els.markerLabel.textContent = val;
+      
+      if (faceRight) {
+        this.els.markerIcon.style.transform = 'rotate(0deg)';
+      } else {
+        this.els.markerIcon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    resetMarker() {
+      this.setMarkerPosition(0, true);
+      this.els.svg.innerHTML = '';
+    }
+    
+    drawJump(startVal, endVal, labelText, colorClass) {
+      const startPct = this.getPosPercent(startVal);
+      const endPct = this.getPosPercent(endVal);
+      
+      // Calculate SVG path
+      // SVG width is 100%, we use percentages. But SVG viewBox is better if we use absolute units.
+      // To keep it simple, we will just use absolute positioning of div-based arcs or a viewBox hack.
+      // Easiest is creating an SVG namespace element.
+      const ns = "http://www.w3.org/2000/svg";
+      const svgWidth = this.els.svg.clientWidth;
+      const startX = (startPct / 100) * svgWidth;
+      const endX = (endPct / 100) * svgWidth;
+      const midX = (startX + endX) / 2;
+      const distance = Math.abs(endX - startX);
+      const height = Math.min(distance * 0.4, 60); // Arc height
+      
+      const path = document.createElementNS(ns, 'path');
+      path.setAttribute('d', `M ${startX} 100 Q ${midX} ${100 - height*2} ${endX} 100`);
+      path.setAttribute('class', `jump-path ${colorClass}`);
+      
+      // Arrow head
+      const isRight = endX > startX;
+      // We'll skip arrow heads on SVG to keep it simple, the marker acts as arrow.
+      
+      this.els.svg.appendChild(path);
+      
+      // Trigger animation
+      setTimeout(() => path.style.strokeDashoffset = '0', 50);
+    }
+
+    async runSimulation() {
+      if (this.isAnimating) return;
+      this.isAnimating = true;
+      
+      const a = parseInt(this.els.numA.value) || 0;
+      const b = parseInt(this.els.numB.value) || 0;
+      const op = this.els.op.value;
+      const result = op === '+' ? (a + b) : (a - b);
+      
+      this.els.mathExprDisp.innerHTML = `${a} ${op} ${b < 0 ? `(${b})` : b} = <span class="blink">?</span>`;
+      this.els.finalPos.innerHTML = `<span class="blink">?</span>`;
+      
+      this.resetMarker();
+      this.els.btnSimulate.disabled = true;
+
+      // Ensure SVG is sized properly
+      this.els.svg.setAttribute('viewBox', `0 0 ${this.els.svg.clientWidth} 100`);
+
+      // Step 1: Jump to A
+      this.els.narrative.innerHTML = `Langkah 1: Mulai dari 0, melompat ke angka <strong>${a}</strong>.`;
+      if (a !== 0) {
+        this.drawJump(0, a, '', 'path-step1');
+        await this.sleep(800);
+      }
+      this.setMarkerPosition(a, a >= 0);
+      await this.sleep(1000);
+
+      // Step 2: Face direction based on Operation
+      if (op === '+') {
+        this.els.narrative.innerHTML = `Langkah 2: Operasi Ditambah (+), panah menghadap ke <strong>Kanan</strong>.`;
+        this.setMarkerPosition(a, true);
+      } else {
+        this.els.narrative.innerHTML = `Langkah 2: Operasi Dikurang (-), panah berbalik menghadap ke <strong>Kiri</strong>.`;
+        this.setMarkerPosition(a, false);
+      }
+      await this.sleep(1500);
+
+      // Step 3: Jump B steps
+      if (b !== 0) {
+        let walkDirection = b > 0 ? "Maju" : "Mundur";
+        this.els.narrative.innerHTML = `Langkah 3: Angka kedua adalah ${b}. Panah akan <strong>${walkDirection}</strong> sebanyak ${Math.abs(b)} langkah.`;
+        
+        this.drawJump(a, result, '', 'path-step2');
+        await this.sleep(800);
+        
+        // Final position
+        this.setMarkerPosition(result, op === '+');
+      } else {
+        this.els.narrative.innerHTML = `Langkah 3: Angka kedua adalah 0, tidak ada lompatan tambahan.`;
+      }
+      await this.sleep(1000);
+
+      // Finish
+      this.els.narrative.innerHTML = `Selesai! Posisi akhir adalah <strong>${result}</strong>.`;
+      this.els.mathExprDisp.innerHTML = `${a} ${op} ${b < 0 ? `(${b})` : b} = <strong>${result}</strong>`;
+      this.els.finalPos.textContent = result;
+      
+      this.isAnimating = false;
+      this.els.btnSimulate.disabled = false;
+    }
+
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+  }
+
+  customElements.define('number-line-interactive', NumberLineInteractive);
+</script>
+
+<style>
+  .number-line-widget {
+    display: block;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .widget-header { text-align: center; margin-bottom: 2rem; }
+  .widget-header h3 { margin-top: 0; color: #1e293b; }
+
+  .equation-builder {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .input-group label { font-size: 0.9rem; font-weight: bold; color: #475569; }
+  .input-group input, .input-group select {
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .input-group input { width: 80px; }
+  .btn-primary {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 42px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-primary:disabled { background: #94a3b8; cursor: not-allowed; }
+
+  .result-display {
+    text-align: center;
+    margin-bottom: 2rem;
+    background: #f0fdf4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #bbf7d0;
+  }
+  .op-row {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+  .pos-row {
+    font-size: 1.2rem;
+    color: #475569;
+  }
+  .math-expr {
+    background: #e0f2fe;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    color: #0369a1;
+    font-family: monospace;
+    display: inline-block;
+  }
+  .blink { animation: blink 1s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .canvas-container {
+    background: white;
+    padding: 2rem 1rem 3rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+  }
+  
+  .number-line-container {
+    position: relative;
+    width: 100%;
+    min-width: 600px;
+    height: 100px;
+  }
+  
+  .line-axis {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #475569;
+    border-radius: 2px;
+  }
+  .line-axis::before, .line-axis::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    border: 6px solid transparent;
+  }
+  .line-axis::before {
+    left: -10px;
+    border-right-color: #475569;
+  }
+  .line-axis::after {
+    right: -10px;
+    border-left-color: #475569;
+  }
+
+  .ticks-container {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0; /* Align with ends */
+  }
+  .tick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 0;
+  }
+  .tick-mark {
+    width: 2px;
+    height: 15px;
+    background: #94a3b8;
+    margin-bottom: 5px;
+  }
+  .tick-zero { background: #1e293b; height: 20px; width: 3px; }
+  .tick-label {
+    position: absolute;
+    top: 20px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  /* Marker */
+  .marker {
+    position: absolute;
+    bottom: 40px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 0.8s ease-in-out;
+    z-index: 10;
+  }
+  .marker-icon {
+    font-size: 2rem;
+    color: #ef4444;
+    transition: transform 0.5s ease;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .marker-label {
+    background: #ef4444;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: -5px;
+  }
+
+  /* SVG Jumps */
+  .jumps-svg {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .jump-path {
+    fill: none;
+    stroke-width: 3;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    transition: stroke-dashoffset 0.8s ease-in-out;
+    stroke-linecap: round;
+  }
+  .path-step1 { stroke: #3b82f6; stroke-dasharray: 4 4; }
+  .path-step2 { stroke: #10b981; }
+
+  .narrative {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #334155;
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    min-height: 2.5rem;
+  }
+</style>

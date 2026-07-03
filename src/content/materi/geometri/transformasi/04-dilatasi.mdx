@@ -1,0 +1,164 @@
+---
+title: "Dilatasi: Memperbesar dan Memperkecil Bangun"
+topic: "Geometri"
+difficulty: "Grade 9"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+import TransformPlane from '../../../../components/TransformPlane.astro';
+
+### Mari Memahami Dilatasi
+Pernahkah kamu melakukan gestur "mencubit layar" (*pinch to zoom*) saat melihat peta di Google Maps? Saat kamu melakukan *zoom in* (memperbesar), semua jalan dan gedung yang ada di layar akan membesar dan saling menjauh satu sama lain secara seimbang dari titik tengah layarmu. Fitur ini merupakan aplikasi nyata dari transformasi **Dilatasi**. Dari empat jenis transformasi geometri, Dilatasi adalah satu-satunya yang berani mengubah UKURAN dari sebuah bangun!
+
+### Yuk, Temukan Sendiri Dilatasi
+Coba gunakan bidang koordinat interaktif di bawah ini untuk melihat efek pembesaran (*zoom*).
+
+<TransformPlane mode="dilatasi" instruction="Ubah faktor skala k dan lihat bangun membesar atau mengecil!" />
+
+Misalkan kita punya satu titik $A(2, 3)$. Kita ingin mendilatasinya dengan **faktor skala $k = 2$** dan pusatnya di titik $(0,0)$.
+Apa yang terjadi? Titik tersebut akan melempar dirinya 2 kali lipat lebih jauh dari pusatnya!
+$A' = (2 \times 2, 3 \times 2) = (4, 6)$.
+
+Coba amati efek dari berbagai variasi nilai faktor skala $k$ pada tabel berikut:
+
+| Faktor Skala $k$ | Titik $A(2,3) \rightarrow A'$ | Efek Visual pada Ukuran Jarak |
+| :---: | :--- | :--- |
+| $k = 2$ | $(4, 6)$ | Diperbesar 2x lipat menjauh dari pusat |
+| $k = 3$ | $(6, 9)$ | Diperbesar 3x lipat menjauh dari pusat |
+| $k = 1/2$ | $(1, 1,5)$ | Diperkecil (menciut 2x mendekati pusat) |
+| $k = -1$ | $(-2, -3)$ | Ukuran tetap, namun terlempar terbalik ke belakang pusat |
+| $k = 1$ | $(2, 3)$ | Tidak ada perubahan (diam di tempat) |
+
+### Teori & Definisi Formal
+**Dilatasi** adalah transformasi yang memperbesar atau memperkecil suatu bangun geometri, serta mengubah jarak bangun tersebut terhadap pusat dilatasi.
+
+Dilatasi sangat ditentukan oleh dua hal:
+1. **Titik Pusat:** Tempat lensa bayangan ditembakkan.
+2. **Faktor Skala ($k$):** Angka pengalinya.
+
+**Aturan Efek Faktor Skala ($k$):**
+- Jika $|k| > 1$: Bangun akan **diperbesar**. (Contoh: $k=2$, $k=-3$)
+- Jika $0 < |k| < 1$: Bangun akan **diperkecil**. (Contoh: $k=1/2$, $k=0.75$)
+- Jika $k < 0$ (negatif): Bangun akan dilempar ke arah berlawanan dari titik pusat (terbalik).
+
+**Rumus Dilatasi (Pusat $O(0,0)$):**
+Sangat gampang, cukup kalikan koordinat dengan skala $k$!
+$$D(O, k): (x,y) \rightarrow (kx, ky)$$
+
+**Rumus Dilatasi (Pusat Sembarang $P(a,b)$):**
+Jika pusatnya bukan $(0,0)$, kamu kurangkan dulu koordinat dengan pusat, kalikan $k$, lalu tambahkan pusatnya lagi.
+$$\text{Pusat } P(a,b): (x,y) \rightarrow (a + k(x-a),\ b + k(y-b))$$
+
+### Visualisasi: Dilatasi
+Bayangkan sebuah karet gelang segi empat. Titik jarimu adalah pusat koordinat $(0,0)$. Kamu menarik ujung-ujung karet itu sehingga meregang menjadi 3 kali lebih besar. Titik-titik ujung karet yang awalnya berkoordinat $(1, 1)$ kini mulur merenggang dan pindah ke posisi $(3, 3)$. 
+Jika kamu melepaskan tarikannya secara santai dan karet mengerut menjadi setengah dari ukuran aslinya, titik tersebut akan mendekat ke jarimu di $(0.5, 0.5)$.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Sebuah titik $A(4, -5)$ didilatasikan dari titik pusat $(0,0)$ dengan faktor skala 3. Berapakah bayangannya?
+
+**Pembahasan:**
+
+Kalikan saja dengan 3.
+$A' = (4 \times 3, -5 \times 3) = (12, -15)$.
+
+#### Contoh 1 (Mudah)
+
+Titik $B(-8, 12)$ didilatasikan terhadap pusat $O(0,0)$ sehingga bayangannya adalah $B'(-2, 3)$. Berapakah faktor skala dilatasinya?
+
+**Pembahasan:**
+
+Kita cari angka pengalinya ($k$).
+$kx = x' \Rightarrow k \times (-8) = -2 \Rightarrow k = \frac{-2}{-8} = \frac{1}{4}$
+Jadi, faktor skalanya adalah $\frac{1}{4}$ (bangunnya diperkecil 4x).
+
+#### Contoh 2 (Menengah)
+
+Jika persegi panjang dengan luas 10 cm² didilatasikan dengan faktor skala $k = 4$, berapakah luas bayangannya?
+
+**Pembahasan:**
+
+HATI-HATI! Luas tidak hanya dikali $k$, melainkan dikali $k^2$ (karena panjangnya 4x lebih besar, dan lebarnya 4x lebih besar juga).
+Luas baru = $k^2 \times$ Luas awal
+Luas baru = $4^2 \times 10 = 16 \times 10 = 160$ cm².
+
+#### Contoh 3 (Menantang)
+
+Titik $C(5, 7)$ didilatasi dengan **titik pusat $P(1, 2)$** dan faktor skala $k = 2$. Tentukan koordinat $C'$!
+
+**Pembahasan:**
+
+Gunakan rumus pusat $(a, b)$:
+$x' = a + k(x - a) = 1 + 2(5 - 1) = 1 + 2(4) = 1 + 8 = 9$
+$y' = b + k(y - b) = 2 + 2(7 - 2) = 2 + 2(5) = 2 + 10 = 12$
+Maka titik barunya adalah $(9, 12)$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Jebakan yang paling parah di materi ini adalah soal tentang **LUAS**.
+
+
+Siswa rata-rata mengira jika dilatasi $k=3$, maka luas bayangannya menjadi 3 kali lebih besar. **ITU SALAH FATAL!**
+Dilatasi membesarkan SISI, bukan luas. Jika panjang sisi membesar 3x, maka luasnya (panjang dikali lebar) akan membesar $3 \times 3 = 9$ kali!
+Rumus emas: **Luas Bayangan = $k^2 \times$ Luas Awal**.
+
+### Koneksi Dunia Nyata
+1. **Mesin Fotokopi:** Jika kamu menekan tombol "Zoom 150%" pada mesin fotokopi, mesin itu melakukan dilatasi dengan faktor skala $k = 1,5$.
+2. **Peta Digital & Cetak:** Skala peta 1:1.000.000 adalah dilatasi yang memperkecil benda nyata di bumi dengan faktor $k = \frac{1}{1.000.000}$ agar muat di buku atlasmu.
+3. **Fotografi Makro:** Lensa kamera memfokuskan objek mikro dengan melakukan perbesaran optik (dilatasi) pada sensor.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="D">
+  <div slot="question">Bayangan titik $(-6, 9)$ setelah didilatasikan dengan pusat $(0,0)$ dan faktor skala $1/3$ adalah...</div>
+  <div slot="option-a">$(-18, 27)$</div>
+  <div slot="option-b">$(2, -3)$</div>
+  <div slot="option-c">$(3, -3)$</div>
+  <div slot="option-d">$(-2, 3)$</div>
+  <div slot="explanation">**Pembahasan:** Kalikan koordinat asal dengan skala 1/3 (dibagi 3). $-6/3 = -2$ dan $9/3 = 3$. Hasilnya $(-2, 3)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Jika suatu dilatasi memiliki faktor skala $k = -2$, apa yang akan terjadi pada bangun geometrinya?</div>
+  <div slot="option-a">Diperkecil setengah dan tidak terbalik.</div>
+  <div slot="option-b">Diperbesar 2x dan tidak terbalik.</div>
+  <div slot="option-c">Diperbesar 2x dan posisinya terlempar terbalik melewati titik pusat.</div>
+  <div slot="option-d">Hanya bergeser posisinya tanpa membesar.</div>
+  <div slot="explanation">**Pembahasan:** Tanda absolut $|-2| = 2$ berarti bangun diperbesar 2x. Tanda minus (negatif) menandakan arah dilatasinya melesat ke arah belakang titik pusat, sehingga bangun akan terbalik (inversi).</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Titik $(x, y)$ didilatasi dengan pusat $(0,0)$ dan $k=4$, menghasilkan bayangan $(12, -8)$. Berapakah koordinat asalnya?</div>
+  <div slot="option-a">$(48, -32)$</div>
+  <div slot="option-b">$(3, -2)$</div>
+  <div slot="option-c">$(8, -12)$</div>
+  <div slot="option-d">$(4, -4)$</div>
+  <div slot="explanation">**Pembahasan:** $4 \times x = 12 \Rightarrow x=3$. $4 \times y = -8 \Rightarrow y=-2$. Titik asal adalah $(3, -2)$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Sebuah foto berbentuk persegi memiliki luas 25 cm². Jika foto tersebut di-zoom in (dilatasi) dengan faktor skala $k=3$, berapakah luas foto yang baru di layar?</div>
+  <div slot="option-a">225 cm²</div>
+  <div slot="option-b">75 cm²</div>
+  <div slot="option-c">50 cm²</div>
+  <div slot="option-d">300 cm²</div>
+  <div slot="explanation">**Pembahasan:** Hati-hati dengan jebakan luas! Luas baru = $k^2 \times$ Luas awal. $3^2 \times 25 = 9 \times 25 = 225$ cm².</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai dilatasi?</div>
+  <div slot="option-a">Faktor skala $k = 1$ tidak merubah ukuran maupun posisi benda sama sekali.</div>
+  <div slot="option-b">Bangun hasil dilatasi akan memiliki bentuk yang sebangun dengan bangun aslinya.</div>
+  <div slot="option-c">Faktor skala pecahan (seperti 0,5) berfungsi untuk mengecilkan ukuran bangun.</div>
+  <div slot="option-d">Dilatasi dapat mengubah bentuk sebuah segitiga siku-siku menjadi segitiga sembarang.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan D salah. Dilatasi mengubah *ukuran* sisi (skala), tapi tidak pernah mengubah *bentuk* proporsional ataupun sudut-sudutnya. Segitiga siku-siku yang didilatasi akan tetap menjadi segitiga siku-siku yang sebangun.</div>
+</Quiz>

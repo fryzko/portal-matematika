@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian | Ruang Matematika SMP</title>
+    <meta name="description" content="Cari materi, topik, dan konsep matematika SMP dengan cepat.">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+
+<body class="page-utility">
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../../index.html" class="site-logo">Ruang Matematika SMP</a>
+            <nav class="main-navigation" aria-label="Navigasi Utama">
+                <ul class="navigation-list">
+                    <li><a href="../../index.html">Beranda</a></li>
+                    <li><a href="../kelas/vii.html">Kelas</a></li>
+                    <li><a href="../elemen/bilangan.html">Elemen</a></li>
+                    <li><a href="../latihan/index.html">Latihan</a></li>
+                    <li><a href="../bank-soal/index.html">Bank Soal</a></li>
+                    <li><a href="#">Peta Belajar</a></li>
+                    <li><a href="index.html" aria-current="page">Pencarian</a></li>
+                    <li><a href="../tentang/index.html">Tentang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero-section">
+            <div class="container">
+                <h1>Pencarian Materi</h1>
+                <p class="hero-description">
+                    Temukan materi, topik, atau konsep matematika yang ingin kamu pelajari.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <form class="search-form--page"
+                      data-search-form
+                      data-results-target="#search-results">
+
+                    <input type="search"
+                           name="q"
+                           placeholder="Cari materi, topik, atau konsep..."
+                           aria-label="Kata kunci pencarian">
+
+                    <button type="submit" class="button button-primary">Cari</button>
+
+                </form>
+
+                <div id="search-results" class="search-results" aria-live="polite"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 Ruang Matematika SMP • Versi 1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js" type="module"></script>
+
+</body>
+
+</html>

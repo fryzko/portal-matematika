@@ -1,0 +1,181 @@
+---
+title: "Operasi Perkalian & Pembagian Bilangan Bulat"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: false
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Operasi Perkalian & Pembagian Bilangan Bulat
+Kamu mungkin sudah hafal di luar kepala: $3 \times 4 = 12$. Ini mudah karena artinya kamu menjumlahkan angka 4 sebanyak tiga kali ($4 + 4 + 4$).
+Tapi, apa artinya $-3 \times 4$? Bagaimana caranya kamu "menjumlahkan angka 4 sebanyak MINUS tiga kali"? 
+
+Lebih aneh lagi, guru matematika selalu bilang: "Negatif dikali Negatif hasilnya Positif" (contoh: $-3 \times -4 = 12$). Pernahkah kamu mempertanyakan *kenapa* bisa begitu? Masa utang dikali utang tiba-tiba berubah jadi lunas dan untung? Mari kita bedah rahasianya!
+
+### Yuk, Temukan Sendiri Operasi Perkalian & Pembagian Bilangan Bulat
+Coba perhatikan tabel perkalian angka 3 di bawah ini, berurutan dari atas ke bawah. Fokus pada kolom **Hasil**, apa pola yang kamu temukan setiap kali pengalinya turun satu tingkat?
+
+| Perkalian Turun | Hasil |
+| :---: | :---: |
+| $3 \times 3$ | $9$ |
+| $3 \times 2$ | $6$ |
+| $3 \times 1$ | $3$ |
+| $3 \times 0$ | $0$ |
+| $3 \times -1$ | **?** |
+| $3 \times -2$ | **?** |
+
+Betul! Hasilnya selalu **dikurangi 3** dari baris sebelumnya ($9 \rightarrow 6 \rightarrow 3 \rightarrow 0$).
+Maka, jika dari 0 dikurangi 3, baris selanjutnya ($3 \times -1$) PASTI hasilnya **$-3$**. 
+
+Dengan pola ini, perkalian bilangan positif dengan negatif terbukti menghasilkan bilangan negatif!
+
+### Teori & Definisi Formal
+Berbeda dengan penjumlahan yang memakai hukum langkah maju-mundur, perkalian dan pembagian bilangan bulat jauh lebih mudah karena menggunakan **Hukum Tanda Bersaudara**. 
+
+Cukup kalikan/bagikan angkanya secara normal seperti biasa, lalu tentukan tanda hasilnya dengan aturan berikut:
+
+#### 1. Jika Tandanya SAMA $\rightarrow$ Hasil POSITIF ($+$)
+- Positif $\times$ Positif = Positif ($+$)
+- Negatif $\times$ Negatif = Positif ($+$)
+*(Berlaku juga untuk pembagian)*
+
+#### 2. Jika Tandanya BEDA $\rightarrow$ Hasil NEGATIF ($-$)
+- Positif $\times$ Negatif = Negatif ($-$)
+- Negatif $\times$ Positif = Negatif ($-$)
+*(Berlaku juga untuk pembagian)*
+
+### Visualisasi: Operasi Perkalian & Pembagian Bilangan Bulat
+Agar lebih mudah diingat, bayangkan tabel "Sahabat dan Musuh":
+- Positif ($+$) = Teman / Baik
+- Negatif ($-$) = Musuh / Buruk
+
+| Logika | Peristiwa | Tanda Matematika |
+| :--- | :--- | :---: |
+| Temannya Teman | Adalah Temanku | $(+) \times (+) = (+)$ |
+| Temannya Musuh | Adalah Musuhku | $(+) \times (-) = (-)$ |
+| Musuhnya Teman | Adalah Musuhku | $(-) \times (+) = (-)$ |
+| Musuhnya Musuh | Adalah Temanku | $(-) \times (-) = (+)$ |
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Tentukan hasil dari $5 \times (-4)$!
+
+**Pembahasan:**
+
+- Kalikan angkanya: $5 \times 4 = 20$.
+- Lihat tandanya: Positif $\times$ Negatif (BEDA).
+- Maka hasilnya negatif.
+Jawaban: $-20$.
+
+#### Contoh 1 (Mudah)
+Tentukan hasil dari $-24 \div (-6)$!
+
+**Pembahasan:**
+
+- Bagikan angkanya: $24 \div 6 = 4$.
+- Lihat tandanya: Negatif $\div$ Negatif (SAMA).
+- Maka hasilnya positif.
+Jawaban: $4$.
+
+#### Contoh 2 (Menengah)
+Berapakah hasil dari $-3 \times 5 \times (-2)$?
+
+**Pembahasan:**
+
+Kerjakan dari kiri ke kanan.
+1. $-3 \times 5$ (Beda tanda $\rightarrow$ negatif) = $-15$.
+2. Sekarang kalikan hasilnya dengan angka terakhir: $-15 \times (-2)$.
+3. Negatif $\times$ Negatif (Sama tanda $\rightarrow$ positif) = $30$.
+Jawaban: $30$.
+
+#### Contoh 3 (Menantang)
+Seekor burung pelikan menukik tajam ke dalam air untuk menangkap ikan. Kecepatannya adalah $2\text{ meter}$ per detik ke arah bawah (bawah = negatif). Di kedalaman berapakah pelikan tersebut setelah menyelam selama $4\text{ detik}$?
+
+**Pembahasan:**
+
+- Kecepatan: $-2\text{ meter/detik}$ (karena ke bawah).
+- Waktu: $4\text{ detik}$.
+- Jarak (Kedalaman) = Kecepatan $\times$ Waktu.
+- Jarak = $-2 \times 4 = -8$.
+Jawaban: Pelikan berada pada kedalaman **$8\text{ meter}$ di bawah permukaan air** (atau posisi $-8$).
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Tertukar dengan Aturan Penjumlahan**: Banyak siswa mengira $-5 + 2 = 3$ karena "beda tanda menjadi negatif". **SANGAT SALAH!** Aturan peleburan tanda (*Sama = Plus, Beda = Minus*) HANYA berlaku untuk **perkalian** dan **pembagian**! Untuk penjumlahan, gunakan analogi garis bilangan atau utang.
+
+
+
+### Koneksi Dunia Nyata
+Konsep perkalian negatif ini digunakan dalam **Pemrograman Mesin Fisika (Physics Engine)** di dalam *Video Game*.
+Jika sebuah mobil di dalam *game* sedang berjalan mundur (Kecepatan Negatif, misal $-5\text{ m/s}$), dan waktu diputar mundur (Waktu Negatif, misal $-2\text{ detik}$ yang lalu), di mana mobil itu berada? 
+Jawabannya: $-5 \times -2 = +10\text{ meter}$ di depan titik awal! Mesin *game* selalu menggunakan rumus ini untuk menghitung *replay*.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    1. Hasil dari $-8 \times 7$ adalah...
+  </div>
+  <div slot="option-a">$56$</div>
+  <div slot="option-b">$-56$</div>
+  <div slot="option-c">$-15$</div>
+  <div slot="option-d">$15$</div>
+  <div slot="explanation">**Pembahasan:** Negatif dikali positif (beda tanda) hasilnya negatif. $8 \times 7 = 56$, maka $-56$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">
+    2. Hasil dari $-45 \div (-9)$ adalah...
+  </div>
+  <div slot="option-a">$-36$</div>
+  <div slot="option-b">$-5$</div>
+  <div slot="option-c">$36$</div>
+  <div slot="option-d">$5$</div>
+  <div slot="explanation">**Pembahasan:** Negatif dibagi negatif (sama tanda) hasilnya positif. $45 \div 9 = 5$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    3. Jika $p = -2, q = 3$, dan $r = -4$, berapakah nilai dari $p \times q \times r$?
+  </div>
+  <div slot="option-a">$24$</div>
+  <div slot="option-b">$-24$</div>
+  <div slot="option-c">$14$</div>
+  <div slot="option-d">$-14$</div>
+  <div slot="explanation">**Pembahasan:** $-2 \times 3 = -6$. 
+    Lalu $-6 \times (-4) = 24$ (Negatif $\times$ Negatif).</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    4. Manakah pernyataan di bawah ini yang SALAH?
+  </div>
+  <div slot="option-a">$-6 \times (-3) = 18$</div>
+  <div slot="option-b">$20 \div (-4) = -5$</div>
+  <div slot="option-c">$-2 \times (-2) \times (-2) = 8$</div>
+  <div slot="option-d">$-15 \div 3 = -5$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    Evaluasi opsi C: $-2 \times (-2) = 4$. Lalu $4 \times (-2) = -8$. Opsi C menyebutkan hasilnya positif $8$. Jadi C adalah pernyataan yang salah.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    5. Dalam sebuah tes tertulis, jawaban benar diberi nilai $4$, jawaban salah diberi nilai $-2$, dan tidak dijawab diberi nilai $0$. Dari $40$ soal, Budi menjawab benar $25$ soal dan salah $10$ soal. Total nilai Budi adalah...
+  </div>
+  <div slot="option-a">$70$</div>
+  <div slot="option-b">$80$</div>
+  <div slot="option-c">$90$</div>
+  <div slot="option-d">$100$</div>
+  <div slot="explanation">**Pembahasan:** Benar = $25 \times 4 = 100$.
+    Salah = $10 \times (-2) = -20$.
+    Total = $100 + (-20) = 80$.</div>
+</Quiz>

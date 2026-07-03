@@ -1,0 +1,208 @@
+---
+title: "SPLDV Bagian 2: Metode Eliminasi (Menghilangkan)"
+topic: "Aljabar"
+difficulty: "Grade 9"
+needInteractive: false
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami SPLDV Bagian 2
+Bayangkan kamu menimbang 2 buah mangga dan 1 buah apel. Beratnya persis $800\text{ gram}$.
+Lalu di timbangan sebelahnya, ada 1 buah mangga dan 1 buah apel. Beratnya $500\text{ gram}$.
+
+Bisakah kamu menebak berat 1 buah mangga dengan sangat cepat? 
+Tentu! Karena jumlah apelnya SAMA di kedua timbangan, kamu tinggal **mengurangkan** total berat mereka ($800 - 500 = 300\text{ gram}$). Selisih $300\text{ gram}$ ini pasti berasal dari 1 buah mangga yang berlebih di timbangan pertama. Selamat, kamu baru saja menggunakan sihir Eliminasi!
+
+### Yuk, Temukan Sendiri SPLDV Bagian 2
+Dalam aljabar, "Eliminasi" berarti "Menghilangkan/Melawan".
+Coba lihat dua persamaan ini:
+1) $3x + y = 20$
+2) $2x - y = 10$
+
+Bisakah kamu menebak apa yang terjadi jika kedua persamaan di atas kita **tambahkan** secara vertikal seperti penjumlahan bersusun waktu SD?
+$3x + 2x$ menjadi $5x$. 
+Bagaimana dengan $+y$ ditambah $-y$? Mereka saling menghancurkan dan menjadi $0$! 
+Persamaan berubah menjadi $5x = 30$, sehingga $x = 6$ bisa ditemukan secara instan.
+
+### Teori & Definisi Formal
+**Metode Eliminasi** adalah teknik menyamakan koefisien (angka di depan huruf) dari salah satu variabel pada kedua persamaan, lalu menjumlahkan atau mengurangkannya agar variabel tersebut lenyap (tereliminasi).
+
+#### Trik Tanda Operasi:
+Kapan harus **Ditambah (+)** dan kapan harus **Dikurang (-)**?
+1. **Tanda SAMA $\rightarrow$ Dikurang (-)**
+   Jika variabel yang mau dihilangkan sama-sama positif (misal $2y$ dan $2y$), atau sama-sama negatif ($-3x$ dan $-3x$), maka kurangkan persamaannya!
+2. **Tanda BEDA $\rightarrow$ Ditambah (+)**
+   Jika variabel yang mau dihilangkan beda tanda (satu $+y$, satu lagi $-y$), jumlahkan saja persamaannya agar mereka saling memusnahkan.
+
+### Visualisasi: SPLDV Bagian 2
+Kadang-kadang, angka di depan variabel belum sama. Apa yang harus dilakukan? Kita kalikan persamaannya dengan angka silang!
+```text
+(Persamaan 1)  3x + 2y = 12   | x 5 |  => 15x + 10y = 60
+(Persamaan 2)  4x + 5y = 23   | x 2 |  =>  8x + 10y = 46
+                                          -------------- - (Dikurang)
+                                           7x       = 14
+                                                  x = 2
+```
+Perhatikan bagaimana angka koefisien $y$ (yaitu 2 dan 5) kita jadikan pengali secara menyilang agar keduanya sama-sama menjadi $10y$!
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+Gunakan eliminasi untuk menyelesaikan:
+1) $x + y = 10$
+2) $x - y = 4$
+
+**Pembahasan:**
+
+Angka di depan $y$ sudah sama, namun beda tanda ($+y$ dan $-y$). Maka kita **tambahkan** keduanya:
+$$(x + y) + (x - y) = 10 + 4$$
+
+$$2x = 14 \implies x = 7$$
+*Untuk mencari $y$, biasanya kita campur dengan substitusi:*
+Masukkan $x = 7$ ke $x + y = 10 \implies 7 + y = 10 \implies y = 3$.
+Jawaban: HP = $\{7, 3\}$.
+
+#### Contoh 1 (Mudah)
+Tentukan penyelesaian dari:
+1) $3x + 2y = 16$
+2) $x + 2y = 12$
+
+**Pembahasan:**
+
+Angka di depan $y$ sudah sama persis (sama-sama $+2y$). Maka kita **kurangkan** keduanya.
+```text
+   3x + 2y = 16
+    x + 2y = 12
+   ------------ -
+   2x      =  4
+         x =  2
+```
+Substitusi $x = 2$ ke $x + 2y = 12$:
+$$2 + 2y = 12 \implies 2y = 10 \implies y = 5$$
+Jawaban: HP = $\{2, 5\}$.
+
+#### Contoh 2 (Menengah)
+Carilah nilai $x$ dan $y$ dari:
+1) $2x + 3y = 8$
+2) $3x + 2y = 7$
+
+**Pembahasan:**
+
+Tidak ada angka yang sama. Mari kita samakan $x$ dengan mengalikan silang: 
+Pers(1) dikali 3, Pers(2) dikali 2.
+```text
+   6x + 9y = 24
+   6x + 4y = 14
+   ------------ -
+        5y = 10
+         y = 2
+```
+Substitusi $y=2$ ke pers(1):
+$$2x + 3(2) = 8 \implies 2x + 6 = 8 \implies 2x = 2 \implies x = 1$$
+Jawaban: HP = $\{1, 2\}$.
+
+#### Contoh 3 (Menantang - Soal Cerita)
+Di tempat parkir terdapat 45 kendaraan yang terdiri dari mobil (roda 4) dan sepeda motor (roda 2). Jika jumlah seluruh roda adalah 130, berapa banyak mobil di sana?
+
+**Pembahasan:**
+
+Misal $x = \text{mobil}$, $y = \text{motor}$.
+- Persamaan Jumlah: $x + y = 45$
+- Persamaan Roda: $4x + 2y = 130$
+
+Kita mencari mobil ($x$), berarti yang harus **dieliminasi** adalah motor ($y$).
+Kalikan persamaan pertama dengan $2$ agar jumlah $y$-nya sama.
+```text
+   2x + 2y =  90  (Pers 1 x 2)
+   4x + 2y = 130  (Pers 2)
+   ------------- -
+  -2x      = -40
+         x = 20
+```
+Jawaban: Terdapat **20 buah mobil** di tempat parkir.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+- **Lupa Mengalikan Hasil Akhir (Konstanta)**: Saat menyamakan variabel dengan mengalikan seluruh persamaan (misal dikali 3), banyak siswa yang mengalikan hurufnya saja, tetapi angka di ruas kanan sama dengan (misal = 10) dibiarkan. **SALAH!** Seluruh angka di baris tersebut harus dikali!
+
+
+- **Salah Tanda saat Mengurang**: Jika kita mengurangkan persamaan, perhatikan bilangan negatif! 
+$5x - (-2x)$ hasilnya adalah $7x$, bukan $3x$. Tanda kurang bertemu bilangan negatif akan melebur menjadi tambah.
+
+### Koneksi Dunia Nyata
+Metode Eliminasi (atau versi lebih canggihnya yang disebut Eliminasi Gauss-Jordan) adalah jantung dari hampir semua algoritma kecerdasan buatan (*Machine Learning*) saat melatih model jaringan saraf (*Neural Network*). Komputer mengeliminasi error secara berulang hingga menemukan bobot yang paling akurat!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">
+    1. Untuk mengeliminasi $y$ dari sistem persamaan $4x - 3y = 10$ dan $2x + y = 5$, kita dapat mengalikan persamaan kedua dengan angka...
+  </div>
+  <div slot="option-a">$2$</div>
+  <div slot="option-b">$3$</div>
+  <div slot="option-c">$-3$</div>
+  <div slot="option-d">$4$</div>
+  <div slot="explanation">**Pembahasan:** Karena persamaan pertama memiliki $-3y$, kita butuh persamaan kedua memiliki $+3y$ atau $-3y$ agar setara. Cukup kalikan dengan $3$ (kemudian ditambahkan nantinya).</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    2. Hasil eliminasi variabel $x$ dengan cara mengurangkan persamaan $5x + 3y = 15$ dan $5x - 2y = 5$ adalah...
+  </div>
+  <div slot="option-a">$5y = 10$</div>
+  <div slot="option-b">$y = 10$</div>
+  <div slot="option-c">$5y = 20$</div>
+  <div slot="option-d">$y = 20$</div>
+  <div slot="explanation">**Pembahasan:** $(3y) - (-2y) = 3y + 2y = 5y$.
+    $15 - 5 = 10$.
+    Maka hasilnya $5y = 10$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    3. Penyelesaian dari sistem persamaan $x + y = 6$ dan $x - y = -2$ adalah...
+  </div>
+  <div slot="option-a">$(4, 2)$</div>
+  <div slot="option-b">$(3, 3)$</div>
+  <div slot="option-c">$(2, 4)$</div>
+  <div slot="option-d">$(1, 5)$</div>
+  <div slot="explanation">**Pembahasan:** Tambahkan keduanya untuk eliminasi $y$:
+    $2x = 4 \implies x = 2$.
+    Substitusi $x=2$ ke $x+y=6 \implies 2+y=6 \implies y=4$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">
+    4. Manakah sistem persamaan di bawah ini yang paling cepat diselesaikan jika menggunakan eliminasi dengan cara dijumlahkan secara langsung?
+  </div>
+  <div slot="option-a">$2x+y=5$ dan $x+y=3$</div>
+  <div slot="option-b">$3x-2y=4$ dan $2x-2y=1$</div>
+  <div slot="option-c">$x+5y=10$ dan $2x-5y=8$</div>
+  <div slot="option-d">$4x+3y=12$ dan $x+2y=8$</div>
+  <div slot="explanation">
+    **Pembahasan (Tipe HOTS):**
+    Dijumlahkan berarti kita mencari variabel yang angkanya sama persis tapi berlawanan tanda (satu positif, satu negatif).
+    Pada opsi C, terdapat $+5y$ dan $-5y$, sehingga ini yang paling tepat untuk dijumlahkan secara langsung.
+  </div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">
+    5. Harga 2 kemeja dan 1 celana adalah Rp140.000. Harga 1 kemeja dan 1 celana adalah Rp90.000. Berapa harga 1 kemeja?
+  </div>
+  <div slot="option-a">Rp50.000</div>
+  <div slot="option-b">Rp40.000</div>
+  <div slot="option-c">Rp30.000</div>
+  <div slot="option-d">Rp20.000</div>
+  <div slot="explanation">**Pembahasan:** $2k + c = 140.000$
+    $k + c = 90.000$
+    Karena jumlah celana ($c$) sama, langsung kurangkan keduanya:
+    $(2k - k) + (c - c) = 140.000 - 90.000$
+    $k = 50.000$.</div>
+</Quiz>

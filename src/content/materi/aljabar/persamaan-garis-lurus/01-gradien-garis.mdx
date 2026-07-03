@@ -1,0 +1,171 @@
+---
+title: "Gradien Garis: Mengukur Kemiringan Sebuah Garis"
+topic: "Aljabar"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+
+### Mari Memahami Gradien Garis
+Pernahkah kamu berjalan mendaki di area pegunungan? Beberapa tanjakan terasa sangat curam sehingga membuatmu ngos-ngosan, sementara beberapa tanjakan lainnya terasa lebih landai dan santai. Tingkat kecuraman atau "kemiringan" dari tanjakan jalan inilah yang di dalam matematika dikenal dengan istilah **Gradien**. Konsep gradien ini sangat penting, misalnya bagi tukang bangunan yang harus memastikan kemiringan atap rumah pas agar air hujan turun lancar, atau agar tangga rumah aman dinaiki dan tidak terlalu curam.
+
+### Yuk, Temukan Sendiri Gradien Garis
+Coba gunakan bidang koordinat interaktif di bawah ini untuk memplot dua titik berbeda. 
+Misalnya, letakkan titik pertama di $(1, 2)$ dan titik kedua di $(4, 8)$.
+Perhatikan jarak vertikalnya (selisih $y$) dan jarak horizontalnya (selisih $x$).
+Nilai gradien adalah hasil bagi dari $\frac{\Delta y}{\Delta x}$ (selisih $y$ dibagi selisih $x$).
+Semakin curam garisnya, semakin besar pula angka gradiennya!
+
+Coba plot titik-titik berikut dan hubungkan dengan garis lurus:
+
+| x  | y=2x | Titik    |
+|----|------|----------|
+| -2 | -4   | (-2,-4)  |
+| 0  | 0    | (0,0)    |
+| 2  | 4    | (2,4)    |
+
+Δy/Δx = 2/1 = 2 → gradien = 2
+
+Amati juga hubungan arah garis dengan nilai gradiennya melalui tabel berikut ini:
+
+| Gradien ($m$) | Arah Garis | Kemiringan |
+| :---: | :--- | :--- |
+| $m > 0$ | Naik (dari kiri bawah ke kanan atas) | Positif |
+| $m < 0$ | Turun (dari kiri atas ke kanan bawah) | Negatif |
+| $m = 0$ | Mendatar (sejajar sumbu $x$) | Tidak miring (Nol) |
+| $m$ tak tentu | Tegak lurus (sejajar sumbu $y$) | Vertikal |
+
+### Teori & Definisi Formal
+**Gradien** (disimbolkan dengan huruf $m$) adalah nilai yang menunjukkan tingkat kemiringan atau kecuraman sebuah garis lurus.
+
+**Rumus Utama Gradien dari 2 Titik**
+Jika kita memiliki dua titik pada garis yaitu $(x_1, y_1)$ dan $(x_2, y_2)$, maka rumus gradiennya adalah selisih nilai $y$ dibagi selisih nilai $x$:
+$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\Delta y}{\Delta x}$$
+
+**Gradien dari Persamaan Garis**
+Jika sebuah garis dituliskan dalam persamaan $y = mx + c$, maka gradiennya adalah angka **$m$** (koefisien dari $x$).
+Contoh: pada persamaan $y = 3x - 5$, gradiennya adalah 3.
+
+**Sifat Dua Garis Khusus**
+1. **Dua Garis Sejajar:** Arah kemiringannya pasti sama persis. Oleh karena itu, **$m_1 = m_2$**.
+2. **Dua Garis Tegak Lurus:** Jika dua garis saling berpotongan tegak lurus membentuk siku-siku, maka hasil kali gradiennya adalah -1. **$m_1 \times m_2 = -1$**.
+
+### Visualisasi: Gradien Garis
+Perhatikan grafik garis lurus berikut. Titik A berada di $(1, 2)$ dan B di $(4, 8)$.
+- Perubahan naik/vertikal ($\Delta y$): dari $y=2$ ke $y=8$, jadi $8 - 2 = 6$
+- Perubahan jalan/horizontal ($\Delta x$): dari $x=1$ ke $x=4$, jadi $4 - 1 = 3$
+Maka gradiennya:
+$$m = \frac{6}{3} = 2$$
+Ini berarti, untuk setiap 1 langkah ke kanan, garis akan "naik" 2 langkah ke atas.
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Tentukan gradien dari persamaan garis $y = 5x - 7$!
+
+**Pembahasan:**
+
+Persamaan ini sudah dalam bentuk $y = mx + c$.
+Angka yang menempel pada $x$ adalah 5, jadi gradiennya $m = 5$.
+
+#### Contoh 1 (Mudah)
+
+Hitunglah gradien garis yang melalui titik $(2, 3)$ dan $(5, 9)$!
+
+**Pembahasan:**
+
+Misalkan $(x_1, y_1) = (2, 3)$ dan $(x_2, y_2) = (5, 9)$.
+$$m = \frac{9 - 3}{5 - 2} = \frac{6}{3} = 2$$
+
+#### Contoh 2 (Menengah)
+
+Sebuah garis $g$ sejajar dengan garis yang memiliki persamaan $y = -4x + 10$. Berapakah gradien garis $g$?
+
+**Pembahasan:**
+
+Gradien garis $y = -4x + 10$ adalah $m_1 = -4$.
+Karena garis $g$ **sejajar** dengan garis tersebut, maka gradiennya sama persis!
+$m_g = m_1 = -4$.
+
+#### Contoh 3 (Menantang)
+
+Tentukan gradien garis yang tegak lurus dengan garis yang melalui titik $P(1, -2)$ dan $Q(3, 4)$!
+
+**Pembahasan:**
+
+Pertama, hitung gradien garis PQ:
+$$m_{PQ} = \frac{4 - (-2)}{3 - 1} = \frac{4 + 2}{2} = \frac{6}{2} = 3$$
+Syarat dua garis tegak lurus: $m_1 \times m_2 = -1$.
+$$3 \times m_2 = -1 \Rightarrow m_2 = -\frac{1}{3}$$
+Jadi gradien garis yang tegak lurus adalah $-\frac{1}{3}$.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan yang paling sering ditemui saat menghitung gradien dua titik adalah:
+
+
+Siswa tertukar posisi antara bagian atas (pembilang) dan bawah (penyebut). Mereka sering menghitungnya sebagai $\frac{x_2 - x_1}{y_2 - y_1}$. **INI SALAH TOTAL!**
+Ingat rumusnya: Yang di atas **harus selalu $\Delta y$**, dan yang di bawah **harus selalu $\Delta x$**.
+Hafalkan dengan frasa: **"Naik dibagi Jalan"** (karena $y$ bergerak naik-turun dan $x$ bergerak horizontal seperti berjalan).
+
+### Koneksi Dunia Nyata
+Konsep perhitungan gradien atau kemiringan dipakai luas di berbagai profesi:
+1. **Insinyur Sipil:** Menghitung kemiringan jalan raya, terowongan, dan jembatan agar kendaraan dapat melintas dengan aman (kemiringan yang salah bisa membuat truk terbalik!).
+2. **Arsitek:** Menghitung kemiringan atap rumah ideal supaya air hujan tidak tergenang dan genteng tidak mudah merosot.
+3. **Fisika Terapan:** Dalam grafik jarak terhadap waktu (S-t), gradien garis menunjukkan **kecepatan** gerak benda tersebut!
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Gradien garis yang melalui titik $(1, 4)$ dan $(3, 10)$ adalah...</div>
+  <div slot="option-a">2</div>
+  <div slot="option-b">3</div>
+  <div slot="option-c">4</div>
+  <div slot="option-d">5</div>
+  <div slot="explanation">**Pembahasan:** $m = \frac{10 - 4}{3 - 1} = \frac{6}{2} = 3$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Diketahui sebuah garis memiliki gradien bernilai negatif. Maka bentuk grafiknya dari kiri ke kanan adalah...</div>
+  <div slot="option-a">Naik</div>
+  <div slot="option-b">Mendatar sempurna</div>
+  <div slot="option-c">Tegak lurus sempurna</div>
+  <div slot="option-d">Turun</div>
+  <div slot="explanation">**Pembahasan:** Jika gradien kurang dari 0 ($m < 0$), maka garis akan cenderung turun jika ditarik dari arah kiri ke arah kanan.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Berapakah gradien dari persamaan garis $3y = 12x + 9$?</div>
+  <div slot="option-a">4</div>
+  <div slot="option-b">12</div>
+  <div slot="option-c">3</div>
+  <div slot="option-d">9</div>
+  <div slot="explanation">**Pembahasan:** Ubah bentuknya menjadi $y = mx + c$ dengan membagi semuanya dengan 3. $y = 4x + 3$. Jadi $m = 4$.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah garis memiliki gradien 2. Jika ada garis lain yang tegak lurus dengan garis tersebut, berapakah gradien garis kedua?</div>
+  <div slot="option-a">2</div>
+  <div slot="option-b">-2</div>
+  <div slot="option-c">-1/2</div>
+  <div slot="option-d">1/2</div>
+  <div slot="explanation">**Pembahasan:** Syarat tegak lurus: $m_1 \times m_2 = -1$. Maka $2 \times m_2 = -1$, sehingga $m_2 = -\frac{1}{2}$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Manakah dari pernyataan di bawah ini yang SALAH tentang gradien?</div>
+  <div slot="option-a">Rumus gradien dari dua titik adalah selisih absis dibagi selisih ordinat.</div>
+  <div slot="option-b">Garis mendatar sejajar sumbu-$x$ memiliki gradien bernilai nol.</div>
+  <div slot="option-c">Dua garis sejajar memiliki nilai gradien yang sama persis.</div>
+  <div slot="option-d">Kemiringan garis dapat bernilai positif maupun negatif.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan A salah. Selisih absis (sumbu x) dibagi selisih ordinat (sumbu y) adalah kebalikannya. Rumus yang benar adalah selisih ordinat (y) dibagi selisih absis (x).</div>
+</Quiz>

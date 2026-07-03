@@ -1,0 +1,339 @@
+---
+// src/components/SpldvSolver.astro
+---
+
+<spldv-solver class="spldv-widget">
+  <div class="spldv-header">
+    <h3>Pencari Titik Tabrakan (SPLDV)</h3>
+    <p>Masukkan angka koefisien untuk dua persamaan garis lurus di bawah ini. Perhatikan bagaimana grafik bergerak secara dinamis untuk menemukan titik potong (solusi SPLDV)!</p>
+  </div>
+
+  <div class="spldv-body">
+    <div class="controls-panel">
+      
+      <div class="equation-card eq1">
+        <h4>Garis Biru (Persamaan 1)</h4>
+        <div class="eq-inputs">
+          <input type="number" id="a1" value="2" step="1" /> <span>x</span> <span>+</span>
+          <input type="number" id="b1" value="1" step="1" /> <span>y</span> <span>=</span>
+          <input type="number" id="c1" value="5" step="1" />
+        </div>
+      </div>
+
+      <div class="equation-card eq2">
+        <h4>Garis Merah (Persamaan 2)</h4>
+        <div class="eq-inputs">
+          <input type="number" id="a2" value="1" step="1" /> <span>x</span> <span>+</span>
+          <input type="number" id="b2" value="-1" step="1" /> <span>y</span> <span>=</span>
+          <input type="number" id="c2" value="1" step="1" />
+        </div>
+      </div>
+      
+      <div class="result-box" id="result-box">
+        <h4>Himpunan Penyelesaian (Titik Potong)</h4>
+        <div class="hp-display" id="hp-display">(x, y)</div>
+        
+        <div id="calc-details" style="margin-top: 1.5rem; background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 6px; text-align: left; font-family: monospace; font-size: 0.95rem; color: #334155; display: none; border: 1px dashed #cbd5e1;">
+          <div style="font-weight: bold; margin-bottom: 0.5rem;">Kalkulasi Real-time (Metode Cramer):</div>
+          <div>D = a₁b₂ - a₂b₁ = <span id="calc-d">0</span></div>
+          <div>Dx = c₁b₂ - c₂b₁ = <span id="calc-dx">0</span></div>
+          <div>Dy = a₁c₂ - a₂c₁ = <span id="calc-dy">0</span></div>
+          <div style="margin-top: 0.5rem; border-top: 1px solid #cbd5e1; padding-top: 0.5rem;">
+            x = Dx / D = <strong id="calc-x" style="color: #2563eb;">0</strong><br>
+            y = Dy / D = <strong id="calc-y" style="color: #2563eb;">0</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="graph-panel">
+      <!-- Coordinate System is 400x400 representing x: -10 to 10, y: -10 to 10 -->
+      <svg id="graph-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        
+        <!-- Grid background -->
+        <rect width="400" height="400" fill="url(#grid)" />
+        
+        <!-- Axes -->
+        <line x1="200" y1="0" x2="200" y2="400" stroke="#94a3b8" stroke-width="2" />
+        <line x1="0" y1="200" x2="400" y2="200" stroke="#94a3b8" stroke-width="2" />
+        
+        <!-- Axis labels -->
+        <text x="380" y="190" fill="#64748b" font-size="12" font-family="sans-serif">X</text>
+        <text x="210" y="15" fill="#64748b" font-size="12" font-family="sans-serif">Y</text>
+        
+        <!-- Dynamic Lines -->
+        <line id="line1" stroke="#3b82f6" stroke-width="3" />
+        <line id="line2" stroke="#ef4444" stroke-width="3" />
+        
+        <!-- Intersection Point -->
+        <circle id="intersection-point" r="6" fill="#10b981" stroke="white" stroke-width="2" opacity="0" />
+      </svg>
+    </div>
+  </div>
+</spldv-solver>
+
+<script>
+// @ts-nocheck
+  class SpldvSolver extends HTMLElement {
+    constructor() {
+      super();
+      // Inputs
+      this.a1 = this.querySelector('#a1');
+      this.b1 = this.querySelector('#b1');
+      this.c1 = this.querySelector('#c1');
+      this.a2 = this.querySelector('#a2');
+      this.b2 = this.querySelector('#b2');
+      this.c2 = this.querySelector('#c2');
+      
+      // Output
+      this.hpDisplay = this.querySelector('#hp-display');
+      this.resultBox = this.querySelector('#result-box');
+      
+      this.calcDetails = this.querySelector('#calc-details');
+      this.calcD = this.querySelector('#calc-d');
+      this.calcDx = this.querySelector('#calc-dx');
+      this.calcDy = this.querySelector('#calc-dy');
+      this.calcX = this.querySelector('#calc-x');
+      this.calcY = this.querySelector('#calc-y');
+      
+      // SVG elements
+      this.line1 = this.querySelector('#line1');
+      this.line2 = this.querySelector('#line2');
+      this.intersectionPoint = this.querySelector('#intersection-point');
+      
+      // Add listeners
+      const inputs = [this.a1, this.b1, this.c1, this.a2, this.b2, this.c2];
+      inputs.forEach(input => {
+        input.addEventListener('input', () => this.calculateAndDraw());
+      });
+
+      // Initial draw
+      this.calculateAndDraw();
+    }
+
+    // Convert math coordinates (x: -10 to 10, y: -10 to 10) to SVG coordinates (0 to 400)
+    mapX(mathX) {
+      return (mathX + 10) * 20;
+    }
+    mapY(mathY) {
+      return (10 - mathY) * 20;
+    }
+
+    // Get SVG line endpoints for an equation ax + by = c
+    getLineEndpoints(a, b, c) {
+      let xStart, yStart, xEnd, yEnd;
+      
+      if (a === 0 && b === 0) {
+        // Invalid line
+        return null;
+      }
+      
+      if (b === 0) {
+        // Vertical line: x = c / a
+        const x = c / a;
+        return { x1: this.mapX(x), y1: this.mapY(-10), x2: this.mapX(x), y2: this.mapY(10) };
+      }
+      
+      // Calculate y values at the graph boundaries (x = -10 and x = 10)
+      const yAtMinus10 = (c - a * -10) / b;
+      const yAtPlus10 = (c - a * 10) / b;
+      
+      return { 
+        x1: this.mapX(-10), y1: this.mapY(yAtMinus10), 
+        x2: this.mapX(10), y2: this.mapY(yAtPlus10) 
+      };
+    }
+
+    calculateAndDraw() {
+      const a1 = parseFloat(this.a1.value) || 0;
+      const b1 = parseFloat(this.b1.value) || 0;
+      const c1 = parseFloat(this.c1.value) || 0;
+      
+      const a2 = parseFloat(this.a2.value) || 0;
+      const b2 = parseFloat(this.b2.value) || 0;
+      const c2 = parseFloat(this.c2.value) || 0;
+
+      // Draw Line 1
+      const p1 = this.getLineEndpoints(a1, b1, c1);
+      if (p1) {
+        this.line1.setAttribute('x1', p1.x1);
+        this.line1.setAttribute('y1', p1.y1);
+        this.line1.setAttribute('x2', p1.x2);
+        this.line1.setAttribute('y2', p1.y2);
+        this.line1.setAttribute('opacity', '1');
+      } else {
+        this.line1.setAttribute('opacity', '0');
+      }
+
+      // Draw Line 2
+      const p2 = this.getLineEndpoints(a2, b2, c2);
+      if (p2) {
+        this.line2.setAttribute('x1', p2.x1);
+        this.line2.setAttribute('y1', p2.y1);
+        this.line2.setAttribute('x2', p2.x2);
+        this.line2.setAttribute('y2', p2.y2);
+        this.line2.setAttribute('opacity', '1');
+      } else {
+        this.line2.setAttribute('opacity', '0');
+      }
+
+      // Calculate intersection using Cramer's rule
+      const determinant = a1 * b2 - a2 * b1;
+      const intersectDx = (c1 * b2 - c2 * b1);
+      const intersectDy = (a1 * c2 - a2 * c1);
+      
+      this.calcD.textContent = `${a1}(${b2}) - ${a2}(${b1}) = ${determinant}`;
+      this.calcDx.textContent = `${c1}(${b2}) - ${c2}(${b1}) = ${intersectDx}`;
+      this.calcDy.textContent = `${a1}(${c2}) - ${a2}(${c1}) = ${intersectDy}`;
+      
+      if (determinant === 0) {
+        this.intersectionPoint.setAttribute('opacity', '0');
+        this.resultBox.className = 'result-box warning';
+        this.calcDetails.style.display = 'none';
+        
+        // Check if lines are parallel or coincident
+        const isCoincident = (a1 * c2 === a2 * c1) && (b1 * c2 === b2 * c1);
+        if (isCoincident) {
+           this.hpDisplay.textContent = "Garis Berhimpitan (Solusi Tak Terhingga)";
+        } else {
+           this.hpDisplay.textContent = "Garis Sejajar (Tidak Ada Solusi)";
+        }
+      } else {
+        const intersectX = intersectDx / determinant;
+        const intersectY = intersectDy / determinant;
+        
+        this.calcX.textContent = `${intersectDx} / ${determinant} = ${intersectX.toFixed(2)}`;
+        this.calcY.textContent = `${intersectDy} / ${determinant} = ${intersectY.toFixed(2)}`;
+        this.calcDetails.style.display = 'block';
+
+        this.hpDisplay.textContent = `HP = { ${intersectX.toFixed(2)} , ${intersectY.toFixed(2)} }`;
+        this.resultBox.className = 'result-box success';
+
+        // Animate intersection point
+        const svgX = this.mapX(intersectX);
+        const svgY = this.mapY(intersectY);
+        
+        this.intersectionPoint.setAttribute('cx', svgX);
+        this.intersectionPoint.setAttribute('cy', svgY);
+        this.intersectionPoint.setAttribute('opacity', '1');
+        
+        // Ensure point stays visible if within bounds
+        if(svgX >= 0 && svgX <= 400 && svgY >= 0 && svgY <= 400) {
+            this.intersectionPoint.style.animation = 'none';
+            this.intersectionPoint.offsetHeight; // trigger reflow
+            this.intersectionPoint.style.animation = 'pulse 1s infinite';
+        } else {
+            this.hpDisplay.textContent += ' (Di luar grafik)';
+            this.intersectionPoint.style.animation = 'none';
+        }
+      }
+    }
+  }
+
+  customElements.define('spldv-solver', SpldvSolver);
+</script>
+
+<style>
+  .spldv-widget {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  }
+  .spldv-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .spldv-header h3 { margin-top: 0; color: #1e293b; }
+  .spldv-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .spldv-body { grid-template-columns: 1fr; }
+  }
+
+  .equation-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid transparent;
+  }
+  .equation-card.eq1 { border-color: #bfdbfe; }
+  .equation-card.eq1 h4 { color: #3b82f6; margin-top: 0; }
+  .equation-card.eq2 { border-color: #fecaca; }
+  .equation-card.eq2 h4 { color: #ef4444; margin-top: 0; }
+
+  .eq-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    flex-wrap: wrap;
+  }
+  .eq-inputs input {
+    width: 60px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: monospace;
+  }
+  .eq-inputs span { color: #475569; }
+
+  .result-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+  .result-box h4 { margin-top: 0; color: #64748b; font-size: 0.9rem; text-transform: uppercase; }
+  .hp-display { font-size: 1.5rem; font-weight: bold; font-family: monospace; }
+  
+  .result-box.success { background: #dcfce7; border-color: #bbf7d0; color: #15803d; }
+  .result-box.success h4 { color: #166534; }
+  
+  .result-box.warning { background: #fef08a; border-color: #fde047; color: #854d0e; }
+  .result-box.warning h4 { color: #a16207; }
+
+  .graph-panel {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #graph-svg {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1.5); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
+</style>

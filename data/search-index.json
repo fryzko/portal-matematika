@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Kelas VII",
+        "description": "Fondasi utama pembelajaran matematika SMP.",
+        "url": "pages/kelas/vii.html",
+        "keywords": ["kelas", "vii", "smp", "fase d"]
+    },
+    {
+        "title": "Kelas VIII",
+        "description": "Pengembangan kemampuan berpikir matematis Kelas VIII.",
+        "url": "pages/kelas/viii.html",
+        "keywords": ["kelas", "viii", "smp"]
+    },
+    {
+        "title": "Kelas IX",
+        "description": "Penguatan konsep matematika Kelas IX SMP.",
+        "url": "pages/kelas/ix.html",
+        "keywords": ["kelas", "ix", "smp"]
+    },
+    {
+        "title": "Elemen Bilangan",
+        "description": "Topik bilangan bulat, rasional, perbandingan, dan notasi ilmiah.",
+        "url": "pages/elemen/bilangan.html",
+        "keywords": ["bilangan", "elemen", "rasional", "bulat"]
+    },
+    {
+        "title": "Topik Bilangan Bulat",
+        "description": "Materi bilangan positif, negatif, dan nol.",
+        "url": "pages/topik/bilangan/bilangan-bulat.html",
+        "keywords": ["bilangan bulat", "negatif", "positif", "garis bilangan"]
+    },
+    {
+        "title": "Mengenal Bilangan Bulat",
+        "description": "Sub materi pengenalan bilangan bulat untuk Kelas VII.",
+        "url": "pages/materi/bilangan/bilangan-bulat/mengenal-bilangan-bulat.html",
+        "keywords": ["mengenal", "bilangan bulat", "utang", "suhu", "nol"]
+    },
+    {
+        "title": "Latihan Matematika",
+        "description": "Latihan mandiri untuk memperkuat pemahaman konsep.",
+        "url": "pages/latihan/index.html",
+        "keywords": ["latihan", "soal", "praktik"]
+    },
+    {
+        "title": "Bank Soal",
+        "description": "Kumpulan soal pilihan ganda, isian, dan uraian.",
+        "url": "pages/bank-soal/index.html",
+        "keywords": ["bank soal", "ujian", "evaluasi"]
+    },
+    {
+        "title": "Tentang Portal",
+        "description": "Informasi tentang Ruang Matematika SMP.",
+        "url": "pages/tentang/index.html",
+        "keywords": ["tentang", "portal", "kurikulum merdeka"]
+    }
+]

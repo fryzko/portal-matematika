@@ -1,0 +1,46 @@
+/* =====================================================
+   HEADER.CSS
+   Portal Ruang Matematika SMP
+   Design System v1.1
+===================================================== */
+
+.site-header {
+    min-height: var(--header-height);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+}
+
+.site-logo {
+    flex-shrink: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.site-logo:hover {
+    color: var(--color-primary-hover);
+}
+
+.site-logo:focus-visible {
+    border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+    .site-header .container {
+        min-height: auto;
+        padding-block: var(--space-md);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

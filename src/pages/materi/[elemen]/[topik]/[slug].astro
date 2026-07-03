@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allMateri = await getCollection('materi');
+  return allMateri
+    .filter((entry) => entry.slug.split('/').length === 3)
+    .map((entry) => {
+      const parts = entry.slug.split('/');
+      return {
+        params: {
+          elemen: parts[0],
+          topik: parts[1],
+          slug: parts[2],
+        },
+        props: { entry },
+      };
+    });
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <article class="materi-content">
+    <Content />
+  </article>
+</Layout>

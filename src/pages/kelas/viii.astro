@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allMateri = await getCollection('materi');
+const classMateri = allMateri.filter(m => m.data.difficulty === 'Grade 8');
+---
+
+<Layout title="Kelas VIII" description="Materi Matematika Kelas VIII SMP Kurikulum Merdeka.">
+
+    <section class="section section-compact">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="/">Beranda</a></li>
+                    <li><span aria-current="page">Kelas VIII</span></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Materi Kelas VIII</h2>
+                <p>Daftar lengkap materi pembelajaran untuk kelas VIII.</p>
+            </div>
+            <div class="card-grid">
+                {classMateri.map((materi) => (
+                    <article class="card" style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-primary); font-weight: 600; margin-bottom: 0.5rem;">{materi.data.topic}</span>
+                        <h3>{materi.data.title}</h3>
+                        <p style="flex-grow: 1;">Pelajari konsep dan selesaikan berbagai asesmen interaktif di dalam materi ini.</p>
+                        <a href={`/materi/${materi.slug}`} class="button button-primary" style="margin-top: 1rem; align-self: flex-start;">Pelajari</a>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Fitur Pembelajaran</h2>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Materi</h3>
+                    <p>Materi yang mudah dibaca dan terstruktur.</p>
+                </article>
+                <article class="card">
+                    <h3>Latihan</h3>
+                    <p>Latihan mandiri untuk memperkuat konsep.</p>
+                </article>
+                <article class="card">
+                    <h3>Bank Soal</h3>
+                    <p>Kumpulan soal untuk menguji kemampuan matematika.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</Layout>

@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const semuaMateri = await getCollection('materi');
+---
+<Layout title="Daftar Materi Pembelajaran">
+  <section class="container section">
+    <div class="section-heading">
+      <h2>Daftar Materi Matematika</h2>
+      <p>Berikut adalah materi yang sudah tersedia dan terintegrasi dengan Content Collections Astro.</p>
+    </div>
+    
+    <div class="card-grid">
+      {semuaMateri.map(materi => (
+        <article class="card">
+          <span class="badge" style="margin-bottom: 0.5rem; display: inline-block;">{materi.data.difficulty}</span>
+          <span class="badge" style="margin-bottom: 0.5rem; display: inline-block;">{materi.data.topic}</span>
+          <h3>{materi.data.title}</h3>
+          <p>Materi pembelajaran interaktif untuk topik {materi.data.topic}.</p>
+          <a href={`/materi/${materi.slug}`} class="button button-secondary">Pelajari Materi</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .badge {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+</style>

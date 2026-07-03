@@ -1,0 +1,171 @@
+---
+title: "Perbandingan Berbalik Nilai: Semakin Banyak, Semakin Sedikit"
+topic: "Bilangan"
+difficulty: "Grade 7"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Perbandingan Berbalik Nilai
+Bayangkan kamu dan keluargamu sedang merenovasi rumah dan menyewa tukang cat untuk mengecat seluruh tembok. Jika hanya ada 2 tukang cat yang bekerja, pekerjaan tersebut akan selesai dalam 6 hari.
+Sekarang, pikirkan: Bagaimana jika ayahmu menambah jumlah tukang cat menjadi 4 orang? Apakah waktu penyelesaiannya akan makin lama atau makin cepat? Tentu saja, semakin banyak orang yang mengecat, pekerjaan akan **semakin cepat selesai** (hari semakin sedikit). Situasi unik di mana "semakin banyak yang satu, malah semakin sedikit yang lain" ini kita sebut sebagai **Perbandingan Berbalik Nilai**.
+
+### Yuk, Temukan Sendiri Perbandingan Berbalik Nilai
+Coba perhatikan tabel pekerjaan tukang cat di bawah ini. Ada sebuah keajaiban matematis: hasil perkalian antara jumlah tukang dan hari ternyata selalu **sama (konstan)**!
+
+| Jumlah Tukang | Hari Selesai | Hasil Kali |
+| :---: | :---: | :---: |
+| 1 | 12 | 12 |
+| 2 | 6 | 12 |
+| 3 | ? | 12 |
+| 4 | ? | 12 |
+| 6 | ? | 12 |
+
+Berapa hari selesainya jika ada 3 tukang? Karena Hasil Kali harus selalu 12, maka jawabannya pasti $12 \div 3 = 4$ hari! Cobalah cari jawaban untuk 4 dan 6 tukang.
+
+### Teori & Definisi Formal
+**Perbandingan Berbalik Nilai** adalah perbandingan antara dua besaran di mana jika suatu besaran bertambah, maka besaran yang lain justru akan **berkurang**. Sebaliknya, jika suatu besaran berkurang, besaran lainnya akan bertambah.
+
+Perbedaan mendasar dengan perbandingan senilai adalah pada perbandingan berbalik nilai, **hasil kali dari kedua besaran selalu konstan (tetap)**.
+
+Rumus utamanya adalah:
+$$a_1 \times b_1 = a_2 \times b_2$$
+
+Sebagai contoh, dari kasus tukang cat di atas:
+- $a_1$ = jumlah tukang awal
+- $b_1$ = hari selesai awal
+- $a_2$ = jumlah tukang baru
+- $b_2$ = hari selesai yang baru
+
+Bentuk pecahan dari perbandingan berbalik nilai juga unik. Bukannya $\frac{a_1}{b_1} = \frac{a_2}{b_2}$, tetapi pecahannya *dibalik* menjadi:
+$$\frac{a_1}{a_2} = \frac{b_2}{b_1}$$
+
+Bentuk grafiknya juga berbeda! Kalau perbandingan senilai berupa garis lurus, grafik perbandingan berbalik nilai berbentuk lengkungan kurva yang turun dan tidak pernah menyentuh titik nol (disebut grafik **hiperbola**).
+
+### Visualisasi: Perbandingan Berbalik Nilai
+Agar lebih jelas membedakan Senilai vs Berbalik Nilai, mari kita lihat perbedaannya:
+
+| Senilai | Berbalik Nilai |
+| :--- | :--- |
+| Membeli barang (Barang $\uparrow$, Harga $\uparrow$) | Pekerja proyek (Pekerja $\uparrow$, Waktu $\downarrow$) |
+| Jarak dan bensin (Jarak $\uparrow$, Bensin $\uparrow$) | Kecepatan dan waktu (Kecepatan $\uparrow$, Waktu $\downarrow$) |
+| Rumus: $\frac{a}{b} = \frac{c}{d}$ (Kali Silang) | Rumus: $a_1 \times b_1 = a_2 \times b_2$ (Kali Lurus) |
+| Grafik: Garis lurus naik | Grafik: Kurva lengkung turun (hiperbola) |
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Dua orang anak membagikan tumpukan brosur dan selesai dalam 6 jam. Jika ada 3 anak yang membagikan brosur yang sama, berapa lama waktu yang dibutuhkan?
+
+**Pembahasan:**
+
+Semakin banyak anak, waktu makin cepat (Berbalik Nilai).
+Hasil kali harus konstan: $2 \text{ anak} \times 6 \text{ jam} = 12$.
+Maka untuk 3 anak: $3 \times x = 12 \Rightarrow x = 4$ jam.
+
+#### Contoh 1 (Mudah)
+
+Sebuah proyek bangunan diperkirakan selesai dalam 30 hari oleh 15 pekerja. Jika proyek itu ingin diselesaikan dalam 25 hari, berapa jumlah total pekerja yang dibutuhkan?
+
+**Pembahasan:**
+
+Gunakan rumus $a_1 \times b_1 = a_2 \times b_2$:
+$30 \text{ hari} \times 15 \text{ pekerja} = 25 \text{ hari} \times x \text{ pekerja}$
+$450 = 25x$
+$x = \frac{450}{25} = 18$ pekerja.
+
+#### Contoh 2 (Menengah)
+
+Pak Anton biasanya berkendara ke kantor dengan kecepatan 40 km/jam dan tiba dalam waktu 45 menit. Hari ini ia bangun kesiangan dan harus tiba dalam waktu 30 menit. Berapa kecepatan kendaraannya?
+
+**Pembahasan:**
+
+$v_1 \times t_1 = v_2 \times t_2$
+$40 \times 45 = v_2 \times 30$
+$1800 = 30 \times v_2$
+$v_2 = \frac{1800}{30} = 60$ km/jam.
+
+#### Contoh 3 (Menantang)
+
+Pakan ternak cukup untuk 20 ekor ayam selama 15 hari. Jika 5 ekor ayam dijual, berapa hari pakan ternak tersebut akan habis?
+
+**Pembahasan:**
+
+Jumlah ayam awal = 20 ekor.
+Jumlah ayam setelah dijual = $20 - 5 = 15$ ekor. (Ingat! Ayamnya berkurang, jadi pakannya akan awet lebih lama).
+$20 \text{ ekor} \times 15 \text{ hari} = 15 \text{ ekor} \times x \text{ hari}$
+$300 = 15x$
+$x = \frac{300}{15} = 20$ hari.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Kesalahan **paling fatal** dan paling sering terjadi di ujian adalah: siswa menggunakan rumus *Perbandingan Senilai* ($\frac{a}{b} = \frac{c}{d}$) untuk mengerjakan soal *Perbandingan Berbalik Nilai*.
+
+
+
+Contoh: "10 pekerja selesai 12 hari. Berapa hari jika 15 pekerja?"
+Siswa yang terjebak akan menghitung: $\frac{10}{12} = \frac{15}{x} \Rightarrow 10x = 180 \Rightarrow x = 18$ hari.
+*Masuk akalkah? Pekerja ditambah, tapi waktu selesainya malah makin lama (18 hari)?* Tentu tidak!
+
+**Kunci menghindarinya:** Selalu tanyakan dalam hati sebelum menghitung: *"Apakah kalau besaran yang satu naik, besaran yang satunya lagi ikut naik atau malah turun?"* Jika berlawanan, pastikan kamu mengalikan lurus ke samping ($a \times b$), bukan kali silang!
+
+### Koneksi Dunia Nyata
+Konsep berbalik nilai ini adalah rahasia di balik efisiensi dunia:
+1. **Kecepatan dan Waktu:** Dalam fisika, $v \times t = s$ (Jarak = kecepatan x waktu). Semakin tinggi kecepatanmu di jalan tol, waktu tempuh menuju kampung halaman akan semakin singkat.
+2. **Pembagian Makanan:** Persediaan beras sekampung akan sangat cepat habis jika dibagikan ke 1.000 pengungsi, tapi akan bertahan berminggu-minggu jika hanya ada 100 pengungsi.
+3. **Fisika Gelombang:** Frekuensi berbanding terbalik dengan panjang gelombang. Suara dengan frekuensi tinggi (melengking) memiliki panjang gelombang yang pendek.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="B">
+  <div slot="question">Suatu pekerjaan dapat diselesaikan oleh 4 orang dalam 15 hari. Jika dikerjakan oleh 6 orang, pekerjaan tersebut akan selesai dalam...</div>
+  <div slot="option-a">12 hari</div>
+  <div slot="option-b">10 hari</div>
+  <div slot="option-c">18 hari</div>
+  <div slot="option-d">22,5 hari</div>
+  <div slot="explanation">**Pembahasan:** Rumus: $4 \times 15 = 6 \times x$. Maka $60 = 6x$, sehingga $x = 10$ hari.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Sebuah mobil melaju dengan kecepatan 60 km/jam memakan waktu 4 jam. Jika kecepatannya ditingkatkan menjadi 80 km/jam, berapakah waktu tempuhnya?</div>
+  <div slot="option-a">5 jam</div>
+  <div slot="option-b">4,5 jam</div>
+  <div slot="option-c">3 jam</div>
+  <div slot="option-d">2 jam</div>
+  <div slot="explanation">**Pembahasan:** $60 \times 4 = 80 \times x$. Maka $240 = 80x$, sehingga $x = 240 / 80 = 3$ jam.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Sebuah panti asuhan memiliki persediaan beras yang cukup untuk 20 orang anak selama 15 hari. Jika anak panti bertambah 10 orang, maka persediaan beras akan habis dalam waktu...</div>
+  <div slot="option-a">15 hari</div>
+  <div slot="option-b">12 hari</div>
+  <div slot="option-c">8 hari</div>
+  <div slot="option-d">10 hari</div>
+  <div slot="explanation">**Pembahasan:** Jumlah anak awal = 20. Jumlah anak baru = 20 + 10 = 30 orang. Maka $20 \times 15 = 30 \times x$. $300 = 30x$, jadi $x = 10$ hari.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Pemborong memperkirakan proyek selesai dalam 40 hari oleh 12 pekerja. Setelah 10 hari berlalu, pekerjaannya dihentikan selama 6 hari. Agar tepat waktu, berapa tambahan pekerja yang dibutuhkan? (Ini tantangan!)</div>
+  <div slot="option-a">3 pekerja</div>
+  <div slot="option-b">5 pekerja</div>
+  <div slot="option-c">8 pekerja</div>
+  <div slot="option-d">15 pekerja</div>
+  <div slot="explanation">**Pembahasan:** Sisa hari normal = 30 hari. Beban sisa = 30 hari x 12 pekerja = 360. Karena mandek 6 hari, sisa waktu nyata = 30 - 6 = 24 hari. Jumlah pekerja yang dibutuhkan = 360 / 24 = 15 pekerja. Tambahan pekerja = 15 - 12 = 3 pekerja.</div>
+</Quiz>
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari situasi di bawah ini yang SALAH pengelompokannya sebagai perbandingan berbalik nilai?</div>
+  <div slot="option-a">Banyaknya sapi dan lamanya persediaan rumput habis.</div>
+  <div slot="option-b">Banyaknya mesin pompa air dan waktu untuk mengosongkan kolam.</div>
+  <div slot="option-c">Banyaknya lembar buku tulis dan harga buku tulis tersebut.</div>
+  <div slot="option-d">Kecepatan berkendara dan waktu tiba di tujuan.</div>
+  <div slot="explanation">**Pembahasan:** Pilihan C salah (merupakan perbandingan senilai). Semakin banyak lembar buku, harganya semakin mahal (naik bersaman). Sedangkan tiga pilihan lainnya adalah berbalik nilai (yang satu naik, yang lain turun).</div>
+</Quiz>

@@ -1,0 +1,149 @@
+---
+title: "Triple Pythagoras: Pasangan Bilangan Ajaib Segitiga Siku-siku"
+topic: "Geometri"
+difficulty: "Grade 8"
+needInteractive: true
+---
+import AlertKesalahan from '../../../../components/AlertKesalahan.astro';
+
+import Quiz from '../../../../components/Quiz.astro';
+
+### Mari Memahami Triple Pythagoras
+Pernahkah kamu membayangkan bagaimana para tukang bangunan di peradaban Mesir Kuno membangun piramida yang megah dengan sudut alas siku-siku yang sangat sempurna? Padahal di zaman itu belum ada busur derajat, penggaris siku-siku, apalagi kalkulator! Ternyata, mereka hanya bermodalkan sebuah tali panjang yang diberi 12 simpul berjarak sama. Mereka kemudian membentangkan tali tersebut hingga membentuk segitiga dengan sisi 3 simpul, 4 simpul, dan 5 simpul. Ajaibnya, segitiga itu pasti akan selalu membentuk sudut tegak lurus sempurna! Rahasia kuno ini adalah contoh paling tua dari **Triple Pythagoras**.
+
+### Yuk, Temukan Sendiri Triple Pythagoras
+Coba lengkapi tabel verifikasi di bawah ini untuk membuktikan apakah tiga bilangan tersebut benar-benar pasangan ajaib yang memenuhi $a^2 + b^2 = c^2$:
+
+| Triple | $a^2$ | $b^2$ | $c^2$ | $a^2 + b^2 = c^2$? |
+| :---: | :---: | :---: | :---: | :---: |
+| $(3, 4, 5)$ | 9 | 16 | 25 | ✓ |
+| $(5, 12, 13)$ | 25 | 144 | 169 | ✓ |
+| $(6, 8, 10)$ | 36 | 64 | 100 | ✓ |
+| $(2, 3, 4)$ | 4 | 9 | 16 | ✗ ($4+9 \neq 16$) |
+
+Dari tabel di atas, pasangan $(2, 3, 4)$ BUKAN Triple Pythagoras karena hasil kuadratnya tidak seimbang.
+
+### Teori & Definisi Formal
+**Triple Pythagoras** adalah kelompok tiga bilangan bulat positif $(a, b, c)$ yang memenuhi Teorema Pythagoras, yaitu:
+$$a^2 + b^2 = c^2$$
+Dengan $c$ adalah nilai yang paling besar (sisi miring atau hipotenusa).
+
+Ada beberapa pasangan dasar Triple Pythagoras yang sangat populer dan sering muncul di soal ujian. Kamu wajib mengenal pasangan dasar ini:
+- **$(3, 4, 5)$**
+- **$(5, 12, 13)$**
+- **$(8, 15, 17)$**
+- **$(7, 24, 25)$**
+
+**Menghasilkan Triple Pythagoras Baru**
+Jika kamu sudah tahu satu pasang dasar (misal $a, b, c$), kamu bisa menghasilkan triple baru yang jumlahnya tak terhingga hanya dengan mengalikannya dengan sembarang angka $k > 0$.
+Jika $(a, b, c)$ adalah triple Pythagoras, maka $(ka, kb, kc)$ juga PASTI triple Pythagoras!
+
+### Visualisasi: Triple Pythagoras
+Mari kita lihat pembentukan Triple Pythagoras turunan dari kelompok dasar $(3, 4, 5)$:
+- Dikali 2: $(3\times2, 4\times2, 5\times2) \rightarrow (6, 8, 10)$
+- Dikali 3: $(3\times3, 4\times3, 5\times3) \rightarrow (9, 12, 15)$
+- Dikali 10: $(3\times10, 4\times10, 5\times10) \rightarrow (30, 40, 50)$
+Semua kelipatan ini akan menghasilkan segitiga siku-siku yang bentuk dan sudutnya sama, hanya saja ukurannya diperbesar (di-zoom).
+
+### Contoh Soal & Pembahasan
+
+#### Contoh 0 (Sangat Mudah)
+
+Manakah yang merupakan hipotenusa (sisi miring) dari Triple Pythagoras $(8, 15, 17)$?
+
+**Pembahasan:**
+
+Hipotenusa selalu merupakan sisi yang paling panjang. Dari angka 8, 15, dan 17, yang paling besar adalah 17. Jadi hipotenusanya adalah 17.
+
+#### Contoh 1 (Mudah)
+
+Apakah pasangan $(9, 12, 15)$ merupakan Triple Pythagoras?
+
+**Pembahasan:**
+
+Cara 1 (Hitung Manual): $9^2 + 12^2 = 81 + 144 = 225$. Karena $15^2 = 225$, maka BENAR.
+Cara 2 (Cara Cepat): Bagi ketiga angka dengan 3, maka didapat $(3, 4, 5)$. Karena $(3, 4, 5)$ adalah triple dasar, maka kelipatannya pasti benar!
+
+#### Contoh 2 (Menengah)
+
+Sebuah segitiga siku-siku memiliki sisi tegak 10 cm dan sisi miring 26 cm. Berapakah panjang sisi alasnya tanpa menghitung kuadrat rumit?
+
+**Pembahasan:**
+
+Angka yang ada: 10 dan 26.
+Bagi kedua angka tersebut dengan 2 untuk mengecilkan: $10/2 = 5$, $26/2 = 13$.
+Angka yang didapat adalah 5 dan 13. Pasangan Triple Pythagoras dasar dari $(5, \dots, 13)$ adalah $(5, 12, 13)$.
+Karena angka aslinya dikali 2, maka alasnya adalah $12 \times 2 = 24$ cm.
+
+#### Contoh 3 (Menantang)
+
+Jika $(2x, 24, 26)$ adalah sebuah Triple Pythagoras, berapakah nilai $x$?
+
+**Pembahasan:**
+
+Bagi semua angka yang ada dengan 2:
+$\rightarrow (x, 12, 13)$
+Kita tahu Triple Pythagoras dasar yang mengandung angka 12 dan 13 di posisi hipotenusa adalah $(5, 12, 13)$.
+Maka, nilai $x$ pastilah 5.
+
+<AlertKesalahan>
+
+
+
+</AlertKesalahan>
+
+
+Siswa sering mengira bahwa semua kelipatan dari triple dasar adalah "Triple Baru" yang sepenuhnya independen. Akibatnya, mereka menghafal puluhan pasangan angka! Padahal, $(6, 8, 10)$ atau $(30, 40, 50)$ pada dasarnya adalah "barang yang sama" dengan $(3, 4, 5)$. Cukup hafalkan 4 pasangan dasar di atas, lalu perkecil angka pada soal untuk menemukan pasangan aslinya.
+
+
+Kesalahan lainnya: Terbalik meletakkan sisi terbesar. Ingat, angka terbesar HARUS diletakkan di posisi $c$ (hipotenusa).
+
+### Koneksi Dunia Nyata
+Selain sejarah Mesir Kuno, hingga detik ini tukang bangunan modern dan tukang pasang keramik masih menggunakan prinsip $(3, 4, 5)$ (misalnya 3 meter, 4 meter, 5 meter) menggunakan benang bangunan. Tujuannya untuk memastikan sudut dinding rumah benar-benar siku-siku ($90^\circ$). Jika sudutnya melenceng sedikit saja, ruangan rumah akan miring dan keramik lantai tidak akan bisa terpasang dengan rapi.
+
+### Asah Kemampuan Mandiri
+
+<Quiz correctAnswer="C">
+  <div slot="question">Manakah dari pasangan bilangan berikut yang BUKAN merupakan Triple Pythagoras?</div>
+  <div slot="option-a">$(6, 8, 10)$</div>
+  <div slot="option-b">$(5, 12, 13)$</div>
+  <div slot="option-c">$(7, 10, 12)$</div>
+  <div slot="option-d">$(9, 12, 15)$</div>
+  <div slot="explanation">**Pembahasan:** $7^2 + 10^2 = 49 + 100 = 149$. Sedangkan $12^2 = 144$. Karena $149 \neq 144$, maka $(7, 10, 12)$ bukan triple Pythagoras.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Berdasarkan triple dasar $(8, 15, 17)$, jika kita mengalikan semua sisi dengan 3, triple baru yang terbentuk adalah...</div>
+  <div slot="option-a">$(24, 45, 51)$</div>
+  <div slot="option-b">$(11, 18, 20)$</div>
+  <div slot="option-c">$(16, 30, 34)$</div>
+  <div slot="option-d">$(24, 30, 51)$</div>
+  <div slot="explanation">**Pembahasan:** Kalikan masing-masing angka dengan 3: $8 \times 3 = 24$, $15 \times 3 = 45$, $17 \times 3 = 51$.</div>
+</Quiz>
+
+<Quiz correctAnswer="D">
+  <div slot="question">Sebuah tiang bendera diikat dengan kawat ke tanah. Jarak ujung bawah kawat ke tiang adalah 14 meter dan tinggi tiang adalah 48 meter. Berapakah panjang kawat tersebut? (Petunjuk: Gunakan penyederhanaan triple)</div>
+  <div slot="option-a">40 meter</div>
+  <div slot="option-b">45 meter</div>
+  <div slot="option-c">52 meter</div>
+  <div slot="option-d">50 meter</div>
+  <div slot="explanation">**Pembahasan:** Angka 14 dan 48. Bagi dua menjadi 7 dan 24. Triple dasarnya adalah $(7, 24, 25)$. Kalikan 2 lagi: $25 \times 2 = 50$ meter.</div>
+</Quiz>
+
+<Quiz correctAnswer="B">
+  <div slot="question">Jika $(15, p, 39)$ adalah sebuah Triple Pythagoras, berapakah nilai $p$?</div>
+  <div slot="option-a">30</div>
+  <div slot="option-b">36</div>
+  <div slot="option-c">25</div>
+  <div slot="option-d">32</div>
+  <div slot="explanation">**Pembahasan:** Sederhanakan 15 dan 39 dengan membaginya dengan 3. Didapat 5 dan 13. Triple yang mengandung 5 dan 13 adalah $(5, 12, 13)$. Maka angka di tengah adalah $12 \times 3 = 36$. Jadi $p = 36$.</div>
+</Quiz>
+
+<Quiz correctAnswer="A">
+  <div slot="question">Manakah dari pernyataan berikut yang SALAH mengenai Triple Pythagoras?</div>
+  <div slot="option-a">Triple Pythagoras bisa terdiri dari pecahan desimal asalkan memenuhi rumus kuadrat.</div>
+  <div slot="option-b">Hipotenusa selalu merupakan angka terbesar dalam suatu pasangan Triple Pythagoras.</div>
+  <div slot="option-c">Pasangan $(3, 4, 5)$ dan $(300, 400, 500)$ membentuk sudut siku-siku yang persis sama.</div>
+  <div slot="option-d">Setiap kelipatan dari pasangan dasar Pythagoras akan selalu membentuk Triple Pythagoras baru.</div>
+  <div slot="explanation">**Pembahasan:** Pernyataan A salah. Syarat mutlak dari "Triple Pythagoras" adalah ketiga bilangannya harus berupa bilangan **bulat positif**. Pecahan desimal tidak memenuhi syarat "triple" meskipun memenuhi rumusnya.</div>
+</Quiz>
