@@ -1,0 +1,331 @@
+---
+// @ts-nocheck
+interface Props {
+  soalKe: number;        // nomor soal saat ini (1-based)
+  totalSoal: number;     // total soal
+  jawaban: string;       // "A", "B", "C", atau "D"
+  tier?: string;         // "Dasar", "Menengah", "Tinggi"
+}
+
+const { soalKe, totalSoal, jawaban, tier } = Astro.props;
+---
+
+<div class="soal-container" id={`soal-${soalKe}`}>
+  <!-- Progress bar -->
+  <div class="soal-progress">
+    <div class="progress-bar">
+      <div class="progress-fill" style={`width: ${(soalKe/totalSoal)*100}%`}></div>
+    </div>
+    <span class="progress-label">Soal {soalKe} dari {totalSoal}</span>
+    {tier && <span class={`tier-badge tier-${tier.toLowerCase()}`}>{tier}</span>}
+  </div>
+
+  <!-- Ilustrasi SVG -->
+  <div class="soal-ilustrasi">
+    <slot name="ilustrasi" />
+  </div>
+
+  <!-- Pertanyaan -->
+  <div class="soal-pertanyaan">
+    <slot name="soal" />
+  </div>
+
+  <!-- 4 Tombol Pilihan -->
+  <div class="soal-opsi-grid">
+    <button class="soal-opsi" data-opsi="A" onclick={`pilihJawaban(this, 'A', '${jawaban}', ${soalKe})`}>
+      <span class="opsi-huruf">A</span>
+      <span class="opsi-teks"><slot name="opsi-a" /></span>
+    </button>
+    <button class="soal-opsi" data-opsi="B" onclick={`pilihJawaban(this, 'B', '${jawaban}', ${soalKe})`}>
+      <span class="opsi-huruf">B</span>
+      <span class="opsi-teks"><slot name="opsi-b" /></span>
+    </button>
+    <button class="soal-opsi" data-opsi="C" onclick={`pilihJawaban(this, 'C', '${jawaban}', ${soalKe})`}>
+      <span class="opsi-huruf">C</span>
+      <span class="opsi-teks"><slot name="opsi-c" /></span>
+    </button>
+    <button class="soal-opsi" data-opsi="D" onclick={`pilihJawaban(this, 'D', '${jawaban}', ${soalKe})`}>
+      <span class="opsi-huruf">D</span>
+      <span class="opsi-teks"><slot name="opsi-d" /></span>
+    </button>
+  </div>
+
+  <!-- Feedback (tersembunyi awalnya) -->
+  <div class="soal-feedback" id={`feedback-${soalKe}`} style="display:none">
+    <div class="feedback-icon" id={`feedback-icon-${soalKe}`}></div>
+    <div class="feedback-teks" id={`feedback-teks-${soalKe}`}></div>
+  </div>
+
+  <!-- Pembahasan (tersembunyi awalnya) -->
+  <div class="soal-pembahasan" id={`pembahasan-${soalKe}`} style="display:none">
+    <h4>💡 Pembahasan:</h4>
+    <slot name="pembahasan" />
+  </div>
+
+  <!-- Navigasi bawah -->
+  <div class="soal-nav">
+    <button class="btn-mengapa" id={`btn-mengapa-${soalKe}`}
+      style="display:none"
+      onclick={`togglePembahasan(${soalKe})`}>
+      Mengapa? 💡
+    </button>
+    <button class="btn-lanjut" id={`btn-lanjut-${soalKe}`}
+      style="display:none"
+      onclick={`lanjutSoal(${soalKe}, ${totalSoal})`}>
+      {soalKe < totalSoal ? 'Lanjut →' : 'Selesai! 🎉'}
+    </button>
+  </div>
+</div>
+
+<script>
+// @ts-nocheck
+
+// Sembunyikan semua soal kecuali soal pertama saat halaman load
+document.addEventListener('DOMContentLoaded', () => {
+  const semuaSoal = document.querySelectorAll('.soal-container');
+  semuaSoal.forEach((soal, index) => {
+    if (index !== 0) soal.style.display = 'none';
+  });
+});
+
+window.pilihJawaban = function(tombol, pilihanUser, jawabanBenar, soalKe) {
+  // Disable semua tombol setelah dijawab
+  const container = document.getElementById(`soal-${soalKe}`);
+  const semuaTombol = container.querySelectorAll('.soal-opsi');
+  semuaTombol.forEach(t => {
+    t.disabled = true;
+    t.style.cursor = 'default';
+  });
+
+  const feedback = document.getElementById(`feedback-${soalKe}`);
+  const feedbackIcon = document.getElementById(`feedback-icon-${soalKe}`);
+  const feedbackTeks = document.getElementById(`feedback-teks-${soalKe}`);
+  const btnMengapa = document.getElementById(`btn-mengapa-${soalKe}`);
+  const btnLanjut = document.getElementById(`btn-lanjut-${soalKe}`);
+
+  // Tandai tombol yang dipilih
+  tombol.classList.add(pilihanUser === jawabanBenar ? 'opsi-benar' : 'opsi-salah');
+
+  // Tandai tombol jawaban benar jika user salah
+  if (pilihanUser !== jawabanBenar) {
+    const tombolBenar = container.querySelector(`[data-opsi="${jawabanBenar}"]`);
+    if (tombolBenar) tombolBenar.classList.add('opsi-benar');
+  }
+
+  // Tampilkan feedback
+  feedback.style.display = 'flex';
+  if (pilihanUser === jawabanBenar) {
+    feedbackIcon.textContent = '✅';
+    feedbackTeks.textContent = 'Jawaban benar! Kerja bagus!';
+    feedbackTeks.style.color = '#16a34a';
+    feedback.style.background = '#f0fdf4';
+    feedback.style.borderColor = '#86efac';
+    // Animasi confetti kecil
+    tombol.style.animation = 'pulse-benar 0.5s ease';
+  } else {
+    feedbackIcon.textContent = '❌';
+    feedbackTeks.textContent = `Jawaban kurang tepat. Jawaban yang benar adalah ${jawabanBenar}.`;
+    feedbackTeks.style.color = '#dc2626';
+    feedback.style.background = '#fef2f2';
+    feedback.style.borderColor = '#fca5a5';
+  }
+
+  // Tampilkan tombol Mengapa dan Lanjut
+  btnMengapa.style.display = 'block';
+  btnLanjut.style.display = 'block';
+}
+
+window.togglePembahasan = function(soalKe) {
+  const pembahasan = document.getElementById(`pembahasan-${soalKe}`);
+  const isHidden = pembahasan.style.display === 'none';
+  pembahasan.style.display = isHidden ? 'block' : 'none';
+  const btn = document.getElementById(`btn-mengapa-${soalKe}`);
+  btn.textContent = isHidden ? 'Sembunyikan 💡' : 'Mengapa? 💡';
+}
+
+window.lanjutSoal = function(soalKe, totalSoal) {
+  // Sembunyikan soal saat ini
+  const soalSekarang = document.getElementById(`soal-${soalKe}`);
+  soalSekarang.style.display = 'none';
+
+  if (soalKe < totalSoal) {
+    // Tampilkan soal berikutnya
+    const soalBerikutnya = document.getElementById(`soal-${soalKe + 1}`);
+    soalBerikutnya.style.display = 'block';
+    soalBerikutnya.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    // Tampilkan halaman hasil akhir
+    const hasilAkhir = document.getElementById('hasil-akhir');
+    if (hasilAkhir) {
+      hasilAkhir.style.display = 'block';
+      hasilAkhir.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+</script>
+
+<style>
+.soal-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.soal-progress {
+  padding: 1rem 1.5rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.progress-label { font-size: 0.85rem; color: #64748b; white-space: nowrap; }
+.tier-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tier-dasar { background: #dbeafe; color: #1d4ed8; }
+.tier-menengah { background: #fef9c3; color: #854d0e; }
+.tier-tinggi { background: #fce7f3; color: #9d174d; }
+.soal-ilustrasi {
+  padding: 1.5rem;
+  background: #f8fafc;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+.soal-pertanyaan {
+  padding: 1.5rem 1.5rem 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #1e293b;
+  font-weight: 500;
+}
+.soal-opsi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1rem;
+}
+.soal-opsi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+.soal-opsi:hover:not(:disabled) {
+  border-color: #6366f1;
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+.opsi-huruf {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.soal-opsi.opsi-benar {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+.soal-opsi.opsi-benar .opsi-huruf { background: #16a34a; }
+.soal-opsi.opsi-salah {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+.soal-opsi.opsi-salah .opsi-huruf { background: #dc2626; }
+.soal-feedback {
+  margin: 0 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+.feedback-icon { font-size: 1.5rem; }
+.soal-pembahasan {
+  margin: 1rem 1.5rem;
+  padding: 1rem;
+  background: #f0fdf4;
+  border-radius: 10px;
+  border-left: 4px solid #16a34a;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.soal-pembahasan h4 { color: #14532d; margin-bottom: 0.5rem; }
+.soal-nav {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+}
+.btn-mengapa {
+  padding: 0.6rem 1.25rem;
+  background: white;
+  border: 2px solid #6366f1;
+  color: #6366f1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-mengapa:hover { background: #eef2ff; }
+.btn-lanjut {
+  padding: 0.75rem 2rem;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(34,197,94,0.3);
+}
+.btn-lanjut:hover { background: #16a34a; transform: translateY(-2px); }
+@keyframes pulse-benar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+</style>

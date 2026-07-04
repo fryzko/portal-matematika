@@ -1,0 +1,927 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SoalInteraktif from '../../components/SoalInteraktif.astro';
+---
+
+<Layout title="Eksplorasi Pythagoras - Portal Matematika">
+  <div class="eksplorasi-container">
+    <div class="hero-pythagoras">
+      <div class="hero-badge">🏛️ Eksplorasi Mendalam • Fase D Kelas VIII</div>
+      <h1>Arsitek Keselamatan dengan Teorema Pythagoras</h1>
+      <p>Selamat datang, Arsitek Muda! Dalam misi ini, kamu akan membuktikan, mengaplikasikan, dan menguji pemahamanmu tentang salah satu teorema paling berguna dalam matematika.</p>
+      <div class="hero-stats">
+        <div class="stat">📐 3 Fase Belajar</div>
+        <div class="stat">🎯 6 Soal Interaktif</div>
+        <div class="stat">⏱️ ~30 Menit</div>
+      </div>
+    </div>
+
+    <div class="fase-section fase-1">
+      <div class="fase-header">
+        <span class="fase-badge">Fase 1</span>
+        <h2>Memahami — Eksplorasi Grid Pythagoras</h2>
+      </div>
+
+      <p>Lakukan simulasi sebanyak 3 kali. Isi kolom yang kosong, lalu klik <strong>Verifikasi</strong> untuk cek jawabanmu!</p>
+
+      <div class="tabel-eksplorasi">
+        <table>
+          <thead>
+            <tr>
+              <th>Percobaan</th>
+              <th>Sisi a</th>
+              <th>Sisi b</th>
+              <th>a² =</th>
+              <th>b² =</th>
+              <th>Sisi c</th>
+              <th>c² =</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-a="3" data-b="4" data-c="5">
+              <td>1</td>
+              <td>3</td>
+              <td>4</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td>5</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td class="status-col">—</td>
+            </tr>
+            <tr data-a="6" data-b="8" data-c="10">
+              <td>2</td>
+              <td>6</td>
+              <td>8</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td>10</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td class="status-col">—</td>
+            </tr>
+            <tr data-a="5" data-b="12" data-c="13">
+              <td>3</td>
+              <td>5</td>
+              <td>12</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td>13</td>
+              <td><input type="number" class="input-eksplorasi" placeholder="?"></td>
+              <td class="status-col">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <button onclick="verifikasiTabel()" class="btn-verifikasi">✓ Verifikasi Jawabanku</button>
+        <div id="hasil-verifikasi" style="display:none" class="verifikasi-result"></div>
+      </div>
+
+      <div class="analisis-pola">
+        <h3>🔎 Analisis Pola</h3>
+        <p>Berdasarkan data tabel di atas, hubungan matematika apa yang selalu konsisten pada setiap segitiga siku-siku?</p>
+        <div class="pilihan-pola">
+          <label class="pola-option">
+            <input type="radio" name="pola" value="salah1">
+            <span>$a + b = c$</span>
+          </label>
+          <label class="pola-option pola-benar">
+            <input type="radio" name="pola" value="benar">
+            <span>Luas Persegi A + Luas Persegi B = Luas Persegi C ($a^2 + b^2 = c^2$)</span>
+          </label>
+          <label class="pola-option">
+            <input type="radio" name="pola" value="salah2">
+            <span>$a^2 \times b^2 = c^2$</span>
+          </label>
+        </div>
+        <div id="feedback-pola" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="fase-section fase-2">
+      <div class="fase-header">
+        <span class="fase-badge">Fase 2</span>
+        <h2>Mengaplikasi — Tantangan Arsitek Muda</h2>
+      </div>
+      <div class="tantangan-grid">
+        <!-- Tantangan 1: Tangga Darurat -->
+        <div class="tantangan-card">
+          <div class="tantangan-header" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8)">
+            <span>🏫</span>
+            <h3>Tantangan 1: Tangga Darurat Sekolah</h3>
+          </div>
+          <div class="tantangan-body">
+            <p>Sekolah berencana memasang tangga darurat dari balkon lantai 2. Tinggi balkon = <strong>4 meter</strong>, jarak kaki tangga ke dinding = <strong>3 meter</strong>.</p>
+            <div class="tantangan-svg">
+              <svg viewBox="0 0 200 180" width="200">
+                <line x1="80" y1="20" x2="80" y2="150" stroke="#475569" stroke-width="3"/>
+                <line x1="80" y1="150" x2="160" y2="150" stroke="#475569" stroke-width="3"/>
+                <line x1="80" y1="20" x2="160" y2="150" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,3"/>
+                <rect x="60" y="10" width="20" height="10" fill="#94a3b8"/>
+                <text x="55" y="90" font-size="12" fill="#3b82f6" font-weight="bold">a=4m</text>
+                <text x="110" y="168" font-size="12" fill="#3b82f6" font-weight="bold">b=3m</text>
+                <text x="125" y="85" font-size="12" fill="#ef4444" font-weight="bold">c=?</text>
+                <text x="75" y="165" font-size="10" fill="#475569">└90°</text>
+              </svg>
+            </div>
+            <div class="tantangan-hitung">
+              <p>Hitunglah panjang tangga (c):</p>
+              <div class="rumus-box">c² = a² + b² = 4² + 3² = 16 + 9 = 25</div>
+              <div class="input-jawaban">
+                <span>c = </span>
+                <input type="number" id="jawaban-tangga" placeholder="...">
+                <span> meter</span>
+                <button onclick="cekTantangan('tangga', 5)">Cek ✓</button>
+              </div>
+              <div id="feedback-tangga" style="display:none"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tantangan 2: Kabel Listrik -->
+        <div class="tantangan-card">
+          <div class="tantangan-header" style="background: linear-gradient(135deg, #f59e0b, #d97706)">
+            <span>💡</span>
+            <h3>Tantangan 2: Kabel Lampu Taman</h3>
+          </div>
+          <div class="tantangan-body">
+            <p>Petugas ingin memasang kabel dari puncak tiang lampu ke stopkontak di tanah. Tinggi tiang = <strong>2 meter</strong>, jarak stopkontak ke pangkal = <strong>3 meter</strong>.</p>
+            <div class="tantangan-svg">
+              <svg viewBox="0 0 200 180" width="200">
+                <line x1="80" y1="30" x2="80" y2="150" stroke="#475569" stroke-width="3"/>
+                <line x1="80" y1="150" x2="160" y2="150" stroke="#475569" stroke-width="3"/>
+                <line x1="80" y1="30" x2="160" y2="150" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,3"/>
+                <circle cx="80" cy="25" r="8" fill="#fbbf24"/>
+                <circle cx="160" cy="150" r="5" fill="#64748b"/>
+                <text x="50" y="95" font-size="12" fill="#f59e0b" font-weight="bold">a=2m</text>
+                <text x="110" y="168" font-size="12" fill="#f59e0b" font-weight="bold">b=3m</text>
+                <text x="125" y="90" font-size="12" fill="#dc2626" font-weight="bold">c=√13</text>
+              </svg>
+            </div>
+            <div class="tantangan-hitung">
+              <p>c² = 2² + 3² = 4 + 9 = 13, maka c = √13 ≈ ?</p>
+              <p class="hint">💡 Petunjuk: √9=3, √16=4, jadi √13 di antara 3 dan 4</p>
+              <div class="input-jawaban">
+                <span>c ≈ </span>
+                <input type="number" step="0.1" id="jawaban-kabel" placeholder="...">
+                <span> meter</span>
+                <button onclick="cekTantanganRange('kabel', 3.5, 3.7)">Cek ✓</button>
+              </div>
+              <div id="feedback-kabel" style="display:none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-section fase-quiz">
+      <div class="fase-header">
+        <span class="fase-badge">Kuis</span>
+        <h2>Uji Pemahamanmu — Kuis Interaktif Bertingkat</h2>
+        <p>6 soal dari tingkat Dasar hingga Tinggi. Jawab satu per satu dan lihat pembahasannya!</p>
+      </div>
+
+      <div class="kuis-container">
+        <!-- Soal 1 -->
+        <SoalInteraktif soalKe={1} totalSoal={6} jawaban="A" tier="Dasar">
+          <div slot="ilustrasi">
+            <svg viewBox="0 0 200 160" width="180">
+              <polygon points="20,140 20,20 140,140" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+              <text x="5" y="85" font-size="14" fill="#3b82f6" font-weight="bold">8</text>
+              <text x="75" y="158" font-size="14" fill="#3b82f6" font-weight="bold">6</text>
+              <text x="80" y="75" font-size="14" fill="#ef4444" font-weight="bold">c=?</text>
+              <text x="17" y="148" font-size="11" fill="#475569">└</text>
+            </svg>
+          </div>
+          <div slot="soal">Panjang sisi tegak adalah <strong>8 cm</strong> dan sisi datar adalah <strong>6 cm</strong>. Berapakah panjang sisi miring (c)?</div>
+          <div slot="opsi-a">10 cm</div>
+          <div slot="opsi-b">14 cm</div>
+          <div slot="opsi-c">2 cm</div>
+          <div slot="opsi-d">48 cm</div>
+          <div slot="pembahasan">
+            Gunakan rumus Pythagoras: c² = a² + b² = 8² + 6² = 64 + 36 = 100
+            Maka c = √100 = <strong>10 cm</strong>. Ini juga merupakan Triple Pythagoras (6, 8, 10)!
+          </div>
+        </SoalInteraktif>
+
+        <!-- Soal 2 -->
+        <SoalInteraktif soalKe={2} totalSoal={6} jawaban="B" tier="Dasar">
+          <div slot="ilustrasi">
+            <div style="display:flex; gap:1rem; justify-content:center; align-items:center;">
+              <div style="text-align:center">
+                <div style="font-size:1.5rem; font-weight:800; color:#3b82f6">(3,4,6)</div>
+                <div style="font-size:0.8rem; color:#64748b">Kelompok A</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:1.5rem; font-weight:800; color:#8b5cf6">(5,12,13)</div>
+                <div style="font-size:0.8rem; color:#64748b">Kelompok B</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:1.5rem; font-weight:800; color:#f59e0b">(6,8,12)</div>
+                <div style="font-size:0.8rem; color:#64748b">Kelompok C</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:1.5rem; font-weight:800; color:#ef4444">(8,15,18)</div>
+                <div style="font-size:0.8rem; color:#64748b">Kelompok D</div>
+              </div>
+            </div>
+          </div>
+          <div slot="soal">Manakah kelompok bilangan yang membentuk <strong>Tripel Pythagoras</strong> yang valid?</div>
+          <div slot="opsi-a">3, 4, 6</div>
+          <div slot="opsi-b">5, 12, 13</div>
+          <div slot="opsi-c">6, 8, 12</div>
+          <div slot="opsi-d">8, 15, 18</div>
+          <div slot="pembahasan">
+            Cek dengan a² + b² = c²: 5² + 12² = 25 + 144 = 169 = 13². ✅
+            Kelompok lain tidak memenuhi syarat ini.
+          </div>
+        </SoalInteraktif>
+
+        <!-- Soal 3 -->
+        <SoalInteraktif soalKe={3} totalSoal={6} jawaban="A" tier="Menengah">
+          <div slot="ilustrasi">
+            <svg viewBox="0 0 220 160" width="200">
+              <line x1="40" y1="130" x2="40" y2="20" stroke="#475569" stroke-width="2.5"/>
+              <line x1="40" y1="130" x2="160" y2="130" stroke="#475569" stroke-width="2.5"/>
+              <line x1="40" y1="20" x2="160" y2="130" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,3"/>
+              <circle cx="40" cy="15" r="8" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+              <circle cx="160" cy="133" r="5" fill="#64748b"/>
+              <text x="10" y="80" font-size="13" fill="#3b82f6" font-weight="bold">12m</text>
+              <text x="90" y="148" font-size="13" fill="#3b82f6" font-weight="bold">5m</text>
+              <text x="110" y="65" font-size="13" fill="#f59e0b" font-weight="bold">kabel=?</text>
+              <text x="37" y="140" font-size="11" fill="#475569">└</text>
+            </svg>
+          </div>
+          <div slot="soal">Tiang lampu setinggi <strong>12 meter</strong>, stopkontak berjarak <strong>5 meter</strong> dari pangkal tiang. Panjang kabel minimal yang dibutuhkan adalah...</div>
+          <div slot="opsi-a">13 meter</div>
+          <div slot="opsi-b">15,5 meter</div>
+          <div slot="opsi-c">17 meter</div>
+          <div slot="opsi-d">11 meter</div>
+          <div slot="pembahasan">
+            c² = 12² + 5² = 144 + 25 = 169. Maka c = √169 = <strong>13 meter</strong>.
+            Ini adalah Triple Pythagoras (5, 12, 13)!
+          </div>
+        </SoalInteraktif>
+
+        <!-- Soal 4 -->
+        <SoalInteraktif soalKe={4} totalSoal={6} jawaban="B" tier="Menengah">
+          <div slot="ilustrasi">
+            <svg viewBox="0 0 220 160" width="200">
+              <line x1="20" y1="140" x2="200" y2="140" stroke="#e2e8f0" stroke-width="1"/>
+              <line x1="110" y1="10" x2="110" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+              <circle cx="50" cy="110" r="6" fill="#3b82f6"/>
+              <circle cx="170" cy="30" r="6" fill="#ef4444"/>
+              <line x1="50" y1="110" x2="170" y2="30" stroke="#6366f1" stroke-width="2" stroke-dasharray="4,2"/>
+              <text x="35" y="128" font-size="11" fill="#3b82f6" font-weight="bold">A(1,2)</text>
+              <text x="155" y="25" font-size="11" fill="#ef4444" font-weight="bold">B(7,10)</text>
+              <text x="90" y="75" font-size="11" fill="#6366f1" font-weight="bold">d=?</text>
+            </svg>
+          </div>
+          <div slot="soal">Pos Ronda A berada di koordinat <strong>(1, 2)</strong> dan Pos Ronda B di koordinat <strong>(7, 10)</strong>. Berapakah jarak terpendek antara keduanya?</div>
+          <div slot="opsi-a">8 satuan</div>
+          <div slot="opsi-b">10 satuan</div>
+          <div slot="opsi-c">12 satuan</div>
+          <div slot="opsi-d">14 satuan</div>
+          <div slot="pembahasan">
+            d = √((7-1)² + (10-2)²) = √(6² + 8²) = √(36+64) = √100 = <strong>10 satuan</strong>.
+          </div>
+        </SoalInteraktif>
+
+        <!-- Soal 5 -->
+        <SoalInteraktif soalKe={5} totalSoal={6} jawaban="A" tier="Tinggi">
+          <div slot="ilustrasi">
+            <svg viewBox="0 0 220 170" width="200">
+              <line x1="60" y1="20" x2="60" y2="150" stroke="#475569" stroke-width="2.5"/>
+              <line x1="60" y1="150" x2="160" y2="150" stroke="#475569" stroke-width="2.5"/>
+              <line x1="60" y1="20" x2="160" y2="150" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="5,3"/>
+              <text x="20" y="90" font-size="13" fill="#3b82f6" font-weight="bold">a=12m</text>
+              <text x="90" y="168" font-size="13" fill="#10b981" font-weight="bold">b=c/3</text>
+              <text x="115" y="80" font-size="13" fill="#8b5cf6" font-weight="bold">c=?</text>
+              <text x="57" y="162" font-size="11" fill="#475569">└</text>
+            </svg>
+          </div>
+          <div slot="soal">Arsitek mendesain tangga keselamatan untuk balkon setinggi <strong>12 meter</strong>. Standar keselamatan menetapkan: jarak alas tangga ke dinding (b) harus tepat <strong>1/3 dari panjang tangga (c)</strong>. Berapakah panjang tangga yang harus dipesan?</div>
+          <div slot="opsi-a">12,7 meter</div>
+          <div slot="opsi-b">13,5 meter</div>
+          <div slot="opsi-c">14,1 meter</div>
+          <div slot="opsi-d">15,0 meter</div>
+          <div slot="pembahasan">
+            Diketahui: a=12, b=c/3. Substitusi ke Pythagoras: 12² + (c/3)² = c²
+            144 + c²/9 = c² → 144 = c² - c²/9 = 8c²/9 → c² = 144×9/8 = 162
+            c = √162 = 9√2 ≈ <strong>12,73 ≈ 12,7 meter</strong>
+          </div>
+        </SoalInteraktif>
+
+        <!-- Soal 6 -->
+        <SoalInteraktif soalKe={6} totalSoal={6} jawaban="A" tier="Tinggi">
+          <div slot="ilustrasi">
+            <div style="background:#1e293b; border-radius:12px; padding:1rem; font-family:monospace; color:#e2e8f0; font-size:0.9rem; text-align:left; max-width:280px; margin:0 auto;">
+              <div style="color:#fbbf24; margin-bottom:0.5rem; font-weight:bold;">📋 Pekerjaan Roni:</div>
+              <div>x² = 15² + 9²</div>
+              <div>x² = 225 + 81</div>
+              <div>x² = 306</div>
+              <div>x = √306 ≈ 17,5</div>
+              <div style="margin-top:0.5rem; color:#94a3b8; font-size:0.8rem;">(Segitiga: sisi 9, sisi miring 15, sisi x)</div>
+            </div>
+          </div>
+          <div slot="soal">Roni mencari nilai <strong>x</strong> (sisi tegak) pada segitiga siku-siku dengan sisi miring <strong>15</strong> dan sisi datar <strong>9</strong>. Di mana letak kesalahan konseptual Roni?</div>
+          <div slot="opsi-a">Roni salah karena harusnya x² = 15² - 9² (sisi tegak dicari dengan pengurangan)</div>
+          <div slot="opsi-b">Perhitungan kuadratnya salah, 15² bukan 225</div>
+          <div slot="opsi-c">Roni sudah benar, semua sisi selalu dijumlahkan</div>
+          <div slot="opsi-d">Hanya pembulatan √306 yang salah</div>
+          <div slot="pembahasan">
+            Teorema Pythagoras: a² + b² = c² di mana c adalah sisi MIRING (terpanjang).
+            Sisi miring sudah diketahui (15), maka: x² = 15² - 9² = 225 - 81 = 144 → x = 12.
+            Roni salah karena menjumlahkan padahal seharusnya mengurangkan.
+          </div>
+        </SoalInteraktif>
+
+      </div>
+    </div>
+
+    <!-- Hasil Akhir -->
+    <div id="hasil-akhir" style="display:none" class="hasil-akhir-container">
+      <div class="hasil-hero">
+        <div style="font-size:5rem">🏆</div>
+        <h2>Misi Selesai, Arsitek Muda!</h2>
+        <p>Kamu telah menyelesaikan semua 6 soal Teorema Pythagoras dari tingkat Dasar hingga Tinggi.</p>
+      </div>
+      <div class="hasil-ringkasan">
+        <h3>📊 Yang Sudah Kamu Kuasai:</h3>
+        <ul>
+          <li>✅ Membuktikan a² + b² = c² secara mandiri</li>
+          <li>✅ Menghitung sisi miring segitiga siku-siku</li>
+          <li>✅ Mengenali Triple Pythagoras</li>
+          <li>✅ Menerapkan Pythagoras pada kasus nyata</li>
+          <li>✅ Menghitung jarak dua titik di koordinat Kartesius</li>
+          <li>✅ Menganalisis dan memperbaiki kesalahan penerapan teorema</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fase 3: Refleksi -->
+    <div class="fase-section fase-3">
+      <div class="fase-header">
+        <span class="fase-badge fase-3-badge">Fase 3</span>
+        <h2>Merefleksi — Jurnal Belajarku</h2>
+      </div>
+      <div class="refleksi-grid">
+        <div class="refleksi-card">
+          <h3>💭 Refleksi 1</h3>
+          <p>Bagaimana visualisasi sketsa segitiga siku-siku membantumu memahami masalah konstruksi nyata?</p>
+          <textarea placeholder="Tuliskan refleksimu di sini..." rows="3"></textarea>
+        </div>
+        <div class="refleksi-card">
+          <h3>⚠️ Refleksi 2</h3>
+          <p>Apa konsekuensi nyatanya jika kamu melakukan kesalahan kecil dalam mengukur tinggi balkon?</p>
+          <textarea placeholder="Tuliskan refleksimu di sini..." rows="3"></textarea>
+        </div>
+        <div class="refleksi-card refleksi-full">
+          <h3>🌟 Skala Perasaan Belajar</h3>
+          <p>Pilih emoji yang paling menggambarkan perasaanmu hari ini:</p>
+          <div class="emoji-skala">
+            <button class="emoji-btn" onclick="pilihEmoji(this)">🤩<span>Sangat Tertantang & Puas</span></button>
+            <button class="emoji-btn" onclick="pilihEmoji(this)">🙂<span>Senang & Paham</span></button>
+            <button class="emoji-btn" onclick="pilihEmoji(this)">🤔<span>Masih Bingung</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigasi -->
+    <div class="nav-eksplorasi">
+      <h2>📚 Lanjutkan Perjalananmu</h2>
+      <div class="nav-grid">
+        <a href="/materi/geometri/teorema-pythagoras/02-triple-pythagoras" class="nav-card">
+          <span>←</span><div><div class="nav-label">Materi Kurikulum</div><div class="nav-title">Triple Pythagoras</div></div>
+        </a>
+        <a href="/materi/geometri/teorema-pythagoras/03-pythagoras-koordinat" class="nav-card">
+          <span>←</span><div><div class="nav-label">Materi Kurikulum</div><div class="nav-title">Pythagoras di Koordinat</div></div>
+        </a>
+        <a href="/elemen/geometri" class="nav-card">
+          <span>🔷</span><div><div class="nav-label">Kembali ke Elemen</div><div class="nav-title">Geometri</div></div>
+        </a>
+        <a href="/eksplorasi/pi" class="nav-card">
+          <span>🔭</span><div><div class="nav-label">Eksplorasi Lainnya</div><div class="nav-title">Menyelami Misteri Pi</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+// @ts-nocheck
+window.verifikasiTabel = function() {
+  const rows = document.querySelectorAll('.tabel-eksplorasi tbody tr');
+  let semuaBenar = true;
+  rows.forEach(row => {
+    const a = parseInt(row.dataset.a);
+    const b = parseInt(row.dataset.b);
+    const c = parseInt(row.dataset.c);
+    const inputs = row.querySelectorAll('input');
+    const a2Input = parseInt(inputs[0].value);
+    const b2Input = parseInt(inputs[1].value);
+    const c2Input = parseInt(inputs[2].value);
+    const statusCol = row.querySelector('.status-col');
+    const benar = a2Input === a*a && b2Input === b*b && c2Input === c*c;
+    statusCol.textContent = benar ? '✅' : '❌';
+    statusCol.style.color = benar ? '#16a34a' : '#dc2626';
+    if (!benar) semuaBenar = false;
+  });
+  const hasil = document.getElementById('hasil-verifikasi');
+  hasil.style.display = 'block';
+  if (semuaBenar) {
+    hasil.innerHTML = '🎉 <strong>Semua benar!</strong> Kamu baru saja membuktikan Teorema Pythagoras secara mandiri! Pola yang kamu temukan: <strong>a² + b² = c²</strong>';
+    hasil.className = 'verifikasi-result verifikasi-benar';
+  } else {
+    hasil.innerHTML = '❌ <strong>Ada yang belum tepat.</strong> Periksa kembali perhitunganmu. Ingat: a² berarti a × a.';
+    hasil.className = 'verifikasi-result verifikasi-salah';
+  }
+}
+
+document.querySelectorAll('input[name="pola"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const feedback = document.getElementById('feedback-pola');
+    feedback.style.display = 'block';
+    if (this.value === 'benar') {
+      feedback.innerHTML = '🌟 <strong>Hebat!</strong> Kamu baru saja menemukan Teorema Pythagoras secara mandiri!';
+      feedback.className = 'feedback-pola-benar';
+    } else {
+      feedback.innerHTML = '🤔 <strong>Belum tepat.</strong> Perhatikan kolom a², b², dan c² pada tabelmu. Ada hubungan penjumlahan yang menarik!';
+      feedback.className = 'feedback-pola-salah';
+    }
+  });
+});
+
+window.cekTantangan = function(id, jawabanBenar) {
+  const input = document.getElementById(`jawaban-${id}`);
+  const feedback = document.getElementById(`feedback-${id}`);
+  const nilai = parseFloat(input.value);
+  feedback.style.display = 'block';
+  if (nilai === jawabanBenar) {
+    feedback.innerHTML = '✅ <strong>Benar!</strong> Panjang tangga darurat adalah 5 meter.';
+    feedback.className = 'feedback-benar';
+  } else {
+    feedback.innerHTML = `❌ <strong>Belum tepat.</strong> Coba lagi! Gunakan rumus c² = a² + b².`;
+    feedback.className = 'feedback-salah';
+  }
+}
+
+window.cekTantanganRange = function(id, min, max) {
+  const input = document.getElementById(`jawaban-${id}`);
+  const feedback = document.getElementById(`feedback-${id}`);
+  const nilai = parseFloat(input.value);
+  feedback.style.display = 'block';
+  if (nilai >= min && nilai <= max) {
+    feedback.innerHTML = '✅ <strong>Tepat!</strong> √13 ≈ 3.6 meter. Jadi petugas harus membeli minimal 4 meter kabel.';
+    feedback.className = 'feedback-benar';
+  } else {
+    feedback.innerHTML = '❌ <strong>Belum tepat.</strong> Ingat: √13 berada di antara √9=3 dan √16=4. Coba nilai sekitar 3.6.';
+    feedback.className = 'feedback-salah';
+  }
+}
+
+window.pilihEmoji = function(btn) {
+  const container = btn.closest('.emoji-skala');
+  container.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+</script>
+
+<style>
+.eksplorasi-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hero-pythagoras {
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0f766e);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  text-align: center;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(15, 118, 110, 0.3);
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-pythagoras h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #6ee7b7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.fase-section {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.fase-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 1rem;
+}
+
+.fase-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.fase-3-badge {
+  background: #8b5cf6;
+}
+
+.tabel-eksplorasi table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.tabel-eksplorasi th, .tabel-eksplorasi td {
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.tabel-eksplorasi th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input-eksplorasi {
+  width: 60px;
+  padding: 0.5rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.input-eksplorasi:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.btn-verifikasi {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-verifikasi:hover {
+  background: #2563eb;
+}
+
+.verifikasi-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.verifikasi-benar {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.verifikasi-salah {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.analisis-pola {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+
+.pilihan-pola {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pola-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pola-option:hover {
+  border-color: #3b82f6;
+}
+
+.tantangan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .tantangan-grid { grid-template-columns: 1fr; }
+}
+
+.tantangan-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.tantangan-header {
+  padding: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tantangan-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.tantangan-header span {
+  font-size: 1.5rem;
+}
+
+.tantangan-body {
+  padding: 1.5rem;
+}
+
+.tantangan-svg {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.rumus-box {
+  background: #f1f5f9;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-jawaban {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-jawaban input {
+  width: 80px;
+  padding: 0.5rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.input-jawaban button {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.feedback-benar {
+  padding: 0.75rem;
+  background: #f0fdf4;
+  color: #16a34a;
+  border-radius: 8px;
+  border: 1px solid #bbf7d0;
+}
+
+.feedback-salah {
+  padding: 0.75rem;
+  background: #fef2f2;
+  color: #dc2626;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.hasil-akhir-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 24px;
+  margin-bottom: 3rem;
+  border: 2px solid #22c55e;
+}
+
+.hasil-hero h2 {
+  color: #166534;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hasil-ringkasan {
+  margin-top: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: left;
+  display: inline-block;
+  box-shadow: 0 10px 25px rgba(34,197,94,0.1);
+}
+
+.hasil-ringkasan ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hasil-ringkasan li {
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #334155;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.refleksi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.refleksi-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .refleksi-grid { grid-template-columns: 1fr; }
+  .refleksi-full { grid-column: auto; }
+}
+
+.refleksi-card {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.refleksi-card textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  resize: vertical;
+  margin-top: 1rem;
+  font-family: inherit;
+}
+
+.emoji-skala {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.emoji-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  padding: 1rem;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.emoji-btn:hover {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+}
+
+.emoji-btn.selected {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+  transform: scale(1.05);
+}
+
+.emoji-btn font-size: 2rem {
+  font-size: 2rem;
+}
+
+.emoji-btn span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.nav-eksplorasi {
+  margin-top: 4rem;
+}
+
+.nav-eksplorasi h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.nav-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 16px;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-color: #3b82f6;
+}
+
+.nav-card span {
+  font-size: 1.5rem;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.nav-title {
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+</style>
